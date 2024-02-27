@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:4200",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "C:\\Users\\Jermzu\\source\\repos\\MoneyGer\\MoneyGer.Server\\..\\moneyger.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
