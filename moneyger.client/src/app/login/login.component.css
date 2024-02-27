@@ -1,7 +1,71 @@
-*{
-    font-family: 'Poppins', sans-serif;
+/* Apply the 'Poppins' font family to all elements and include 'box-sizing: border-box' to ensure consistent box model behavior */
+* {
+    font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
-#loginpej{
-    background-image: url("images/dummybg2.png");
+
+/* Style the container for the login component */
+#loginpej {
+    /* Set a background image for the login component */
+    background-image: url("images/bg.png");
+    
+    /* Ensure the container covers the entire viewport */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    /* Center the background image */
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    overflow-y: auto;
+}
+
+/* Style the container within the login component */
+.logincontainer {
+    /* Set the background color to white */
+    background-color: white;
+    
+    /* Apply padding for inner content */
+    padding: 20px;
+    
+    /* Center the container horizontally and vertically */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Set maximum width and height for the container */
+    width: 380px;
+    height: 90%;
+    
+    /* Add drop shadow */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
+    
+}
+.emailfield{
+     /* Set width and height */
+     width: 100%; /* Adjust the width as needed */
+     height: 30px; /* Adjust the height as needed */
+     
+     /* Apply rounded corners */
+     border-radius: 10px;
+     
+     /* Add drop shadow at the bottom */
+     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adjust the values as needed */
+     
+     /* Dark grayish outline */
+     border: 1px solid #b8b4b4; /* Adjust the color as needed */
+     
+     /* Set padding */
+     padding: 10px; /* Adjust the padding as needed */
+     
+     /* Set font size */
+     font-size: 14px; /* Adjust the font size as needed */
+     margin-top: -100px;
+}
+label{
+    color: #5a585f;
+    font-size: 15px;
 }
