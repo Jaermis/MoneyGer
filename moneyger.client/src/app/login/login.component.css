@@ -1,12 +1,9 @@
-/* Apply the 'Poppins' font family to all elements and include 'box-sizing: border-box' to ensure consistent box model behavior */
 * {
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
 
-/* Style the container for the login component */
 #loginpej {
-    /* Set a background image for the login component */
     background-image: url("images/bg.png");
     
     /* Ensure the container covers the entire viewport */
@@ -38,11 +35,10 @@
     
     /* Set maximum width and height for the container */
     width: 380px;
-    height: 90%;
+    height: 80%;
     
     /* Add drop shadow */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
-    
 }
 .emailfield{
      /* Set width and height */
@@ -68,4 +64,45 @@
 label{
     color: #5a585f;
     font-size: 15px;
+}
+.logincontainer img{
+    width: 200px;
+    margin: 0 20%;
+}
+.forgot-passtext{
+    color: #603EAE;
+    cursor: pointer;
+}
+.login-button{
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    background-color: #8956FF;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.logincontainer hr{
+    margin-top: 10%;
+    margin-bottom: -1px;
+}
+.or{
+    font-size: 15px;
+    margin: 0 48%;
+}
+.google-login{
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    background-color: #4286F5;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    cursor: pointer;
+}
+.google-login img{
+    width: 25px;
 }
