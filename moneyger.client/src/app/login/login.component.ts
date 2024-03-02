@@ -10,14 +10,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   constructor(
     private titleService: Title,
-    private router: Router
     ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('MoneyGer Login');
-  }
-
-  navigateToSignup(): void {
-    this.router.navigate(['/signup']);
   }
 }
