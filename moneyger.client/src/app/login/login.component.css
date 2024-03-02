@@ -43,7 +43,7 @@
 .emailfield{
      /* Set width and height */
      width: 100%; /* Adjust the width as needed */
-     height: 30px; /* Adjust the height as needed */
+     height: 35px; /* Adjust the height as needed */
      
      /* Apply rounded corners */
      border-radius: 10px;
@@ -93,6 +93,7 @@ label{
     margin: 0 48%;
 }
 .google-login{
+    position: relative;
     width: 100%;
     font-size: 15px;
     border: none;
@@ -102,7 +103,19 @@ label{
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     margin-top: 15px;
     cursor: pointer;
+    padding: 8px; 
+    padding-left: 15px;
+    height: auto;
 }
 .google-login img{
     width: 25px;
+    position: absolute; /* Position the image absolutely */
+    top: 50%; /* Adjust the top position */
+    left: 0px; /* Adjust the left position */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 1; /* Ensure the image is above the button layer */
+}
+.noAcc{
+    margin-top: 8%;
+    color: #5a585f;
 }
