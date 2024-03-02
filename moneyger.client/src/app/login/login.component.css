@@ -35,7 +35,7 @@
     
     /* Set maximum width and height for the container */
     width: 380px;
-    height: 80%;
+    height: 75%;
     
     /* Add drop shadow */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
@@ -72,6 +72,9 @@ label{
 .forgot-passtext{
     color: #603EAE;
     cursor: pointer;
+}
+.forgot-passtext:hover{
+    color: #8956FF;
 }
 .login-button{
     width: 100%;
@@ -118,4 +121,8 @@ label{
 .noAcc{
     margin-top: 8%;
     color: #5a585f;
+    text-align: center;
+}
+.noAcc a{
+    color: #603EAE;
 }

@@ -1,0 +1,76 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+#saynap{
+    background-image: url("images/bg.png");
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto;
+}
+.container{
+    background-color: white;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 620px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+.logo{
+    width: 70px;
+    opacity: 40%;
+    margin-left: 38%;
+}
+.logotext{
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 13%;
+    font-size: 25px;
+    font-weight: 1000;
+    color: #220B57;
+}
+.logotext span{
+    color: #9751D6;
+}
+.subtext{
+    position: absolute;
+    z-index: 1;
+    top: 12%;
+    left: 25%;
+    font-size: 10px;
+}
+.field{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b8b4b4;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: -100px;
+}
+.signupbtn{
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    background-color: #8956FF;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+.already{
+    text-align: center;
+}
