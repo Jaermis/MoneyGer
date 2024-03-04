@@ -6,11 +6,12 @@
                 <p>Email Address</p>
                 <input class="emailfield" type="text" required>
             </label>
-            <label>
+            <label class="password-label">
                 <p>Password</p>
-                <input class="emailfield" type="password"required>
+                <input [type]="changetype?'password':'text'" class="emailfield" required>
+                <img (click)="viewpass()" class="view" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
-            <p class="forgot-passtext">Forgot Password?</p>
+            <a class="forgot-passtext">Forgot Password?</a> <!---put routerLink for forgotpass-->
             <button class="login-button">
                 Log In
             </button>
@@ -20,7 +21,7 @@
             <img src="assets/google.png">
             Sign in with Google
         </button>
-        <p class="noAcc">Don't have an account yet? <a routerLink="/signup">Signup</a></p>
+        <p class="noAcc">Don't have an account yet? <a class="sign" routerLink="/signup">Signup</a></p>
     </div>
 </div>
 

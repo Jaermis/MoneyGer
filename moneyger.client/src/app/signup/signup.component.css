@@ -21,7 +21,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 620px;
+    height: 550px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 .logo{
@@ -56,7 +56,8 @@
     border: 1px solid #b8b4b4;
     padding: 10px;
     font-size: 14px;
-    margin-top: -100px;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 .signupbtn{
     width: 100%;
@@ -68,9 +69,39 @@
     padding: 8px;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    margin-top: 5%;
+    margin-top: 7%;
     margin-bottom: 3%;
 }
 .already{
     text-align: center;
+}
+.lastn{
+    margin-left: 105px;
+}
+.fieldtop-right{
+    width: 175px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b8b4b4;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.fieldtop{
+    width: 175px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b8b4b4;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.formm{
+    margin-top: 20px;
+    color: #5a585f;
 }

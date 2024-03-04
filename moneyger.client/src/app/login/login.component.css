@@ -2,64 +2,38 @@
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
-
 #loginpej {
     background-image: url("images/bg.png");
-    
-    /* Ensure the container covers the entire viewport */
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    
-    /* Center the background image */
     background-size: cover;
-    background-position: center; /* Center the background image */
+    background-position: center; 
     overflow-y: auto;
 }
-
-/* Style the container within the login component */
 .logincontainer {
-    /* Set the background color to white */
     background-color: white;
-    
-    /* Apply padding for inner content */
     padding: 20px;
-    
-    /* Center the container horizontally and vertically */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    /* Set maximum width and height for the container */
     width: 380px;
-    height: 75%;
-    
-    /* Add drop shadow */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
+    height: 510px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 .emailfield{
-     /* Set width and height */
-     width: 100%; /* Adjust the width as needed */
-     height: 35px; /* Adjust the height as needed */
-     
-     /* Apply rounded corners */
+     width: 100%; 
+     height: 35px; 
      border-radius: 10px;
-     
-     /* Add drop shadow at the bottom */
-     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adjust the values as needed */
-     
-     /* Dark grayish outline */
-     border: 1px solid #b8b4b4; /* Adjust the color as needed */
-     
-     /* Set padding */
-     padding: 10px; /* Adjust the padding as needed */
-     
-     /* Set font size */
-     font-size: 14px; /* Adjust the font size as needed */
+     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+     border: 1px solid #b8b4b4;
+     padding: 10px;
+     font-size: 14px;
      margin-top: -100px;
+     margin-bottom: 10px;
 }
 label{
     color: #5a585f;
@@ -72,9 +46,11 @@ label{
 .forgot-passtext{
     color: #603EAE;
     cursor: pointer;
+    margin-top: 10px;
 }
 .forgot-passtext:hover{
     color: #8956FF;
+    text-decoration-line: underline;
 }
 .login-button{
     width: 100%;
@@ -86,9 +62,10 @@ label{
     padding: 8px;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    margin-top: 20px;
 }
 .logincontainer hr{
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: -1px;
 }
 .or{
@@ -125,4 +102,27 @@ label{
 }
 .noAcc a{
     color: #603EAE;
+}
+.sign{
+    text-decoration: none;
+    color: #603EAE;
+}
+.sign:hover{
+    text-decoration-line: underline;
+}
+.view{
+    cursor: pointer;
+    position: absolute;
+    max-width: 20px;
+    top: 45.3%;
+    left: 67%;
+}
+.view{
+    opacity: 0;
+}
+.emailfield:focus + .view{
+    opacity: 100;
+}
+.emailfield:focus{
+    outline-color: #603EAE;
 }
