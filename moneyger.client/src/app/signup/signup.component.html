@@ -3,19 +3,32 @@
         <img src="assets/MoneyGer(2).png" class="logo">
         <h2 class="logotext">Welcome to Money<span>Ger</span></h2>
         <p class="subtext">Register for FREE. No credit card needed.</p>
-        <form class="formm" action="/url">
+        <form class="formm" action="/url" #form="ngForm">
+            <input type="hidden" name="accountID" [value]="service.formData.accountID">
                <span>First Name</span><span class="lastn">Last Name</span>
             <label>
-                <input type="text" class="fieldtop" required>
-                <input type="text" class="fieldtop-right" required>
+                <input type="text" class="fieldtop" required
+                       #firstName="ngModel"
+                       name="firstName"
+                       [(ngModel)]="service.formData.firstName">
+                <input type="text" class="fieldtop-right" required
+                #lastName="ngModel"
+                name="lastName"
+                [(ngModel)]="service.formData.lastName">
             </label>
             <label>
                 Work Email
-                <input class="field" type="text" required>
+                <input class="field" type="text" required
+                #workEmail="ngModel"
+                name="workEmail"
+                [(ngModel)]="service.formData.workEmail">
             </label>
             <label>
                 Password
-                <input class="field" [type]="changetype?'password':'text'" required>
+                <input class="field" [type]="changetype?'password':'text'" required
+                #userPassword="ngModel"
+                name="userPassword"
+                [(ngModel)]="service.formData.userPassword">
                 <img class="view" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
             <label>
@@ -23,7 +36,7 @@
                 <input class="field" [type]="changetype?'password':'text'" required>
                 <img class="viewconf" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label><br>
-            <button class="signupbtn">Sign Up</button>
+            <button class="signupbtn" (click)="onSubmit()">Sign Up</button>
         </form>
         <span class="already"><p>Already have an account? <a routerLink="/login">Log in</a></p></span>
     </div>

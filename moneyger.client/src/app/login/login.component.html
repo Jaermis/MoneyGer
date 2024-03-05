@@ -12,9 +12,9 @@
                 <img (click)="viewpass()" class="view" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
             <a class="forgot-passtext">Forgot Password?</a> <!---put routerLink for forgotpass-->
-            <button class="login-button">
+            <button class="login-button" (click)="loginCheck()">
                 Log In
-            </button>
+            </button> <!---Login button-->
         </form> 
         <hr><p class="or">or</p>
         <button class="google-login">

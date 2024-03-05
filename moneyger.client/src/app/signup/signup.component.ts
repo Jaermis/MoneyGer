@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { MoneygerUsersService } from '../shared/moneyger-users.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signup',
@@ -8,8 +11,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class SignupComponent implements OnInit {
   constructor(
-    private titleService: Title){}
-
+    private titleService: Title, public service: MoneygerUsersService
+  ) { }
+    
     changeicon:boolean = true;
     changetype:boolean = true;
 
@@ -20,5 +24,18 @@ export class SignupComponent implements OnInit {
     viewpass(){
       this.changeicon = !this.changeicon;
       this.changetype = !this.changetype;
+    }
+
+    onSubmit(form:NgForm){
+      this.service.formData.dateCreated = new Date();
+      this.service.postMoneyger_users()
+      .subscribe({
+        next:res=>{
+          console.log(res),
+          alert("Signup success");
+        },
+        error:err=>{console.log(err),
+        alert("Signup failed")}
+      })
     }
 }
