@@ -116,8 +116,6 @@ label{
     max-width: 20px;
     top: 45.3%;
     left: 67%;
-}
-.view{
     opacity: 0;
 }
 .emailfield:focus + .view{

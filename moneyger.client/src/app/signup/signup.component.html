@@ -15,11 +15,13 @@
             </label>
             <label>
                 Password
-                <input class="field" type="password" required>
+                <input class="field" [type]="changetype?'password':'text'" required>
+                <img class="view" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
             <label>
                 Confirm Password
-                <input class="field" type="password" required>
+                <input class="field" [type]="changetype?'password':'text'" required>
+                <img class="viewconf" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label><br>
             <button class="signupbtn">Sign Up</button>
         </form>
