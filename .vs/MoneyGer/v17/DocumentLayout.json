@@ -1,7 +1,28 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jermzu\\source\\repos\\MoneyGer\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\controllers\\moneyger_userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\controllers\\moneyger_userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\models\\moneyger_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\models\\moneyger_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\data\\migrations\\20240304174744_initialmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\data\\migrations\\20240304174744_initialmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,21 +30,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 336,
-          "SelectedChildIndex": -1,
-          "Children": [
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MoneyGer.Server\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MoneyGer.Server\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-04T18:04:40.281Z"
+            },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "moneyger_usersController.cs",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
+              "RelativeDocumentMoniker": "MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
+              "RelativeToolTip": "MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T18:01:54.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "moneyger_users.cs",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Models\\moneyger_users.cs",
+              "RelativeDocumentMoniker": "MoneyGer.Server\\Models\\moneyger_users.cs",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Models\\moneyger_users.cs",
+              "RelativeToolTip": "MoneyGer.Server\\Models\\moneyger_users.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T17:49:53.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Program.cs",
+              "RelativeDocumentMoniker": "MoneyGer.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Program.cs",
+              "RelativeToolTip": "MoneyGer.Server\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAqwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T17:08:40.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20240304174744_InitialMigration.cs",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Data\\Migrations\\20240304174744_InitialMigration.cs",
+              "RelativeDocumentMoniker": "MoneyGer.Server\\Data\\Migrations\\20240304174744_InitialMigration.cs",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Data\\Migrations\\20240304174744_InitialMigration.cs",
+              "RelativeToolTip": "MoneyGer.Server\\Data\\Migrations\\20240304174744_InitialMigration.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAkwCgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T17:47:45.185Z"
             }
           ]
         }
