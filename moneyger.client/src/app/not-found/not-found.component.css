@@ -1,0 +1,40 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+.for{
+    text-align: center;
+    margin-right: 2%;
+    margin-top: 0;
+    font-size: 150px;
+}
+.pagenot{
+    text-align: center;
+    margin-top: -11%;
+    font-size: 30px;
+}
+.thepage{
+    text-align: center;
+    margin-top: -1%;
+}
+.buttcontainer{
+    text-align: center;
+}
+.butt{
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #8956FF;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 1%;
+    font-weight: bold;
+    border-color: #8956FF;
+}
+.butt:hover{
+    color:#8956FF;
+    background-color: #fff;
+    border-color: #8956FF;
+}
