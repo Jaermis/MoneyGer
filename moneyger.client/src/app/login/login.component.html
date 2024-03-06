@@ -11,8 +11,8 @@
                 <input [type]="changetype?'password':'text'" class="emailfield" required>
                 <img (click)="viewpass()" class="view" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
-            <a class="forgot-passtext">Forgot Password?</a> <!---put routerLink for forgotpass-->
-            <button class="login-button" (click)="loginCheck()">
+            <a class="forgot-passtext" routerLink="/forgotpass">Forgot Password?</a>
+            <button class="login-button">
                 Log In
             </button> <!---Login button-->
         </form> 
