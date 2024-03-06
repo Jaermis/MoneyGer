@@ -104,5 +104,19 @@ namespace MoneyGer.Server.Controllers
         {
             return _context.moneyger_users.Any(e => e.AccountID == id);
         }
+
+        //LOGIN AUTHENTICATION
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate([FromBody]moneyger_users moneyger_user)
+        {
+            if (moneyger_user == null)
+                return BadRequest();
+
+            var user =await _context.moneyger_users
+                .FirstOrDefaultAsync(x=>x.WorkEmail == moneyger_user.WorkEmail && x.UserPassword == moneyger_user.UserPassword);
+            if (user == null)
+                return NotFound(new { Message = "User does not exist!" });
+            return Ok(new {Message="Login Success"});
+        }
     }
 }
