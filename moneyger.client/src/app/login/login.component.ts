@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('MoneyGer Login');
-    this.loginCheck();
   }
 
   viewpass(){
@@ -29,5 +28,9 @@ export class LoginComponent implements OnInit {
 
   loginCheck() {
     this.service.refreshlist();
+  }
+
+  onSubmit() {
+    this.loginCheck();
   }
 }
