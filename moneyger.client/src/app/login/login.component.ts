@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { MoneygerUsersService } from '../shared/moneyger-users.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private titleService: Title,
-    ) { }
+    private titleService: Title, public service: MoneygerUsersService
+    ) { } 
 
   changeicon:boolean = true;
   changetype:boolean = true;
@@ -18,10 +19,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('MoneyGer Login');
+    this.loginCheck();
   }
 
   viewpass(){
     this.changetype = !this.changetype;
     this.changeicon = !this.changeicon;
+  }
+
+  loginCheck() {
+    this.service.refreshlist();
   }
 }
