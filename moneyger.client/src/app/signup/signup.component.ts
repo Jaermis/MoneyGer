@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
       this.changetype = !this.changetype;
     }
 
-    onSubmit(form:NgForm){
+    onSubmit(){
       this.service.formData.dateCreated = new Date();
       this.service.postMoneyger_users()
       .subscribe({
