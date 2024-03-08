@@ -8089,7 +8089,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Microsoft.AspNetCore.SpaProxy >= 8.*-*",
+      "Microsoft.AspNetCore.SpaProxy >= 8.0.2",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.2",
@@ -8100,19 +8100,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ronerr Villacarlos\\.nuget\\packages\\": {}
+    "C:\\Users\\Jermzu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Jermzu\\Documents\\GitHub\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
       "projectName": "MoneyGer.Server",
-      "projectPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
-      "packagesPath": "C:\\Users\\Ronerr Villacarlos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\obj\\",
+      "projectPath": "C:\\Users\\Jermzu\\Documents\\GitHub\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+      "packagesPath": "C:\\Users\\Jermzu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jermzu\\Documents\\GitHub\\MoneyGer\\MoneyGer.Server\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Ronerr Villacarlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jermzu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8120,6 +8125,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8145,7 +8151,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.SpaProxy": {
             "target": "Package",
-            "version": "[8.*-*, )"
+            "version": "[8.0.2, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
