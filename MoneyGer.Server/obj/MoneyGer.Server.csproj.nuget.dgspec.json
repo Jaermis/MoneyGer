@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
+    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
+    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
         "projectName": "MoneyGer.Server",
-        "projectPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
-        "packagesPath": "C:\\Users\\Ronerr Villacarlos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\obj\\",
+        "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "packagesPath": "C:\\Users\\Nodz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ronerr Villacarlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nodz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
