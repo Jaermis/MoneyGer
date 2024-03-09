@@ -26,11 +26,17 @@ export class LoginComponent implements OnInit {
     this.changeicon = !this.changeicon;
   }
 
-  loginCheck() {
-    this.service.refreshlist();
-  }
-
-  onSubmit() {
-    this.loginCheck();
+  loginCheck(account: any) {
+    this.service.loginMoneyger_users(account)
+      .subscribe({
+        next: res => {
+          console.log(res),
+            alert("Login success");
+        },
+        error: err => {
+          console.log(err),
+          alert("Login failed")
+        }
+      })
   }
 }

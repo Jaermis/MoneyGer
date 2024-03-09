@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MoneygerUsersService } from '../shared/moneyger-users.service';
-import { NgForm } from '@angular/forms';
-
 
 @Component({
   selector: 'app-signup',
@@ -28,6 +26,7 @@ export class SignupComponent implements OnInit {
 
     onSubmit(){
       this.service.formData.dateCreated = new Date();
+      this.service.formData.accountID = this.service.refreshlist()+1;
       this.service.postMoneyger_users()
       .subscribe({
         next:res=>{
