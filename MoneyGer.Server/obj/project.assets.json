@@ -8089,7 +8089,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Microsoft.AspNetCore.SpaProxy >= 8.*-*",
+      "Microsoft.AspNetCore.SpaProxy >= 8.0.2",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.2",
@@ -8150,7 +8150,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.SpaProxy": {
             "target": "Package",
-            "version": "[8.*-*, )"
+            "version": "[8.0.2, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
