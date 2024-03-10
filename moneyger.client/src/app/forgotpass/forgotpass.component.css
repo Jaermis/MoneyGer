@@ -1,0 +1,99 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+#forgotpass {
+    background-image: url("images/bg.png");
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center; 
+    overflow-y: auto;
+}
+.fcontainer {
+    background: linear-gradient(to right, white 50%, #392073 50%);
+    padding: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1017px;
+    height: 549px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+@media only screen and (max-width: 1200px) {
+    .fcontainer {
+        width: 95%; /* Adjust the width for smaller screens */
+    }
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+    height: 549px;
+    width: 50%;
+    overflow: hidden;
+}
+.lock{
+    height: 500px;
+    width: 500px;
+}
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 549px;
+    width: 50%;
+    padding: 0;
+}
+.header{
+    letter-spacing: -2px;
+    margin-top: 10%;
+    font-size: 40px;
+    font-weight: 1000;
+    color: #220B57;
+}
+.sub{
+    margin-top: 5%;
+    color: #96949C;
+    font-size: 16px;
+    
+}
+.email{
+    width: 100%; 
+    height: 55px; 
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b8b4b4;
+    padding: 15px;
+    font-size: 16px;
+    margin-top: 7%;
+}
+.submit{
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sendbutt{
+    width: 130px;
+    height: 50px;
+    font-size: 15px;
+    background-color: #392073;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+}
+.back{
+    font-size: 16px;
+}

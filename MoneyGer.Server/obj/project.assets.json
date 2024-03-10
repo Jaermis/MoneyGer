@@ -8089,7 +8089,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Microsoft.AspNetCore.SpaProxy >= 8.*-*",
+      "Microsoft.AspNetCore.SpaProxy >= 8.0.2",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.2",
@@ -8100,19 +8100,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nodz\\.nuget\\packages\\": {}
+    "C:\\Users\\Ronerr Villacarlos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
       "projectName": "MoneyGer.Server",
-      "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
-      "packagesPath": "C:\\Users\\Nodz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\obj\\",
+      "projectPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+      "packagesPath": "C:\\Users\\Ronerr Villacarlos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nodz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ronerr Villacarlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8145,7 +8145,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.SpaProxy": {
             "target": "Package",
-            "version": "[8.*-*, )"
+            "version": "[8.0.2, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
