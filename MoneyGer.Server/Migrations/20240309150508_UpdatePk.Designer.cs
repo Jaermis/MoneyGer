@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace MoneyGer.Server.Data.Migrations
+namespace MoneyGer.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240308114021_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240309150508_UpdatePk")]
+    partial class UpdatePk
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,9 @@ namespace MoneyGer.Server.Data.Migrations
 
             modelBuilder.Entity("MoneyGer.Server.Models.moneyger_users", b =>
                 {
+                    b.Property<string>("WorkEmail")
+                        .HasColumnType("text");
+
                     b.Property<int>("AccountID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
@@ -65,11 +68,7 @@ namespace MoneyGer.Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("WorkEmail")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("AccountID");
+                    b.HasKey("WorkEmail");
 
                     b.ToTable("moneyger_users");
                 });

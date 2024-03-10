@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MoneyGer\\BackUp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
+    "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
   },
   "projects": {
-    "C:\\MoneyGer\\BackUp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
+    "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MoneyGer\\BackUp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
         "projectName": "MoneyGer.Server",
-        "projectPath": "C:\\MoneyGer\\BackUp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
-        "packagesPath": "C:\\Users\\Jofrel Jan Quijano\\.nuget\\packages\\",
-        "outputPath": "C:\\MoneyGer\\BackUp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\obj\\",
+        "projectPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "packagesPath": "C:\\Users\\Ronerr Villacarlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGerLoin\\MoneyGer\\MoneyGer.Server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jofrel Jan Quijano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Ronerr Villacarlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
