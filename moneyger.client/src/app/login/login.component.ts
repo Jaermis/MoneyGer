@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     private titleService: Title, public service: MoneygerUsersService
     ) { } 
 
+  workEmail: string = '';
+  account: string = '';  
   changeicon:boolean = true;
   changetype:boolean = true;
   showImg: boolean = false;
