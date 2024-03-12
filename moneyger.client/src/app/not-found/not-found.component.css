@@ -1,17 +1,21 @@
 *{
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
+    height: 100%;
+    overflow-x: hidden;
 }
 .for{
     text-align: center;
     margin-right: 2%;
     margin-top: 0;
     font-size: 150px;
+    color: #392073;
 }
 .pagenot{
     text-align: center;
     margin-top: -11%;
     font-size: 30px;
+    color: #392073;
 }
 .thepage{
     text-align: center;
@@ -24,17 +28,40 @@
     width: 150px;
     height: 50px;
     font-size: 18px;
-    background-color: #8956FF;
+    background-color: #392073;
     color: #fff;
     border-radius: 10px;
     padding: 8px;
     cursor: pointer;
     margin-top: 1%;
     font-weight: bold;
-    border-color: #8956FF;
+    border-color: #392073;
+    box-shadow: none;
+    border-style: solid;
 }
 .butt:hover{
-    color:#8956FF;
+    color:#392073;
     background-color: #fff;
-    border-color: #8956FF;
+    border-color: #392073;
+}
+.man{
+    max-height: 90%;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: -1%;
+}
+.buildings{
+    z-index: -1;
+    max-height: 30%;
+    position: absolute;
+    top: 70%;
+    left: -2%;
+}
+.buildings2{
+    z-index: -2;
+    max-height: 30%;
+    position: absolute;
+    top: 70%;
+    left: 46%;
 }
