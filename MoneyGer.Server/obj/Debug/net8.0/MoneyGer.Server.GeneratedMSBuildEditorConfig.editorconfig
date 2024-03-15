@@ -17,35 +17,35 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MoneyGer.Server
 build_property.RootNamespace = MoneyGer.Server
-build_property.ProjectDir = c:\Users\Ronerr Villacarlos\Documents\Code\Csharp\MoneyGer\MoneyGerLoin\MoneyGer\MoneyGer.Server\
+build_property.ProjectDir = C:\Users\Nodz\Desktop\The dream\MoneyGer\MoneyGer.Server\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\Ronerr Villacarlos\Documents\Code\Csharp\MoneyGer\MoneyGerLoin\MoneyGer\MoneyGer.Server
+build_property.MSBuildProjectDirectory = C:\Users\Nodz\Desktop\The dream\MoneyGer\MoneyGer.Server
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Ronerr Villacarlos/Documents/Code/Csharp/MoneyGer/MoneyGerLoin/MoneyGer/MoneyGer.Server/Views/moneyger_users/Create.cshtml]
+[C:/Users/Nodz/Desktop/The dream/MoneyGer/MoneyGer.Server/Views/moneyger_users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbW9uZXlnZXJfdXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Ronerr Villacarlos/Documents/Code/Csharp/MoneyGer/MoneyGerLoin/MoneyGer/MoneyGer.Server/Views/moneyger_users/Delete.cshtml]
+[C:/Users/Nodz/Desktop/The dream/MoneyGer/MoneyGer.Server/Views/moneyger_users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbW9uZXlnZXJfdXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Ronerr Villacarlos/Documents/Code/Csharp/MoneyGer/MoneyGerLoin/MoneyGer/MoneyGer.Server/Views/moneyger_users/Details.cshtml]
+[C:/Users/Nodz/Desktop/The dream/MoneyGer/MoneyGer.Server/Views/moneyger_users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbW9uZXlnZXJfdXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Ronerr Villacarlos/Documents/Code/Csharp/MoneyGer/MoneyGerLoin/MoneyGer/MoneyGer.Server/Views/moneyger_users/Edit.cshtml]
+[C:/Users/Nodz/Desktop/The dream/MoneyGer/MoneyGer.Server/Views/moneyger_users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbW9uZXlnZXJfdXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Ronerr Villacarlos/Documents/Code/Csharp/MoneyGer/MoneyGerLoin/MoneyGer/MoneyGer.Server/Views/moneyger_users/Index.cshtml]
+[C:/Users/Nodz/Desktop/The dream/MoneyGer/MoneyGer.Server/Views/moneyger_users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbW9uZXlnZXJfdXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Ronerr Villacarlos/Documents/Code/Csharp/MoneyGer/MoneyGerLoin/MoneyGer/MoneyGer.Server/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Nodz/Desktop/The dream/MoneyGer/MoneyGer.Server/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
