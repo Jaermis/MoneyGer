@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     ) { } 
 
   workEmail: string = '';
-  account: string = '';  
+  userPassword: string = '';
   changeicon:boolean = true;
   changetype:boolean = true;
   showImg: boolean = false;
@@ -28,17 +28,20 @@ export class LoginComponent implements OnInit {
     this.changeicon = !this.changeicon;
   }
 
-  loginCheck(account: any) {
-    this.service.loginMoneyger_users(account)
+  loginCheck(account: string, password: string) {
+    this.service.loginMoneyger_users(account,password)
       .subscribe({
         next: res => {
-          console.log(res),
-            alert("Login success");
+          if(res === 'Failure' || res === 'Success') {
+            if(res === 'Failure')
+              alert("Login failed");
+            else
+              alert('Login Successful');
+          } else {
+            // Handle unexpected response
+            console.error('Unexpected response:', res);
+          }
         },
-        error: err => {
-          console.log(err),
-          alert("Login failed")
-        }
       })
   }
 }
