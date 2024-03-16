@@ -5,17 +5,16 @@
             <label>
                 <p>Email Address</p>
                 <input class="emailfield" type="text" required
-                       [(ngModel)]='workEmail'
-                       name='workEmail'
-                       [value]='account'>
+                       name='workEmail'>
             </label>
             <label class="password-label">
                 <p>Password</p>
-                <input [type]="changetype?'password':'text'" class="emailfield" required>
+                <input [type]="changetype?'password':'text'" class="emailfield" required
+                       name='userPassword'>
                 <img (click)="viewpass()" class="view" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
             <a class="forgot-passtext" routerLink="/forgotpass">Forgot Password?</a>
-            <button class="login-button" (click)="loginCheck(workEmail)">
+            <button class="login-button" (click)="loginCheck(workEmail,userPassword)">
                 Log In
             </button> <!---Login button-->
         </form> 

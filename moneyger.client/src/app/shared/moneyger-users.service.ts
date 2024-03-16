@@ -22,14 +22,21 @@ export class MoneygerUsersService {
         error: err => { console.log(err) }
       })
 
-    return this.list.length
+    return this.list.length;
   }
 
   postMoneyger_users(){
     return this.http.post(this.url,this.formData);
   }
 
-  loginMoneyger_users(account: string) {
-    return this.http.get(this.url + '/' + account);
+  loginMoneyger_users(account: string, password: string) {
+    return this.http.post(this.url + '/Login',
+    {
+      workEmail: account, userPassword: password
+    },
+    {
+      responseType: 'text',
+    }
+    );
   }
 }
