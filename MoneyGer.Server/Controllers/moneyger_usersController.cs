@@ -118,5 +118,16 @@ namespace MoneyGer.Server.Controllers
         {
             return _context.moneyger_users.Any(e => e.WorkEmail == id);
         }
+
+        //POST: For Login
+        [HttpPost("Login")]
+        public IActionResult Login (Login user)
+        {
+            var userAvailable = _context.moneyger_users.Where(u => u.WorkEmail == user.WorkEmail && u.UserPassword == user.UserPassword).FirstOrDefault();
+
+            if (userAvailable == null)
+                return Ok("Failure");
+            return Ok("Success");
+        }
     }
 }
