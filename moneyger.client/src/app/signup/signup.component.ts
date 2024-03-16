@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
 
     ngOnInit(): void {
       this.titleService.setTitle('MoneyGer Signup');
+      this.service.refreshlist();
     }
 
     viewpass(){
@@ -24,9 +25,9 @@ export class SignupComponent implements OnInit {
       this.changetype = !this.changetype;
     }
 
-    onSubmit(){
+    async onSubmit(){
+      this.service.formData.accountID = await this.service.refreshlist();
       this.service.formData.dateCreated = new Date();
-      this.service.formData.accountID = this.service.refreshlist()+1;
       this.service.postMoneyger_users()
       .subscribe({
         next:res=>{

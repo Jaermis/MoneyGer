@@ -13,16 +13,16 @@ export class MoneygerUsersService {
   formData: MoneygerUsers = new MoneygerUsers()
   constructor(private http: HttpClient) { }
 
-  refreshlist() {
-    this.http.get(this.url)
+  async refreshlist() {
+    await this.http.get(this.url)
       .subscribe({
         next: res => {
           this.list = res as MoneygerUsers[];
         },
-        error: err => { console.log(err) }
+        error: err => { console.log(err)}
       })
-
-    return this.list.length;
+      console.log(this.list.length);
+      return this.list.length + 1;
   }
 
   postMoneyger_users(){
