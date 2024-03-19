@@ -5,12 +5,14 @@
             <label>
                 <p>Email Address</p>
                 <input class="emailfield" type="text" required
-                       name='workEmail'>
+                       name="workEmail"
+                       [(ngModel)]="workEmail">
             </label>
             <label class="password-label">
                 <p>Password</p>
                 <input [type]="changetype?'password':'text'" class="emailfield" required
-                       name='userPassword'>
+                       name="userPassword"
+                       [(ngModel)]="userPassword">
                 <img (click)="viewpass()" class="view" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
             <a class="forgot-passtext" routerLink="/forgotpass">Forgot Password?</a>

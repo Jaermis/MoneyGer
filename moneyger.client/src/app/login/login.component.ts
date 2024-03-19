@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     ) { } 
 
   workEmail: string = '';
-  userPassword: string = '';
+  userPassword: string= '';
   changeicon:boolean = true;
   changetype:boolean = true;
   showImg: boolean = false;
@@ -37,11 +37,14 @@ export class LoginComponent implements OnInit {
               alert("Login failed");
             else
               alert('Login Successful');
-          } else {
+          } 
+          else {
             // Handle unexpected response
             console.error('Unexpected response:', res);
           }
         },
-      })
+        error:err=>{console.log(err);
+      }
+    })
   }
 }
