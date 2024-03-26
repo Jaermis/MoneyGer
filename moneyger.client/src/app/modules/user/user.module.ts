@@ -7,7 +7,19 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GettingStartedComponent } from './components/getting-started/getting-started.component';
+import {MatButton} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { FormsModule } from '@angular/forms';
 
+const UserComponents = [
+  MatButton,
+  MatIconModule,
+  MatSlideToggleModule,
+  MatSidenavModule,
+  FormsModule
+]
 
 @NgModule({
   declarations: [
@@ -19,7 +31,11 @@ import { GettingStartedComponent } from './components/getting-started/getting-st
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    UserComponents
+  ],
+  exports: [
+    UserComponents
   ]
 })
 export class UserModule { }
