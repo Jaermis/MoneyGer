@@ -9,6 +9,8 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    UserModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
