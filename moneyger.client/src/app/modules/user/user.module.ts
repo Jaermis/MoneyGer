@@ -12,6 +12,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { MoneygerUsersService } from '../../shared/moneyger-users.service';
+import { Router } from '@angular/router';
 
 const UserComponents = [
   MatButton,
@@ -38,4 +41,21 @@ const UserComponents = [
     UserComponents
   ]
 })
-export class UserModule { }
+export class UserModule { 
+  constructor(
+    private titleService: Title, public service: MoneygerUsersService, private router: Router
+    ) {}
+    
+    ngOnInit(): void {
+      this.titleService.setTitle('User Dashboard');
+      this.service.loggedin_user().subscribe(
+        {
+          next:res=>{
+              console.log(res)
+            },
+          error:err=>{console.log(err)
+          }
+        }
+      );
+    }
+}
