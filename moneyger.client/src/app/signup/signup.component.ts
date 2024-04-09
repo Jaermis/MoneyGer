@@ -9,7 +9,7 @@ import { MoneygerUsersService } from '../shared/moneyger-users.service';
 })
 export class SignupComponent implements OnInit {
   constructor(
-    private titleService: Title, public service: MoneygerUsersService
+    private titleService: Title, public service:  MoneygerUsersService
   ) { }
     
     changeicon:boolean = true;
@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
           alert("Signup success");
         },
         error:err=>{console.log(err),
-        alert("Signup failed")}
+          alert("Signup failed")}
       })
     }
 }

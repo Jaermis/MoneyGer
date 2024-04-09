@@ -10,8 +10,8 @@ import { MoneygerUsersService } from '../shared/moneyger-users.service';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private titleService: Title, public service: MoneygerUsersService
-    ) { } 
+    private titleService: Title, public service: MoneygerUsersService, private router: Router
+    ) {} 
 
   workEmail: string = '';
   userPassword: string= '';
@@ -28,15 +28,17 @@ export class LoginComponent implements OnInit {
     this.changeicon = !this.changeicon;
   }
 
-  loginCheck(account: string, password: string) {
+  loginCheck(account: string, password: string) { //Check login
     this.service.loginMoneyger_users(account,password)
       .subscribe({
         next: res => {
           if(res === 'Failure' || res === 'Success') {
             if(res === 'Failure')
               alert("Login failed");
-            else
+            else{
               alert('Login Successful');
+              this.router.navigate(['./user']);
+            }
           } 
           else {
             // Handle unexpected response
