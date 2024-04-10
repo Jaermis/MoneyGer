@@ -2,7 +2,7 @@
         font-family: 'Open Sans', sans-serif;
     }
     .sideBar{
-        position: fixed;
+        position: sticky;
         width: 80px;
         height: 100vh;
         transition: width 0.5s ease;
