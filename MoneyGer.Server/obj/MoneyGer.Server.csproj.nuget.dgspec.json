@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
+    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
   },
   "projects": {
-    "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
+    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
         "projectName": "MoneyGer.Server",
-        "projectPath": "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
-        "packagesPath": "C:\\Users\\Jofrel Jan Quijano\\.nuget\\packages\\",
-        "outputPath": "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\obj\\",
+        "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "packagesPath": "C:\\Users\\Nodz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jofrel Jan Quijano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Nodz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +45,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Microsoft.AspNetCore.SpaProxy": {
               "target": "Package",
               "version": "[8.0.2, )"
