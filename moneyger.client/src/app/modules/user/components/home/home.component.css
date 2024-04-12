@@ -1,0 +1,38 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+.cont1{
+    margin-top: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.leftcont{
+    width: 650px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.splt{
+    background-color: white;
+    width: 650px;
+    height: 600px;
+}
+.opportunities{
+    position: relative;
+    background-color: white;
+    width: 650px;
+    height: 360px;
+}
+.revenue{
+    
+    background-color: white;
+    width: 650px;
+    height: 220px;
+}
+.opp-text{
+    color: #220B57;
+}
