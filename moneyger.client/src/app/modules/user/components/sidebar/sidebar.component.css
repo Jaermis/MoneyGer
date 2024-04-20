@@ -1,179 +1,208 @@
-    * {
-        font-family: 'Open Sans', sans-serif;
-    }
-    .sideBar{
-        position: fixed;
-        width: 80px;
-        height: 100vh;
-        transition: width 0.5s ease;
-        z-index: 1;
-        box-shadow: 0.2rem 0 1.25rem 0 #8690a3;
-        background-color: #220B57;
-        color: white;
-        padding: 0px;
-        margin: 0;
-        left: 0px;
-        top: 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .sideBar.active{
-        width: 250px;
-    }
-    .sideBar #btn{
-        font-size: 30px;
-        position: absolute;
-        left: 30%;
-        transition: left 0.5s ease;
-    }
-    .sideBar.active #btn{
-        position: absolute;
-        font-size: 30px;
-        left: 80%;
-    }
-    .sb_logo{
-        transition: opacity 0.3s ease;
-        width: 150px;
-        padding-left: 8%;
-        padding-top: 2%;
-        opacity: 0;
-    }
-    .sideBar.active .sb_logo{
-        transition: opacity 0.8s ease;
-        width: 150px;
-        padding-top: 2%;
-        padding-left: 8%;
-        opacity: 1;
-    } 
-    .top {
-        display: flex;
-        flex-direction: column;
-        width: 100%;  
-    }
-    .menu{
-        margin-top: 20px;
-        margin-bottom: 40px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-    .nav-list {
-        width: 100%;
-        margin: 0px; /* No margin */
-        padding: 0px; /* No padding */
-    }
-    .sideBar ul {
-        margin: 0;
-        padding: 0px;
-    }
-    .sideBar ul li{
-        position: relative;
-        list-style-type: none;
-        height: 50px;
-        width: 90%;
-        margin: 0.8rem auto;
-        line-height: 50px;
-    }
-    .sideBar ul li a{
-        color: white;
-        display: flex;
-        text-decoration: none;
-        border-radius: 0.8rem;
-    }
-    .sideBar ul li a:hover{
+* {
+    font-family: 'Open Sans', sans-serif;
+}
 
-        background-color: beige;
-        color: black;
-    }
-    .sideBar ul li a i{
-        padding-left: 10px;
-        min-width: 50px;
-        text-align: center;
-        height: 50px;
-        border-radius: 12px;
-        line-height: 50px;
-    }
-    .sideBar .nav-item{
-        font-size: 16px;
-        transition: opacity 0.3s ease;
-        opacity: 0;
-    }
-    .sideBar.active .nav-item{
-        font-size: 16px;
-        transition: opacity 0.3s ease;
-        opacity: 1;
-    }
-    .sideBar ul li .tooltip{
-        position: absolute;
-        color: black;
-        left: 125px;
-        top: 25%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 0.5rem 0.8rem rgba(0,0,0,0.2);
-        border-radius: 0.6rem;
-        padding: .4rem 1.2rem;
-        line-height: 1.8rem;
-        z-index: 20;
-        opacity: 0;
-    }
-    .sideBar ul li:hover .tooltip{
-        opacity: 1;
-    }
-    .sideBar.active ul li .tooltip{
-        opacity: 0;
-    }
-    /*bottom*/
-    .bottom{
-        width: 100%;
-        padding-bottom: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;  
-        gap: 30px;
-    } 
-    .user{
-        padding-top: 20px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .sideBar.active.user{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .profile{
-        margin-left: 16px;
-        width: 50px;
-        border-radius: 100%;
-    }
-    .sideBar.active.profile{
-        margin-left: 16px;
-        width: 50px;
-        border-radius: 100%;
-    }
-    .bot_buttons{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .name{
-        position: absolute;
-        margin-left: 35%;
-        transition: opacity 0.3s ease;
-        opacity: 0;
-    }
-    .sideBar.active .name{
-        position: absolute;
-        transition: opacity 4s ease;
-        opacity: 1;
-    }
-    .ign{
-        font-size: 16px;
-        font-weight:bolder;
-    }
+.sideBar {
+    position: sticky;
+    width: 80px;
+    height: 100vh;
+    transition: width 0.5s ease;
+    z-index: 1;
+    box-shadow: 0.2rem 0 1.25rem 0 #8690a3;
+    background-color: #220B57;
+    color: white;
+    padding: 0px;
+    margin: 0;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: hidden; /* Make sidebar not scrollable */
+    overflow-x: hidden;
+}
+
+.sideBar.active {
+    width: 250px;
+}
+
+.sideBar #btn {
+    font-size: 30px;
+    position: absolute;
+    left: 30%;
+    transition: left 0.5s ease;
+}
+
+.sideBar.active #btn {
+    position: absolute;
+    font-size: 30px;
+    left: 80%;
+}
+
+.sb_logo {
+    transition: opacity 0.3s ease;
+    width: 150px;
+    padding-left: 8%;
+    padding-top: 2%;
+    opacity: 0;
+}
+
+.sideBar.active .sb_logo {
+    transition: opacity 0.8s ease;
+    width: 150px;
+    padding-top: 2%;
+    padding-left: 8%;
+    opacity: 1;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.menu {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    width: 100%;
+    margin: 0px; /* No margin */
+    padding: 0px; /* No padding */
+}
+
+.sideBar ul {
+    margin: 0;
+    padding: 0px;
+}
+
+.sideBar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sideBar ul li a {
+    color: white;
+    display: flex;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sideBar ul li a:hover {
+    background-color: beige;
+    color: black;
+}
+
+.sideBar ul li a i {
+    padding-left: 10px;
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sideBar .nav-item {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.sideBar.active .nav-item {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.sideBar ul li .tooltip {
+    position: absolute;
+    color: black;
+    left: 125px;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sideBar ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sideBar.active ul li .tooltip {
+    opacity: 0;
+}
+
+/* Bottom */
+.bottom {
+    width: 100%;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.user {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sideBar.active.user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile {
+    margin-left: 16px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.sideBar.active.profile {
+    margin-left: 16px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.bot_buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name {
+    position: absolute;
+    margin-left: 35%;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.sideBar.active .name {
+    position: absolute;
+    transition: opacity 4s ease;
+    opacity: 1;
+}
+
+.ign {
+    font-size: 16px;
+    font-weight: bolder;
+}

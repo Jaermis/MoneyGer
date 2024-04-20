@@ -6,15 +6,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   constructor(
     private titleService: Title, public service: MoneygerUsersService, private router: Router
     ) {}
-    
+
 ngOnInit(): void {
       this.titleService.setTitle('Wow');
       this.service.refreshlist();
+
     }
 }
