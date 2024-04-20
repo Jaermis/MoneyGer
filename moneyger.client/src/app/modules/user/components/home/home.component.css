@@ -1,38 +1,130 @@
 * {
     font-family: 'Open Sans', sans-serif;
 }
-.cont1{
-    margin-top: 30px;
-    padding-left: 60px;
-    padding-right: 60px;
+.cont{
+    width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
-.leftcont{
-    width: 650px;
+.cont1{
+    height: calc(100vh - 25px - your_top_padding);
+    width: 1300px;
+    margin-top: 25px;
+    padding-left: 60px;
+    padding-right: 60px; 
+    height: 650px;
+    display: flex;
+    gap: 1.5%;
+}
+.splt{
+    width: 50%;
     height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1.5%;
+    gap: 3%;
 }
-.splt{
-    background-color: white;
-    width: 650px;
+.todo{
+    background-color: #220B57;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 46%;
+}
+.calendar{
+    background-color: #220B57;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 50%;
+}
+.leftcont{
+    width: 900px;
     height: 600px;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
 }
 .opportunities{
     position: relative;
-    background-color: white;
-    width: 650px;
-    height: 360px;
-}
-.revenue{
-    
-    background-color: white;
-    width: 650px;
+    width: 100%;
     height: 220px;
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
 }
-.opp-text{
-    color: #220B57;
+.revenue , .profit{
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    background-color: #220B57;
+    width: 360px;
+    height: 180px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
+.rev-text, .prof-text{
+    color: white;
+    font-size: 20px; 
+}
+.php h4{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight:bolder; 
+    font-size: 25px;
+    margin-right: 20px;
+}
+.money h4{
+    margin-right: 20px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
+    font-weight:100;
+    height: 50px;
+    overflow: hidden;
+}
+.deals{
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    background-color: #220B57;
+    width: 100%;
+    height: 380px;
+}
+.head-text{
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    height: 50px;
+    color: white;
+    border-bottom: 1px solid  #32107F;
+}
+
+th {
+    background-color: #220B57;
+    color: white;
+    font-size: large;
+}
+.statusBox{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    background-color: green;
+    height: 100%;
+    width: 100%;
+}
+tr:nth-child(even) td {
+    background-color:  #32107F;
+}
+tr:hover td{
+    background-color: #96949C;
+}
+
