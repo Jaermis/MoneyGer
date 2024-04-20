@@ -15,6 +15,11 @@ import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { MoneygerUsersService } from '../../shared/moneyger-users.service';
 import { Router } from '@angular/router';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { ListsComponent } from './components/lists/lists.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 const UserComponents = [
   MatButton,
@@ -30,7 +35,12 @@ const UserComponents = [
     HeaderComponent,
     SidebarComponent,
     HomeComponent,
-    GettingStartedComponent
+    GettingStartedComponent,
+    ContactsComponent,
+    ListsComponent,
+    OrdersComponent,
+    StatisticsComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,

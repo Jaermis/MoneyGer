@@ -20,6 +20,25 @@ export class SidebarComponent {
     this.isActive = !this.isActive;
   }
 
+  toHome(){
+    this.router.navigate(['/user/home']);
+  }
+  toLists(){
+    this.router.navigate(['/user/lists']);
+  }
+  toContacts(){
+    this.router.navigate(['/user/contacts']);
+  }
+  toOrders(){
+    this.router.navigate(['/user/orders']);
+  }
+  toStatistics(){
+    this.router.navigate(['/user/statistics']);
+  }
+  toCalendar(){
+    this.router.navigate(['/user/calendar']);
+  }
+
   userData: MoneygerUsers = new MoneygerUsers()
   
   ngOnInit(): void {
