@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserModule } from './modules/user/user.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
