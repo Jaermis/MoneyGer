@@ -6,13 +6,6 @@ namespace MoneyGer.Server.Models
 {
     public class moneyger_users : IdentityUser
     {
-        [Key]
-        [Required]
-        public string WorkEmail { get; set; } = null!;
-
-        public int AccountID { get; set; }
-        [Required]
-        public string UserPassword { get; set; } = null!;
         [Required]
         public string FirstName { get; set; } = null!;
         [Required]

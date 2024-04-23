@@ -8582,24 +8582,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jofrel Jan Quijano\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Nodz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
       "projectName": "MoneyGer.Server",
-      "projectPath": "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
-      "packagesPath": "C:\\Users\\Jofrel Jan Quijano\\.nuget\\packages\\",
-      "outputPath": "C:\\SecondSemProject\\MoneyGer\\MoneyGer.Server\\obj\\",
+      "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+      "packagesPath": "C:\\Users\\Nodz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Jofrel Jan Quijano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Nodz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

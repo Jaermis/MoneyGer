@@ -1,28 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MoneyGer.Server.Context;
+using MoneyGer.Server.Dtos;
 using MoneyGer.Server.Models;
+using NuGet.Common;
 
 namespace MoneyGer.Server.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class moneyger_usersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<moneyger_users> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IConfiguration _configuration;
 
-        public moneyger_usersController(ApplicationDbContext context)
+        public moneyger_usersController(ApplicationDbContext context,UserManager<moneyger_users> userManager,
+            RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _configuration = configuration;
         }
 
         // GET: api/moneyger_users
-        [HttpGet]
+       /* [HttpGet]
         public async Task<ActionResult<IEnumerable<moneyger_users>>> Getmoneyger_users()
         {
             return await _context.moneyger_users.ToListAsync();
@@ -40,94 +56,163 @@ namespace MoneyGer.Server.Controllers
             }
 
             return moneyger_users;
-        }
+        }*/
 
-        // PUT: api/moneyger_users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Putmoneyger_users(string id, moneyger_users moneyger_users)
+        [AllowAnonymous]
+        [HttpPost("Register")]
+        public async Task<ActionResult<string>> Register(RegisterDto registerDto)
         {
-            if (id != moneyger_users.WorkEmail)
+            if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState); //PADAYONS 27:06
             }
 
-            _context.Entry(moneyger_users).State = EntityState.Modified;
-
-            try
+            var user = new moneyger_users
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
+                Email = registerDto.Email,
+                FirstName = registerDto.FirstName,
+                LastName = registerDto.LastName,
+                UserName = registerDto.Email
+            };
+
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+            if(registerDto.Roles is null)
             {
-                if (!moneyger_usersExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                await _userManager.AddToRoleAsync(user, "User");
+            }
+            else
+            {
+                foreach (var role in registerDto.Roles)
+                    await _userManager.AddToRoleAsync(user, role);
             }
 
-            return NoContent();
+            return Ok(new AuthResponseDto
+            {
+                IsSuccess = true,
+                Message = "Account Created Successfully!"
+            });
         }
 
-        // POST: api/moneyger_users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<moneyger_users>> Postmoneyger_users(moneyger_users moneyger_users)
-        {
-            _context.moneyger_users.Add(moneyger_users);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (moneyger_usersExists(moneyger_users.WorkEmail))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("Getmoneyger_users", new { id = moneyger_users.WorkEmail }, moneyger_users);
-        }
-
-        // DELETE: api/moneyger_users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Deletemoneyger_users(string id)
-        {
-            var moneyger_users = await _context.moneyger_users.FindAsync(id);
-            if (moneyger_users == null)
-            {
-                return NotFound();
-            }
-
-            _context.moneyger_users.Remove(moneyger_users);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool moneyger_usersExists(string id)
-        {
-            return _context.moneyger_users.Any(e => e.WorkEmail == id);
-        }
-
-        //POST: For Login
+        [AllowAnonymous]
         [HttpPost("Login")]
-        public IActionResult Login (Login user)
+        public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
         {
-            var userAvailable = _context.moneyger_users.Where(u => u.WorkEmail == user.WorkEmail && u.UserPassword == user.UserPassword).FirstOrDefault();
+             if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); //PADAYONS 27:06
+            }
 
-            if (userAvailable == null)
-                return Ok("Failure");
-            return Ok("Success");
+            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            
+            if(user is null){
+                return Unauthorized(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "Invalid Email"
+                });
+            }
+
+            var result = await _userManager.CheckPasswordAsync(user,loginDto.Password);
+
+            if(!result){
+                return Unauthorized(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "Invalid Password"
+                });
+            }
+            
+            var token = GenerateToken(user);
+
+            return Ok(new AuthResponseDto{
+                Token = token,
+                IsSuccess = true,
+                Message = "Login Successfull"
+            });
+        }
+
+        private string GenerateToken(moneyger_users user){
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var key = Encoding.ASCII
+            .GetBytes(_configuration.GetSection("JWTSetting").GetSection
+            ("securityKey").Value!);
+
+            var roles = _userManager.GetRolesAsync(user).Result;
+
+            List<Claim> claims =
+            [
+                new (JwtRegisteredClaimNames.Email, user.Email ?? ""),
+                new (JwtRegisteredClaimNames.Name, user.FirstName + " " + user.LastName),
+                new (JwtRegisteredClaimNames.NameId,user.Id ?? ""),
+                new (JwtRegisteredClaimNames.Aud, _configuration.GetSection
+                ("JWTSetting").GetSection("validAudience").Value!),
+                new (JwtRegisteredClaimNames.Iss, _configuration.GetSection("JWTSetting")
+                .GetSection("validIssuer").Value!)
+            ];
+
+            foreach(var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            var tokenDescriptor = new SecurityTokenDescriptor{
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.AddDays(1),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256
+                )
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+
+            return tokenHandler.WriteToken(token);
+        }
+
+        //api/moneyger_users/Detail
+        [Authorize]
+        [HttpGet("Detail")]
+        public async Task<ActionResult<UserDetailDto>> GetUserDetail()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(currentUserId!);
+
+            if(user is null){
+                return NotFound(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "User Not Found"
+                });
+            }
+
+            return Ok(new UserDetailDto{
+                Id = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName =  user.LastName,
+                Roles = [..await _userManager.GetRolesAsync(user)],
+                PhoneNumber = user.PhoneNumber,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                AccessFailedCount = user.AccessFailedCount,
+            });
+        }
+
+    
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UserDetailDto>>> GetUsers()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            var userDetails = users.Select(u => new UserDetailDto
+            {
+                Id = u.Id,
+                Email = u.Email,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                Roles = _userManager.GetRolesAsync(u).Result.ToArray()
+            }).ToList();
+
+            return Ok(userDetails);
         }
     }
 }
