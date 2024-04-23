@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoneyGer.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+400fcaca3457eff8ab7c28ecc5f16df14e8cd066")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc928bd62ea6778183dddaf870635ef9f65f15d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoneyGer.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoneyGer.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
