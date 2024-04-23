@@ -1,22 +1,18 @@
 <div id="loginpej">
     <div class="logincontainer">
         <img src="assets/logo.png" class="login-logo" alt="MoneyGer logo">
-        <form action="/url">
+        <form action="/url" [formGroup]= "form" (ngSubmit)="login()">
             <label>
                 <p>Email Address</p>
-                <input class="emailfield" type="text" required
-                       name="workEmail"
-                       [(ngModel)]="workEmail">
+                <input class="emailfield" type="text" formControlName = "email" required>
             </label>
             <label class="password-label">
                 <p>Password</p>
-                <input [type]="changetype?'password':'text'" class="emailfield" required
-                       name="userPassword"
-                       [(ngModel)]="userPassword">
+                <input [type]="changetype?'password':'text'" class="emailfield" formControlName = "password" required>
                 <img (click)="viewpass()" class="view" [src]="changeicon?'assets/view.png':'assets/hide.png'">
             </label>
             <a class="forgot-passtext" routerLink="/forgotpass">Forgot Password?</a>
-            <button class="login-button" (click)="loginCheck(workEmail,userPassword)">
+            <button class="login-button" type="submit">
                 Log In
             </button> <!---Login button-->
         </form> 

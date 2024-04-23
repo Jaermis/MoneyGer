@@ -16,7 +16,6 @@ import { UserModule } from './modules/user/user.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     SignupComponent,
     ForgotpassComponent,
     NotFoundComponent,

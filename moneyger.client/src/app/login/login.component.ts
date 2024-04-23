@@ -1,26 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MoneygerUsersService } from '../shared/moneyger-users.service';
+import { AuthService } from '../shared/auth.service';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  imports: [ReactiveFormsModule]
 })
 export class LoginComponent implements OnInit {
   constructor(
     private titleService: Title, public service: MoneygerUsersService, private router: Router
     ) {} 
 
-  workEmail: string = '';
-  userPassword: string= '';
+  authService = inject(AuthService);
+  form!: FormGroup;
+  fb = inject(FormBuilder);
+  
   changeicon:boolean = true;
   changetype:boolean = true;
   showImg: boolean = false;
 
   ngOnInit(): void {
     this.titleService.setTitle('MoneyGer Login');
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['',Validators.required],
+    });
   }
 
   viewpass(){
@@ -28,25 +38,16 @@ export class LoginComponent implements OnInit {
     this.changeicon = !this.changeicon;
   }
 
-  loginCheck(account: string, password: string) { //Check login
-    this.service.loginMoneyger_users(account,password)
-      .subscribe({
-        next: res => {
-          if(res === 'Failure' || res === 'Success') {
-            if(res === 'Failure')
-              alert("Login failed");
-            else{
-              alert('Login Successful');
-              this.router.navigate(['./user']);
-            }
-          } 
-          else {
-            // Handle unexpected response
-            console.error('Unexpected response:', res);
-          }
+  login(){
+    this.authService.login(this.form.value).subscribe({
+      next:(response)=>{
+        alert("Login succesful!");
+        this.router.navigate(['/user']);
         },
-        error:err=>{console.log(err);
+        error:(error)=>{
+          alert("Login Failed");
+        }
       }
-    })
+    );
   }
 }
