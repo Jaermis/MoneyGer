@@ -30,6 +30,7 @@
     "boxicons": "^2.1.4",
     "chart.js": "^4.4.2",
     "jest-editor-support": "*",
+    "jwt-decode": "^4.0.0",
     "run-script-os": "*",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

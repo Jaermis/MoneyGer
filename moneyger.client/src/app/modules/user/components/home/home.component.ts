@@ -15,7 +15,7 @@ export class HomeComponent {
 
 ngOnInit(): void {
       this.titleService.setTitle('Moneyger Dashboard');
-      this.service.refreshlist();
+     // this.service.refreshlist();
 
     }
 }

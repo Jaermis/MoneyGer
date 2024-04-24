@@ -17,25 +17,10 @@ export class SignupComponent implements OnInit {
 
     ngOnInit(): void {
       this.titleService.setTitle('MoneyGer Signup');
-      this.service.refreshlist();
     }
 
     viewpass(){
       this.changeicon = !this.changeicon;
       this.changetype = !this.changetype;
-    }
-
-    async onSubmit(){
-      this.service.formData.accountID = await this.service.refreshlist();
-      this.service.formData.dateCreated = new Date();
-      this.service.postMoneyger_users()
-      .subscribe({
-        next:res=>{
-          console.log(res),
-          alert("Signup success");
-        },
-        error:err=>{console.log(err),
-          alert("Signup failed")}
-      })
     }
 }
