@@ -6,6 +6,7 @@ import { AuthResponse } from '../interfaces/auth-response';
 import { HttpClient } from '@angular/common/http';
 import { TmplAstSwitchBlockCase } from '@angular/compiler';
 import { jwtDecode } from 'jwt-decode';
+import { RegisterRequest } from '../interfaces/register-request';
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,10 @@ export class AuthService {
     };
 
     return userDetail;
+  }
+  
+  register(data:RegisterRequest):Observable<AuthResponse>{
+    return this.http
+    .post<AuthResponse>(`${this.apiUrl}/moneyger_users/Register`, data)
   }
 }

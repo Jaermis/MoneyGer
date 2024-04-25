@@ -42,13 +42,17 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.value).subscribe({
       next:(response)=>{
         alert("Login succesful!");
-        this.router.navigate(['/user']);
-        },
-        error:(error)=>{
-          alert("Login Failed");
+        const roles = this.authService.getUserDetail()?.roles;
+        if (roles == 'User') {
+          this.router.navigate(['/home']); // Navigate based on the role condition
+        } else {
+          this.router.navigate(['/user']); // Navigate to default route for other cases
         }
+      },
+      error:(error)=>{
+        alert("Login Failed");
       }
-    );
+    });
   }
 
   signup(){

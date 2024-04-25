@@ -54,7 +54,7 @@
         </div> 
     </div>
 
-    @if(isLoggedIn()){
+    @if(isLoggedIn() && !checkRole()){
     <div class="bottom" *ngIf="authService.getUserDetail() as userDetail">
         <div class="user">
             <img src="assets/profile.jpg" class="profile" alt="Profile Picture">

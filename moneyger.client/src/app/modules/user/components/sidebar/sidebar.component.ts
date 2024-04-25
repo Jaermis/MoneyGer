@@ -19,6 +19,11 @@ export class SidebarComponent {
   authService = inject(AuthService);
   isActive: boolean = false;
   
+  checkRole(){
+    if(this.authService.getUserDetail()?.roles.includes('User') && this.authService.getUserDetail()?.roles.length === 1)
+      this.router.navigate(['/home]']); //Intentionally errors when not adopted by a company for now
+    return false;
+  }
   isLoggedIn(){
     return this.authService.isLoggedIn();
   }
