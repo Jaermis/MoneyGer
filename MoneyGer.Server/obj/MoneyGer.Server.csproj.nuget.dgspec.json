@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
+    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
+    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj",
         "projectName": "MoneyGer.Server",
-        "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj",
         "packagesPath": "C:\\Users\\Nodz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\obj\\",
+        "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nodz\\AppData\\Roaming\\NuGet\\NuGet.Config",

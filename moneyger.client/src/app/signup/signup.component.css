@@ -72,6 +72,19 @@
     margin-top: 7%;
     margin-bottom: 3%;
 }
+.disabledsignupbtn{
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    background-color: #c0a9f5;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-top: 7%;
+    margin-bottom: 3%;
+}
 .already{
     text-align: center;
 }

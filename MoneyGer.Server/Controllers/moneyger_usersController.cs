@@ -37,27 +37,6 @@ namespace MoneyGer.Server.Controllers
             _configuration = configuration;
         }
 
-        // GET: api/moneyger_users
-       /* [HttpGet]
-        public async Task<ActionResult<IEnumerable<moneyger_users>>> Getmoneyger_users()
-        {
-            return await _context.moneyger_users.ToListAsync();
-        }
-
-        // GET: api/moneyger_users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<moneyger_users>> Getmoneyger_users(string id)
-        {
-            var moneyger_users = await _context.moneyger_users.FindAsync(id);
-
-            if (moneyger_users == null)
-            {
-                return NotFound();
-            }
-
-            return moneyger_users;
-        }*/
-
         [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<ActionResult<string>> Register(RegisterDto registerDto)
@@ -145,6 +124,8 @@ namespace MoneyGer.Server.Controllers
             [
                 new (JwtRegisteredClaimNames.Email, user.Email ?? ""),
                 new (JwtRegisteredClaimNames.Name, user.FirstName + " " + user.LastName),
+                new ("firstname", user.FirstName),
+                new ("lastname", user.LastName),
                 new (JwtRegisteredClaimNames.NameId,user.Id ?? ""),
                 new (JwtRegisteredClaimNames.Aud, _configuration.GetSection
                 ("JWTSetting").GetSection("validAudience").Value!),
@@ -214,5 +195,24 @@ namespace MoneyGer.Server.Controllers
 
             return Ok(userDetails);
         }
+
+         [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if(user is null){
+                return NotFound("User not Found");
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+            if(result.Succeeded)
+            {
+                return Ok( new{message = "User deleted"});
+            }
+
+            return BadRequest("User deletion failed.");
+        }
+
     }
 }

@@ -77,6 +77,10 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MoneyGer.Server.http",
@@ -86,12 +90,7 @@
               "RelativeToolTip": "MoneyGer.Server\\MoneyGer.Server.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-04-23T12:57:58.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2024-04-23T12:57:58.258Z"
             },
             {
               "$type": "Document",
@@ -103,8 +102,7 @@
               "RelativeToolTip": "MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
               "ViewState": "AQIAAKEAAAAAAAAAAAAQwOIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T11:47:13.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T11:47:13.018Z"
             },
             {
               "$type": "Document",

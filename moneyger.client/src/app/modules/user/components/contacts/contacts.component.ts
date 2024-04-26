@@ -15,7 +15,7 @@ export class ContactsComponent {
 
 ngOnInit(): void {
       this.titleService.setTitle('Moneyger Contacts');
-      this.service.refreshlist();
+      //this.service.refreshlist();
 
     }
 }
