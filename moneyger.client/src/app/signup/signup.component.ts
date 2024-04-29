@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
       console.log(this.form.value);
       this.authService.register(this.form.value).subscribe({
         next:(response)=>{
-          console.log(response);
+          //console.log(response);
         },
         error:(err:HttpErrorResponse)=>{
           if(err!.status ==  400){

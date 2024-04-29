@@ -60,7 +60,7 @@ namespace MoneyGer.Server.Controllers
                 return BadRequest(result.Errors);
             if(registerDto.Roles is null)
             {
-                await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddToRoleAsync(user, "Admin");
             }
             else
             {
