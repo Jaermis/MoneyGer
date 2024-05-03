@@ -3,26 +3,27 @@ import { Title } from '@angular/platform-browser';
 import { MoneygerUsersService } from '../../../../shared/moneyger-users.service';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-getting-started',
-  templateUrl: './getting-started.component.html',
-  styleUrl: './getting-started.component.css'
+  selector: 'app-join-company',
+  templateUrl: './join-company.component.html',
+  styleUrl: './join-company.component.css'
 })
-export class GettingStartedComponent {
+export class JoinCompanyComponent {
   constructor(
     private titleService: Title, public service: MoneygerUsersService, private router: Router
     ) {}
 
     ngOnInit(): void {
-      this.titleService.setTitle('Getting Started');
+      this.titleService.setTitle('Join a Company');
      // this.service.refreshlist();
     }
 
-    CreateCompany(){
-      this.router.navigate(['/user/create-company']);
+    Cancel(){
+      this.router.navigate(['user/getting-started']);
     }
 
     JoinCompany(){
-      this.router.navigate(['/user/join-company']);
+      this.router.navigate(['/user']);
     }
 }
