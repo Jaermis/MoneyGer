@@ -8,6 +8,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { CreateCompanyComponent } from './components/create-company/create-company.component';
+import { JoinCompanyComponent } from './components/join-company/join-company.component';
 
 const routes: Routes = [
   {
@@ -20,7 +22,9 @@ const routes: Routes = [
       {path: 'lists', component: ListsComponent},
       {path: 'orders', component: OrdersComponent},
       {path: 'statistics', component: StatisticsComponent},
-      {path: '', component: HomeComponent}
+      {path: '', component: HomeComponent},
+      {path: 'create-company', component: CreateCompanyComponent},
+      {path: 'join-company', component: JoinCompanyComponent}
   ]}
 ];
 
