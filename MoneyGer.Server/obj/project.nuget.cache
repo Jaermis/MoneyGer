@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jp83/37QQ+teZIwDRmtveFkx8Bdv++Uqc58bXnAtAkvC1JQlqwoQ1gd+m5C2hxz+9AqU4LqmYRCmhVRsfZVIKg==",
+  "dgSpecHash": "fg7Pptot7zCxKznQ56JoEV3BYeCi2XIVrNFJhsh2KTRUdfbfgJ09y046i+qbt2sNZcizkPdeRJcVzpP8IQaUFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+  "projectFilePath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nodz\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Nodz\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
