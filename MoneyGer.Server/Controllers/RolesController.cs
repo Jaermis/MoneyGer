@@ -37,7 +37,7 @@ namespace MoneyGer.Server.Controllers
                 return BadRequest("Role already exist");
             }
 
-            var roleResult = await  _roleManager.CreateAsync(new IdentityRole(createRoleDto.RoleName));
+            var roleResult = await _roleManager.CreateAsync(new IdentityRole(createRoleDto.RoleName));
 
             if(roleResult.Succeeded)
             {
