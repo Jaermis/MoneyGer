@@ -17,7 +17,7 @@
 mono_crash.*
 
 # Build results
-obj/
+MoneyGer.Server/obj/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

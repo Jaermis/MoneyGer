@@ -723,3 +723,6 @@ C:\Users\Nodz\Desktop\The dream\MoneyGer\MoneyGer.Server\bin\Debug\net8.0\MoneyG
 C:\Users\Nodz\Desktop\The dream\MoneyGer\MoneyGer.Server\bin\Debug\net8.0\MoneyGer.Server.runtimeconfig.json
 C:\Users\Nodz\Desktop\The dream\MoneyGer\MoneyGer.Server\obj\Debug\net8.0\MoneyGer.Server.genruntimeconfig.cache
 C:\Users\Nodz\Desktop\The dream\MoneyGer\MoneyGer.Server\obj\Debug\net8.0\ref\MoneyGer.Server.dll
+C:\Users\Nodz\Desktop\The dream\MoneyGer\moneyger.server\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Nodz\Desktop\The dream\MoneyGer\moneyger.server\bin\Debug\net8.0\MailKit.dll
+C:\Users\Nodz\Desktop\The dream\MoneyGer\moneyger.server\bin\Debug\net8.0\MimeKit.dll

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using MoneyGer.Server.Context;
 using MoneyGer.Server.Models;
 using System.Text;
@@ -48,6 +50,24 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql
 
 builder.Services.AddIdentity<moneyger_users, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(opts =>
+{
+    opts.SignIn.RequireConfirmedEmail = true;
+    opts.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+});
+
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
+builder.Services.AddSingleton(new EmailConfiguration
+{
+    SmtpServer = "smtp.gmail.com",
+    Port = 465,
+    UseSsl = true,
+    Username = "freeacc12272002@gmail.com",
+    Password = "ipjp krua zcpt zwzx",
+    FromName = "MoneyGer",
+    FromAddress = "freeacc12272002@gmail.com"
+});
 
 builder.Services.AddAuthentication(opt =>
 {
