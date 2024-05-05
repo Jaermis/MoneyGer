@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         alert("Login succesful!");
         const roles = this.authService.getUserDetail()?.roles;
         if (roles == 'User') {
-          this.router.navigate(['/home']); // Navigate based on the role condition
+          this.router.navigate(['/user/getting-started']); // Navigate based on the role condition
         } else {
           this.router.navigate(['/user']); // Navigate to default route for other cases
         }

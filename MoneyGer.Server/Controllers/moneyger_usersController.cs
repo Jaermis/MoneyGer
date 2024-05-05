@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using MoneyGer.Server.Context;
 using MoneyGer.Server.Dtos;
 using MoneyGer.Server.Models;
@@ -27,14 +30,19 @@ namespace MoneyGer.Server.Controllers
         private readonly UserManager<moneyger_users> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IEmailSender _emailSender;
+        private readonly EmailConfiguration _emailConfiguration;
 
         public moneyger_usersController(ApplicationDbContext context,UserManager<moneyger_users> userManager,
-            RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+            RoleManager<IdentityRole> roleManager, IConfiguration configuration, IEmailSender emailSender,
+            EmailConfiguration emailConfiguration)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
+            _emailSender =  emailSender;
+            _emailConfiguration  = emailConfiguration;
         }
 
         [AllowAnonymous]
@@ -43,7 +51,7 @@ namespace MoneyGer.Server.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); //PADAYONS 27:06
+                return BadRequest(ModelState);
             }
 
             var user = new moneyger_users
@@ -51,28 +59,70 @@ namespace MoneyGer.Server.Controllers
                 Email = registerDto.Email,
                 FirstName = registerDto.FirstName,
                 LastName = registerDto.LastName,
-                UserName = registerDto.Email
+                UserName = registerDto.Email,
+                DateCreated = DateTime.UtcNow 
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
+
             if(registerDto.Roles is null)
             {
-                await _userManager.AddToRoleAsync(user, "Admin");
+                await _userManager.AddToRoleAsync(user, "User");
             }
             else
             {
                 foreach (var role in registerDto.Roles)
                     await _userManager.AddToRoleAsync(user, role);
             }
+            
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confirmationLink = Url.Action(nameof(ConfirmEmail), "moneyger_users", new { token, email = user.Email }, Request.Scheme);
+            await _emailSender.SendEmailAsync(registerDto.Email, "Moneyger Confirmation email link", "Click here " + confirmationLink);
 
             return Ok(new AuthResponseDto
             {
                 IsSuccess = true,
                 Message = "Account Created Successfully!"
             });
+        }
+
+        [AllowAnonymous]
+        [HttpGet("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            // Validate token and email address
+            if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(email))
+            {
+                // Invalid token or email address
+                return BadRequest("Invalid token or email address.");
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest("User not found.");
+            }
+            
+            // You would typically use your user manager or data access layer to perform this operation
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+
+            if (result.Succeeded)
+            {
+                var emailSender = new EmailSender(_emailConfiguration);
+                var confirmationSubject = "Confirmation Email";
+                var confirmationHtmlMessage = $"Dear user, your email ({email}) has been confirmed successfully.";
+                await emailSender.SendEmailAsync(email, confirmationSubject, confirmationHtmlMessage);
+
+                return Ok("Email confirmed successfully.");
+            }
+            else
+            {
+                // Email confirmation failed
+                return BadRequest("Email confirmation failed.");
+            }
         }
 
         [AllowAnonymous]
@@ -92,7 +142,7 @@ namespace MoneyGer.Server.Controllers
                     Message = "Invalid Email"
                 });
             }
-
+            
             var result = await _userManager.CheckPasswordAsync(user,loginDto.Password);
 
             if(!result){
@@ -101,9 +151,19 @@ namespace MoneyGer.Server.Controllers
                     Message = "Invalid Password"
                 });
             }
+
+            if(loginDto.Email != "admin@example.com"){
+                var confirmed = await _userManager.IsEmailConfirmedAsync(user);
+
+                if(!confirmed){
+                    return Unauthorized(new AuthResponseDto{
+                        IsSuccess = false,
+                        Message = "Email is not confirmed"
+                    });
+                }
+            }
             
             var token = GenerateToken(user);
-
             return Ok(new AuthResponseDto{
                 Token = token,
                 IsSuccess = true,
@@ -196,7 +256,8 @@ namespace MoneyGer.Server.Controllers
             return Ok(userDetails);
         }
 
-         [HttpDelete("{id}")]
+        [AllowAnonymous]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
