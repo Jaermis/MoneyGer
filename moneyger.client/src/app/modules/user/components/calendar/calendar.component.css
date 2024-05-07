@@ -1,0 +1,110 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+  }  
+.cont{
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    justify-content:center;
+    display: flex;      
+}
+  .container{
+    width: 500px;
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  }
+  .sidecontainer{
+    padding: 20px;
+    background-color: #220B57;
+    width: 350px;
+}
+  .container header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+  }
+  header .icons{
+    display: flex;
+  }
+  header .icons i{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+  }
+  .icons i:last-child{
+    margin-right: -10px;
+  }
+  header .icons i:hover{
+    background: #f2f2f2;
+  }
+  header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+  }
+  .calendar{
+    padding: 20px;
+  }
+  .calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+  }
+  .calendar .days{
+    margin-bottom: 20px;
+  }
+  .calendar li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+  }
+  .calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+  }
+  .calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+  }
+  .days li.active{
+    color: white;
+  }
+  .days li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .days li.active::before{
+    background: red;
+  }
+  .days li:not(.active):hover::before{
+    background: #f2f2f2;
+  }
+.days li.previous-month-day,
+.days li.next-month-day {
+  color: #aaa;
+}
+.days li.has-event::before{
+    background: aqua;
+}
+
+

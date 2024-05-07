@@ -1,1 +1,26 @@
-<p>calendar works!</p>
+<div class="cont">
+    <div class="container">
+        <header>
+            <p class = "current-date">{{ currentMonth }} {{ currentYear }}</p>
+            <div class="icons">
+                <i class='bx bx-chevron-left bx-sm' (click)="previousMonth()"></i>
+                <i class='bx bx-chevron-right bx-sm' (click)="nextMonth()"></i>
+            </div>
+        </header>
+        <div class="calendar">
+            <ul class="week">
+                <li *ngFor="let day of weekDays">{{ day }}</li>
+            </ul>
+            <ul class="days">
+                <li *ngFor="let day of days" [ngClass]="getClasses(day)">{{ day.day }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidecontainer">
+        <h1>Event</h1>
+        <div class="event-title">
+            
+        </div>
+        <div class="event-date"><h2>May 10</h2></div>
+    </div>
+</div>

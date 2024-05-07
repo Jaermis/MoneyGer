@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj": {}
+    "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj": {
+    "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj",
+        "projectUniqueName": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
         "projectName": "MoneyGer.Server",
-        "projectPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\MoneyGer.Server.csproj",
-        "packagesPath": "C:\\Users\\Nodz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.server\\obj\\",
+        "projectPath": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.csproj",
+        "packagesPath": "C:\\Users\\Jule Jerrish Quijano\\.nuget\\packages\\",
+        "outputPath": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\MoneyGer.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nodz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Jule Jerrish Quijano\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -117,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
