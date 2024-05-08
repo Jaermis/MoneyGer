@@ -1,5 +1,3 @@
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -112,8 +110,13 @@ namespace MoneyGer.Server.Controllers
                 };
 
                 _context.UserCompanyRole.Add(newUserRole);
-            }
+                
+                user.Company = company.Name;
+                var result = await _userManager.UpdateAsync(user);
 
+                if(!result.Succeeded)
+                    return BadRequest(result);
+            }
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Company assignment successful!" });

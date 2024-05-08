@@ -13,5 +13,6 @@ namespace MoneyGer.Server.Dtos
         public bool PhoneNumberConfirmed {get;set;}
         public bool TwoFactorEnabled {get;set;}
         public int AccessFailedCount {get;set;}
+        public string? Company {get;set;}
     }
 }

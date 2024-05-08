@@ -12,5 +12,6 @@ namespace MoneyGer.Server.Models
         public string LastName { get; set; } = null!;
         [Required]
         public DateTime DateCreated { get; set; }
+        public string? Company {get; set; }
     }
 }
