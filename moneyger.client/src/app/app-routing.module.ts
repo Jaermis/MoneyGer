@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgotpass', component: ForgotpassComponent},
   { path: 'user', loadChildren:()=> import('./modules/user/user.module').then((m)=>m.UserModule)},
-  { path: '**', component: NotFoundComponent},
+  //{ path: '**', component: NotFoundComponent},
   { path: 'reset-password', component: ResetPasswordComponent}
 ];
 
