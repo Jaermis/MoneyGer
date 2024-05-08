@@ -11,14 +11,16 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserModule } from './modules/user/user.module';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     //SignupComponent,
-    ForgotpassComponent,
+    //ForgotpassComponent,
     NotFoundComponent,
+    //ResetPasswordComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,

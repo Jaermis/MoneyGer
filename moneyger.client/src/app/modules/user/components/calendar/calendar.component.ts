@@ -48,7 +48,8 @@ export class CalendarComponent {
     let classes = '';
     if (day.active === ActiveState.Current) {
       classes = 'active';
-    } else if (day.active === ActiveState.PreviousNextMonth) {
+    } 
+    else if (day.active === ActiveState.PreviousNextMonth) {
       if (day.day < this.days[0].day) { // Check if day is from previous month
         classes = 'previous-month-day'; // Or a different class for previous month
       } else {
@@ -88,7 +89,6 @@ export class CalendarComponent {
     for (let i = 1; i <= daysToAdd; i++) {
       days.push({ day: i, active: ActiveState.PreviousNextMonth });
     }
-  
     return days;
   }
   initializeEvents(): void {
