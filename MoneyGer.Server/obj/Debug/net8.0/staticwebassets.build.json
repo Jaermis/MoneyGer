@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "hyxhfQoW2kc3FR43A3/Fcirm6vBdzr27vWUy8xa2GoA=",
+  "Source": "MoneyGer.Server",
+  "BasePath": "_content/MoneyGer.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\moneyger.client\\moneyger.client.esproj",
+      "Version": 2,
+      "Source": "moneyger.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
