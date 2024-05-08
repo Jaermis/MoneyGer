@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { TmplAstSwitchBlockCase } from '@angular/compiler';
 import { jwtDecode } from 'jwt-decode';
 import { RegisterRequest } from '../interfaces/register-request';
+import { ResetPasswordRequest } from '../interfaces/reset-password-request';
 
 @Injectable({
   providedIn: 'root'
@@ -72,4 +73,10 @@ export class AuthService {
     return this.http
     .post<AuthResponse>(`${this.apiUrl}/moneyger_users/Register`, data)
   }
+
+  forgotPassword = (email:string) : Observable<AuthResponse> =>
+    this.http.post<AuthResponse>(`${this.apiUrl}/moneyger_users/ForgotPassword`,{email});
+
+  resetPassword = (data:ResetPasswordRequest) : Observable<AuthResponse> =>
+    this.http.post<AuthResponse>(`${this.apiUrl}/moneyger_users/ResetPassword`,data);
 }

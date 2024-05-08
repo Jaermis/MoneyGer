@@ -10,6 +10,7 @@ import { GettingStartedComponent } from './modules/user/components/getting-start
 import { HeaderComponent } from './modules/user/components/header/header.component';
 import { HomeComponent } from './modules/user/components/home/home.component';
 import { SidebarComponent } from './modules/user/components/sidebar/sidebar.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgotpass', component: ForgotpassComponent},
   { path: 'user', loadChildren:()=> import('./modules/user/user.module').then((m)=>m.UserModule)},
-  { path: '**', component: NotFoundComponent}
+  { path: '**', component: NotFoundComponent},
+  { path: 'reset-password', component: ResetPasswordComponent}
 ];
 
 @NgModule({
