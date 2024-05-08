@@ -1,3 +1,4 @@
 C:\Users\Ronerr Villacarlos\Documents\Code\Csharp\MoneyGer\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
 C:\Users\Jermzu\Documents\GitHub\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
 C:\Users\Nodz\Desktop\The dream\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
+E:\Desktop\Softdeva\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
