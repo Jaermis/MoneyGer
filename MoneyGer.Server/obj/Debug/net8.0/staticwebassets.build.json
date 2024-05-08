@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "hyxhfQoW2kc3FR43A3/Fcirm6vBdzr27vWUy8xa2GoA=",
+  "Hash": "GQhNmU+kbv8ZWce64rqV5eAYzqoeBus5aHxOfXOJ1us=",
   "Source": "MoneyGer.Server",
   "BasePath": "_content/MoneyGer.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\moneyger.client\\moneyger.client.esproj",
+      "Identity": "E:\\Desktop\\Softdeva\\MoneyGer\\moneyger.client\\moneyger.client.esproj",
       "Version": 2,
       "Source": "moneyger.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
