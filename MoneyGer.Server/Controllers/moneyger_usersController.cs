@@ -325,6 +325,7 @@ namespace MoneyGer.Server.Controllers
                 PhoneNumber = user.PhoneNumber,
                 PhoneNumberConfirmed = user.PhoneNumberConfirmed,
                 AccessFailedCount = user.AccessFailedCount,
+                Company = user.Company
             });
         }
 
