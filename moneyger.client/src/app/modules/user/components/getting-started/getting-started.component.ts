@@ -15,7 +15,6 @@ export class GettingStartedComponent {
 
     ngOnInit(): void {
       this.titleService.setTitle('Getting Started');
-     // this.service.refreshlist();
     }
 
     CreateCompany(){

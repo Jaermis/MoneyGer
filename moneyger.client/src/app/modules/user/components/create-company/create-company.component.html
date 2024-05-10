@@ -4,18 +4,16 @@
         <form action="/url">
             <label>
                 <p class="leybel">Company Name</p>
-                <input class="company-name" type="text" required>
+                <input class="company-name" [(ngModel)] = "makeCompany.name" name="name" type="text" required>
             </label>
             <label>
                 <p class="leybel">Company Address</p>
-                <input class="company-address" type="text" required>
+                <input class="company-address" [(ngModel)] = "makeCompany.location" name="locationi" type="text" required>
             </label>
 
-            <button class="createbutt" (click)="CreateCompany()">Create Company</button>
+            <button class="createbutt" (click)="createCompany()">Create Company</button>
             <button class="cancel" (click)="Cancel()">Cancel</button>
             
         </form>
     </div>
 </div>
-
-

@@ -29,6 +29,7 @@
     "@fullcalendar/interaction": "^6.1.11",
     "boxicons": "^2.1.4",
     "chart.js": "^4.4.2",
+    "guid-typescript": "^1.0.9",
     "jest-editor-support": "*",
     "jwt-decode": "^4.0.0",
     "run-script-os": "*",

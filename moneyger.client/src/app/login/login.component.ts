@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
   login(){
     this.authService.login(this.form.value).subscribe({
       next:(response)=>{
-        alert("Login succesful!");
         const roles = this.authService.getUserDetail()?.roles;
         if (roles == 'User') {
           this.router.navigate(['/user/getting-started']); // Navigate based on the role condition
