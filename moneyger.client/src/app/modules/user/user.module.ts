@@ -43,7 +43,7 @@ const UserComponents = [
     OrdersComponent,
     StatisticsComponent,
     CalendarComponent,
-    CreateCompanyComponent,
+    //CreateCompanyComponent,
     JoinCompanyComponent
   ],
   imports: [

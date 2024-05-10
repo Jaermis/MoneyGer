@@ -154,7 +154,7 @@ namespace MoneyGer.Server.Controllers
                 });
             }
 
-            if(loginDto.Email != "admin@example.com"){
+            if(!string.Equals(loginDto.Email, "admin@example.com",StringComparison.OrdinalIgnoreCase)){
                 var confirmed = await _userManager.IsEmailConfirmedAsync(user);
 
                 if(!confirmed){
@@ -340,7 +340,8 @@ namespace MoneyGer.Server.Controllers
                 Email = u.Email,
                 FirstName = u.FirstName,
                 LastName = u.LastName,
-                Roles = _userManager.GetRolesAsync(u).Result.ToArray()
+                Roles = _userManager.GetRolesAsync(u).Result.ToArray(),
+                Company = u.Company
             }).ToList();
 
             return Ok(userDetails);

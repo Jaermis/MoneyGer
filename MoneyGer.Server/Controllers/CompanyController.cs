@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,37 +24,57 @@ namespace MoneyGer.Server.Controllers
             _context = context;
         }
 
-          [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> CreateCompany([FromBody] CreateCompanyDto createCompanyDto)
         {
             if (string.IsNullOrEmpty(createCompanyDto.Name))
             {
                 return BadRequest("Company name is required");
             }
-
-
+            
             var company = new Company
             {
                 Id = Guid.NewGuid().ToString(),
                 Name = createCompanyDto.Name,
-                Location = createCompanyDto.Location
+                Location = createCompanyDto.Location,
+                Owner = createCompanyDto.Owner!
             };
 
             _context.companies.Add(company);
             await _context.SaveChangesAsync();
 
+            var user = await _userManager.FindByIdAsync(createCompanyDto.Owner!);
+
+            if(user != null){
+
+                var role = await _roleManager.FindByNameAsync("Owner");
+
+                var newUserRole = new UserCompanyRole
+                {
+                    UserId = user.Id,
+                    RoleId = role!.Id,
+                    CompanyId = company.Id
+                };
+                
+                _context.UserCompanyRole.Add(newUserRole);
+                await _context.SaveChangesAsync();
+
+                user.Company = createCompanyDto.Name;
+                await _userManager.UpdateAsync(user);
+            }
+
             return Ok(new { message = "Company Created Successfully" });
         }
 
-        [HttpGet]
+        [HttpGet("AllCompany")]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
         {
             var companies = await _context.companies.ToListAsync();
             return Ok(companies);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCompany(int id)
+        [HttpDelete("Delete{id}")]
+        public async Task<IActionResult> DeleteCompany(string id)
         {
             var company = await _context.companies.FindAsync(id);
 
