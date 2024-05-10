@@ -1,39 +1,41 @@
 <div id="forgotpass">
     <div class="fcontainer">
-        @if(showEmailSent){
-            <div class="center">
-                <h1 class="text-xl font-bold">Email Sent</h1>
-                <p class="mb1 mt-3 text-blue-700 font-semibold">
-                    We have sent a password reset link to your email.
-                </p>
-            </div>     
-        }
-        @else{  
-        <div class="left">
-            <div class="text">
-                <h2 class="header"><strong>Forgot Password?</strong></h2>
-            <p class="sub">Enter the email address associated with the account
-                <br>We’ll send you a link to confirm your email
-            </p>
-            </div>
-            <div class="emailtext">
-                <form action="/url">
-                    <input placeholder="Enter email address" class="email" type="text" 
-                        name="email" [(ngModel)] = "email" required>
-                </form>
-            </div>
-            <div class="submit">
-                <div>
-                    <p><a class="back" routerLink="/login">Back to Login</a></p>
+            @if(showEmailSent){
+                <div class="center">
+                    <img src="assets/email_icon.gif" class="email_icon" alt="Email Icon">
+                    <h2 class="header"><strong>Email Sent!</strong></h2>
+    
+                    <p class="sub-T">
+                        We have sent a password reset link to your email.
+                    </p>
                 </div>
-                <div>
-                    <button (click) = "forgotPassword()" class="sendbutt">
-                        Send
-                    </button>
-                </div>
-            </div>
-        </div>
-        }
+            }
+            @else{  
+                    <div class="left">
+                        <div class="text">
+                            <h2 class="header"><strong>Forgot Password?</strong></h2>
+                        <p class="sub">Enter the email address associated with the account
+                            <br>We’ll send you a link to confirm your email
+                        </p>
+                        </div>
+                        <div class="emailtext">
+                            <form action="/url">
+                                <input placeholder="Enter email address" class="email" type="text" 
+                                    name="email" [(ngModel)] = "email" required>
+                            </form>
+                        </div>
+                        <div class="submit">
+                            <div>
+                                <p><a class="back" routerLink="/login">Back to Login</a></p>
+                            </div>
+                            <div>
+                                <button (click) = "forgotPassword()" class="sendbutt">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    }      
         <div class="right">
             <img src="assets/lock.png" class="lock" alt="Lock Logo">
         </div>

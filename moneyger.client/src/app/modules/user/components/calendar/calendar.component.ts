@@ -9,8 +9,8 @@ interface CalendarDay {
   day: number;
   active: ActiveState;
 }
-interface Event {
-  date: number; // Day of the month
+interface Event{
+  date: Date;
   description: string;
 }
 @Component({
@@ -25,7 +25,13 @@ export class CalendarComponent {
   weekDays: string[];
   days: CalendarDay[];
   currentDay: number;
-  eventsMap: Map<number, Event[]>;
+  events: Event[] = [];
+
+  predefinedEvents: Event[] = [
+    { date: new Date(2024, 4, 15), description: 'Meeting with client' },
+    { date: new Date(2024, 4, 20), description: 'Team lunch' },
+    { date: new Date(2024, 4, 25), description: 'Project deadline' }
+  ];
 
   constructor() {
     this.currentDate = new Date();
@@ -34,7 +40,7 @@ export class CalendarComponent {
     this.currentDay = this.currentDate.getDate();
     this.weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
-    this.eventsMap = new Map<number, Event[]>();
+    this.events = [...this.predefinedEvents];
   }
 
   ngOnInit(): void {
@@ -68,6 +74,7 @@ export class CalendarComponent {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
+    const event : Event[] = [];
   
     // Get last date of previous month
     const lastDateofLastMonth = new Date(year, month, 0).getDate();
@@ -81,8 +88,13 @@ export class CalendarComponent {
     // Fill up days of current month
     for (let i = 1; i <= daysInMonth; i++) {
       const isActive = year === currentYear && month === currentMonth && i === currentDate.getDate() ? ActiveState.Current : ActiveState.Inactive;
-      days.push({ day: i, active: isActive || ActiveState.Inactive});
+      const hasEvents = this.predefinedEvents.some(event => {
+        const eventDate = new Date(event.date);
+        return eventDate.getFullYear() === year && eventDate.getMonth() === month && eventDate.getDate() === i;
+      }) ? ActiveState.HasEvent : ActiveState.Inactive;
+      days.push({ day: i, active: isActive || hasEvents });
     }
+
     // Fill up remaining days with days from next month
     const lastDayofMonth = new Date(year, month, daysInMonth).getDay();
     const daysToAdd = 6 - lastDayofMonth;
@@ -90,18 +102,6 @@ export class CalendarComponent {
       days.push({ day: i, active: ActiveState.PreviousNextMonth });
     }
     return days;
-  }
-  initializeEvents(): void {
-    // Example: Add events to the events map
-    this.addEvent(5, "Meeting with John");
-    this.addEvent(15, "Dentist Appointment");
-    this.addEvent(25, "Birthday Party");
-    // You can add more events here
-  }
-  addEvent(date: number, description: string): void {
-    const events = this.eventsMap.get(date) || [];
-    events.push({ date, description });
-    this.eventsMap.set(date, events);
   }
   previousMonth(): void {
     this.currentDate.setMonth(this.currentDate.getMonth() - 1);
@@ -119,4 +119,13 @@ export class CalendarComponent {
     this.currentDay = this.currentDate.getDate();
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
   }
+  getEventsForDate(date: Date): Event[] {
+    return this.events.filter(event => this.isSameDay(event.date, date));
+  }
+  
+  isSameDay(date1: Date, date2: Date): boolean {
+    return date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate();
+  } 
 }
