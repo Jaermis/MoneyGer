@@ -63,8 +63,11 @@
 .sub{
     margin-top: 5%;
     color: #96949C;
+    font-size: 16px;   
+}
+.sub-T{
+    color: #96949C;
     font-size: 16px;
-    
 }
 .email{
     width: 100%; 
@@ -100,4 +103,18 @@
 }
 input:focus{
     outline-color: #603EAE;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 45px;
+    height: 549px;
+    width: 50%;
+    overflow: hidden;
+}
+.email_icon{
+    height: 200px;
+    width: 200px;
 }
