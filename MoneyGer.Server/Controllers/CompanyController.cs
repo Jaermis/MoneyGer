@@ -99,7 +99,7 @@ namespace MoneyGer.Server.Controllers
                 return NotFound("User not found.");
             }
 
-            var role = await _roleManager.FindByIdAsync(companyAssignDto.RoleId);
+            var role = await _roleManager.FindByNameAsync("Member");
 
             if (role is null)
             {

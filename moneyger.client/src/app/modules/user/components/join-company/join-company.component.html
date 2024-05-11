@@ -4,7 +4,7 @@
         <form action="/url">
             <label>
                 <p class="leybel">Enter Company Code</p>
-                <input class="company-code" type="text" required>
+                <input class="company-code" type="text" [(ngModel)] = "joinCompany.companyId" name = "companyId" required>
             </label>
 
             <button class="createbutt" (click)="JoinCompany()">Join Company</button>
