@@ -8,6 +8,7 @@ import { TmplAstSwitchBlockCase } from '@angular/compiler';
 import { jwtDecode } from 'jwt-decode';
 import { Role } from '../interfaces/role';
 import { CompanyRequest } from '../interfaces/company-request';
+import { CompanyJoin } from '../interfaces/company-join';
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +20,8 @@ export class CompanyService {
 
   createCompany = (data:CompanyRequest):Observable<AuthResponse>=>
     this.http.post<AuthResponse>(`${this.apiUrl}/Company`, data);
+
+  
+  joinCompany = (data:CompanyJoin):Observable<AuthResponse>=>
+    this.http.post<AuthResponse>(`${this.apiUrl}/Company/AssignCompany`, data);
 }

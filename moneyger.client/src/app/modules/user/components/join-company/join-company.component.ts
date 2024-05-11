@@ -1,22 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MoneygerUsersService } from '../../../../shared/moneyger-users.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CompanyJoin } from '../../../../interfaces/company-join';
+import { ValidationError } from '../../../../interfaces/validation-error';
+import { CompanyService } from '../../../../shared/company.service';
+import { AuthService } from '../../../../shared/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-join-company',
   templateUrl: './join-company.component.html',
-  styleUrl: './join-company.component.css'
+  styleUrl: './join-company.component.css',
+  standalone:true,
+  imports:[FormsModule, RouterLink]
 })
-export class JoinCompanyComponent {
+
+export class JoinCompanyComponent implements OnInit {
+  joinCompany: CompanyJoin = {
+    userId: '',
+    roleId: '',
+    companyId: ''
+  };
+  errors: ValidationError[] = [];
+
   constructor(
-    private titleService: Title, public service: MoneygerUsersService, private router: Router
-    ) {}
+    private titleService: Title,
+    private companyService: CompanyService,
+    private authService: AuthService,
+    public router: Router
+  ) {}
 
     ngOnInit(): void {
       this.titleService.setTitle('Join a Company');
-     // this.service.refreshlist();
+      this.joinCompany.userId = this.authService.getUserDetail()?.id || '';
     }
 
     Cancel(){
@@ -24,6 +43,18 @@ export class JoinCompanyComponent {
     }
 
     JoinCompany(){
-      this.router.navigate(['/user']);
+      this.companyService.joinCompany(this.joinCompany).subscribe({
+        next:(response)=>{
+           this.router.navigate(['/user/home']);
+        },
+        error:(err:HttpErrorResponse)=>{
+          if(err!.status ==  400){
+            this.errors=err!.error;
+          }
+          console.log(err.message);
+        },
+
+        complete:()=>alert('Joined Company successfully!'),
+      });
     }
 }

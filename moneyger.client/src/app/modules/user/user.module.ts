@@ -44,7 +44,7 @@ const UserComponents = [
     StatisticsComponent,
     CalendarComponent,
     //CreateCompanyComponent,
-    JoinCompanyComponent
+    //JoinCompanyComponent
   ],
   imports: [
     CommonModule,

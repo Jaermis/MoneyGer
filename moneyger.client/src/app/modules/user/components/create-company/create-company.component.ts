@@ -12,7 +12,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { LoginComponent } from '../../../../login/login.component';
 import { CommonModule } from '@angular/common';
 import { CompanyRequest } from '../../../../interfaces/company-request';
-import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-create-company',
