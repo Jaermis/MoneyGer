@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgotpass', component: ForgotpassComponent},
-  { path: 'user', loadChildren:()=> import('./modules/user/user.module').then((m)=>m.UserModule)},
+  { path: 'user', loadChildren:()=> import('./modules/user/user.module').then((m)=>m.UserModule)}, //lazyload dashboard
+  { path: 'home', loadChildren:()=> import('./modules/home/home.module').then((m)=>m.HomeModule)}, //lazyload landing-page
   { path: 'reset-password', component: ResetPasswordComponent},
   { path: '**', component: NotFoundComponent}
 ];
