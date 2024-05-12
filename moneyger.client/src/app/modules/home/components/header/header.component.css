@@ -51,4 +51,8 @@
     max-height: 61px;
     font-family: 'Open Sans', sans-serif; 
     font-weight: 450; 
+
+    &:hover {
+        background-color: #4d3c9f; 
+      }
 }
