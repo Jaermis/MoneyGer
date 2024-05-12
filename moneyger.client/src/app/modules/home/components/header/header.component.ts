@@ -1,4 +1,4 @@
-import { Component, HostListener, Renderer2 } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {ViewportScroller} from '@angular/common';
 
 @Component({
@@ -10,7 +10,6 @@ export class HeaderComponent {
   isDesktop = true;
   constructor(
     private viewportScroller: ViewportScroller,
-    private renderer: Renderer2
   ) { }
 
   @HostListener('window:resize', ['$event'])
