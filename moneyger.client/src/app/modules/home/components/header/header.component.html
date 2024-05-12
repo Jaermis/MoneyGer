@@ -1,0 +1,17 @@
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<div *ngIf="isDesktop" class="container">
+    <div class="logo">
+        <a routerLink="/home">
+            <img class="logopic" src="assets/logo.png" alt="Logo">
+        </a>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" scrollSpy>HOME</a></li>
+            <li><a href="#features" scrollSpy>FEATURES</a></li>
+            <li><a href="#about" scrollSpy>ABOUT</a></li>
+            <li><a href="#contact" scrollSpy>CONTACT</a></li>
+            <li><button routerLink="/login" class="get-started">Get Started</button></li>
+        </ul>
+    </nav>
+</div>

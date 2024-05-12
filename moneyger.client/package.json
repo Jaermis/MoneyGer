@@ -32,6 +32,7 @@
     "guid-typescript": "^1.0.9",
     "jest-editor-support": "*",
     "jwt-decode": "^4.0.0",
+    "ngx-scrollspy": "^1.2.1",
     "run-script-os": "*",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
