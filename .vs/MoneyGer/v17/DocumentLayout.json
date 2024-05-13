@@ -1,69 +1,116 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\",
+  "WorkspaceRootPath": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\forgotpass\\forgotpass.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\moneyger.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\moneyger.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\forgotpass\\forgotpass.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\migrations\\20240423114712_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\migrations\\20240423114712_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\controllers\\moneyger_userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\controllers\\moneyger_userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240416114820_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MoneyGer.Server\\Migrations\\20240416114820_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\models\\moneyger_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\models\\moneyger_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.client\\src\\environments\\environment.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\environments\\environment.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.client\\src\\environments\\environment.development.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\environments\\environment.development.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.client\\src\\app\\login\\login.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\login\\login.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.client\\src\\app\\login\\login.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\login\\login.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.client\\src\\app\\signup\\signup.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\signup\\signup.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\signup\\signup.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\signup\\signup.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\signup\\signup.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\signup\\signup.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\signup\\signup.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\signup\\signup.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\signup\\signup.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\shared\\role.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\shared\\role.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\shared\\moneyger-users.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\shared\\moneyger-users.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\shared\\moneyger-users.service.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\shared\\moneyger-users.service.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\shared\\moneyger-users.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\shared\\moneyger-users.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\shared\\moneyger-users.model.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\shared\\moneyger-users.model.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\shared\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\shared\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\moneyger.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\moneyger.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\migrations\\20240423114712_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\migrations\\20240423114712_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\controllers\\moneyger_userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\controllers\\moneyger_userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240416114820_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\models\\moneyger_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\models\\moneyger_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\environments\\environment.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\environments\\environment.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\environments\\environment.development.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\environments\\environment.development.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\login\\login.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\login\\login.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.client\\src\\app\\login\\login.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{170617E4-2DEF-45C3-AEF9-456F4B74FCDE}|moneyger.client\\moneyger.client.esproj|solutionrelative:moneyger.client\\src\\app\\login\\login.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\nodz\\desktop\\the dream\\moneyger\\moneyger.server\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|c:\\users\\ronerr villacarlos\\documents\\code\\csharp\\moneyger\\moneyger\\moneyger.server\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1B8B0F54-6E03-40A7-A325-820E75AA589D}|MoneyGer.Server\\MoneyGer.Server.csproj|solutionrelative:moneyger.server\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -74,19 +121,188 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "forgotpass.component.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:40:03.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "forgotpass.component.spec.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.spec.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.spec.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.spec.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.spec.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:40:02.386Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "forgotpass.component.html",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.html",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.html",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\forgotpass\\forgotpass.component.html",
+              "RelativeToolTip": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-10T11:39:55.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "signup.component.html",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.html",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\signup\\signup.component.html",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.html",
+              "RelativeToolTip": "moneyger.client\\src\\app\\signup\\signup.component.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-10T11:39:08.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "signup.component.css",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.css",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\signup\\signup.component.css",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.css",
+              "RelativeToolTip": "moneyger.client\\src\\app\\signup\\signup.component.css",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-10T11:39:02.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "signup.component.spec.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.spec.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\signup\\signup.component.spec.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.spec.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\signup\\signup.component.spec.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:39:01.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "role.service.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\role.service.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\shared\\role.service.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\role.service.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\shared\\role.service.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:38:57.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "moneyger-users.service.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.service.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\shared\\moneyger-users.service.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.service.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\shared\\moneyger-users.service.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:38:56.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "moneyger-users.service.spec.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.service.spec.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\shared\\moneyger-users.service.spec.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.service.spec.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\shared\\moneyger-users.service.spec.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:38:54.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "signup.component.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\signup\\signup.component.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\signup\\signup.component.ts",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwB8AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-03-09T15:48:56.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "moneyger-users.model.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.model.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\shared\\moneyger-users.model.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.model.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\shared\\moneyger-users.model.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:38:51.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "moneyger-users.model.spec.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.model.spec.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\shared\\moneyger-users.model.spec.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\moneyger-users.model.spec.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\shared\\moneyger-users.model.spec.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:38:48.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "auth.service.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\auth.service.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\shared\\auth.service.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\shared\\auth.service.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\shared\\auth.service.ts",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-10T11:38:39.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "MoneyGer.Server.http",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.http",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.http",
               "RelativeDocumentMoniker": "MoneyGer.Server\\MoneyGer.Server.http",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.http",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\MoneyGer.Server.http",
               "RelativeToolTip": "MoneyGer.Server\\MoneyGer.Server.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
@@ -94,11 +310,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
               "Title": "20240423114712_Initial.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
               "RelativeToolTip": "MoneyGer.Server\\Migrations\\20240423114712_Initial.cs",
               "ViewState": "AQIAAKEAAAAAAAAAAAAQwOIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -106,22 +322,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 18,
               "Title": "20240416114820_Initial.cs",
               "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240416114820_Initial.cs",
-              "RelativeDocumentMoniker": "MoneyGer.Server\\Migrations\\20240416114820_Initial.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240416114820_Initial.cs",
               "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240416114820_Initial.cs",
-              "RelativeToolTip": "MoneyGer.Server\\Migrations\\20240416114820_Initial.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Migrations\\20240416114820_Initial.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T11:48:20.696Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 26,
               "Title": "AuthResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Dtos\\AuthResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Dtos\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Dtos\\AuthResponseDto.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Dtos\\AuthResponseDto.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Dtos\\AuthResponseDto.cs",
               "RelativeToolTip": "MoneyGer.Server\\Dtos\\AuthResponseDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -129,24 +345,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Program.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Program.cs",
               "RelativeToolTip": "MoneyGer.Server\\Program.cs",
               "ViewState": "AQIAAD8AAAAAAAAAAAAAAFQAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:41:12.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T10:41:12.634Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\appsettings.json",
               "RelativeDocumentMoniker": "MoneyGer.Server\\appsettings.json",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\appsettings.json",
               "RelativeToolTip": "MoneyGer.Server\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -155,11 +370,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 19,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Context\\ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Context\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Context\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Context\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Context\\ApplicationDbContext.cs",
               "RelativeToolTip": "MoneyGer.Server\\Context\\ApplicationDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -167,11 +382,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 17,
               "Title": "moneyger_usersController.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
               "RelativeToolTip": "MoneyGer.Server\\Controllers\\moneyger_usersController.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAxwDQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -179,11 +394,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 27,
               "Title": "RegisterDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Dtos\\RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Dtos\\RegisterDto.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Dtos\\RegisterDto.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Dtos\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Dtos\\RegisterDto.cs",
               "RelativeToolTip": "MoneyGer.Server\\Dtos\\RegisterDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -191,11 +406,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 20,
               "Title": "moneyger_users.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Models\\moneyger_users.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Models\\moneyger_users.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Models\\moneyger_users.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Models\\moneyger_users.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Models\\moneyger_users.cs",
               "RelativeToolTip": "MoneyGer.Server\\Models\\moneyger_users.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -203,11 +418,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 21,
               "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Models\\Login.cs",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Models\\Login.cs",
               "RelativeDocumentMoniker": "MoneyGer.Server\\Models\\Login.cs",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\MoneyGer.Server\\Models\\Login.cs",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\MoneyGer.Server\\Models\\Login.cs",
               "RelativeToolTip": "MoneyGer.Server\\Models\\Login.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -215,11 +430,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 22,
               "Title": "environment.ts",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\environments\\environment.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\environments\\environment.ts",
               "RelativeDocumentMoniker": "moneyger.client\\src\\environments\\environment.ts",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\environments\\environment.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\environments\\environment.ts",
               "RelativeToolTip": "moneyger.client\\src\\environments\\environment.ts",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
@@ -227,11 +442,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 23,
               "Title": "environment.development.ts",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\environments\\environment.development.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\environments\\environment.development.ts",
               "RelativeDocumentMoniker": "moneyger.client\\src\\environments\\environment.development.ts",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\environments\\environment.development.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\environments\\environment.development.ts",
               "RelativeToolTip": "moneyger.client\\src\\environments\\environment.development.ts",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
@@ -239,23 +454,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "signup.component.ts",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.ts",
-              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\signup\\signup.component.ts",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\app\\signup\\signup.component.ts",
-              "RelativeToolTip": "moneyger.client\\src\\app\\signup\\signup.component.ts",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwB8AAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-03-09T15:48:56.627Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 25,
               "Title": "login.component.ts",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.ts",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.ts",
               "RelativeDocumentMoniker": "moneyger.client\\src\\app\\login\\login.component.ts",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.ts",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.ts",
               "RelativeToolTip": "moneyger.client\\src\\app\\login\\login.component.ts",
               "ViewState": "AQIAAA0AAAAAAAAAAAAgwBEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
@@ -263,15 +466,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 24,
               "Title": "login.component.html",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.html",
+              "DocumentMoniker": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.html",
               "RelativeDocumentMoniker": "moneyger.client\\src\\app\\login\\login.component.html",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\The dream\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.html",
+              "ToolTip": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.client\\src\\app\\login\\login.component.html",
               "RelativeToolTip": "moneyger.client\\src\\app\\login\\login.component.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-03-09T15:40:45.497Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

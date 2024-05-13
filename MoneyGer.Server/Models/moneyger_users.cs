@@ -13,5 +13,8 @@ namespace MoneyGer.Server.Models
         [Required]
         public DateTime DateCreated { get; set; }
         public string? Company {get; set; }
+        public string? Instagram {get; set; }
+        public string? Facebook {get; set; }
+        public string? Twitter {get; set; }
     }
 }
