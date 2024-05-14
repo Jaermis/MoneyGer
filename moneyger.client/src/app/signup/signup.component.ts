@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { MoneygerUsersService } from '../shared/moneyger-users.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { RoleService } from '../shared/role.service';
 import { Observable } from 'rxjs';
 import { Role } from '../interfaces/role';
@@ -20,7 +20,7 @@ import { ValidationError } from '../interfaces/validation-error';
 })
 export class SignupComponent implements OnInit {
   constructor(
-    private titleService: Title, public service:  MoneygerUsersService, 
+    private titleService: Title, public service:  MoneygerUsersService, private router: Router
   ) { }
     
     changeicon:boolean = true;
@@ -56,6 +56,7 @@ export class SignupComponent implements OnInit {
       this.authService.register(this.form.value).subscribe({
         next:(response)=>{
           //console.log(response);
+          this.router.navigate(['/login']);
         },
         error:(err:HttpErrorResponse)=>{
           if(err!.status ==  400){
