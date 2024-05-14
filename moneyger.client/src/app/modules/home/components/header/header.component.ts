@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import {ViewportScroller} from '@angular/common';
 
 @Component({
@@ -7,19 +7,9 @@ import {ViewportScroller} from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isDesktop = true;
   constructor(
     private viewportScroller: ViewportScroller,
   ) { }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.isDesktop = window.innerWidth >= 1100; // Adjust the breakpoint as needed
-  }
-
-  private initializeScreenSize() {
-    this.isDesktop = window.innerWidth >= 1100; // Adjust the breakpoint as needed
-  }
 
   scrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);

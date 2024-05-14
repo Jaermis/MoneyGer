@@ -12,10 +12,6 @@
     align-items: center;
     height: 80px;
     background-color: #EDF1FC;
-
-    @media (max-width: 767px) {
-        display: none; 
-      }
 }
 
 .logopic{
@@ -56,3 +52,21 @@
         background-color: #4d3c9f; 
       }
 }
+
+@media (max-width: 1100px) {
+    .navbar {
+      display: none;
+    }
+    .container {
+      justify-content: center;
+      width: 100%;
+    }
+    .image {
+      display: flex;
+      align-items: center;
+    }
+    .image img {
+      width: 100%;
+      max-width: 400px; 
+    }
+  }
