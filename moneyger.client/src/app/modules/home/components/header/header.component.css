@@ -43,13 +43,18 @@
     cursor: pointer;
     border-radius: 10px;
     font-size: 15px;
-    padding: 17px 30px;
+    padding: 10px 30px;
     max-height: 61px;
     font-family: 'Open Sans', sans-serif; 
-    font-weight: 450; 
+    font-weight: 500; 
+    border-color: #220B57;
+    border-style: solid;
 
     &:hover {
-        background-color: #4d3c9f; 
+        background-color: #EDF1FC; 
+        color: #220B57;
+        border-color: #220B57;
+        border-style: solid;
       }
 }
 

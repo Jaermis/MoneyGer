@@ -1,6 +1,9 @@
 <div class="landing">
     <app-header></app-header>
     <div class="content">
+
+        <!-----------------------------------Home----------------------------------------->
+
         <div id="home">
             <div class="homecont">
                 <div class="text">
@@ -8,13 +11,18 @@
                     <div class="description">
                         Level up your small business management game plan with MoneyGer. Stay connected with customers, nurture those valuable bonds, and make smart decisions powered by insightful data - all while running an efficient, growth-focused business. 
                     </div>
-                    <button routerLink="/login" class="get-started">Get Started</button>
+                    <div class="button-container">
+                        <button routerLink="/login" class="get-started">Get Started</button>
+                    </div>
                 </div>
                 <div class="image">
                     <img src="assets/hero_img.png">
                 </div>
             </div>    
         </div>
+
+        <!---------------------------------Features----------------------------------------->
+
         <div id="features">
             <div class="featcont">
                 <div class="feat-img">
@@ -22,7 +30,37 @@
                 </div>
                 <div class="feat-text">
                     <p class="featheader">Your intuitive toolset for small business growth.</p>
-                    <p>With MoneyGer, manage your business to success with the help of these useful features.</p>
+                    <div class="feat-desc">
+                        With MoneyGer, manage your business to success with the help of these useful features.
+                    </div>
+
+                    <div class="list">
+                        <div class="firstcol">
+                            <div class="track-prog">
+                                <img src="assets/progress.png">
+                                <p>Track Progress</p>
+                            </div>
+                            <div class="visual-sales">
+                                <img src="assets/pieIcon.png">
+                                <p>Visual Sales</p>
+                            </div>
+                        </div>
+                        <div class="secondcol">
+                            <div class="team-manage">
+                                <img src="assets/team.png">
+                                <p>Team Management</p>
+                            </div>
+                            <div class="pos">
+                                <img src="assets/pos.png">
+                                <p>Built-in PoS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="create" routerLink="/signup">
+                        <p>Create an account</p>
+                        <img src="assets/arrowright.png">
+                    </div>
                 </div>
             </div>
         </div>
