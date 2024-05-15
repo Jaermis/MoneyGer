@@ -13,7 +13,7 @@ import { SidebarComponent } from './modules/user/components/sidebar/sidebar.comp
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgotpass', component: ForgotpassComponent},

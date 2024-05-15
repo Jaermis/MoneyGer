@@ -22,10 +22,11 @@
     flex: 1;
     text-align: center;
     margin-top: 30px;
-    img{
-        width: 500px;
-    }
     margin-bottom: 50px;
+}
+
+.image img{
+    width: 500px;
 }
 
 .content{
@@ -56,14 +57,29 @@
     cursor: pointer;
     border-radius: 10px;
     font-size: 15px;
+    font-weight: 500;
     padding: 17px 30px;
     max-height: 61px;
     font-family: 'Open Sans', sans-serif; 
-    font-weight: 450; 
+    border-color: #220B57;
+    border-style: solid; 
+    width: 100%;
 
     &:hover {
-        background-color: #4d3c9f; 
+        background-color: #EDF1FC;
+        color: #220B57;
+        border-color: #220B57;
+        border-style: solid; 
       }
+}
+
+app-header, .header-text, .description, .image img, .button-container {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+app-header.fade-in, .header-text.fade-in, .description.fade-in, .image img.fade-in, .button-container.fade-in {
+    opacity: 1;
 }
 
 .featcont{
@@ -73,8 +89,110 @@
     max-height: 100%;
     background-color: #fff;
 }
+.feat-img{
+    flex: 1;
+}
+.feat-img img{
+    width: 500px;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+
+.feat-text{
+    flex: 1;
+    align-items: center;
+}
+
+.featheader{
+    font-size: 40px;
+    font-weight: bold;
+    color: #220B57;
+    margin-bottom: 20px;
+    line-height: 40px;
+    margin-top: 100px;
+}
+
+.feat-desc {
+    font-size: 20px;
+    color: #220B57;
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    max-height: 100%;
+    background-color: #fff;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.firstcol{
+    flex: 1;
+    margin-right: 50px;
+}
+
+.secondcol{
+    flex: 1;
+}
+
+.track-prog img, .visual-sales img, .team-manage img, .pos img{
+    width: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.track-prog, .visual-sales, .team-manage, .pos {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    max-height: 100%;
+    line-height: 1;
+}
+
+.track-prog p, .visual-sales p, .team-manage p, .pos p {
+    font-size: 20px;
+    color: #220B57;
+    margin-top: 10px;
+}
+
+.visual-sales, .pos{
+    margin-top: 20px;
+}
+
+.create{
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    max-height: 100%;
+    line-height: 1;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.create img{
+    width: 40px;
+    vertical-align: middle;
+}
+
+.create p{
+    font-size: 25px;
+    color: #220B57;
+    font-weight: 600;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.create p:hover{
+    text-decoration: underline;
+}
 
 @media (max-width: 1100px) {
+    *{
+        overflow:hidden;
+    }
+
     .homecont {
       flex-direction: column-reverse;
       width: 100%;
@@ -82,18 +200,18 @@
   
     .text {
       text-align: center;
-      font-size: 15px;
+      font-size: 90%;
       margin-left: 0;
     }
 
     .header-text{
-        font-size: 40px;
+        font-size: 250%;
         font-weight: bold;
         color: #220B57;
         margin-bottom: 20px;
         line-height: 40px;
         text-align: center;
-    
+
         span{
             color: #E25469;
         }
@@ -108,4 +226,135 @@
       width: 100%;
       max-width: 300px;
     }
-  }
+
+    .button-container{
+        text-align: center;
+    }
+
+    /*------------------------features---------------*/
+
+    .featcont{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .feat-img img{
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .feat-text{
+        text-align: center;
+    }
+
+    .featheader{
+        font-size: 200%;
+        margin-top: 0;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .feat-desc {
+        font-size: 100%;
+        color: #220B57;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 100%;
+        align-items: center;
+        text-align: center;
+        margin-top: 60px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .firstcol{
+        flex: 1;
+        margin-right: 0;
+        margin-left: 0;
+        align-items: center;
+    }
+    
+    .secondcol{
+        flex: 1;
+        margin-right: 0;
+        margin-left: 0;
+        align-items: center;
+    }
+    
+    .track-prog img, .visual-sales img, .team-manage img, .pos img{
+        width: 30px;
+        margin-right: 10px;
+        vertical-align: middle;
+        margin-left: 0;
+    }
+    
+    .track-prog, .visual-sales, .team-manage, .pos {
+        display: flex;
+        align-items: center;
+        justify-content:left;
+        width: 100%;
+        max-height: 100%;
+        line-height: 1;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .track-prog p, .visual-sales p, .team-manage p, .pos p {
+        font-size: 20px;
+        color: #220B57;
+        margin-top: 10px;
+        margin-right: 0;
+    }
+    
+    .visual-sales, .pos{
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .team-manage, .pos{
+        margin-top: 0;
+        margin-left: 40px;
+        margin-right: 0;
+    }
+    
+    .create{
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-height: 100%;
+        line-height: 1;
+        margin-top: 60px;
+        margin-bottom: 40px;
+        cursor: pointer;
+        margin-right: 0;
+    }
+    
+    .create img{
+        width: 40px;
+        vertical-align: middle;
+        margin-right: 0;
+    }
+    
+    .create p{
+        font-size: 20px;
+        color: #220B57;
+        font-weight: 600;
+        margin-right: 10px;
+        margin-top: 10px;
+        text-align: center;
+        margin-left: 30px;
+        text-align: center;
+    }
+}
