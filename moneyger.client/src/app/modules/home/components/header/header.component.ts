@@ -14,7 +14,8 @@ export class HeaderComponent {
   scrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);
     if (section) {
-      this.viewportScroller.scrollToPosition([0, section.offsetTop]);
+      const yOffset = 100;
+      this.viewportScroller.scrollToPosition([0, section.offsetTop - yOffset]);
     }
   }
 }

@@ -188,13 +188,13 @@ app-header.fade-in, .header-text.fade-in, .description.fade-in, .image img.fade-
     text-decoration: underline;
 }
 
-.about{
-    width: 100%;
-    margin-bottom: 40px;
-    max-height: 100%;
-    background-color: #220B57;
-    align-items: center;
-    text-align: center;
+.about {
+  width: 100%;
+  margin-bottom: 40px;
+  max-height: 100%;
+  background-color: #220B57;
+  align-items: center;
+  text-align: center;
 }
 
 .about-text{
@@ -204,11 +204,91 @@ app-header.fade-in, .header-text.fade-in, .description.fade-in, .image img.fade-
 
 .about-people{
     display: flex;
-    align-items: center;
+    align-items: baseline;
     text-align: center;
     justify-content: center;
 }
 
+.about-header{
+    font-size: 40px;
+    font-weight: bold;
+    color: #220B57;
+    margin-bottom: 20px;
+    line-height: 40px;
+    margin-top: 100px;
+}
+.about-desc{
+    font-size: 20px;
+    color: #220B57;
+    margin-bottom: 100px;
+}
+.about-people{
+    margin-left: 100px;
+}
+.about-img{
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.james, .jermyne, .ronerr, .jule{
+    margin-right: 100px;
+    margin-bottom: 150px ;
+} 
+.name{
+    font-size: 20px;
+    font-weight: bold;
+    color: #220B57;
+}
+.role{
+    font-size: 15px;
+    color: #220B57;
+}
+
+#contact{
+    background-color: #fff;
+}
+.contact-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15%;
+}
+.divider{
+    display: flex;
+    flex: 3;
+}
+.first-col img{
+    width: 200px;
+}
+.contact-header{
+    font-size: 20px;
+    font-weight: bold;
+    color: #220B57;
+    margin-bottom: 20px;
+    line-height: 40px;
+    margin-top: 100px;
+}
+.first-col{
+    flex: 1;
+    font-size: 15px;
+    color: #220B57;
+    margin-right: 80px;
+    margin-top: 100px;
+}
+.second-col, .third-col{
+    margin-right: 80px;
+}
+.contact-menu{
+    color: #220B57;
+}
+.footer{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    opacity: 50%;
+}
+
+/*------------------------------------------media query---------------------------------------------*/
 @media (max-width: 1100px) {
     *{
         overflow:hidden;
@@ -377,5 +457,117 @@ app-header.fade-in, .header-text.fade-in, .description.fade-in, .image img.fade-
         text-align: center;
         margin-left: 30px;
         text-align: center;
+    }
+
+    /*---------------------------ABOUT-----------------------------*/
+
+    .about {
+        width: 100%;
+        margin-bottom: 40px;
+        max-height: 100%;
+        background-color: #220B57;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .about-text{
+          align-items: center;
+          text-align: center;
+      }
+      
+      .about-people{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+      }
+      
+      .about-header{
+          font-size: 40px;
+          font-weight: bold;
+          color: #220B57;
+          margin-bottom: 20px;
+          line-height: 40px;
+          margin-top: 100px;
+      }
+      .about-desc{
+          font-size: 20px;
+          color: #220B57;
+          margin-bottom: 100px;
+      }
+      .about-people{
+          margin-left: 0px;
+      }
+      .about-img{
+          width: 150px;
+          border-radius: 50%;
+      }
+      .james, .jermyne, .ronerr, .jule{
+        display: flex;
+        margin-right: 100px;
+        margin-bottom: 100px ;
+      } 
+      .name-role{
+        margin-top: 40px;
+        text-align: left;
+        margin-left: 30px;
+      }
+      .name{
+          font-size: 20px;
+          font-weight: bold;
+          color: #220B57;
+      }
+      .role{
+          font-size: 15px;
+          color: #220B57;
+      }
+      
+
+      /*------------------------CONTACT-------------------------*/
+      #contact{
+        background-color: #fff;
+    }
+    .contact-cont{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    .divider{
+        display: flex;
+        flex: 3;
+    }
+    .first-col img{
+        width: 200px;
+    }
+    .contact-header{
+        font-size: 20px;
+        font-weight: bold;
+        color: #220B57;
+        margin-bottom: 20px;
+        line-height: 40px;
+    }
+    .first-col{
+        flex: 1;
+        font-size: 15px;
+        color: #220B57;
+        margin-right: 30px;
+        margin-top: 100px;
+        justify-content: center;
+        text-align: center;
+    }
+    .second-col, .third-col{
+        margin-right: 30px;
+    }
+    .contact-menu{
+        color: #220B57;
+    }
+    .footer{
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        opacity: 50%;
     }
 }
