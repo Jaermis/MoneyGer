@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserModule } from './modules/user/user.module';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PosComponent } from './pos/pos.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     //SignupComponent,
     //ForgotpassComponent,
     NotFoundComponent,
+    PosComponent,
     //ResetPasswordComponent,
   ],
   imports: [
