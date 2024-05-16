@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
-import { MoneygerUsersService } from '../shared/moneyger-users.service';
 import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} from '@angular/forms';
 
@@ -14,7 +13,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} f
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private titleService: Title, public service: MoneygerUsersService, private router: Router
+    private titleService: Title, private router: Router
     ) {} 
 
   authService = inject(AuthService);
@@ -41,12 +40,12 @@ export class LoginComponent implements OnInit {
   login(){
     this.authService.login(this.form.value).subscribe({
       next:(response)=>{
-        const roles = this.authService.getUserDetail()?.roles;
-        if (roles == 'User') {
+        const company = this.authService.getUserDetail()?.company;
+        if (company == 'N/A') {
           this.router.navigate(['/user/getting-started']); // Navigate based on the role condition
         } 
         else {
-          this.router.navigate(['/user']); // Navigate to default route for other cases
+          this.router.navigate(['/user/home']); // Navigate to default route for other cases
         }
       },
       error:(error)=>{
