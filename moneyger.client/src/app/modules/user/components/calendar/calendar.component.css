@@ -79,7 +79,7 @@
     position: relative;
     margin-top: 30px;
   }
-  .days li.active, .days li.has-event{
+  .days li.active, .days li.has-event, .days li.has-current{
     color: white;
   }
   .days li::before{
@@ -95,6 +95,9 @@
   }
   .days li.active::before{
     background: red;
+  }
+  .days li.has-current::before{
+    background: #711f55;
   }
   .days li:not(.active):hover::before{
     background: #f2f2f2;

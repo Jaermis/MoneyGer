@@ -3,26 +3,35 @@
     box-sizing: border-box;
 }
 #saynap{
-    background-image: url("images/bg.png");
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-size: cover;
-    background-position: center;
+    background-position: center; 
     overflow-y: auto;
+    display: flex;
+}
+.loginpic{
+    background-color: #220B57;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
 }
 .container{
     background-color: white;
     padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 550px;
+    flex: 1;
+    height: 100vin;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .logo{
     width: 70px;
@@ -42,30 +51,34 @@
     color: #9751D6;
 }
 .subtext{
-    position: absolute;
     z-index: 1;
-    top: 12%;
-    left: 25%;
-    font-size: 10px;
+    font-size: 13px;
+    font-style: italic;
+    color: #5a585f;;
 }
 .field{
-    width: 100%;
-    height: 30px;
-    border-radius: 10px;
+    width: 480px; 
+    height: 45px; 
+    border-radius: 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #b8b4b4;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    padding-left: 23px;   
+    font-size: 16px;
+    letter-spacing: normal;
+    margin-top: 0px;
+}
+.input-text{
+    margin-bottom: 3px;
+    margin-top: 3px;
 }
 .signupbtn{
     width: 100%;
+    height: 50px;
     font-size: 15px;
     border: none;
-    background-color: #8956FF;
+    background-color: #220B57;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 8px;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -74,11 +87,12 @@
 }
 .disabledsignupbtn{
     width: 100%;
+    height: 50px;
     font-size: 15px;
     border: none;
-    background-color: #c0a9f5;
+    background-color: #2f1078ba;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 8px;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -90,29 +104,6 @@
 }
 .lastn{
     margin-left: 105px;
-}
-.fieldtop-right{
-    width: 175px;
-    height: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #b8b4b4;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-.fieldtop{
-    width: 175px;
-    height: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #b8b4b4;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-right: 10px;
-    margin-bottom: 15px;
 }
 .formm{
     margin-top: 20px;
@@ -143,9 +134,46 @@
 .field:focus{
     outline-color: #603EAE;
 }
-.fieldtop{
-    outline-color: #603EAE;
+.nametop{
+    display: flex;
 }
-.fieldtop-right{
-    outline-color: #603EAE;
+.firstname-cont, .lastname-cont, .email-cont, .pass-cont, .confirm-cont{
+    display: flex;
+    flex-direction: row;
+}
+
+.login-logo{
+    width: 230px;
+
+}
+.login-pic{
+    margin-top: -80px;
+    position: absolute;
+    width: 500px;
+}
+.login-text{
+    margin-top: 420px;
+    width: 500px;
+    color: white;
+}
+.pic-text{
+    margin-top: 12px;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+.pic-text-small{
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-style: italic;
+    color: #b8b4b4;
+}
+.input-cont{
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 1100px) {
+    .loginpic{
+        display: none;
+    }
 }

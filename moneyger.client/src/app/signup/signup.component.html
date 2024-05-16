@@ -1,7 +1,14 @@
 <div id="saynap">
+    <div class="loginpic">
+        <img src="assets/Login_pic.png" class="login-pic" alt="MoneyGer logo">
+        <div class="login-text">
+            <h5 class="pic-text">Systematize Your Business,</h5>
+            <h5 class="pic-text">Enhance workflow.</h5>
+            <h2 class="pic-text-small">CRM system for your small business</h2>
+        </div>
+    </div>
     <div class="container">
-        <img src="assets/MoneyGer(2).png" class="logo">
-        <h2 class="logotext">Welcome to Money<span>Ger</span></h2>
+        <img src="assets/logo.png" class="login-logo" alt="MoneyGer logo">
         <p class="subtext">Register for FREE. No credit card needed.</p>
         <form class="formm" action="/url" [formGroup] = "form" (ngSubmit)="register()">
             @for(error of errors; track error){
@@ -9,28 +16,43 @@
                     <div class="text-xs">{{error.description}} </div><br>
                 </div>
             }
-               <span>First Name</span><span class="lastn">Last Name</span>
-            <label>
-                <input type="text" class="fieldtop"  formControlName = "firstname" required >
-                <input type="text" class="fieldtop-right" formControlName = "lastname" required>
-            </label>
-            <label>
-                Work Email
-                <input class="field" type="text" formControlName = "email" required>
-            </label>
-            <label>
-                Password
-                <input class="field" [type]="changetype?'password':'text'" formControlName = "password" required>
-                <img class="view" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
-            </label>
-            <label>
-                Confirm Password
-                <input class="field" [type]="changetype?'password':'text'" formControlName = "confirmPassword" required>
-                <img class="viewconf" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
-                    <span style="color: red;"*ngIf="form.hasError('passwordMismatch') && form.get('confirmPassword')?.dirty && form.get('confirmPassword')?.touched">
-                        Passwords do not match.
-                    </span>
-            </label><br>
+            <div class="input-cont">
+                <div class="firstname-cont">
+                    <label class="input-text">
+                        <p class="input-text">First Name</p>
+                        <input type="text" class="field"  formControlName = "firstname" required >
+                    </label>
+                </div>
+                <div class="lastname-cont">
+                    <label class="input-text">
+                        <p class="input-text">Last Name</p>
+                        <input type="text" class="field" formControlName = "lastname" required>
+                    </label>
+                </div>          
+                <div class="email-cont">
+                    <label class="input-text">
+                        <p class="input-text">Work Email</p>
+                        <input class="field" type="text" formControlName = "email" required>
+                    </label>
+                </div>
+                <div class="pass-cont">
+                    <label class="input-text">
+                        <p class="input-text">Password</p>
+                        <input class="field" [type]="changetype?'password':'text'" formControlName = "password" required>
+                        <img class="view" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
+                    </label>
+                </div>
+                <div class="confirm-cont">
+                    <label class="input-text">
+                       <p class="input-text">Confirm Password</p>
+                        <input class="field" [type]="changetype?'password':'text'" formControlName = "confirmPassword" required>
+                        <img class="viewconf" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'"><br>
+                            <span style="color: red;"*ngIf="form.hasError('passwordMismatch') && form.get('confirmPassword')?.dirty && form.get('confirmPassword')?.touched">
+                                Passwords do not match.
+                            </span>
+                    </label>
+                </div>
+            </div>
             <button class="signupbtn" [ngClass]="{'disabledsignupbtn': !form.valid}" type="submit">Sign Up</button>
         </form>
         <span class="already"><p>Already have an account? <a routerLink="/login">Log in</a></p></span>
