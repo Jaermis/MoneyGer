@@ -3,7 +3,8 @@ enum ActiveState {
   Inactive,
   Current,
   PreviousNextMonth,
-  HasEvent
+  HasEvent,
+  HasCurrent
 }
 interface CalendarDay {
   day: number;
@@ -28,7 +29,7 @@ export class CalendarComponent {
   events: Event[] = [];
 
   predefinedEvents: Event[] = [
-    { date: new Date(2024, 4, 15), description: 'Meeting with client' },
+    { date: new Date(2024, 4, 16), description: 'Meeting with client' },
     { date: new Date(2024, 4, 20), description: 'Team lunch' },
     { date: new Date(2024, 4, 25), description: 'Project deadline' }
   ];
@@ -65,8 +66,12 @@ export class CalendarComponent {
     else if (day.active === ActiveState.HasEvent){
       classes = 'has-event'; // if the day has event
     }
+    else if (day.active === ActiveState.HasCurrent){
+      classes = 'has-current'; // if the day has event
+    }
     return classes;
   }
+  
   generateCalendarDays(month: number, year: number): CalendarDay[] {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDayIndex = new Date(year, month, 1).getDay();
@@ -84,15 +89,23 @@ export class CalendarComponent {
       const day = lastDateofLastMonth - i + 1;
       days.push({ day, active: ActiveState.PreviousNextMonth });
     }
-  
+    
     // Fill up days of current month
     for (let i = 1; i <= daysInMonth; i++) {
-      const isActive = year === currentYear && month === currentMonth && i === currentDate.getDate() ? ActiveState.Current : ActiveState.Inactive;
+      let isActive: ActiveState = ActiveState.Inactive;
+      if (year === currentYear && month === currentMonth && i === this.currentDay) {
+        isActive = ActiveState.Current;
+      }
       const hasEvents = this.predefinedEvents.some(event => {
         const eventDate = new Date(event.date);
         return eventDate.getFullYear() === year && eventDate.getMonth() === month && eventDate.getDate() === i;
-      }) ? ActiveState.HasEvent : ActiveState.Inactive;
-      days.push({ day: i, active: isActive || hasEvents });
+      });
+      if (isActive === ActiveState.Current && hasEvents) {
+        isActive = ActiveState.HasCurrent;
+      } else if (hasEvents) {
+        isActive = ActiveState.HasEvent;
+      }
+      days.push({ day: i, active: isActive });
     }
 
     // Fill up remaining days with days from next month
