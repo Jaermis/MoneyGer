@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment.development';
 import { LoginRequest } from '../interfaces/login-request';
 import { Observable, map } from 'rxjs';
 import { AuthResponse } from '../interfaces/auth-response';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TmplAstSwitchBlockCase } from '@angular/compiler';
 import { jwtDecode } from 'jwt-decode';
 import { RegisterRequest } from '../interfaces/register-request';
@@ -51,7 +51,7 @@ export class AuthService {
     localStorage.removeItem(this.tokenKey);
   };
 
-  private getToken = ():string|null => localStorage.getItem(this.tokenKey) || '';
+  public getToken = ():string|null => localStorage.getItem(this.tokenKey) || '';
 
   getUserDetail=()=>{
     const token = this.getToken();
@@ -63,10 +63,15 @@ export class AuthService {
       firstname: decodedToken.firstname,
       lastname: decodedToken.lastname,
       email: decodedToken.email,
-      roles: decodedToken.role || [],
+      company: decodedToken.company
     };
 
     return userDetail;
+  }
+  
+  performRequest(method: string, url: string, body?: any) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.request(method, url, { body, headers });
   }
   
   register(data:RegisterRequest):Observable<AuthResponse>{

@@ -1,8 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { MoneygerUsersService } from '../../../../shared/moneyger-users.service';
 import { Router } from '@angular/router';
-import { MoneygerUsers } from '../../../../shared/moneyger-users.model';
 import { AuthService } from '../../../../shared/auth.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,17 +11,12 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent {
   constructor(
-    private titleService: Title, public service: MoneygerUsersService, private router: Router, private common:CommonModule
+    private titleService: Title, private router: Router,private common:CommonModule
     ) {}
   
   authService = inject(AuthService);
   isActive: boolean = false;
-  
-  checkRole(){
-    if(this.authService.getUserDetail()?.roles.includes('User') && this.authService.getUserDetail()?.roles.length === 1)
-      this.router.navigate(['/home]']); //Intentionally errors when not adopted by a company for now
-    return false;
-  }
+    
   isLoggedIn(){
     return this.authService.isLoggedIn();
   }

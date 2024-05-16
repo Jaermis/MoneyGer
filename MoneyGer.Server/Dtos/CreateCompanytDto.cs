@@ -4,8 +4,6 @@ namespace MoneyGer.Server.Dtos
 {
     public class CreateCompanyDto
     {
-        public string Id;
-        public string? Owner {get;set;}
        [Required(ErrorMessage ="Company Name is required.")]
         public string Name {get;set;} = null;
         [Required(ErrorMessage ="Company Location is required.")]

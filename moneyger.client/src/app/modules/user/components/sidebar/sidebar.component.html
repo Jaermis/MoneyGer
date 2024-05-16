@@ -54,7 +54,7 @@
         </div> 
     </div>
 
-    @if(isLoggedIn() && !checkRole()){
+    @if(isLoggedIn()){
     <div class="bottom" *ngIf="authService.getUserDetail() as userDetail">
         <div class="user">
             <img src="assets/profile.jpg" class="profile" alt="Profile Picture">
@@ -63,11 +63,7 @@
                     <i>{{userDetail!.fullname | titlecase}}</i> 
                 <br>
                 </div>
-                <ng-container *ngIf="userDetail.roles && userDetail.roles.length > 0">
-                    <i *ngFor="let role of userDetail.roles">
-                        <ng-container *ngIf="role !== 'User'">{{ role }}</ng-container>
-                    </i>
-                </ng-container>
+                    <i>{{userDetail!.company | titlecase}}</i>
                 <br>
                 <button class ="logout" type="button" (click)="logout()"> Logout </button>
             </div>

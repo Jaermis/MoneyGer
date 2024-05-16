@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { MoneygerUsersService } from '../../../../shared/moneyger-users.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CompanyJoin } from '../../../../interfaces/company-join';
@@ -42,6 +41,10 @@ export class JoinCompanyComponent implements OnInit {
       this.router.navigate(['user/getting-started']);
     }
 
+    isLoggedIn(){
+      return this.authService.isLoggedIn();
+    }
+    
     JoinCompany(){
       this.companyService.joinCompany(this.joinCompany).subscribe({
         next:(response)=>{

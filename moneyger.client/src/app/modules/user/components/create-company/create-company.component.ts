@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { MoneygerUsersService } from '../../../../shared/moneyger-users.service';
 import { Router, RouterLink } from '@angular/router';
 import { CompanyService } from '../../../../shared/company.service';
 import { Role } from '../../../../interfaces/role';
@@ -23,7 +22,6 @@ import { CompanyRequest } from '../../../../interfaces/company-request';
 
 export class CreateCompanyComponent implements OnInit {
   makeCompany: CompanyRequest = {
-    owner: '',
     name: '',
     location: ''
   };
@@ -38,8 +36,6 @@ export class CreateCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Create a Company');
-    this.makeCompany.owner = this.authService.getUserDetail()?.id || '';
-    //this.makeCompany.id = Guid.create.toString();
   }
 
     Cancel(){

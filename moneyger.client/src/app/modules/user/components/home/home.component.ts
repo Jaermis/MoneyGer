@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { MoneygerUsersService } from '../../../../shared/moneyger-users.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   constructor(
-    private titleService: Title, public service: MoneygerUsersService, private router: Router
+    private titleService: Title, private router: Router
     ) {}
 
 ngOnInit(): void {

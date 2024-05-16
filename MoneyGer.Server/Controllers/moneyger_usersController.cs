@@ -62,7 +62,8 @@ namespace MoneyGer.Server.Controllers
                 FirstName = registerDto.FirstName,
                 LastName = registerDto.LastName,
                 UserName = registerDto.Email,
-                DateCreated = DateTime.UtcNow 
+                DateCreated = DateTime.UtcNow,
+                Company = "N/A"
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
@@ -164,13 +165,20 @@ namespace MoneyGer.Server.Controllers
                     });
                 }
             }
-            
+
+            try{
             var token = GenerateToken(user);
+
             return Ok(new AuthResponseDto{
                 Token = token,
                 IsSuccess = true,
                 Message = "Login Successfull"
             });
+
+            }
+            catch(Exception e){
+                return BadRequest(new {message = e.StackTrace});
+            }            
         }
 
         [AllowAnonymous]
@@ -275,6 +283,7 @@ namespace MoneyGer.Server.Controllers
                 new (JwtRegisteredClaimNames.Name, user.FirstName + " " + user.LastName),
                 new ("firstname", user.FirstName),
                 new ("lastname", user.LastName),
+                new ("company", user.Company), 
                 new (JwtRegisteredClaimNames.NameId,user.Id ?? ""),
                 new (JwtRegisteredClaimNames.Aud, _configuration.GetSection
                 ("JWTSetting").GetSection("validAudience").Value!),
@@ -326,6 +335,55 @@ namespace MoneyGer.Server.Controllers
                 PhoneNumberConfirmed = user.PhoneNumberConfirmed,
                 AccessFailedCount = user.AccessFailedCount,
                 Company = user.Company
+            });
+        }
+
+        //api/moneyger_users/UserDetail
+        [Authorize]
+        [HttpGet("UserDetail")]
+        public async Task<ActionResult<UserCompanyDetailDto>> GetUserCompanyDetail()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var existingUser = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr => ucr.UserId == currentUserId);
+
+            if(existingUser is null){
+                return NotFound(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "User Not Found"
+                });
+            }
+
+            var user = await _userManager.FindByIdAsync(existingUser.UserId!);
+
+            if(user is null){
+                return NotFound(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "User Not Found"
+                });
+            }
+            
+            var role = await _roleManager.FindByIdAsync(existingUser.RoleId!);
+
+            if(role is null){
+                return NotFound(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "Role Not Found"
+                });
+            }
+
+            var company = await _context.companies.FindAsync(existingUser.CompanyId!);
+
+            if(company is null){
+                return NotFound(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "Company Not Found"
+                });
+            }
+
+            return Ok(new UserCompanyDetailDto{
+                User = user.FirstName +" "+ user.LastName,  
+                Role = role.Name!,
+                Company = company.Name!
             });
         }
 

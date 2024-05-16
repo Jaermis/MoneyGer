@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { MoneygerUsersService } from '../shared/moneyger-users.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { Router, RouterLink } from '@angular/router';
@@ -20,7 +19,7 @@ import { ValidationError } from '../interfaces/validation-error';
 })
 export class SignupComponent implements OnInit {
   constructor(
-    private titleService: Title, public service:  MoneygerUsersService, private router: Router
+    private titleService: Title, private router: Router
   ) { }
     
     changeicon:boolean = true;
@@ -57,6 +56,7 @@ export class SignupComponent implements OnInit {
         next:(response)=>{
           //console.log(response);
           this.router.navigate(['/login']);
+
         },
         error:(err:HttpErrorResponse)=>{
           if(err!.status ==  400){
@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
           }
         },
 
-        complete:()=>console.log('Signup successful'),
+        complete:()=>alert('Signup successful. Check your email for the confirmation link'),
       });
     }
 
