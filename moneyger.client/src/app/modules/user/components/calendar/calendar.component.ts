@@ -31,7 +31,17 @@ export class CalendarComponent {
   predefinedEvents: Event[] = [
     { date: new Date(2024, 4, 16), description: 'Meeting with client' },
     { date: new Date(2024, 4, 20), description: 'Team lunch' },
-    { date: new Date(2024, 4, 25), description: 'Project deadline' }
+    { date: new Date(2024, 4, 25), description: 'Project deadline' },
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
+    { date: new Date(2024, 5, 16), description: 'Meeting with boss'}
   ];
 
   constructor() {
@@ -140,5 +150,26 @@ export class CalendarComponent {
     return date1.getFullYear() === date2.getFullYear() &&
       date1.getMonth() === date2.getMonth() &&
       date1.getDate() === date2.getDate();
-  } 
+  }
+  groupEventsByDate(events: Event[]): { date: Date, events: Event[] }[] {
+    const currentMonth = this.currentDate.getMonth();
+    const currentYear = this.currentDate.getFullYear();
+
+    const filteredEvents = events.filter(event => {
+        const eventDate = new Date(event.date);
+        return eventDate.getFullYear() === currentYear && eventDate.getMonth() === currentMonth;
+    });
+
+    const groupedEvents: { date: Date, events: Event[] }[] = [];
+    filteredEvents.forEach(event => {
+        const eventDate = new Date(event.date);
+        const existingGroup = groupedEvents.find(group => this.isSameDay(group.date, eventDate));
+        if (existingGroup) {
+            existingGroup.events.push(event);
+        } else {
+            groupedEvents.push({ date: eventDate, events: [event] });
+        }
+    });
+    return groupedEvents;
+  }
 }

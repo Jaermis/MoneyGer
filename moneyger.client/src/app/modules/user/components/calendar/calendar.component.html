@@ -17,10 +17,20 @@
         </div>
     </div>
     <div class="sidecontainer">
-        <h1>Event</h1>
-        <div class="event-title">
-            
+        <div class="side-header">
+            <h1>Events</h1>
         </div>
-        <div class="event-date"><h2>May 10</h2></div>
+        <div class="events-array">
+            <div *ngFor="let groupedEvents of groupEventsByDate(predefinedEvents)">
+                <div class="event-group">
+                    <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2> <!-- Display date -->
+                    <div class="event-title">        
+                        <div *ngFor="let event of groupedEvents.events">
+                            <p>{{ event.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
