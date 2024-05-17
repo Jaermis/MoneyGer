@@ -10,40 +10,12 @@
                 <th>Email</th>
                 <th>Contact Number</th>
             </tr>
-            <tr>
-                <td>Jule Q.</td>
-                <td>CoCa Cola</td>
-                <td><div class="statusBox"> Sealed</div></td>
-                <td>sijdbuhsbdubsd</td>
-                <td>09606727641</td>
-            </tr>
-            <tr>
-                <td>Jule Q.</td>
-                <td>CoCa Cola</td>
-                <td><div class="statusBox"> Sealed</div></td>
-                <td>sijdbuhsbdubsd</td>
-                <td>09606727641</td>
-            </tr>
-            <tr>
-                <td>Jule Q.</td>
-                <td>CoCa Cola</td>
-                <td><div class="statusBox"> Sealed</div></td>
-                <td>sijdbuhsbdubsd</td>
-                <td>09606727641</td>
-            </tr>
-            <tr>
-                <td>Jule Q.</td>
-                <td>CoCa Cola</td>
-                <td><div class="statusBox"> Sealed</div></td>
-                <td>sijdbuhsbdubsd</td>
-                <td>09606727641</td>
-            </tr>
-            <tr>
-                <td>Jule Q.</td>
-                <td>CoCa Cola</td>
-                <td><div class="statusBox">Sealed</div></td>
-                <td>sijdbuhsbdubsd</td>
-                <td>09606727641</td>
+            <tr *ngFor="let contact of contacts">
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.company }}</td>
+                <td><div class="statusBox">{{ contact.status }}</div></td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phoneNumber }}</td>
             </tr>
         </table>
     </div>

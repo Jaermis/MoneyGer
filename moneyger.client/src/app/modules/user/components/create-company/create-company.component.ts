@@ -46,19 +46,19 @@ export class CreateCompanyComponent implements OnInit {
       return this.authService.isLoggedIn();
     }
 
-    createCompany(){
-      this.companyService.createCompany(this.makeCompany).subscribe({
-        next:(response)=>{
-           this.router.navigate(['/user/home']);
-        },
-        error:(err:HttpErrorResponse)=>{
-          if(err!.status ==  400){
-            this.errors=err!.error;
-          }
-          console.log(err.message);
-        },
+  createCompany(){
+    this.companyService.createCompany(this.makeCompany).subscribe({
+      next:(response)=>{
+          this.router.navigate(['/user/home']);
+      },
+      error:(err:HttpErrorResponse)=>{
+        if(err!.status ==  400){
+          this.errors=err!.error;
+        }
+        console.log(err.message);
+      },
 
-        complete:()=>alert('Company creation successful'),
-      });
-    }
+      complete:()=>alert('Company creation successful'),
+    });
+  }
 }
