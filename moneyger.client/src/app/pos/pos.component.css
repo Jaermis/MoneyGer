@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+  }
+.pos-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center; 
+    overflow-y: auto;
+    display: flex;
+}
+.product-container{
+    background-color: #E0D3FF;
+    padding: 10px;
+    width: 800px;
+}
+.table-container{
+    background-color: white;
+    margin-left: -10px;
+    height: 94.4%;
+}
+.up-prod{
+    margin-top: -10px;
+    margin-left: -10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #392073;
+    color: white;
+    height: 60px;
+}
+.order-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+    background-color:white;
+}
+.cart-table {
+    width: 90%;
+}
+.up-cart, .lower-cart{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #392073;
+    color: white;
+    height: 60px;
+}
+.lower-cart{
+    font-size: larger;
+}
+.control-container{
+    width: 410px;
+    background-color: #220B57;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+}
+.staff-cont{
+    width: 300px;
+    height: 85px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #32107F;
+    color: white;
+ }
+ .selected {
+    background-color: #96949C; /* Change this to your preferred highlight color */
+  }
+ .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ }
+ .add, .pay, .cancel{
+    color: white;
+    width: 205px;
+    height: 50px;
+    border-radius: 20px;
+ }
+ .add:hover, .pay:hover, .cancel:hover{
+    background-color: beige;
+    color: black;
+ }
+ .add{
+    background-color: #32107F;
+ }
+ .pay{
+    background-color: #469B44;
+ }
+ .cancel{
+    background-color: #FF3131;
+ }
+ .butt-cont{
+    background-color: #46278F;
+    padding: 10px;
+    border-radius: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ .details{
+    width: 90%;
+    color: white;
+ }
+ 
