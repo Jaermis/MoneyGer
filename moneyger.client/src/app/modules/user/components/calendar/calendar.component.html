@@ -1,7 +1,10 @@
 <div class="cont">
+    <div class="left-container">
+        <i>side header</i>
+    </div>
     <div class="container">
         <header>
-            <p class = "current-date">{{ currentMonth }} {{ currentYear }}</p>
+            <p class="current-date">{{ currentMonth }} {{ currentYear }}</p>
             <div class="icons">
                 <i class='bx bx-chevron-left bx-sm' (click)="previousMonth()"></i>
                 <i class='bx bx-chevron-right bx-sm' (click)="nextMonth()"></i>
@@ -26,7 +29,7 @@
                     <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2> <!-- Display date -->
                     <div class="event-title">        
                         <div *ngFor="let event of groupedEvents.events">
-                            <p>{{ event.description }}</p>
+                            <p>{{ event.time }} - {{ event.description }}</p>
                         </div>
                     </div>
                 </div>

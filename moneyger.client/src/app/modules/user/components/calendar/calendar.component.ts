@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 enum ActiveState {
   Inactive,
   Current,
@@ -10,8 +11,9 @@ interface CalendarDay {
   day: number;
   active: ActiveState;
 }
-interface Event{
+interface Event {
   date: Date;
+  time: string;
   description: string;
 }
 @Component({
@@ -29,21 +31,12 @@ export class CalendarComponent {
   events: Event[] = [];
 
   predefinedEvents: Event[] = [
-    { date: new Date(2024, 4, 16), description: 'Meeting with client' },
-    { date: new Date(2024, 4, 20), description: 'Team lunch' },
-    { date: new Date(2024, 4, 25), description: 'Project deadline' },
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 4, 16), description: 'Meeting with boss'},
-    { date: new Date(2024, 5, 16), description: 'Meeting with boss'}
+    { date: new Date(2024, 4, 16), time: '10:00 AM', description: 'Meeting with client' },
+    { date: new Date(2024, 4, 20), time: '12:00 PM', description: 'Team lunch' },
+    { date: new Date(2024, 4, 25), time: '5:00 PM', description: 'Project deadline' },
+    { date: new Date(2024, 4, 16), time: '9:00 AM', description: 'Meeting with boss' },
+    // Add more events as needed
   ];
-
   constructor() {
     this.currentDate = new Date();
     this.currentMonth = this.getMonthName(this.currentDate.getMonth());
