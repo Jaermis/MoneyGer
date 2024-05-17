@@ -13,6 +13,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { UserModule } from './modules/user/user.module';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PosComponent } from './pos/pos.component';
+import { MatTable, MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -28,7 +30,13 @@ import { PosComponent } from './pos/pos.component';
     BrowserModule, HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    UserModule
+    UserModule,
+    MatTable,
+    MatTableModule,
+    MatButtonModule
+  ],
+  exports: [
+    MatTableModule
   ],
   providers: [
     provideAnimationsAsync()
