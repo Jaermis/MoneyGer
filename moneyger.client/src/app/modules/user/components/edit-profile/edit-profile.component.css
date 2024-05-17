@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.edit-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    background-color: white;
+    border-radius: 10px;
+    height: 650px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.profile img{
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #220B57;
+    margin-top: 25px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    color: #220B57;
+    width: 85%;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.first-name, .last-name{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.first-name{
+    margin-right: 10px;
+}
+
+.first-name input, .last-name input, .form input{
+    border-radius: 10px;
+    height: 25px;
+    border: 2px solid #dddddd;
+}
+
+.form input{
+    margin-bottom: 15px;
+}
+.form label{
+    margin-bottom: 5px;
+}
+
+.save{
+    background-color: #220B57;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    width: 100px;
+    padding: 7px;
+    max-height: 61px;
+    font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
+    border: 2px solid #220B57;
+}
+
+.cancel{
+    background-color: white;
+    border: none;
+    color: #220B57;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    width: 100px;
+    padding: 7px;
+    max-height: 61px;
+    font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
+    border: 2px solid #220B57;
+    margin-right: 10px;
+}
+
+.actions{
+    display: flex;
+  justify-content: flex-end;
+  width: 85%; /* Added width to match .form */
+  margin-top: 20px; /* Added margin for spacing */
+}
