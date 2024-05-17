@@ -59,9 +59,39 @@ namespace MoneyGer.Server.Controllers
         [HttpGet("AllCompany")]
         public async Task<ActionResult<IEnumerable<Contacts>>> GetContacts()
         {
-            var companies = await _context.Contacts.ToListAsync();
-            return Ok(companies);
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var existingUser = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr => ucr.UserId == currentUserId);
+
+            var contactsGroupedByCompany = await _context.Contacts
+                .Where(c => c.Company == existingUser!.CompanyId)
+                .Join(
+                    _context.Status, // Join with the Statuses table
+                    contact => contact.Status, // Join condition: contact's StatusId
+                    status => status.Id, // Join condition: StatusId in the Statuses table
+                    (contact, status) => new { contact, status } // Result selector
+                )
+                .Join(
+                    _context.companies, // Join with the Companies table
+                    temp => temp.contact.Company, // Join condition: contact's CompanyId
+                    company => company.Id, // Join condition: CompanyId in the Companies table
+                    (temp, company) => new ContactFetchDto // Result selector
+                    {
+                        Id = temp.contact.Id,
+                        Name = temp.contact.Name,
+                        Email = temp.contact.Email,
+                        PhoneNumber = temp.contact.PhoneNumber,
+                        Facebook = temp.contact.Facebook,
+                        Twitter = temp.contact.Twitter,
+                        Instagram = temp.contact.Instagram,
+                        Status = temp.status.Name, // Populate Status with the corresponding status name
+                        Company = company.Name // Populate Company with the corresponding company name
+                    }
+                )
+                .ToListAsync();
+
+            return Ok(contactsGroupedByCompany);
         }
+
 
         [HttpDelete("Delete{id}")]
         public async Task<IActionResult> DeleteCompany(string id)
