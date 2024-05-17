@@ -11,6 +11,7 @@ import { HeaderComponent } from './modules/user/components/header/header.compone
 import { HomeComponent } from './modules/user/components/home/home.component';
 import { SidebarComponent } from './modules/user/components/sidebar/sidebar.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PosComponent } from './pos/pos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'user', loadChildren:()=> import('./modules/user/user.module').then((m)=>m.UserModule)}, //lazyload dashboard
   { path: 'home', loadChildren:()=> import('./modules/home/home.module').then((m)=>m.HomeModule)}, //lazyload landing-page
   { path: 'reset-password', component: ResetPasswordComponent},
+  { path: 'pos', component: PosComponent},
   { path: '**', component: NotFoundComponent}
 ];
 

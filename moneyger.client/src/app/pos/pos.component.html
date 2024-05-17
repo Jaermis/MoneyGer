@@ -1,1 +1,98 @@
-<p>pos works!</p>
+<div class="pos-container">
+  <div class="product-container">
+    <div class="up-prod">
+      <h1>Product List</h1>
+    </div>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource_prod" class="product-table">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let product"> <span>$</span> {{product.price}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let product; index as i; columns: displayedColumns;"
+            (click)="selectProduct(product)"
+            [class.selected]="selectedProduct === product"></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="order-container">
+    <div class="table-order-cont">
+      <div class="up-cart">
+        <h1>Cart List</h1>
+      </div>
+      <table mat-table [dataSource]="dataSource_cart" class="cart-table">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let item"> {{item.name}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let item"> {{item.quantity}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let item"> <span>$</span> {{item.price}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let item">
+            <button mat-button (click)="deleteFromCart(item.name)">X</button>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns_cart"></tr>
+        <tr mat-row *matRowDef="let item; columns: displayedColumns_cart;"></tr>
+      </table>
+    </div>
+    <div class="lower-cart">
+      <p>Total: ${{ getTotalPrice() }}</p>
+      <p>Total Quantity: {{ getTotalQuantity() }}</p>
+    </div>
+  </div>
+
+  <div class="control-container">
+    <div class="staff-cont">
+      <p>Staff:</p>
+      <p>Juan Dela Cruz</p>
+    </div>
+    <div class="butt-cont">
+      <div class="details">
+        <p>Product: {{selectedProduct?.name}}</p>
+        <p>Price: {{selectedProduct?.price}}</p>
+        <p>Quantity: 
+        <input [(ngModel)]="inputQuantity" 
+               type="number" 
+               min="0" 
+               [max]="selectedProduct?.quantity ?? 0">
+      </p>
+      </div>
+      
+      <div class="buttons">
+        <button class="add" (click)="addToCart()">Add</button>
+        <button class="pay">Pay</button>
+        <button class="cancel" (click)="cancelOrder()">Cancel Order</button>
+      </div>
+    </div>
+  </div>
+</div>
