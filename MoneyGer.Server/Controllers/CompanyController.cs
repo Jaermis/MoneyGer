@@ -49,6 +49,13 @@ namespace MoneyGer.Server.Controllers
             var user = await _userManager.FindByIdAsync(owner!);
 
             if(user != null){
+                var existingUserRole = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr => ucr.UserId == user.Id);
+
+                if (existingUserRole != null)
+                {
+                    _context.UserCompanyRole.Remove(existingUserRole);
+                    await _context.SaveChangesAsync();
+                }
 
                 var role = await _roleManager.FindByNameAsync("Owner");
 

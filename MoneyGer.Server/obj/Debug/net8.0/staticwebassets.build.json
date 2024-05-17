@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< Updated upstream
   "Hash": "LLHwWSEolwORSPiNIk5Ss3s8DkDa8hrMbkLzQI8pnxg=",
+=======
+  "Hash": "yJiM/ugSfUS07u6eBUsX4aH+0mkQzFuM0GqUZhuxRAw=",
+>>>>>>> Stashed changes
   "Source": "MoneyGer.Server",
   "BasePath": "_content/MoneyGer.Server",
   "Mode": "Default",
@@ -11,10 +15,10 @@
       "Version": 2,
       "Source": "moneyger.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],
