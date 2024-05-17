@@ -362,3 +362,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+MoneyGer.Server/bin/Debug/net8.0/MoneyGer.Server.dll
+MoneyGer.Server/bin/Debug/net8.0/MoneyGer.Server.dll
+MoneyGer.Server/bin/Debug/net8.0/MoneyGer.Server.exe

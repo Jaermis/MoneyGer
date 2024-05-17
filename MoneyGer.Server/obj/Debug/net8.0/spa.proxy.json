@@ -3,11 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-<<<<<<< Updated upstream
-"WorkingDirectory": "C:\\Users\\Jermzu\\Documents\\MoneyGer\\MoneyGer.Server\\..\\moneyger.client",
-=======
-"WorkingDirectory": "E:\\Desktop\\Softdeva\\MoneyGer\\MoneyGer.Server\\..\\moneyger.client",
->>>>>>> Stashed changes
+"WorkingDirectory": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\moneyger.server\\..\\moneyger.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
