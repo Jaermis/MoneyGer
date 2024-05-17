@@ -13,6 +13,8 @@ namespace MoneyGer.Server.Context
         public DbSet<UserCompanyRole> UserCompanyRole { get; set; }
         public DbSet<Contacts> Contacts { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<Events> Events { get; set; }
+        public DbSet<Attendee> Attendee { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>().HasKey(x => x.Id);
@@ -28,6 +30,12 @@ namespace MoneyGer.Server.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Status>().HasKey(x => x.Id);
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Entity<Events>().HasKey(x => x.Id);
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Entity<Attendee>().HasKey(x => x.Id);
             base.OnModelCreating(modelBuilder);
         }
     }
