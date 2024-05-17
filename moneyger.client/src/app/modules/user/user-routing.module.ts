@@ -10,6 +10,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { CreateCompanyComponent } from './components/create-company/create-company.component';
 import { JoinCompanyComponent } from './components/join-company/join-company.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,9 @@ const routes: Routes = [
       {path: 'statistics', component: StatisticsComponent},
       {path: '', component: HomeComponent},
       {path: 'create-company', component: CreateCompanyComponent},
-      {path: 'join-company', component: JoinCompanyComponent}
+      {path: 'join-company', component: JoinCompanyComponent},
+      {path: 'profile', component: ProfileComponent},
+      {path: 'edit-profile', component: EditProfileComponent}
   ]}
 ];
 

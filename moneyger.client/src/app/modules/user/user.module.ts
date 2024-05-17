@@ -21,6 +21,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CreateCompanyComponent } from './components/create-company/create-company.component';
 import { JoinCompanyComponent } from './components/join-company/join-company.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 const UserComponents = [
   MatButton,
@@ -42,6 +44,8 @@ const UserComponents = [
     OrdersComponent,
     StatisticsComponent,
     CalendarComponent,
+    ProfileComponent,
+    EditProfileComponent,
     //CreateCompanyComponent,
     //JoinCompanyComponent
   ],
