@@ -89,16 +89,16 @@ namespace MoneyGer.Server.Controllers
 
         [Authorize(Roles = "Owner")]
         [HttpPost("AssignStatus")]
-        public async Task<IActionResult> AssignStatus ([FromBody] ContactStatusDto contactStatusDto)
+        public async Task<IActionResult> AssignStatus ([FromBody] ContactStatusAssignDto contactStatusAssignDto)
         {
-            var user = await _context.Contacts.FindAsync(contactStatusDto.Id);
+            var user = await _context.Contacts.FindAsync(contactStatusAssignDto.Id);
 
             if(user is null)
             {
                 return  NotFound("User not found.");
             }
 
-            var status = await _context.Status.FindAsync(contactStatusDto.Status);
+            var status = await _context.Status.FindAsync(contactStatusAssignDto.Status);
 
             if(status is null)
             {
