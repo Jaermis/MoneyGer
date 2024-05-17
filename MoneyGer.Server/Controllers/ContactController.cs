@@ -10,6 +10,7 @@ using MoneyGer.Server.Models;
 
 namespace MoneyGer.Server.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ContactController : ControllerBase
@@ -33,11 +34,14 @@ namespace MoneyGer.Server.Controllers
                 return BadRequest("Contact name is required");
             }
             
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var existingUser = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr => ucr.UserId == currentUserId);
+
             var contact = new Contacts
             {
                 Id = Guid.NewGuid().ToString(),
                 Name = contactStatusDto.Name,
-                Company = contactStatusDto.Company,
+                Company = existingUser!.CompanyId,
                 PhoneNumber = contactStatusDto.PhoneNumber,
                 Email = contactStatusDto.Email,
                 Facebook = contactStatusDto.Facebook,
