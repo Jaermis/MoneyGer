@@ -349,22 +349,23 @@ namespace MoneyGer.Server.Controllers
         public async Task<ActionResult<UserCompanyDetailDto>> GetUserCompanyDetail()
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var existingUser = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr => ucr.UserId == currentUserId);
-
-            if(existingUser is null){
-                return NotFound(new AuthResponseDto{
-                    IsSuccess = false,
-                    Message = "User Not Found"
-                });
-            }
-
-            var user = await _userManager.FindByIdAsync(existingUser.UserId!);
+            
+            var user = await _userManager.FindByIdAsync(currentUserId!);
 
             if(user is null){
                 return NotFound(new AuthResponseDto{
                     IsSuccess = false,
                     Message = "User Not Found"
                 });
+            }
+
+            var existingUser = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr => ucr.UserId == currentUserId);
+
+            if(existingUser is null){
+                return Ok(new UserCompanyDetailDto{
+                User = user.FirstName +" "+ user.LastName,  
+                Role = "New User"
+            });
             }
             
             var role = await _roleManager.FindByIdAsync(existingUser.RoleId!);

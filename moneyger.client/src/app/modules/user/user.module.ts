@@ -61,7 +61,7 @@ const UserComponents = [
     CalendarComponent,
     ProfileComponent,
     EditProfileComponent,
-    AddContactComponent,
+    //AddContactComponent,
     SalesGraphComponent,
     SegmentationGraphComponent,
     FrequencyGraphComponent,

@@ -8,6 +8,7 @@ import { TmplAstSwitchBlockCase } from '@angular/compiler';
 import { jwtDecode } from 'jwt-decode';
 import { RegisterRequest } from '../interfaces/register-request';
 import { ResetPasswordRequest } from '../interfaces/reset-password-request';
+import { UserCompanyDetail } from '../interfaces/user-company-detail';
 
 @Injectable({
   providedIn: 'root'
@@ -73,6 +74,11 @@ export class AuthService {
     return userDetail;
   }
   
+  getUserCompany(): Observable<UserCompanyDetail> { // Change the return type to match the expected array of Contacts
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.get<UserCompanyDetail>(`${this.apiUrl}/moneyger_users/UserDetail`, { headers });
+  }
+
   performRequest(method: string, url: string, body?: any) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.request(method, url, { body, headers });
