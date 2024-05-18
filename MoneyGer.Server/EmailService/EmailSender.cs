@@ -50,7 +50,7 @@ public class EmailSender : IEmailSender
                            htmlMessage +
                            "<p>If you didn't request this, you can safely ignore this email.</p>" +
                            "<p>Best regards,</p>" +
-                           "<p>MoneyGer</p>" +
+                           "<p><strong>MoneyGer</strong></p>" +
                            "</div>" +
                            "</body>" +
                            "</html>";;

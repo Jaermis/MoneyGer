@@ -26,13 +26,19 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 import { SalesGraphComponent } from './components/sales-graph/sales-graph.component';
 import { ChartModule, LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService } from '@syncfusion/ej2-angular-charts';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const UserComponents = [
   MatButton,
   MatIconModule,
   MatSlideToggleModule,
   MatSidenavModule,
-  FormsModule
+  FormsModule,
+  MatDatepickerModule,
+  MatInputModule,
+  MatFormFieldModule,
 ]
 
 @NgModule({
