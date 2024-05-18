@@ -1,6 +1,9 @@
-<ejs-accumulationchart [title]='chartTitle' [legendSettings]='legend' [tooltip]='tooltipSettings'>
-    <e-accumulation-series-collection>
-        <e-accumulation-series type='Pie' [dataSource]='data' xName='name' yName='value' [dataLabel]='chartLabel' innerRadius='40%'>
-        </e-accumulation-series>
-    </e-accumulation-series-collection>
-</ejs-accumulationchart>
+<div id="pie-container">
+    <ejs-accumulationchart [title]='chartTitle' [legendSettings]='legend' [tooltip]='tooltipSettings'>
+        <e-accumulation-series-collection>
+            <e-accumulation-series type='Pie' [dataSource]='data' xName='name' yName='value'
+            [dataLabel]='chartLabel' innerRadius='50%'>
+            </e-accumulation-series>
+        </e-accumulation-series-collection>
+    </ejs-accumulationchart>
+</div>

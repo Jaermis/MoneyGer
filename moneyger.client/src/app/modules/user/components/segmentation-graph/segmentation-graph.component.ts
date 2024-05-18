@@ -35,9 +35,10 @@ export class SegmentationGraphComponent {
       };
       this.legend = {
         visible: true,
-        position: 'Bottom',
-        height: '8%',
-        width: '35%'
-      }
+        position: 'Right',
+        alignment: 'Far', 
+        height: '69%',
+        width: '20%'
+      };
     }
 }

@@ -27,11 +27,12 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
 import { SalesGraphComponent } from './components/sales-graph/sales-graph.component';
 import { ChartModule, LineSeriesService, CategoryService, LegendService, DataLabelService,
   TooltipService, AccumulationChartModule, PieSeries3DService, AccumulationDataLabelService,
-  PieSeriesService, AccumulationLegendService, AccumulationTooltipService} from '@syncfusion/ej2-angular-charts';
+  PieSeriesService, AccumulationLegendService, AccumulationTooltipService, RadarSeriesService, AreaSeriesService} from '@syncfusion/ej2-angular-charts';
 import { SegmentationGraphComponent } from './components/segmentation-graph/segmentation-graph.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FrequencyGraphComponent } from './components/frequency-graph/frequency-graph.component';
 
 
 
@@ -63,6 +64,7 @@ const UserComponents = [
     AddContactComponent,
     SalesGraphComponent,
     SegmentationGraphComponent,
+    FrequencyGraphComponent,
   ],
   imports: [
     CommonModule,
@@ -75,6 +77,7 @@ const UserComponents = [
     UserComponents
   ],
   providers: [LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService,
-    PieSeriesService, AccumulationDataLabelService, AccumulationLegendService, AccumulationTooltipService]
+    PieSeriesService, AccumulationDataLabelService, AccumulationLegendService,
+    AccumulationTooltipService, RadarSeriesService, AreaSeriesService]
 })
 export class UserModule { }

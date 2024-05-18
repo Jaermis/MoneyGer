@@ -9,6 +9,7 @@ export class SalesGraphComponent {
   
   //data sa line graph
   public data: Object[];
+  public data2: Object[];
   public xAxis: Object;
   public yAxis: Object;
   public chartTitle: String;
@@ -27,6 +28,14 @@ export class SalesGraphComponent {
       {month: 'Sep', sales: 38}, {month: 'Oct', sales: 30},
       {month: 'Nov', sales: 25}, {month: 'Dec', sales: 32}
     ];
+    this.data2 = [
+      {month: 'Jan', expense: 43}, {month: 'Feb', expense: 42},
+      {month: 'Mar', expense: 11}, {month: 'Apr', expense: 57},
+      {month: 'May', expense: 98}, {month: 'Jun', expense: 16},
+      {month: 'Jul', expense: 63}, {month: 'Aug', expense: 14},
+      {month: 'Sep', expense: 23}, {month: 'Oct', expense: 67},
+      {month: 'Nov', expense: 67}, {month: 'Dec', expense: 24}
+    ];
     this.tooltipSettings = {
       enable: true
     };
@@ -38,10 +47,12 @@ export class SalesGraphComponent {
     };
     this.legend = {
       visible: true,
+      position: 'Auto'
     };
     this.xAxis = {
       title: 'Month',
-      valueType: 'Category'
+      valueType: 'Category',
+      position: 'Auto'
     };
     this.yAxis = {
       title: 'Sales'
