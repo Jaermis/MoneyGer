@@ -25,10 +25,15 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 import { SalesGraphComponent } from './components/sales-graph/sales-graph.component';
-import { ChartModule, LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService } from '@syncfusion/ej2-angular-charts';
+import { ChartModule, LineSeriesService, CategoryService, LegendService, DataLabelService,
+  TooltipService, AccumulationChartModule, PieSeries3DService, AccumulationDataLabelService,
+  PieSeriesService, AccumulationLegendService, AccumulationTooltipService} from '@syncfusion/ej2-angular-charts';
+import { SegmentationGraphComponent } from './components/segmentation-graph/segmentation-graph.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 
 const UserComponents = [
   MatButton,
@@ -57,18 +62,19 @@ const UserComponents = [
     EditProfileComponent,
     AddContactComponent,
     SalesGraphComponent,
-    //CreateCompanyComponent,
-    //JoinCompanyComponent
+    SegmentationGraphComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     UserComponents,
-    ChartModule
+    ChartModule,
+    AccumulationChartModule
   ],
   exports: [
     UserComponents
   ],
-  providers: [LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService]
+  providers: [LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService,
+    PieSeriesService, AccumulationDataLabelService, AccumulationLegendService, AccumulationTooltipService]
 })
 export class UserModule { }
