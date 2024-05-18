@@ -1,20 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../../shared/auth.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
   constructor(
-    private common:CommonModule)
-    {}
-    authService = inject(AuthService);
-    isActive: boolean = false;
+    private common: CommonModule,
+    private sanitizer: DomSanitizer
+  ) {}
 
-    isLoggedIn(){
-      return this.authService.isLoggedIn();
+  authService = inject(AuthService);
+  isActive: boolean = false;
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
+  formatUrl(url: string): SafeResourceUrl {
+    if (url) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
+    return '';
+  }
 }

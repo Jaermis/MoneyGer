@@ -1,46 +1,45 @@
 <div class="profile">
-    <div class="profile-cont">
-        <div class="button">
-            <button routerLink="/user/edit-profile">Edit Profile</button>
-        </div>
-        @if(isLoggedIn()){
-            <div class="main-prof" *ngIf="authService.getUserDetail() as userDetail">
-                <img src="assets/James.jpg">
-                <div class="name-details">
-                    <p class="name">{{userDetail!.fullname | titlecase}}</p> 
-                    <div class="details">
-                        <p class="phone">{{userDetail.phonenumber}}</p>
-                        <p class="email">{{userDetail.email}}</p>
-                    </div>
-                </div>
-            </div>}
-        <div class="socials" *ngIf="authService.getUserDetail() as userDetail">
-            <div class="inner-social">
-                <div class="facebook">
-                    <div class="icon">
-                        <i class='bx bxl-facebook-circle bx-md'></i>
-                    </div>
-                    <div class="social-name">
-                        <p>{{userDetail.facebook}}</p>
-                    </div>
-                </div>
-                <div class="twitter">
-                    <div class="icon">
-                        <i class='bx bxl-twitter bx-md'></i>
-                    </div>
-                    <div class="social-name">
-                        <p>{{userDetail.twitter}}</p>
-                    </div>
-                </div>
-                <div class="instagram">
-                    <div class="icon">
-                        <i class='bx bxl-instagram bx-md'></i>
-                    </div>
-                    <div class="social-name">
-                        <p>{{userDetail.instagram}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="profile-cont">
+    <div class="button">
+      <button routerLink="/user/edit-profile">Edit Profile</button>
     </div>
+    @if(isLoggedIn()){ <div class="main-prof" *ngIf="authService.getUserDetail() as userDetail">
+      <img src="assets/James.jpg" />
+      <div class="name-details">
+        <p class="name">{{ userDetail!.fullname | titlecase }}</p>
+        <div class="details">
+          <p class="phone">{{ userDetail.phonenumber }}</p>
+          <p class="email">{{ userDetail.email }}</p>
+        </div>
+      </div>
+    </div>}
+    <div class="socials" *ngIf="authService.getUserDetail() as userDetail">
+      <div class="inner-social">
+        <div class="facebook">
+          <div class="icon">
+            <i class="bx bxl-facebook-circle bx-md"></i>
+          </div>
+          <div class="social-name">
+            <a [href]="formatUrl(userDetail.facebook)" target="_blank" [innerHtml]="userDetail.facebook"></a>
+          </div>
+        </div>
+        <div class="twitter">
+          <div class="icon">
+            <i class="bx bxl-twitter bx-md"></i>
+          </div>
+          <div class="social-name">
+            <a [href]="formatUrl(userDetail.twitter)" target="_blank" [innerHtml]="userDetail.twitter"></a>
+          </div>
+        </div>
+        <div class="instagram">
+          <div class="icon">
+            <i class="bx bxl-instagram bx-md"></i>
+          </div>
+          <div class="social-name">
+            <a [href]="formatUrl(userDetail.instagram)" target="_blank" [innerHtml]="userDetail.instagram"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
