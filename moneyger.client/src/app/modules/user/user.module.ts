@@ -24,6 +24,8 @@ import { JoinCompanyComponent } from './components/join-company/join-company.com
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { SalesGraphComponent } from './components/sales-graph/sales-graph.component';
+import { ChartModule, LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService } from '@syncfusion/ej2-angular-charts';
 
 const UserComponents = [
   MatButton,
@@ -48,16 +50,19 @@ const UserComponents = [
     ProfileComponent,
     EditProfileComponent,
     AddContactComponent,
+    SalesGraphComponent,
     //CreateCompanyComponent,
     //JoinCompanyComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    UserComponents
+    UserComponents,
+    ChartModule
   ],
   exports: [
     UserComponents
-  ]
+  ],
+  providers: [LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService]
 })
 export class UserModule { }

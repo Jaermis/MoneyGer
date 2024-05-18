@@ -15,6 +15,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PosComponent } from './pos/pos.component';
 import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { ChartModule, LineSeriesService } from '@syncfusion/ej2-angular-charts';
 
 
 @NgModule({
@@ -33,14 +34,13 @@ import { MatButtonModule } from '@angular/material/button';
     UserModule,
     MatTable,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    ChartModule
   ],
   exports: [
     MatTableModule
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers: [provideAnimationsAsync(), LineSeriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

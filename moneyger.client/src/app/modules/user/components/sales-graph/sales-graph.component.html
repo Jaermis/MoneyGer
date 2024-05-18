@@ -1,0 +1,8 @@
+<ejs-chart [primaryXAxis]='xAxis' [primaryYAxis]='yAxis'
+[title]='chartTitle' [legendSettings]='legend' [tooltip]='tooltipSettings'>
+
+    <e-series-collection> 
+        <e-series type='Line' [dataSource]='data' xName='month' yName='sales' name='Sales' [marker]='markerSettings'></e-series> 
+    </e-series-collection>
+    
+</ejs-chart>
