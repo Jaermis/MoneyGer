@@ -63,7 +63,10 @@ namespace MoneyGer.Server.Controllers
                 LastName = registerDto.LastName,
                 UserName = registerDto.Email,
                 DateCreated = DateTime.UtcNow,
-                Company = "N/A"
+                Company = "N/A",
+                Facebook = "N/A",
+                Twitter = "N/A",
+                Instagram = "N/A"
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
@@ -168,7 +171,6 @@ namespace MoneyGer.Server.Controllers
 
             try{
             var token = GenerateToken(user);
-
             return Ok(new AuthResponseDto{
                 Token = token,
                 IsSuccess = true,
@@ -284,6 +286,9 @@ namespace MoneyGer.Server.Controllers
                 new ("firstname", user.FirstName),
                 new ("lastname", user.LastName),
                 new ("company", user.Company), 
+                new ("facebook",user.Facebook),
+                new ("twitter",user.Twitter),
+                new ("instagram",user.Instagram),
                 new (JwtRegisteredClaimNames.NameId,user.Id ?? ""),
                 new (JwtRegisteredClaimNames.Aud, _configuration.GetSection
                 ("JWTSetting").GetSection("validAudience").Value!),
