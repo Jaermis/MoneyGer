@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Category } from '@syncfusion/ej2-angular-charts';
 
 @Component({
   selector: 'app-sales-graph',
@@ -16,6 +15,7 @@ export class SalesGraphComponent {
   public legend: Object;
   public markerSettings: Object;
   public tooltipSettings: Object;
+
 
   constructor(){
     this.chartTitle = 'Sales Tracking';

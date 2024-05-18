@@ -14,6 +14,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 import { SalesGraphComponent } from './components/sales-graph/sales-graph.component';
+import { SegmentationGraphComponent } from './components/segmentation-graph/segmentation-graph.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
       {path: 'profile', component: ProfileComponent},
       {path: 'edit-profile', component: EditProfileComponent},
       {path: 'add-contact', component: AddContactComponent},
-      {path: 'sales-graph', component: SalesGraphComponent}
+      {path: 'sales-graph', component: SalesGraphComponent},
+      {path: 'segmentation-graph', component: SegmentationGraphComponent}
   ]}
 ];
 
