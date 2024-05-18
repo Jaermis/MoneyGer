@@ -5,6 +5,7 @@
 }
 
 .edit-profile{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +21,9 @@
     height: 590px;
     margin-top: 10px;
     margin-bottom: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.423);
 }
+
 
 .profile{
     margin-top: 40px;

@@ -1,13 +1,15 @@
+
 <div class="parent">
     <p class="title">Contacts</p>
     <button routerLink="/user/add-contact">Add Contact</button>
 </div>
 
 <div class="main">
-    <div class="table">
-        <div class="table-container">
-            <table>
+    <div class="table-container">
+        <table class="table">
+            <thead>
                 <tr>
+                    <th></th>
                     <th>Name</th>
                     <th>Company</th>
                     <th>Status</th>
@@ -17,14 +19,20 @@
                     <th>Twitter</th>
                     <th>Instagram</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr *ngFor="let contact of contacts">
+                    <td><input type="checkbox" class="check"></td>
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.company }}</td>
                     <td><div class="statusBox">{{ contact.status }}</div></td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.phoneNumber }}</td>
+                    <td>{{ contact.facebook }}</td>
+                    <td>{{ contact.twitter }}</td>
+                    <td>{{ contact.instagram }}</td>
                 </tr>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
 </div>
