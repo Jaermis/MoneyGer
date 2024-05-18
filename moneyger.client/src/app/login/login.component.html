@@ -26,9 +26,11 @@
             </div>
             
             <a class="forgot-passtext" routerLink="/forgotpass">Forgot Password?</a>
-            <button class="login-button" type="submit">
-                Log In
+            <button class="login-button" type="submit" >
+                <p class="int-text" *ngIf="!loading">Login</p>
+                <mat-spinner *ngIf="loading" [diameter]="30" color="primary" ></mat-spinner>
             </button> <!---Login button-->
+
         </form> 
         <p class="noAcc">Don't have an account yet? <a class="sign" routerLink="/signup">Signup</a></p>
     </div>

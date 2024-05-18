@@ -53,7 +53,10 @@
                     </label>
                 </div>
             </div>
-            <button class="signupbtn" [ngClass]="{'disabledsignupbtn': !form.valid}" type="submit">Sign Up</button>
+            <button class="signupbtn"  type="submit">
+                <p class="int-text" *ngIf="!loading">Signup</p>
+                <mat-spinner *ngIf="loading" [diameter]="30" color="primary" ></mat-spinner>
+            </button>
         </form>
         <span class="already"><p>Already have an account? <a routerLink="/login">Log in</a></p></span>
     </div>

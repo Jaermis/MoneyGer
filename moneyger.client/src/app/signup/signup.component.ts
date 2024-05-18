@@ -9,13 +9,14 @@ import { Role } from '../interfaces/role';
 import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../interfaces/validation-error';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-  imports: [ReactiveFormsModule,RouterLink,CommonModule]
+  imports: [ReactiveFormsModule,RouterLink,CommonModule, MatProgressSpinnerModule]
 })
 export class SignupComponent implements OnInit {
   constructor(
@@ -24,6 +25,7 @@ export class SignupComponent implements OnInit {
     
     changeicon:boolean = true;
     changetype:boolean = true;
+    loading: boolean = false;
 
     authService = inject(AuthService);
     roleService = inject(RoleService); //Kuyog ni sa getRole
@@ -51,6 +53,7 @@ export class SignupComponent implements OnInit {
     }
 
     register(){
+      this.loading = true;
       console.log(this.form.value);
       this.authService.register(this.form.value).subscribe({
         next:(response)=>{
@@ -59,9 +62,11 @@ export class SignupComponent implements OnInit {
 
         },
         error:(err:HttpErrorResponse)=>{
+          alert('Signup Failed. Try Again')
           if(err!.status ==  400){
             this.errors=err!.error;
           }
+          this.loading = false;
         },
 
         complete:()=>alert('Signup successful. Check your email for the confirmation link'),

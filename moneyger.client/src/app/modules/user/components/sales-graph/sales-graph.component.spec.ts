@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SalesGraphComponent } from './sales-graph.component';
 
 describe('SalesGraphComponent', () => {

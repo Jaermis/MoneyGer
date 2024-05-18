@@ -96,6 +96,15 @@ label{
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+.int-text{
+    padding: 8px;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #3fb53f;
 }
 .logincontainer hr{
     margin-top: 5%;
@@ -141,3 +150,4 @@ label{
     }
     
 }
+
