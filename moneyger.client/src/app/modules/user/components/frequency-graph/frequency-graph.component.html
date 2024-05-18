@@ -1,0 +1,10 @@
+<div id="chart-container">
+    <ejs-chart [primaryXAxis]='xAxis' [title]='chartTitle' [tooltip]='tooltipSettings'>
+        <e-series-collection>
+            <e-series type='Radar' drawType='Area' [dataSource]='data' xName='month' yName='sales'
+            [marker]='markerSettings' fill='#220b575e'> 
+            </e-series>
+        </e-series-collection>
+    </ejs-chart>
+</div>
+
