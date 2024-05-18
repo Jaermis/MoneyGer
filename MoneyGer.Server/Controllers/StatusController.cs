@@ -45,7 +45,6 @@ namespace MoneyGer.Server.Controllers
 
             try{
             _context.Status.Add(add);
-
             await _context.SaveChangesAsync();
             return Ok(new {message = "Status Created Successfully"});
             }

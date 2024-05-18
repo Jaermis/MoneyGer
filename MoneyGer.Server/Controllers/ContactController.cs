@@ -92,21 +92,19 @@ namespace MoneyGer.Server.Controllers
             return Ok(contactsGroupedByCompany);
         }
 
-
-        [HttpDelete("Delete{id}")]
-        public async Task<IActionResult> DeleteCompany(string id)
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> DeleteContacts([FromBody] string[] contactIds)
         {
-            var company = await _context.Contacts.FindAsync(id);
-
-            if (company is null)
+            var contactsToRemove = _context.Contacts.Where(c => contactIds.Contains(c.Id)).ToList();
+            
+            if (contactsToRemove.Any())
             {
-                return NotFound("Company not Found");
+                _context.Contacts.RemoveRange(contactsToRemove);
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Contacts removed" });
             }
 
-            _context.Contacts.Remove(company);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Contact removed" });
+            return NotFound(new { message = "No contacts found with the provided IDs" });
         }
     }
 }

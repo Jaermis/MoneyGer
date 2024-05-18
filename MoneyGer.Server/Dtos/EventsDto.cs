@@ -1,6 +1,6 @@
 namespace MoneyGer.Server.Dtos
 {
-    public class Events
+    public class EventsDto
     {
         public string Description { get; set; } =null!;
         public DateTime DateStart { get; set; }

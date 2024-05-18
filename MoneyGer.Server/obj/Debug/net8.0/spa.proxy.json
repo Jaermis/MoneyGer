@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\Ronerr Villacarlos\\Documents\\Code\\Csharp\\MoneyGer\\MoneyGer\\moneyger.server\\..\\moneyger.client",
+"WorkingDirectory": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\MoneyGer.Server\\..\\moneyger.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

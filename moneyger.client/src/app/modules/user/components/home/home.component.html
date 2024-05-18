@@ -47,8 +47,10 @@
     <!----------------------------------CONTACTS---------------------------->
     <div class="contacts">
         <div class="contacts-cont">
-            <table>
-                <tr>
+            <p class="table-header">Contacts</p>
+            <table class="table">
+                <thead>
+                  <tr>
                     <th>Name</th>
                     <th>Company</th>
                     <th>Status</th>
@@ -57,15 +59,22 @@
                     <th>Facebook</th>
                     <th>Twitter</th>
                     <th>Instagram</th>
-                </tr>
-                <tr *ngFor="let contact of contacts">
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let contact of contacts">
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.company }}</td>
                     <td><div class="statusBox">{{ contact.status }}</div></td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.phoneNumber }}</td>
-                </tr>
-            </table>
+                    <td>{{ contact.facebook }}</td>
+                    <td>{{ contact.twitter }}</td>
+                    <td>{{ contact.instagram }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
         </div>
     </div>
 

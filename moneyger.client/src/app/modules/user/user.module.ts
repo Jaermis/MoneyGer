@@ -33,6 +33,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FrequencyGraphComponent } from './components/frequency-graph/frequency-graph.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 
 
 
@@ -65,6 +66,7 @@ const UserComponents = [
     SalesGraphComponent,
     SegmentationGraphComponent,
     FrequencyGraphComponent,
+    //EditContactComponent,
   ],
   imports: [
     CommonModule,
