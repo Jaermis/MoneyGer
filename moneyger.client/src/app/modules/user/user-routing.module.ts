@@ -36,7 +36,7 @@ const routes: Routes = [
       {path: 'add-contact', component: AddContactComponent},
       {path: 'sales-graph', component: SalesGraphComponent},
       {path: 'segmentation-graph', component: SegmentationGraphComponent},
-      {path: 'frequency-graph', component: FrequencyGraphComponent}
+      {path: 'frequency-graph', component: FrequencyGraphComponent},
   ]}
 ];
 

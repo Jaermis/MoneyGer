@@ -1,102 +1,89 @@
+<div id="home">
 
-<div class="cont">
-    <div class="cont1">
-        <div class="leftcont">
-            <div class="opportunities">
-                <div class="revenue">
-                    <h2 class="rev-text">Revenue</h2>
-                    <div class="php"><h4>PHP</h4></div>
-                    <div class="money">
-                        <h4>1000,000,000.00</h4>
-                    </div>
+    <!---------------------------------HEADER-------------------------->
+    <div class="header">
+        <div class="header-cont">
+            Ronskie's IT Solutions
+        </div>
+    </div>
+
+    <!---------------------------------MONEY----------------------------->
+    <div class="money">
+        <div class="revenue">
+            <div class="sales-cont">
+                <div class="monthly">
+                    Monthly Revenue
                 </div>
-                <div class="profit">
-                    <h2 class="prof-text">Profit</h2>
-                    <div class="php"><h4>PHP</h4></div>
-                    <div class="money">
-                        <h4>1,000.00</h4>
-                    </div>
-                </div>       
-            </div>
-            <div class="deals">
-                <div class="head-text"><h2>Recent Deals</h2></div>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Company</th>
-                        <th>Status</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                    </tr>
-                    <tr>
-                        <td>Jule Q.</td>
-                        <td>CoCa Cola</td>
-                        <td><div class="statusBox"> Sealed</div></td>
-                        <td>sijdbuhsbdubsd</td>
-                        <td>09606727641</td>
-                    </tr>
-                    <tr>
-                        <td>Jule Q.</td>
-                        <td>CoCa Cola</td>
-                        <td><div class="statusBox"> Sealed</div></td>
-                        <td>sijdbuhsbdubsd</td>
-                        <td>09606727641</td>
-                    </tr>
-                    <tr>
-                        <td>Jule Q.</td>
-                        <td>CoCa Cola</td>
-                        <td><div class="statusBox"> Sealed</div></td>
-                        <td>sijdbuhsbdubsd</td>
-                        <td>09606727641</td>
-                    </tr>
-                    <tr>
-                        <td>Jule Q.</td>
-                        <td>CoCa Cola</td>
-                        <td><div class="statusBox"> Sealed</div></td>
-                        <td>sijdbuhsbdubsd</td>
-                        <td>09606727641</td>
-                    </tr>
-                    <tr>
-                        <td>Jule Q.</td>
-                        <td>CoCa Cola</td>
-                        <td><div class="statusBox">Sealed</div></td>
-                        <td>sijdbuhsbdubsd</td>
-                        <td>09606727641</td>
-                    </tr>
-                </table>
+                <div class="php">
+                    PHP
+                </div>
+                <div class="value">
+                    112, 481.03
+                </div>
             </div>
         </div>
-        
-        <div class="splt">
-            <div class="todo">
-                <div class="head-text"><h2>To-Do List</h2></div>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Assigned</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td><div class="box">Meeting</div></td>
-                        <td>Mark Z.</td>
-                        <td><div class="statusBox">Done</div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="box">Meeting</div></td>
-                        <td>Mark Z.</td>
-                        <td><div class="statusBox">Done</div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="box">Meeting</div></td>
-                        <td>Mark Z.</td>
-                        <td><div class="statusBox">Done</div></td>
-                    </tr>
-                </table>
+        <div class="profit">
+            <div class="sales-cont">
+                <div class="monthly">
+                    Monthly Profit
+                </div>
+                <div class="php">
+                    PHP
+                </div>
+                <div class="value">
+                    72, 479.31
+                </div>
             </div>
-            <div class="calendar">
-                <div class="head-text"><h2>Calendar</h2></div>
+        </div>
+    </div>
+
+    <!----------------------------------SALES------------------------------->
+    <div class="sales">
+        <div class="sales-cont">
+            <app-sales-graph></app-sales-graph>
+        </div>
+    </div>
+
+    <!----------------------------------CONTACTS---------------------------->
+    <div class="contacts">
+        <div class="contacts-cont">
+            <div class="table">
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th>Facebook</th>
+                            <th>Twitter</th>
+                            <th>Instagram</th>
+                        </tr>
+                        <tr *ngFor="let contact of contacts">
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.company }}</td>
+                            <td><div class="statusBox">{{ contact.status }}</div></td>
+                            <td>{{ contact.email }}</td>
+                            <td>{{ contact.phoneNumber }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------------MORE GRAPHS------------------------>
+    <div class="more-graphs">
+        <div class="pie">
+            <div class="pie-cont">
+                <app-segmentation-graph></app-segmentation-graph>
+            </div>
+        </div>
+        <div class="radar">
+            <div class="radar-cont">
+                <app-frequency-graph></app-frequency-graph>
             </div>
         </div>
     </div>
 </div>
-

@@ -1,10 +1,9 @@
 * {
     font-family: 'Open Sans', sans-serif;
-    background-color: #DACAFF;
+    background-color: #FFFF;
     overscroll-behavior:inherit;
 }
 .dashboard{
-
     display: flex;
     flex-direction: row;
 }

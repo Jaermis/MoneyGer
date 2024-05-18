@@ -9,44 +9,6 @@
     align-items: center;
 }
 
-.title {
-    margin-top: 25px;
-    margin-left: 3.5%;
-    color: #220B57;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.table {
-    background-color: #220B57;
-    width: 93%;
-    height: 100%;
-    margin-bottom: 25px;
-    border-radius: 10px; /* Adding border-radius here */
-    overflow: hidden; /* Ensure overflow is handled */
-}
-
-.table-container {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    border-radius: 10px; /* Maintain the border-radius for the container */
-}
-
-.statusBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: green;
-    height: 100%;
-    width: 100%;
-}
-
-.parent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 3.5%;
-}
-
 .table {
     margin-top: 10px;
 }
@@ -76,6 +38,47 @@ tr:nth-child(even) td {
 tr:hover td {
     background-color: #96949C;
 }
+
+.table {
+    background-color: #fff;
+    width: 93%;
+    height: 100%;
+    margin-bottom: 25px;
+    border-radius: 10px; /* Adding border-radius here */
+    overflow: hidden; /* Ensure overflow is handled */
+}
+
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    border-radius: 10px; /* Maintain the border-radius for the container */
+}
+
+.statusBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: green;
+    height: 100%;
+    width: 100%;
+}
+
+
+.title {
+    margin-top: 25px;
+    margin-left: 3.5%;
+    color: #220B57;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 3.5%;
+}
+
 
 .parent button{
     margin-top: 20px;
