@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from '@syncfusion/ej2-angular-charts';
 
 @Component({
   selector: 'app-sales-graph',
