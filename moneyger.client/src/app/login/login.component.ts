@@ -5,7 +5,6 @@ import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
-import { SpinnerModule } from '@coreui/angular';
 
 
 
@@ -14,7 +13,7 @@ import { SpinnerModule } from '@coreui/angular';
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [ReactiveFormsModule,RouterLink,MatProgressSpinnerModule,CommonModule, SpinnerModule], 
+  imports: [ReactiveFormsModule,RouterLink,MatProgressSpinnerModule,CommonModule], 
 })
 export class LoginComponent implements OnInit {
   constructor(
