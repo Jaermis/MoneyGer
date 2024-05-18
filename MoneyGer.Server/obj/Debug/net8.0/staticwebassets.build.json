@@ -1,17 +1,13 @@
 {
   "Version": 1,
-<<<<<<< Updated upstream
-  "Hash": "LLHwWSEolwORSPiNIk5Ss3s8DkDa8hrMbkLzQI8pnxg=",
-=======
-  "Hash": "yJiM/ugSfUS07u6eBUsX4aH+0mkQzFuM0GqUZhuxRAw=",
->>>>>>> Stashed changes
+  "Hash": "RYbiQcwuk/AOX2YsopkrkfFw9Vs9hy5Yojga372e/1I=",
   "Source": "MoneyGer.Server",
   "BasePath": "_content/MoneyGer.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\Jermzu\\Documents\\MoneyGer\\moneyger.client\\moneyger.client.esproj",
+      "Identity": "C:\\Software Development Projects\\Gikan ni jems\\MoneyGer\\moneyger.client\\moneyger.client.esproj",
       "Version": 2,
       "Source": "moneyger.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
