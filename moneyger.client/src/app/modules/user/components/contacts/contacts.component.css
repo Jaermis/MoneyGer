@@ -3,26 +3,52 @@
 }
 
 .main {
-    width: 100%;
+    background-color: aqua;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.table {
+.table-container {
+    width: 93%; /* Set container width to 90% */
+    overflow-x: auto; /* Enable horizontal scrolling */
     margin-top: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.423);
+    background-color: #fff;
+    margin-bottom: 25px;
+    border-radius: 10px;
 }
 
-table {
-    width: 100%;
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+.table-container::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+.table-container::-webkit-scrollbar-thumb {
+    background: #4e23b2; 
+    border-radius: 5px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #391887; 
+}
+
+.check{
+    height: 15px;
+    width: 15px;
+}
+
+.table {
+    width: auto; /* Allow table to expand based on content */
     border-collapse: collapse;
     text-align: center;
 }
 
 th, td {
-    height: 50px;
+    padding: 10px; /* Add some padding for better readability */
     color: #220B57;
-    border-bottom: 1px solid #32107F;
+    border-bottom: 1px solid #494949;
 }
 
 th {
@@ -32,36 +58,23 @@ th {
 }
 
 tr:nth-child(even) td {
-    background-color: #32107F;
+    background-color: #fff;
 }
 
 tr:hover td {
-    background-color: #96949C;
-}
-
-.table {
-    background-color: #fff;
-    width: 93%;
-    height: 100%;
-    margin-bottom: 25px;
-    border-radius: 10px; /* Adding border-radius here */
-    overflow: hidden; /* Ensure overflow is handled */
-}
-
-.table-container {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    border-radius: 10px; /* Maintain the border-radius for the container */
+    background-color: #cccbcd;
+    cursor: pointer;
 }
 
 .statusBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: green;
-    height: 100%;
-    width: 100%;
+    background-color: rgb(0, 213, 0);
+    height: 70%;
+    width: 90%;
+    border-radius: 10px;
 }
-
 
 .title {
     margin-top: 25px;
@@ -71,16 +84,16 @@ tr:hover td {
     font-weight: bold;
 }
 
-
 .parent {
+    width: 90%;
+    background-color: aquamarine;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-right: 3.5%;
 }
 
-
-.parent button{
+.parent button {
     margin-top: 20px;
     background-color: #220B57;
     color: #fff;
@@ -95,7 +108,7 @@ tr:hover td {
     border: 2px solid #220B57;
 }
 
-.parent button:hover{
+.parent button:hover {
     background-color: #ffffff00;
     color: #220B57;
     cursor: pointer;
