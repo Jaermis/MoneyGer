@@ -1,36 +1,56 @@
 <div class="cont">
+    <div class="left-container">
+      <div class="date-pick">
+        <h1>Add Event</h1>
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="newEventDate">
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <i class='bx bx-calendar'></i>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <label for="appt">Select a time:</label>
+        <input type="time" id="appt" name="appt" [(ngModel)]="newEventTime">
+        <textarea class="field" placeholder="Add event details" [(ngModel)]="newEventDescription"></textarea>
+      </div>
+      <button class="add-event" type="button" (click)="addEvent()">Add Event</button>
+    </div>
     <div class="container">
-        <header>
-            <p class = "current-date">{{ currentMonth }} {{ currentYear }}</p>
-            <div class="icons">
-                <i class='bx bx-chevron-left bx-sm' (click)="previousMonth()"></i>
-                <i class='bx bx-chevron-right bx-sm' (click)="nextMonth()"></i>
-            </div>
-        </header>
-        <div class="calendar">
-            <ul class="week">
-                <li *ngFor="let day of weekDays">{{ day }}</li>
-            </ul>
-            <ul class="days">
-                <li *ngFor="let day of days" [ngClass]="getClasses(day)">{{ day.day }}</li>
-            </ul>
+      <header>
+        <p class="current-date">{{ currentMonth }} {{ currentYear }}</p>
+        <div class="icons">
+          <i class='bx bx-chevron-left bx-sm' (click)="previousMonth()"></i>
+          <i class='bx bx-chevron-right bx-sm' (click)="nextMonth()"></i>
         </div>
+      </header>
+      <div class="calendar">
+        <ul class="week">
+          <li *ngFor="let day of weekDays">{{ day }}</li>
+        </ul>
+        <ul class="days">
+          <li *ngFor="let day of days" [ngClass]="getClasses(day)">{{ day.day }}</li>
+        </ul>
+      </div>
     </div>
     <div class="sidecontainer">
-        <div class="side-header">
-            <h1>Events</h1>
-        </div>
-        <div class="events-array">
-            <div *ngFor="let groupedEvents of groupEventsByDate(predefinedEvents)">
-                <div class="event-group">
-                    <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2> <!-- Display date -->
-                    <div class="event-title">        
-                        <div *ngFor="let event of groupedEvents.events">
-                            <p>{{ event.description }}</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="side-header">
+        <h1>{{ showUpcomingEvents ? 'Upcoming Events' : 'Past Events' }}</h1>
+        <button class="toggle-butt" (click)="toggleEventView()">{{ showUpcomingEvents ? '>' : '>' }}</button>
+      </div>
+      <div class="events-array">
+        <div *ngFor="let groupedEvents of groupEventsByDate(predefinedEvents)">
+          <div class="event-group">
+            <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2>
+            <div class="event-title">
+              <div *ngFor="let event of groupedEvents.events">
+                <strong><p>{{ event.description }}</p></strong>
+                <p>{{ event.time }}</p>
+                <button class="delete-event" (click)="deleteEvent(event)">Delete</button> <!-- Delete button -->
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
