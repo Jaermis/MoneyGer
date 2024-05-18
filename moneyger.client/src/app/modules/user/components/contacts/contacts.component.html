@@ -1,22 +1,30 @@
-<p class="title">Contacts</p>
+<div class="parent">
+    <p class="title">Contacts</p>
+    <button routerLink="/user/add-contact">Add Contact</button>
+</div>
 
 <div class="main">
     <div class="table">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Company</th>
-                <th>Status</th>
-                <th>Email</th>
-                <th>Contact Number</th>
-            </tr>
-            <tr *ngFor="let contact of contacts">
-                <td>{{ contact.name }}</td>
-                <td>{{ contact.company }}</td>
-                <td><div class="statusBox">{{ contact.status }}</div></td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.phoneNumber }}</td>
-            </tr>
-        </table>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Status</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>Facebook</th>
+                    <th>Twitter</th>
+                    <th>Instagram</th>
+                </tr>
+                <tr *ngFor="let contact of contacts">
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.company }}</td>
+                    <td><div class="statusBox">{{ contact.status }}</div></td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phoneNumber }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

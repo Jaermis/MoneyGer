@@ -2,55 +2,98 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.main{
+.main {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.title{
+.title {
     margin-top: 25px;
-    margin-left: 50px;
+    margin-left: 3.5%;
     color: #220B57;
     font-size: 30px;
     font-weight: bold;
 }
 
-.table{
+.table {
     background-color: #220B57;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
-    width: 92%;
+    width: 93%;
     height: 100%;
     margin-bottom: 25px;
+    border-radius: 10px; /* Adding border-radius here */
+    overflow: hidden; /* Ensure overflow is handled */
 }
 
-.statusBox{
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    border-radius: 10px; /* Maintain the border-radius for the container */
+}
+
+.statusBox {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     background-color: green;
     height: 100%;
     width: 100%;
 }
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 3.5%;
+}
+
+.table {
+    margin-top: 10px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
 }
+
 th, td {
     height: 50px;
-    color: white;
-    border-bottom: 1px solid  #32107F;
+    color: #220B57;
+    border-bottom: 1px solid #32107F;
 }
+
 th {
-    background-color: #220B57;
-    color: white;
+    background-color: white;
+    color: #220B57;
     font-size: large;
 }
+
 tr:nth-child(even) td {
-    background-color:  #32107F;
+    background-color: #32107F;
 }
-tr:hover td{
+
+tr:hover td {
     background-color: #96949C;
 }
+
+.parent button{
+    margin-top: 20px;
+    background-color: #220B57;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    width: 100px;
+    padding: 7px;
+    max-height: 61px;
+    font-family: 'Lato', sans-serif;
+    border: 2px solid #220B57;
+}
+
+.parent button:hover{
+    background-color: #ffffff00;
+    color: #220B57;
+    cursor: pointer;
+}s
