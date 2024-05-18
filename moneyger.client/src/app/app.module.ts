@@ -16,7 +16,6 @@ import { PosComponent } from './pos/pos.component';
 import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { SpinnerModule } from '@coreui/angular';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,7 @@ import { SpinnerModule } from '@coreui/angular';
     UserModule,
     MatTable,
     MatTableModule,
-    MatButtonModule,SpinnerModule,
+    MatButtonModule,
     MatProgressSpinnerModule
   ],
   exports: [
