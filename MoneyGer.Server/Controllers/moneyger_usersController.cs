@@ -428,6 +428,43 @@ namespace MoneyGer.Server.Controllers
 
             return BadRequest("User deletion failed.");
         }
+        
+        [HttpPost("EditProfile")]
+        public async Task<ActionResult> EditProfile([FromBody] UserDetailDto editProfileDto)
+        {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var existingUser = await _userManager.FindByIdAsync(user);
+             if (existingUser == null)
+            {
+                 return NotFound("User not found.");
+            }
 
+
+             if (!string.IsNullOrEmpty(editProfileDto.PhoneNumber))
+            {
+                existingUser.PhoneNumber = editProfileDto.PhoneNumber;
+            }
+
+             if (!string.IsNullOrEmpty(editProfileDto.Facebook))
+            {
+                existingUser.Facebook = editProfileDto.Facebook;
+            }
+
+             if (!string.IsNullOrEmpty(editProfileDto.Twitter))
+            {
+                existingUser.Twitter = editProfileDto.Twitter;
+            }
+
+             if (!string.IsNullOrEmpty(editProfileDto.Instagram))
+            {
+                existingUser.Instagram = editProfileDto.Instagram;
+            }
+
+            
+            await _userManager.UpdateAsync(existingUser);
+
+            
+            return Ok(new {message = "Profile Edited Successfully"});
+            }
     }
 }

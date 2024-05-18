@@ -1,33 +1,34 @@
-<div class="edit-profile">
-    <div class="edit-cont">
-        <div class="profile">
-            <img src="assets/James.jpg" alt="Duck Illustration">
-        </div>
-        <div class="form">
-            <div class="name">
-                <div class="first-name">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" placeholder="First Name">
-                </div>
-                <div class="last-name">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" placeholder="Last Name">
-                </div>
+@if(isLoggedIn()){
+    <div class="edit-profile" *ngIf="authService.getUserDetail() as userDetail">
+        <div class="edit-cont">
+            <div class="profile">
+                <img src="assets/James.jpg" alt="Duck Illustration">
             </div>
-            <label for="phone">Phone Number</label>
-            <input type="text" id="phone" placeholder="Phone Number">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Email">
-            <label for="facebook">Facebook</label>
-            <input type="text" id="facebook" placeholder="Facebook">
-            <label for="twitter">Twitter / X</label>
-            <input type="text" id="twitter" placeholder="Twitter / X">
-            <label for="instagram">Instagram</label>
-            <input type="text" id="instagram" placeholder="Instagram">
+            <div class="form">
+                <div class="name">
+                    <div class="first-name">
+                        <label for="first-name">First Name</label>
+                        <input type="text" class readonly id="first-name" value={{userDetail.firstname}}>
+                    </div>
+                    <div class="last-name">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" class readonly id="last-name" value={{userDetail.lastname}}>
+                    </div>
+                </div>
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder={{userDetail.phonenumber}}>
+                <label for="email">Email</label>
+                <input type="email" class readonly id="email" value={{userDetail.email}}>
+                <label for="facebook">Facebook</label>
+                <input type="text" id="facebook" placeholder={{userDetail.facebook}}>
+                <label for="twitter">Twitter / X</label>
+                <input type="text" id="twitter" placeholder={{userDetail.twitter}}>
+                <label for="instagram">Instagram</label>
+                <input type="text" id="instagram" placeholder={{userDetail.instagram}}>
+            </div>
+            <div class="actions">
+                <button class="cancel">Cancel</button>
+                <button class="save">Save</button>
+            </div>
         </div>
-        <div class="actions">
-            <button class="cancel">Cancel</button>
-            <button class="save">Save</button>
-        </div>
-    </div>
-</div>
+    </div>}

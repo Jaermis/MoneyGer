@@ -14,14 +14,14 @@
                     </div>
                 </div>
             </div>}
-        <div class="socials">
+        <div class="socials" *ngIf="authService.getUserDetail() as userDetail">
             <div class="inner-social">
                 <div class="facebook">
                     <div class="icon">
                         <i class='bx bxl-facebook-circle bx-md'></i>
                     </div>
                     <div class="social-name">
-                        <p>www.facebook.com/juledelajuan</p>
+                        <p>{{userDetail.facebook}}</p>
                     </div>
                 </div>
                 <div class="twitter">
@@ -29,7 +29,7 @@
                         <i class='bx bxl-twitter bx-md'></i>
                     </div>
                     <div class="social-name">
-                        <p>www.twitter.com/juledelajuanzzz</p>
+                        <p>{{userDetail.twitter}}</p>
                     </div>
                 </div>
                 <div class="instagram">
@@ -37,7 +37,7 @@
                         <i class='bx bxl-instagram bx-md'></i>
                     </div>
                     <div class="social-name">
-                        <p>www.instagram.com/juledelajuanz</p>
+                        <p>{{userDetail.instagram}}</p>
                     </div>
                 </div>
             </div>
