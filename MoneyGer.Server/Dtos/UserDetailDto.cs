@@ -14,5 +14,8 @@ public bool PhoneNumberConfirmed {get;set;}
 public bool TwoFactorEnabled {get;set;}
 public int AccessFailedCount {get;set;}
 public string? Company {get;set;}
+public string? Facebook { get; set; }
+public string? Twitter { get; set; }
+public string? Instagram { get; set; }
     }
 }
