@@ -16,6 +16,7 @@ export class SalesGraphComponent {
   public legend: Object;
   public markerSettings: Object;
   public tooltipSettings: Object;
+  public margin: Object;
 
 
   constructor(){
@@ -56,7 +57,10 @@ export class SalesGraphComponent {
     };
     this.yAxis = {
       title: 'Sales'
-    }
+    };
+    this.margin = {
+      left: 40, right: 40, top: 40, bottom: 40
+    };
   }
 
 }

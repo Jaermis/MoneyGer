@@ -3,7 +3,7 @@
     <!---------------------------------HEADER-------------------------->
     <div class="header">
         <div class="header-cont">
-            Ronskie's IT Solutions
+            <p class="companyname">Ronskie's IT Solutions</p>
         </div>
     </div>
 
@@ -47,29 +47,25 @@
     <!----------------------------------CONTACTS---------------------------->
     <div class="contacts">
         <div class="contacts-cont">
-            <div class="table">
-                <div class="table-container">
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Company</th>
-                            <th>Status</th>
-                            <th>Email</th>
-                            <th>Contact Number</th>
-                            <th>Facebook</th>
-                            <th>Twitter</th>
-                            <th>Instagram</th>
-                        </tr>
-                        <tr *ngFor="let contact of contacts">
-                            <td>{{ contact.name }}</td>
-                            <td>{{ contact.company }}</td>
-                            <td><div class="statusBox">{{ contact.status }}</div></td>
-                            <td>{{ contact.email }}</td>
-                            <td>{{ contact.phoneNumber }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Status</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>Facebook</th>
+                    <th>Twitter</th>
+                    <th>Instagram</th>
+                </tr>
+                <tr *ngFor="let contact of contacts">
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.company }}</td>
+                    <td><div class="statusBox">{{ contact.status }}</div></td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phoneNumber }}</td>
+                </tr>
+            </table>
         </div>
     </div>
 
