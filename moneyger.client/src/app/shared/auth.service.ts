@@ -63,7 +63,11 @@ export class AuthService {
       firstname: decodedToken.firstname,
       lastname: decodedToken.lastname,
       email: decodedToken.email,
-      company: decodedToken.company
+      company: decodedToken.company,
+      phonenumber: decodedToken.phonenumber,
+      facebook: decodedToken.facebook,
+      twitter: decodedToken.twitter,
+      instagram: decodedToken.instagram
     };
 
     return userDetail;

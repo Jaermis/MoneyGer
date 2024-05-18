@@ -3,16 +3,17 @@
         <div class="button">
             <button routerLink="/user/edit-profile">Edit Profile</button>
         </div>
-        <div class="main-prof">
-            <img src="assets/James.jpg">
-            <div class="name-details">
-                <p class="name">Jule Dela Juan</p>
-                <div class="details">
-                    <p class="phone">09453395681</p>
-                    <p class="email">juledelajuan&#64;gmail.com</p>
+        @if(isLoggedIn()){
+            <div class="main-prof" *ngIf="authService.getUserDetail() as userDetail">
+                <img src="assets/James.jpg">
+                <div class="name-details">
+                    <p class="name">{{userDetail!.fullname | titlecase}}</p> 
+                    <div class="details">
+                        <p class="phone">{{userDetail.phonenumber}}</p>
+                        <p class="email">{{userDetail.email}}</p>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div>}
         <div class="socials">
             <div class="inner-social">
                 <div class="facebook">
