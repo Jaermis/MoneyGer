@@ -33,7 +33,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FrequencyGraphComponent } from './components/frequency-graph/frequency-graph.component';
-import { EditContactComponent } from './components/edit-contact/edit-contact.component';
+import { SearchPipe } from './components/contacts/search.pipe';
 
 
 
@@ -66,6 +66,7 @@ const UserComponents = [
     SalesGraphComponent,
     SegmentationGraphComponent,
     FrequencyGraphComponent,
+    SearchPipe,
     //EditContactComponent,
   ],
   imports: [
@@ -73,7 +74,8 @@ const UserComponents = [
     UserRoutingModule,
     UserComponents,
     ChartModule,
-    AccumulationChartModule
+    AccumulationChartModule, 
+    FormsModule
   ],
   exports: [
     UserComponents

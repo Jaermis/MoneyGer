@@ -55,6 +55,7 @@ th {
     background-color: white;
     color: #220B57;
     font-size: large;
+    cursor: pointer;
 }
 
 tr:nth-child(even) td {
@@ -136,3 +137,30 @@ th:nth-child(8), td:nth-child(8) { width: 10%; }
 th:nth-child(9), td:nth-child(9) { width: 10%; }
 th:nth-child(10), td:nth-child(10) { width: 10%; }
 th:nth-child(11), td:nth-child(11) { width: 10%; }
+
+
+
+
+.search-bar {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 450px;
+    margin-right: 5px;
+  }
+
+  .search-bar i {
+    cursor: pointer; /* Change cursor to pointer when hovering over the icon */
+    color: #0056b3; /* Change icon color */
+  }
+  
+  .search-bar i:hover {
+    color: #007bff; /* Change icon color on hover */
+  }
