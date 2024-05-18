@@ -8,9 +8,8 @@ namespace MoneyGer.Server.Models
         [Key]
         public int Id { get; set; }
         public string Description { get; set; } =null!;
-        public DateTime DateStart { get; set; }
-        public DateTime DateEnd { get; set; }
-        public DateTime Time{get; set; }
+        public string DateStart { get; set; } = null!;
+        public string? EventTime{get; set; }
     }
 
 }
