@@ -23,6 +23,7 @@ import { CreateCompanyComponent } from './components/create-company/create-compa
 import { JoinCompanyComponent } from './components/join-company/join-company.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { AddContactComponent } from './components/add-contact/add-contact.component';
 
 const UserComponents = [
   MatButton,
@@ -46,6 +47,7 @@ const UserComponents = [
     CalendarComponent,
     ProfileComponent,
     EditProfileComponent,
+    AddContactComponent,
     //CreateCompanyComponent,
     //JoinCompanyComponent
   ],
