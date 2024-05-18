@@ -7,5 +7,6 @@ export interface ContactRequest{
     facebook: string,
     twitter: string,
     instagram: string,
-    status: string
+    status: string,
+    
   }

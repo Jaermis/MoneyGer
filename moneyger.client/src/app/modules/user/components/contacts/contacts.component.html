@@ -1,7 +1,10 @@
 <div class="parent">
     <p class="title">Contacts</p>
+    <div class="search-bar">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+    </div>
     <button *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact">Add Contact</button>
-    <button *ngIf="isAnyCheckboxChecked()" (click) = "deleteSelectedContacts()">Delete Contact</button>
+    <button *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedContacts()">Delete Contact</button>
 </div>
 
 <div class="main">
@@ -11,19 +14,19 @@
                 <tr>
                     <th></th>
                     <th></th>
-                    <th>Name</th>
-                    <th>Company</th>
-                    <th>Status</th>
-                    <th>Email</th>
-                    <th>Contact Number</th>
-                    <th>Facebook</th>
-                    <th>Twitter</th>
-                    <th>Instagram</th>
+                    <th (click)="toggleSort('name')">Name</th>
+                    <th (click)="toggleSort('company')">Company</th>
+                    <th (click)="toggleSort('status')">Status</th>
+                    <th (click)="toggleSort('email')">Email</th>
+                    <th (click)="toggleSort('phoneNumber')">Contact Number</th>
+                    <th (click)="toggleSort('facebook')">Facebook</th>
+                    <th (click)="toggleSort('twitter')">Twitter</th>
+                    <th (click)="toggleSort('instagram')">Instagram</th>
                     
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let contact of contacts">
+                <tr *ngFor="let contact of contacts | search: searchText">
                     <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
                     <td><button class="edit-contact" routerLink="/user/edit-contact">Edit</button></td>
                     <td>{{ contact.name }}</td>
@@ -34,7 +37,6 @@
                     <td>{{ contact.facebook }}</td>
                     <td>{{ contact.twitter }}</td>
                     <td>{{ contact.instagram }}</td>
-                    
                 </tr>
             </tbody>
         </table>

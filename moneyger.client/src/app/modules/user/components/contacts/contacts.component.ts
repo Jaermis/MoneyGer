@@ -20,10 +20,15 @@ export class ContactsComponent implements OnInit {
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
   checkedContacts: { [key: string]: boolean } = {};
+  searchText = '';
 
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Contacts');
     this.getContacts();
+  }
+
+  toggleSort(field: keyof ContactRequest) {
+    this.contacts.sort((a,b) => a[field].localeCompare(b[field]));
   }
 
   getContacts(): void {
