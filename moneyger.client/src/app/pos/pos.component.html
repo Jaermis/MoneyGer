@@ -71,10 +71,10 @@
     </div>
   </div>
 
-  <div class="control-container">
+  <div class="control-container" *ngIf=" userDetail | async as detail">
     <div class="staff-cont">
       <p>Staff:</p>
-      <p>Juan Dela Cruz</p>
+      <p>{{detail.user | titlecase}} - {{detail.company | titlecase}}</p>
     </div>
     <div class="butt-cont">
       <div class="details">

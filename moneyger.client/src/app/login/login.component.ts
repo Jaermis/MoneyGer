@@ -46,14 +46,24 @@ export class LoginComponent implements OnInit {
   login(){
     this.loading = true;
     this.authService.login(this.form.value).subscribe({
-      next:(response)=>{
-        const company = this.authService.getUserDetail()?.company;
-        if (company == 'N/A') {
-          this.router.navigate(['/user/getting-started']); // Navigate based on the role condition
-        } 
-        else {
-          this.router.navigate(['/user/home']); // Navigate to default route for other cases
-        }
+      next:()=>{
+        this.authService.getUserCompany().subscribe({
+          next:(company)=>{
+            if (company.role == 'New User') {
+              this.router.navigate(['/user/getting-started']); // Navigate based on the role condition
+            } 
+            else if (company.role == 'Member'){
+              this.router.navigate(['/pos']); // Navigate to default route for other cases
+            }
+            else{
+              this.router.navigate(['/user/home']);
+            }
+          },
+          error:()=>{
+            alert("Fetching data failed");
+            this.loading = false;
+          }
+        });
       },
       error:(error)=>{
         alert("Login Failed");

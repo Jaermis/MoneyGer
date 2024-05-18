@@ -54,22 +54,22 @@
         </div> 
     </div>
 
-    @if(isLoggedIn()){
-    <div class="bottom" *ngIf="authService.getUserDetail() as userDetail">
-        <div class="user">
-            <img src="assets/profile.jpg" class="profile" alt="Profile Picture">
-            <div class="name">
-                <div class="ign">
-                    <i routerLink="/user/profile">{{userDetail!.fullname | titlecase}}</i> 
-                <br>
+        @if(isLoggedIn()){
+        <div class="bottom" *ngIf=" userDetail | async as detail">
+            <div class="user">
+                <img src="assets/profile.jpg" class="profile" alt="Profile Picture">
+                <div class="name">
+                    <div class="ign">
+                        <i routerLink="/user/profile">{{detail.user| titlecase}}</i> 
+                    <br>
+                    </div>
+                        <i>{{detail.role | titlecase}}</i>
+                    <br>
+                    <button class ="logout" type="button" (click)="logout()"> Logout </button>
                 </div>
-                    <i>{{userDetail!.company | titlecase}}</i>
-                <br>
-                <button class ="logout" type="button" (click)="logout()"> Logout </button>
             </div>
         </div>
-    </div>
-    }
+        }
 </div>
 <div class="overlay"></div>
 

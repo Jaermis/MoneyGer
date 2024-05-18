@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
-
-export interface Product {
-  name: string;
-  quantity: number;
-  price: number;
-  id: string;
-}
-
-export interface CartItem {
-  name: string;
-  quantity: number;
-  price: number;
-}
+import { Component, OnInit, inject } from '@angular/core';
+import { Product } from '../interfaces/product';
+import { CartItem } from '../interfaces/cart-item';
+import { UserCompanyDetail } from '../interfaces/user-company-detail';
+import { Observable } from 'rxjs';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-pos',
   templateUrl: './pos.component.html',
   styleUrls: ['./pos.component.css'],
 })
-export class PosComponent {
+export class PosComponent implements OnInit{
+  userDetail! :Observable<UserCompanyDetail>;
+  
+  ngOnInit(): void {
+    this.userDetail = this.authService.getUserCompany();
+  }
+
+  authService = inject(AuthService);
+  
   displayedColumns: string[] = ['id', 'name', 'quantity', 'price'];
   displayedColumns_cart: string[] = ['name', 'quantity', 'price', 'actions'];
   dataSource_prod: Product[] = [
