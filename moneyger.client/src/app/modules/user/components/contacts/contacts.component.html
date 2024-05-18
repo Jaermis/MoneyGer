@@ -1,7 +1,7 @@
-
 <div class="parent">
     <p class="title">Contacts</p>
-    <button routerLink="/user/add-contact">Add Contact</button>
+    <button *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact">Add Contact</button>
+    <button *ngIf="isAnyCheckboxChecked()" (click) = "deleteSelectedContacts()">Delete Contact</button>
 </div>
 
 <div class="main">
@@ -9,6 +9,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th></th>
                     <th></th>
                     <th>Name</th>
                     <th>Company</th>
@@ -18,11 +19,13 @@
                     <th>Facebook</th>
                     <th>Twitter</th>
                     <th>Instagram</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let contact of contacts">
-                    <td><input type="checkbox" class="check"></td>
+                    <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
+                    <td><button class="edit-contact" routerLink="/user/edit-contact">Edit</button></td>
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.company }}</td>
                     <td><div class="statusBox">{{ contact.status }}</div></td>
@@ -31,6 +34,7 @@
                     <td>{{ contact.facebook }}</td>
                     <td>{{ contact.twitter }}</td>
                     <td>{{ contact.instagram }}</td>
+                    
                 </tr>
             </tbody>
         </table>

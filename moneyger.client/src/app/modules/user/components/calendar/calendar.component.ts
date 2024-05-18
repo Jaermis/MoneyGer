@@ -156,21 +156,6 @@ export class CalendarComponent implements OnInit {
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
   }
 
-  addEvent(): void {
-    if (this.newEventDate && this.newEventTime && this.newEventDescription) {
-      const newEvent: Event = {
-        date: this.newEventDate,
-        time: this.newEventTime,
-        description: this.newEventDescription
-      };
-      this.predefinedEvents.push(newEvent);
-      this.newEventDate = null;
-      this.newEventTime = '';
-      this.newEventDescription = '';
-      this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
-    }
-  }
-
   groupEventsByDate(events: Event[]): { date: Date; events: Event[] }[] {
     const groupedEvents: { date: Date; events: Event[] }[] = [];
     const today = new Date();
@@ -195,7 +180,21 @@ export class CalendarComponent implements OnInit {
   toggleEventView(): void {
     this.showUpcomingEvents = !this.showUpcomingEvents;
   }
-
+  
+  addEvent(): void {
+    if (this.newEventDate && this.newEventTime && this.newEventDescription) {
+      const newEvent: Event = {
+        date: this.newEventDate,
+        time: this.newEventTime,
+        description: this.newEventDescription
+      };
+      this.predefinedEvents.push(newEvent);
+      this.newEventDate = null;
+      this.newEventTime = '';
+      this.newEventDescription = '';
+      this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
+    }
+  }
   deleteEvent(eventToDelete: Event): void {
     this.predefinedEvents = this.predefinedEvents.filter(event => event !== eventToDelete);
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());

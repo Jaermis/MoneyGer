@@ -1,4 +1,5 @@
 export interface ContactRequest{
+    id:string,
     name: string,
     company: string,
     phoneNumber: string,

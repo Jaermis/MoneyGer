@@ -4,6 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
 import { ContactRequest } from '../../../../interfaces/contact-request';
+import { AuthResponse } from '../../../../interfaces/auth-response';
 
 @Component({
   selector: 'app-contacts',
@@ -18,6 +19,7 @@ export class ContactsComponent implements OnInit {
 
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
+  checkedContacts: { [key: string]: boolean } = {};
 
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Contacts');
@@ -36,5 +38,35 @@ export class ContactsComponent implements OnInit {
         console.error(err.message);
       },
     });
+  }
+  
+  deleteSelectedContacts(): void {
+    const contactsToDelete = Object.keys(this.checkedContacts).filter(contactId => this.checkedContacts[contactId]);
+
+    if (contactsToDelete.length > 0) {
+      this.contactService.deleteContacts(contactsToDelete).subscribe({
+        next: (response: AuthResponse) => {
+          if (response.isSuccess) {
+            this.contacts = this.contacts.filter(contact => !contactsToDelete.includes(contact.id));
+            this.checkedContacts = {};  // Reset the checked contacts
+          } else {
+            console.error('Error deleting contacts:', response.message);
+          }
+        },
+        error: (err: HttpErrorResponse) => {
+          console.error('Error deleting contacts:', err.message);
+        },
+        
+      complete:()=>this.ngOnInit(),
+      });
+    }
+  }
+
+  onCheckboxChange(contactId: string, event: any): void {
+    this.checkedContacts[contactId] = event.target.checked;
+  }
+
+  isAnyCheckboxChecked(): boolean {
+    return Object.values(this.checkedContacts).some(isChecked => isChecked);
   }
 }

@@ -24,4 +24,12 @@ export class ContactService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
     return this.http.post<AuthResponse>(`${this.apiUrl}/Contact`, data, { headers });
   }
+
+  deleteContacts(contactIds: string[]): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.request<AuthResponse>('delete', `${this.apiUrl}/Contact/Delete`, {
+      body: contactIds,
+      headers: headers
+    });
+  }
 }
