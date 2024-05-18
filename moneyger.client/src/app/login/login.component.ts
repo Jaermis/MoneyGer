@@ -2,14 +2,19 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
+import { SpinnerModule } from '@coreui/angular';
+
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [ReactiveFormsModule,RouterLink]
+  imports: [ReactiveFormsModule,RouterLink,MatProgressSpinnerModule,CommonModule, SpinnerModule], 
 })
 export class LoginComponent implements OnInit {
   constructor(
@@ -23,7 +28,8 @@ export class LoginComponent implements OnInit {
   changeicon:boolean = true;
   changetype:boolean = true;
   showImg: boolean = false;
-
+  loading: boolean = false;
+  
   ngOnInit(): void {
     this.titleService.setTitle('MoneyGer Login');
     this.form = this.fb.group({
@@ -38,6 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.loading = true;
     this.authService.login(this.form.value).subscribe({
       next:(response)=>{
         const company = this.authService.getUserDetail()?.company;
@@ -50,6 +57,7 @@ export class LoginComponent implements OnInit {
       },
       error:(error)=>{
         alert("Login Failed");
+        this.loading = false;
       }
     });
   }

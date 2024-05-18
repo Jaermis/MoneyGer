@@ -84,6 +84,11 @@
     cursor: pointer;
     margin-top: 7%;
     margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+}
+.int-text{
+    padding: 8px;
 }
 .disabledsignupbtn{
     width: 100%;

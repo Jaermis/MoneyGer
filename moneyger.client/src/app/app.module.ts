@@ -15,7 +15,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PosComponent } from './pos/pos.component';
 import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SpinnerModule } from '@coreui/angular';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatButtonModule } from '@angular/material/button';
     UserModule,
     MatTable,
     MatTableModule,
-    MatButtonModule, 
+    MatButtonModule,SpinnerModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatTableModule

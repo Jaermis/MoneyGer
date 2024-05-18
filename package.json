@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@coreui/angular": "^5.1.0",
     "boxicons": "^2.1.4"
   }
 }
