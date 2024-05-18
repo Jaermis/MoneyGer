@@ -17,6 +17,7 @@ export class SalesGraphComponent {
   public markerSettings: Object;
   public tooltipSettings: Object;
 
+
   constructor(){
     this.chartTitle = 'Sales Tracking';
     this.data = [
