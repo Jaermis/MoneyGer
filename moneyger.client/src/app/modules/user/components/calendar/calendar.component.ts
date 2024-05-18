@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { Observable } from 'rxjs';
+import { CalendarService } from '../../../../shared/calendar.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ValidationError } from '../../../../interfaces/validation-error';
+import { EventRequest } from '../../../../interfaces/event-request';
 
 enum ActiveState {
   Inactive,
@@ -9,17 +15,11 @@ enum ActiveState {
   HasCurrent,
   DoneEvent
 }
-
 interface CalendarDay {
   day: number;
   active: ActiveState;
 }
 
-interface Event {
-  date: Date;
-  time: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-calendar',
@@ -36,13 +36,12 @@ export class CalendarComponent implements OnInit {
   currentDay: number;
   events: Event[] = [];
 
-  predefinedEvents: Event[] = [
-    { date: new Date(2024, 4, 16), time: '10:00 AM', description: 'Meeting with client' },
-    { date: new Date(2024, 4, 20), time: '12:00 PM', description: 'Team lunch' },
-    { date: new Date(2024, 4, 25), time: '5:00 PM', description: 'Project deadline' },
-    { date: new Date(2024, 4, 16), time: '9:00 AM', description: 'Meeting with boss' },
-    // Add more events as needed
-  ];
+  eventmaker: EventRequest = {
+    dateStart: new Date,
+    description: '',
+    eventTime: ''
+  };
+   
 
   newEventDate: Date | null = null;
   newEventTime: string = '';
@@ -50,17 +49,25 @@ export class CalendarComponent implements OnInit {
 
   showUpcomingEvents: boolean = true; // Toggle state
 
-  constructor() {
+  fetchEvent! : Observable<EventRequest>;
+  errors: ValidationError[] = [];
+  
+  constructor(
+    private calendarService: CalendarService,
+    private router: Router,
+  ) {
     this.currentDate = new Date();
     this.currentMonth = this.getMonthName(this.currentDate.getMonth());
     this.currentYear = this.currentDate.getFullYear();
     this.currentDay = this.currentDate.getDate();
     this.weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
-    this.events = [...this.predefinedEvents];
   }
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    
+  }
 
   getMonthName(monthIndex: number): string {
     const monthNames = [
@@ -108,7 +115,7 @@ export class CalendarComponent implements OnInit {
     }
 
     // Fill up days of current month
-    for (let i = 1; i <= daysInMonth; i++) {
+    /*for (let i = 1; i <= daysInMonth; i++) {
       let isActive: ActiveState = ActiveState.Inactive;
       if (year === currentYear && month === currentMonth && i === this.currentDay) {
         isActive = ActiveState.Current;
@@ -131,7 +138,7 @@ export class CalendarComponent implements OnInit {
         }
       }
       days.push({ day: i, active: isActive });
-    }
+    }*/
 
     // Fill up remaining days with days from next month
     const lastDayofMonth = new Date(year, month, daysInMonth).getDay();
@@ -156,7 +163,7 @@ export class CalendarComponent implements OnInit {
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
   }
 
-  groupEventsByDate(events: Event[]): { date: Date; events: Event[] }[] {
+  /*groupEventsByDate(events: Event[]): { date: Date; events: Event[] }[] {
     const groupedEvents: { date: Date; events: Event[] }[] = [];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -175,28 +182,29 @@ export class CalendarComponent implements OnInit {
     });
 
     return groupedEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
-  }
+  }*/
 
   toggleEventView(): void {
     this.showUpcomingEvents = !this.showUpcomingEvents;
   }
   
-  addEvent(): void {
-    if (this.newEventDate && this.newEventTime && this.newEventDescription) {
-      const newEvent: Event = {
-        date: this.newEventDate,
-        time: this.newEventTime,
-        description: this.newEventDescription
-      };
-      this.predefinedEvents.push(newEvent);
-      this.newEventDate = null;
-      this.newEventTime = '';
-      this.newEventDescription = '';
-      this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
-    }
+  addEvents(){
+    this.calendarService.addEvent(this.eventmaker).subscribe({
+      next:(response)=>{
+        this.router.navigate(['/user/calendar']);
+      },
+      error:(err:HttpErrorResponse)=>{
+        if(err!.status == 400){
+          this.errors = err!.error;
+        }
+        console.log(err.message);
+      },
+      complete: ()=> alert('Added Event'),
+    })
   }
-  deleteEvent(eventToDelete: Event): void {
+
+  /*deleteEvent(eventToDelete: Event): void {
     this.predefinedEvents = this.predefinedEvents.filter(event => event !== eventToDelete);
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
-  }
+  }*/
 }
