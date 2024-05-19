@@ -14,7 +14,7 @@ import { AuthResponse } from '../../../../interfaces/auth-response';
 export class ContactsComponent implements OnInit {
   constructor(
     private titleService: Title,
-    private contactService: ContactService
+    private contactService: ContactService,
   ) {}
 
   contacts: ContactRequest[] = [];

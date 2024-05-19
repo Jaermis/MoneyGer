@@ -34,6 +34,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FrequencyGraphComponent } from './components/frequency-graph/frequency-graph.component';
 import { SearchPipe } from './components/contacts/search.pipe';
+import { StatusComponent } from './components/status/status.component';
 
 
 
@@ -67,6 +68,7 @@ const UserComponents = [
     SegmentationGraphComponent,
     FrequencyGraphComponent,
     SearchPipe,
+    StatusComponent,
     //EditContactComponent,
   ],
   imports: [
