@@ -6,6 +6,6 @@ namespace MoneyGer.Server.Dtos
     {
         public string? Description { get; set; }
         public DateTime DateStart { get; set; }
-        public DateTime EventTime{get; set; }
+        public string EventTime {get; set; } = null!;
     }
 }

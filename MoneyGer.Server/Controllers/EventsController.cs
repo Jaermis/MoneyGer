@@ -34,7 +34,7 @@ namespace MoneyGer.Server.Controllers
         {
             Description = createEventsDto.Description,
             DateStart = createEventsDto.DateStart.ToShortDateString(),
-            EventTime = createEventsDto.EventTime.ToShortTimeString(),
+            EventTime = createEventsDto.EventTime
         };
 
         _context.Events.Add(eventsModel);
