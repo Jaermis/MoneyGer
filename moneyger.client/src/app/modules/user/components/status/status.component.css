@@ -1,12 +1,14 @@
+
 .status{
     text-align: center;
-    background-color: rgb(188, 188, 188);
+    background-color: #dbd9d9;
     height: 20px;
     width: 130px;
     border-radius: 10px;
     cursor: pointer;
     position: relative;
     display: inline-block;
+    color: #fff;
 }
 
 .status:hover{
@@ -19,7 +21,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(242, 241, 241);
     width: 130px;
     height: 160px;
     border-radius: 10px;
@@ -30,7 +32,7 @@
     display: flex;
     justify-content: center;
     margin-top: 5px;
-    background-color: rgb(188, 188, 188);
+    background-color: #676565;
     height: 20px;
     width: 110px;
     border-radius: 10px;

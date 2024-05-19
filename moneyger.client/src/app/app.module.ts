@@ -17,6 +17,8 @@ import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTable,
     MatTableModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatTableModule
