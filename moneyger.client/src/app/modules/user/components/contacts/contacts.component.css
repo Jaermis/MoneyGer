@@ -1,3 +1,4 @@
+
 * {
     font-family: 'Open Sans', sans-serif;
 }
@@ -13,10 +14,11 @@
     width: 90%; /* Set container width to 90% */
     overflow-x: auto; /* Enable horizontal scrolling */
     margin-top: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.423);
+    padding-bottom: 20px; /* Add padding to the bottom for scrollbar space */
     background-color: #fff;
     margin-bottom: 25px;
     border-radius: 10px;
+    outline: 1px solid #e1dfdf; /* Add an outline to the table container */
 }
 
 .table-container::-webkit-scrollbar {
@@ -26,14 +28,14 @@
     background-color: #fff;
 }
 .table-container::-webkit-scrollbar-thumb {
-    background: #4e23b2; 
-    border-radius: 5px;
+    background: #d0cece; 
+    border-radius: 10px;
 }
 .table-container::-webkit-scrollbar-thumb:hover {
-    background: #391887; 
+    background: #b6b4b4; 
 }
 
-.check{
+.check {
     height: 15px;
     width: 15px;
 }
@@ -42,19 +44,31 @@
     width: 100%; /* Allow table to expand based on content */
     border-collapse: collapse;
     text-align: center;
-    table-layout: fixed; /* Ensures fixed column widths */
+    table-layout: auto; /* Change to auto for flexible column widths */
+}
+
+thead {
+    text-align: center;
 }
 
 th, td {
     padding: 10px; /* Add some padding for better readability */
-    color: #220B57;
-    border-bottom: 1px solid #494949;
+    color: #10002b;
+    border-bottom: 1px solid #F0F0F0; /* Set border color to gray */
+    border-color: #ccc; /* Ensure border color is gray */
+}
+
+a{
+    text-decoration: none;
+    color: #10002b;
+}
+a:hover{
+    text-decoration: underline;
 }
 
 th {
-    background-color: white;
-    color: #220B57;
-    font-size: large;
+    background-color: #F0F0F0; /* Set header background color to gray */
+    color: #212121;
     cursor: pointer;
 }
 
@@ -67,7 +81,7 @@ tr:hover td {
     cursor: pointer;
 }
 
-.edit-contact{
+.edit-contact {
     background-color: #220B57;
     color: #fff;
     cursor: pointer;
@@ -88,11 +102,12 @@ tr:hover td {
 }
 
 .title {
+    text-align: left;
     margin-top: 25px;
-    margin-left: 5%;
-    color: #220B57;
+    color: #343434;
     font-size: 30px;
     font-weight: bold;
+    margin-left: 5%;
 }
 
 .parent {
@@ -100,73 +115,67 @@ tr:hover td {
     margin-bottom: 20px;
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.anak{
+    display:flex;
+    justify-content: space-around ;
+    gap: 45%;
     align-items: center;
-    justify-content: space-between;
-    
+    margin-top: 1.5%;
+    color: #676565;
 }
 
-.parent button {
-    margin-top: 20px;
-    background-color: #220B57;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 700;
-    width: 100px;
-    padding: 7px;
-    max-height: 61px;
-    font-family: 'Lato', sans-serif;
-    border: 2px solid #220B57;
-    margin-right: 5%;
-}
-
-.delete-butt{
+.delete-butt {
     width: 130px !important; 
 }
-
-.parent button:hover {
-    background-color: #ffffff00;
-    color: #220B57;
-    cursor: pointer;
-}
-
-/* Add specific widths to the columns */
-th:nth-child(1), td:nth-child(1) { width: 5%; }
-th:nth-child(2), td:nth-child(2) { width: 5%; }
-th:nth-child(3), td:nth-child(3) { width: 15%; }
-th:nth-child(4), td:nth-child(4) { width: 15%; }
-th:nth-child(5), td:nth-child(5) { width: 10%; }
-th:nth-child(6), td:nth-child(6) { width: 20%; }
-
-th:nth-child(7), td:nth-child(7) { width: 15%; }
-th:nth-child(8), td:nth-child(8) { width: 15%; }
-th:nth-child(9), td:nth-child(9) { width: 15%; }
-th:nth-child(10), td:nth-child(10) { width: 15%; }
-
-
-
 
 .search-bar {
     margin-top: 10px;
     display: flex;
     align-items: center;
-  }
-  
-  .search-bar input[type="text"] {
+}
+
+.search-bar input[type="text"] {
     flex: 1;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #bababa;
     border-radius: 20px;
     width: 450px;
     margin-right: 5px;
-  }
+}
 
-  .search-bar i {
+.search-bar i {
     cursor: pointer; /* Change cursor to pointer when hovering over the icon */
     color: #0056b3; /* Change icon color */
-  }
-  
-  .search-bar i:hover {
+}
+
+.search-bar i:hover {
     color: #007bff; /* Change icon color on hover */
-  }
+}
+
+/* Specific columns with ellipsis for overflow */
+td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9), td:nth-child(10),
+th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.sortable-header {
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.header-content {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center;
+}
+
+.header-content span {
+    margin-right: 5px; /* Add space between text and icon */
+}

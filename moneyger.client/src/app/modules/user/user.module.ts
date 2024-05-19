@@ -35,8 +35,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FrequencyGraphComponent } from './components/frequency-graph/frequency-graph.component';
 import { SearchPipe } from './components/contacts/search.pipe';
 import { StatusComponent } from './components/status/status.component';
-
-
+import {MatChipsModule} from '@angular/material/chips';
+import { MatChipListbox } from '@angular/material/chips';
 
 const UserComponents = [
   MatButton,
@@ -77,7 +77,7 @@ const UserComponents = [
     UserComponents,
     ChartModule,
     AccumulationChartModule, 
-    FormsModule
+    FormsModule, MatChipsModule, MatChipListbox
   ],
   exports: [
     UserComponents

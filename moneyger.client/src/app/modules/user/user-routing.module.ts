@@ -19,7 +19,6 @@ import { FrequencyGraphComponent } from './components/frequency-graph/frequency-
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 import { StatusComponent } from './components/status/status.component';
 
-
 const routes: Routes = [
   {
     path: '', component: DashboardComponent,
@@ -46,7 +45,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),],
   exports: [RouterModule]
 })
 export class UserRoutingModule { }

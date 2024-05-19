@@ -17,10 +17,24 @@ export class ContactsComponent implements OnInit {
     private contactService: ContactService,
   ) {}
 
+  statuses: string[] = ['Latest', 'In Progress', 'Qualified', 'Unqualified', 'Forfeited', 'Deal'];
+
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
   checkedContacts: { [key: string]: boolean } = {};
   searchText = '';
+  headerHovered: { [key: string]: boolean } = {};
+
+  sortingOrders: { [key: string]: 'asc' | 'desc' } = {
+    name: 'asc',
+    company: 'asc',
+    status: 'asc',
+    email: 'asc',
+    phoneNumber: 'asc',
+    facebook: 'asc',
+    twitter: 'asc',
+    instagram: 'asc'
+};
 
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Contacts');
@@ -28,7 +42,28 @@ export class ContactsComponent implements OnInit {
   }
 
   toggleSort(field: keyof ContactRequest) {
-    this.contacts.sort((a,b) => a[field].localeCompare(b[field]));
+    const currentSortingOrder = this.sortingOrders[field];
+
+    if(currentSortingOrder === 'asc') {
+      this.contacts.sort((a,b) => b[field].localeCompare(a[field]));
+      this.sortingOrders[field] = 'desc';
+    }
+    else {
+      this.contacts.sort((a,b) => a[field].localeCompare(b[field]));
+      this.sortingOrders[field] = 'asc';
+    }
+  }
+
+  showSortingIndicator(field: keyof ContactRequest) {
+    this.headerHovered[field] = true;
+  }
+
+  hideSortingIndicator(field: keyof ContactRequest) {
+    this.headerHovered[field] = false;
+  }
+
+  isHeaderHovered(field: keyof ContactRequest) {
+    return this.headerHovered[field];
   }
 
   getContacts(): void {
