@@ -17,6 +17,7 @@ import { SalesGraphComponent } from './components/sales-graph/sales-graph.compon
 import { SegmentationGraphComponent } from './components/segmentation-graph/segmentation-graph.component';
 import { FrequencyGraphComponent } from './components/frequency-graph/frequency-graph.component';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
+import { StatusComponent } from './components/status/status.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
       {path: 'sales-graph', component: SalesGraphComponent},
       {path: 'segmentation-graph', component: SegmentationGraphComponent},
       {path: 'frequency-graph', component: FrequencyGraphComponent},
-      {path: 'edit-contact', component: EditContactComponent}
+      {path: 'edit-contact', component: EditContactComponent},
+      {path: 'status', component: StatusComponent}
   ]}
 ];
 

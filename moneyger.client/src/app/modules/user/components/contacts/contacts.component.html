@@ -4,7 +4,7 @@
         <input type="text" placeholder="Search..." [(ngModel)]="searchText">
     </div>
     <button *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact">Add Contact</button>
-    <button *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedContacts()">Delete Contact</button>
+    <button class="delete-butt" *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedContacts()">Delete Contact</button>
 </div>
 
 <div class="main">
@@ -31,7 +31,7 @@
                     <td><button class="edit-contact" routerLink="/user/edit-contact">Edit</button></td>
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.company }}</td>
-                    <td><div class="statusBox">{{ contact.status }}</div></td>
+                    <td><app-status></app-status></td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.phoneNumber }}</td>
                     <td>{{ contact.facebook }}</td>
