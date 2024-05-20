@@ -6,6 +6,7 @@ import { ContactRequest } from '../interfaces/contact-request'; // Make sure to 
 import { AuthService } from './auth.service';
 import { AuthResponse } from '../interfaces/auth-response';
 import { NewContactRequest } from '../interfaces/new-contact-request';
+import { EditStatusRequest } from '../interfaces/edit-status-request';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,10 @@ export class ContactService {
       body: contactIds,
       headers: headers
     });
+  }
+
+  updateStatus(data:EditStatusRequest): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.post<AuthResponse>(`${this.apiUrl}/Status/AssignStatus`, data, {headers});
   }
 }

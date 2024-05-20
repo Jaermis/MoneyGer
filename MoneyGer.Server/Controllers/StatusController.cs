@@ -86,7 +86,7 @@ namespace MoneyGer.Server.Controllers
             }
         }
 
-        [Authorize(Roles = "Owner")]
+        [AllowAnonymous]
         [HttpPost("AssignStatus")]
         public async Task<IActionResult> AssignStatus ([FromBody] ContactStatusAssignDto contactStatusAssignDto)
         {
