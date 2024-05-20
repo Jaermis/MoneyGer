@@ -34,11 +34,11 @@
       </div>
     </div>
     <div class="sidecontainer">
-      <div class="side-header">
-        <h1>{{ showUpcomingEvents ? 'Upcoming Events' : 'Past Events' }}</h1>
-        <button class="toggle-butt" (click)="toggleEventView()">{{ showUpcomingEvents ? '>' : '>' }}</button>
-      </div>
+      
       <div class="events-array">
+        <div *ngFor="let event of events">
+          <p>{{ event.eventTime }} - {{ event.description }}</p>
+        </div>
       </div>
     </div>
   </div>

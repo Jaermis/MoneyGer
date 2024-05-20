@@ -39,6 +39,7 @@ export class ContactsComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Contacts');
     this.getContacts();
+    console.log(this.contacts);
   }
 
   toggleSort(field: keyof ContactRequest) {

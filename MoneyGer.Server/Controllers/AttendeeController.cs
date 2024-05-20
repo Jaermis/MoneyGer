@@ -41,16 +41,16 @@ namespace MoneyGer.Server.Controllers
 
          return Ok(new { message = "Attendee attends event successfully" });      
         }
-         [HttpGet("AllAttendees")]
+        
+        [HttpGet("AllAttendees")] //api/AllAttendees
         public async Task<ActionResult<IEnumerable<Attendee>>> GetAttendee()
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var existingUser = await _context.Attendee.FirstOrDefaultAsync(ucr => ucr.UserId == currentUserId);
 
             var eventAttendees = await _context.Attendee
-                .Where(a => a.UserId == existingUser!.UserId)
+                .Where(a => a.UserId == currentUserId)
                 .Join(
-                    _context.Events, // Join with the Statuses table
+                    _context.Events,
                     attendees => attendees.DateId, 
                     events => events.Id,
                     (attendees, events) => new EventsFetchDto
