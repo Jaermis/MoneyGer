@@ -1,152 +1,204 @@
 * {
-    font-family: 'Open Sans', sans-serif;
-    box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 #loginpej {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-size: cover;
-    background-position: center; 
-    overflow-y: auto;
-    display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+  display: flex;
 }
-.loginpic{
-    background-color: #220B57;
-    flex: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
+.loginpic {
+  background-color: #220b57;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.login-pic{
-    margin-top: -80px;
-    position: absolute;
-    width: 500px;
+.login-pic {
+  margin-top: -80px;
+  position: absolute;
+  width: 500px;
 }
-.login-text{
-    margin-top: 420px;
-    width: 500px;
-    color: white;
+.login-text {
+  margin-top: 420px;
+  width: 500px;
+  color: white;
 }
-.pic-text{
-    margin-top: 12px;
-    font-size: 30px;
-    letter-spacing: 3px;
+.pic-text {
+  margin-top: 12px;
+  font-size: 30px;
+  letter-spacing: 3px;
 }
-.pic-text-small{
-    font-size: 15px;
-    letter-spacing: 3px;
-    font-style: italic;
-    color: #b8b4b4;
+.pic-text-small {
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-style: italic;
+  color: #b8b4b4;
 }
 
 .logincontainer {
-    background-color: white;
-    padding: 20px;
-    flex: 1;
-    height: 100vin;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: white;
+  padding: 20px;
+  flex: 1;
+  height: 100vin;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.emailfield{
-     width: 480px; 
-     height: 50px; 
-     border-radius: 20px;
-     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-     border: 1px solid #b8b4b4;
-     padding-left: 23px;   
-     font-size: 16px;
-     letter-spacing: normal;
-     margin-top: 0px;
-     margin-bottom: 10px;
+.emailfield {
+  width: 480px;
+  height: 50px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #b8b4b4;
+  padding-left: 23px;
+  font-size: 16px;
+  letter-spacing: normal;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
-label{
-    color: #5a585f;
-    font-size: 15px;
+label {
+  color: #5a585f;
+  font-size: 15px;
 }
-.logincontainer img{
-    width: 230px;
-    margin-bottom: 50px;
-    margin-top: 100px;
+.logincontainer img {
+  width: 230px;
+  margin-bottom: 50px;
+  margin-top: 100px;
 }
-.forgot-passtext{
-    color: #603EAE;
-    cursor: pointer;
-    margin-top: 10px;
+.forgottu{
+  display: flex;
+  justify-content: flex-end;
 }
-.forgot-passtext:hover{
-    color: #8956FF;
-    text-decoration-line: underline;
+.forgot-passtext {
+  text-decoration: none;
+  color: #220b57;
+  cursor: pointer;
+  margin-top: 10px;
 }
-.login-button{
-    width: 100%;
-    height: 50px;
-    font-size: 15px;
-    border: none;
-    background-color: #220B57;
-    color: #fff;
-    border-radius: 20px;
-    padding: 8px;
-    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
+.forgot-passtext:hover {
+  text-decoration-line: underline;
 }
-.int-text{
-    padding: 8px;
+.login-button {
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  background-color: #220b57;
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
-.mat-progress-spinner circle, .mat-spinner circle {
-    stroke: #3fb53f;
+.int-text {
+  padding: 8px;
 }
-.logincontainer hr{
-    margin-top: 5%;
-    margin-bottom: -1px;
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #3fb53f;
 }
-.or{
-    font-size: 15px;
-    margin: 0 48%;
+.logincontainer hr {
+  margin-top: 5%;
+  margin-bottom: -1px;
 }
-.noAcc{
-    margin-top: 8%;
-    color: #5a585f;
-    text-align: center;
+.or {
+  font-size: 15px;
+  margin: 0 48%;
 }
-.noAcc a{
-    color: #603EAE;
+.noAcc {
+  margin-top: 8%;
+  color: #5a585f;
+  text-align: center;
 }
-.sign{
-    text-decoration: none;
-    color: #603EAE;
+.sign {
+  text-decoration: none;
+  color: #220b57;
 }
-.sign:hover{
-    text-decoration-line: underline;
+.sign:hover {
+  text-decoration-line: underline;
 }
-.view{
-    cursor: pointer;
-    position: absolute;
-    max-width: 20px;
-    opacity: 0;
-    top: 285px;
-    left: 1360px;
-}
-.emailfield:focus + .view{
-    opacity: 100;
-}
-.emailfield:focus{
-    outline-color: #603EAE;
+.emailfield:focus {
+  outline-color: #603eae;
 }
 
 @media screen and (max-width: 1100px) {
-    .loginpic{
-        display: none;
-    }
-    
+  .loginpic {
+    display: none;
+  }
 }
 
+
+.input-box{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Customize the label (the container) */
+.container-check {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  align-items: center; /* Vertically center the child elements */
+  /* ... */
+}
+
+.container-check .check {
+  /* Remove default appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Custom checkbox styles */
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: #ccc;
+  border-radius: 3px;
+  outline: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.container-check .check:checked::before {
+  content: "\2713";
+  font-weight: 900;
+  font-size: 16px; /* Adjust the font size */
+  border-radius: 3px;
+  color: #ccc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the checkmark */
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 1; /* Ensure proper vertical centering */
+  background-color: #220b57;
+}

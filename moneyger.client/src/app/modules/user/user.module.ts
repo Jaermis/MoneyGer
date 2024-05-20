@@ -37,6 +37,7 @@ import { SearchPipe } from './components/contacts/search.pipe';
 import { StatusComponent } from './components/status/status.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatChipListbox } from '@angular/material/chips';
+import { SplineSeriesService } from '@syncfusion/ej2-angular-charts';
 
 const UserComponents = [
   MatButton,
@@ -84,6 +85,6 @@ const UserComponents = [
   ],
   providers: [LineSeriesService, CategoryService, LegendService, DataLabelService, TooltipService,
     PieSeriesService, AccumulationDataLabelService, AccumulationLegendService,
-    AccumulationTooltipService, RadarSeriesService, AreaSeriesService]
+    AccumulationTooltipService, RadarSeriesService, AreaSeriesService, SplineSeriesService]
 })
 export class UserModule { }

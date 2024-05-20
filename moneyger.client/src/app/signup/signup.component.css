@@ -82,7 +82,7 @@
     padding: 8px;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    margin-top: 7%;
+    margin-top: 10px;
     margin-bottom: 3%;
     display: flex;
     justify-content: center;
@@ -103,6 +103,13 @@
     cursor: pointer;
     margin-top: 7%;
     margin-bottom: 3%;
+}
+.lagin{
+    text-decoration: none;
+    color: #220B57;
+}
+.lagin:hover{
+    text-decoration: underline;
 }
 .already{
     text-align: center;
@@ -146,7 +153,9 @@
     display: flex;
     flex-direction: row;
 }
-
+.confirm-cont{
+    margin-bottom: 10px;
+}
 .login-logo{
     width: 230px;
 
@@ -182,3 +191,59 @@
         display: none;
     }
 }
+
+/* Customize the label (the container) */
+.container-check {
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    align-items: center; /* Vertically center the child elements */
+    /* ... */
+  }
+  
+  .container-check .check {
+    /* Remove default appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  
+    /* Custom checkbox styles */
+    width: 16px;
+    height: 16px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 3px;
+    outline: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+  
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  
+  .container-check .check:checked::before {
+    content: "\2713";
+    font-weight: 900;
+    font-size: 16px; /* Adjust the font size */
+    border-radius: 3px;
+    color: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the checkmark */
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1; /* Ensure proper vertical centering */
+    background-color: #220b57;
+  }
