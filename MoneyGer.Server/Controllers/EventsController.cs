@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +24,11 @@ namespace MoneyGer.Server.Controllers
 
 
     [HttpPost]
-    public async Task<IActionResult> AddCompany([FromBody] CreateEventsDto createEventsDto)
+    public async Task<IActionResult> AddEvent([FromBody] CreateEventsDto createEventsDto)
     {
+        CultureInfo originalCulture = Thread.CurrentThread.CurrentCulture;
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+        
         if (string.IsNullOrEmpty(createEventsDto.Description))
         {
             return BadRequest("Event name is required");

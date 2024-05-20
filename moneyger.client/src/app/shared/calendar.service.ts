@@ -11,6 +11,7 @@ import { CompanyRequest } from '../interfaces/company-request';
 import { CompanyJoin } from '../interfaces/company-join';
 import { AuthService } from './auth.service';
 import { EventRequest } from '../interfaces/event-request';
+import { EventAttendee } from '../interfaces/event-attendee';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,10 @@ export class CalendarService {
   addEvent(data:EventRequest):Observable<AuthResponse> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
     return this.http.post<AuthResponse>(`${this.apiUrl}/Events`, data, { headers });
+  }
+
+  getEvents(): Observable<EventAttendee[]> { // Change the return type to match the expected array of Events
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.get<EventAttendee[]>(`${this.apiUrl}/Attendee/AllAttendees`, { headers });
   }
 }

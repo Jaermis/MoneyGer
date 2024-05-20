@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { EventRequest } from '../../../../interfaces/event-request';
+import { EventAttendee } from '../../../../interfaces/event-attendee';
 
 enum ActiveState {
   Inactive,
@@ -21,6 +22,7 @@ interface CalendarDay {
 }
 
 
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -34,14 +36,25 @@ export class CalendarComponent implements OnInit {
   weekDays: string[];
   days: CalendarDay[];
   currentDay: number;
-  events: Event[] = [];
+  events: EventAttendee[] = [];
+  dates: string[] = [];
+  
+  resetFormFields() {
+    this.eventmaker = {
+      dateStart: new Date(),
+      description: '',
+      eventTime: ''
+    };
+    this.newEventDate = null;
+    this.newEventTime = '';
+    this.newEventDescription = '';
+  }
 
   eventmaker: EventRequest = {
     dateStart: new Date,
     description: '',
     eventTime: ''
   };
-   
 
   newEventDate: Date | null = null;
   newEventTime: string = '';
@@ -64,9 +77,8 @@ export class CalendarComponent implements OnInit {
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
   }
 
-
   ngOnInit(): void {
-    
+    this.getEvents();
   }
 
   getMonthName(monthIndex: number): string {
@@ -115,30 +127,33 @@ export class CalendarComponent implements OnInit {
     }
 
     // Fill up days of current month
-    /*for (let i = 1; i <= daysInMonth; i++) {
+    for (let i = 1; i <= daysInMonth; i++) {
       let isActive: ActiveState = ActiveState.Inactive;
       if (year === currentYear && month === currentMonth && i === this.currentDay) {
         isActive = ActiveState.Current;
       }
-      const hasEvents = this.predefinedEvents.some(event => {
-        const eventDate = new Date(event.date);
+
+    const hasEvents = this.events.some(event => {
+        const eventDate = new Date(event.dateStart);
         return eventDate.getFullYear() === year && eventDate.getMonth() === month && eventDate.getDate() === i;
       });
+
       if (isActive === ActiveState.Current && hasEvents) {
         isActive = ActiveState.HasCurrent;
-      } else if (hasEvents) {
-        const event = this.predefinedEvents.find(event => {
-          const eventDate = new Date(event.date);
+      } 
+      else if (hasEvents) {
+        const event = this.events.find(event => {
+          const eventDate = new Date(event.dateStart);
           return eventDate.getFullYear() === year && eventDate.getMonth() === month && eventDate.getDate() === i;
         });
-        if (event && new Date(event.date) < currentDate) {
+        if (event && new Date(event.dateStart) < currentDate) {
           isActive = ActiveState.DoneEvent;
         } else {
           isActive = ActiveState.HasEvent;
         }
       }
       days.push({ day: i, active: isActive });
-    }*/
+    }
 
     // Fill up remaining days with days from next month
     const lastDayofMonth = new Date(year, month, daysInMonth).getDay();
@@ -188,19 +203,37 @@ export class CalendarComponent implements OnInit {
     this.showUpcomingEvents = !this.showUpcomingEvents;
   }
   
-  addEvents(){
+  addEvents() {
     this.calendarService.addEvent(this.eventmaker).subscribe({
-      next:(response)=>{
-        this.router.navigate(['/user/calendar']);
+      next: (response) => {
+        this.getEvents();
+        this.resetFormFields();
       },
-      error:(err:HttpErrorResponse)=>{
-        if(err!.status == 400){
-          this.errors = err!.error;
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
         }
-        console.log(err.message);
+        console.error(err.message);
       },
-      complete: ()=> alert('Added Event'),
-    })
+      complete: () => ('Added Event'),
+    });
+  }
+
+  getEvents(): void {
+    this.calendarService.getEvents().subscribe({
+      next: (response: EventAttendee[]) => {
+        console.log('All Events:', response);
+        this.events = response;
+        this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
+      },
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
+        }
+        console.error('Error fetching events:', err.message);
+      },
+      complete:()=>console.log(this.events)
+    });
   }
 
   /*deleteEvent(eventToDelete: Event): void {
