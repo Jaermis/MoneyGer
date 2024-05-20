@@ -35,30 +35,34 @@
                         <input class="field" type="text" formControlName = "email" required>
                     </label>
                 </div>
+
                 <div class="pass-cont">
                     <label class="input-text">
                         <p class="input-text">Password</p>
                         <input class="field" [type]="changetype?'password':'text'" formControlName = "password" required>
-                        <img class="view" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'">
                     </label>
                 </div>
+
                 <div class="confirm-cont">
                     <label class="input-text">
                        <p class="input-text">Confirm Password</p>
-                        <input class="field" [type]="changetype?'password':'text'" formControlName = "confirmPassword" required>
-                        <img class="viewconf" (click)="viewpass()" [src]="changeicon?'assets/view.png':'assets/hide.png'"><br>
+                        <input class="field" [type]="changetype?'password':'text'" formControlName = "confirmPassword" required><br>
                             <span style="color: red;"*ngIf="form.hasError('passwordMismatch') && form.get('confirmPassword')?.dirty && form.get('confirmPassword')?.touched">
                                 Passwords do not match.
                             </span>
                     </label>
                 </div>
+
+                <label class="container-check">
+                    <input type="checkbox" (click)="viewpass()" class="check">Show passwords
+                  </label>
             </div>
             <button class="signupbtn"  type="submit">
                 <p class="int-text" *ngIf="!loading">Signup</p>
                 <mat-spinner *ngIf="loading" [diameter]="30" color="primary" ></mat-spinner>
             </button>
         </form>
-        <span class="already"><p>Already have an account? <a routerLink="/login">Log in</a></p></span>
+        <span class="already"><p>Already have an account? <a class="lagin" routerLink="/login">Log in</a></p></span>
     </div>
     
 </div>

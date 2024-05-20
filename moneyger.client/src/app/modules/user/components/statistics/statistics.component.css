@@ -1,0 +1,51 @@
+#bg{
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    background-color: #F6F7F8;
+    height: 100%;
+}
+
+#statistics{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.title {
+    text-align: left; 
+    margin-top: 25px;
+    color: #343434;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-top: 60px;
+}
+
+.line{
+    background-color: #fff;
+    border-radius: 10px;
+    width: 90%;
+    padding-right: 20px;
+    margin-top: 3%;
+    outline: 1px solid #e1dfdf;
+}
+
+.pie-radar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    width: 90%;
+    gap: 10px;
+
+    .pie, .radar{
+        flex: 1;
+        background-color: #fff;
+        border-radius: 10px;
+        width: 100%;
+        padding-right: 20px;
+        padding-top: 20px;
+        outline: 1px solid #e1dfdf;
+    }
+}

@@ -3,6 +3,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+#tibuok{
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    background-color: #F6F7F8;
+}
+
 .main {
     width: 100%;
     display: flex;

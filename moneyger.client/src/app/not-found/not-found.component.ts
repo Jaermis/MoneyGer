@@ -11,7 +11,7 @@ export class NotFoundComponent implements OnInit{
   constructor(private router: Router, private titleService: Title) {}
 
   toLogin(){
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/home']);
   }
   ngOnInit(): void {
     this.titleService.setTitle('Page Not Found');

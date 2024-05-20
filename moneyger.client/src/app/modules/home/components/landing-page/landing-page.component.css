@@ -62,14 +62,10 @@
     max-height: 61px;
     font-family: 'Open Sans', sans-serif; 
     border-color: #220B57;
-    border-style: solid; 
     width: 100%;
 
     &:hover {
-        background-color: #EDF1FC;
-        color: #220B57;
-        border-color: #220B57;
-        border-style: solid; 
+        background-color: #180a37;
       }
 }
 
