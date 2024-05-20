@@ -22,6 +22,7 @@ interface CalendarDay {
 }
 
 
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -37,6 +38,17 @@ export class CalendarComponent implements OnInit {
   currentDay: number;
   events: EventAttendee[] = [];
   dates: string[] = [];
+  
+  resetFormFields() {
+    this.eventmaker = {
+      dateStart: new Date(),
+      description: '',
+      eventTime: ''
+    };
+    this.newEventDate = null;
+    this.newEventTime = '';
+    this.newEventDescription = '';
+  }
 
   eventmaker: EventRequest = {
     dateStart: new Date,
@@ -191,19 +203,20 @@ export class CalendarComponent implements OnInit {
     this.showUpcomingEvents = !this.showUpcomingEvents;
   }
   
-  addEvents(){
+  addEvents() {
     this.calendarService.addEvent(this.eventmaker).subscribe({
-      next:(response)=>{
-        this.router.navigate(['/user/calendar']);
+      next: (response) => {
+        this.getEvents();
+        this.resetFormFields();
       },
-      error:(err:HttpErrorResponse)=>{
-        if(err!.status == 400){
-          this.errors = err!.error;
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
         }
-        console.log(err.message);
+        console.error(err.message);
       },
-      complete: ()=> alert('Added Event'),
-    })
+      complete: () => ('Added Event'),
+    });
   }
 
   getEvents(): void {
@@ -219,9 +232,9 @@ export class CalendarComponent implements OnInit {
         }
         console.error('Error fetching events:', err.message);
       },
+      complete:()=>console.log(this.events)
     });
   }
-  
 
   /*deleteEvent(eventToDelete: Event): void {
     this.predefinedEvents = this.predefinedEvents.filter(event => event !== eventToDelete);
