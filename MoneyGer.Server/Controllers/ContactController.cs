@@ -27,7 +27,7 @@ namespace MoneyGer.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCompany([FromBody] ContactStatusDto contactStatusDto)
+        public async Task<IActionResult> AddContact([FromBody] ContactStatusDto contactStatusDto)
         {
             if (string.IsNullOrEmpty(contactStatusDto.Name))
             {
@@ -43,6 +43,7 @@ namespace MoneyGer.Server.Controllers
                 Name = contactStatusDto.Name,
                 Company = existingUser!.CompanyId,
                 PhoneNumber = contactStatusDto.PhoneNumber,
+                CompanyName = contactStatusDto.CompanyName,
                 Email = contactStatusDto.Email,
                 Facebook = contactStatusDto.Facebook,
                 Twitter = contactStatusDto.Twitter,
@@ -78,6 +79,7 @@ namespace MoneyGer.Server.Controllers
                     {
                         Id = temp.contact.Id,
                         Name = temp.contact.Name,
+                        CompanyName = temp.contact.CompanyName,
                         Email = temp.contact.Email,
                         PhoneNumber = temp.contact.PhoneNumber,
                         Facebook = temp.contact.Facebook,
@@ -89,6 +91,8 @@ namespace MoneyGer.Server.Controllers
                 )
                 .ToListAsync();
 
+            if(contactsGroupedByCompany is null)
+                return Ok(null);
             return Ok(contactsGroupedByCompany);
         }
 
@@ -97,6 +101,7 @@ namespace MoneyGer.Server.Controllers
         {
             var contactsToRemove = _context.Contacts.Where(c => contactIds.Contains(c.Id)).ToList();
             
+            try{
             if (contactsToRemove.Any())
             {
                 _context.Contacts.RemoveRange(contactsToRemove);
@@ -105,6 +110,10 @@ namespace MoneyGer.Server.Controllers
             }
 
             return NotFound(new { message = "No contacts found with the provided IDs" });
+            }
+            catch(Exception ex){
+                return BadRequest(new {message=ex.StackTrace});
+            }
         }
     }
 }

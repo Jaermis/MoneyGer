@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -24,27 +25,29 @@ namespace MoneyGer.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateStatus([FromBody] CreateStatusDto createStatusDto)
+        public async Task<IActionResult> AddInventory([FromBody] CreateInventoryDto createInventoryDto)
         {
-            if(string.IsNullOrEmpty(createStatusDto.Name))
+            if(string.IsNullOrEmpty(createInventoryDto.Product))
             {
                 return BadRequest("Status name is required");
             }
 
-            var roleExist = await _context.Status.FirstOrDefaultAsync(ucr => ucr.Name == createStatusDto.Name);
+            var roleExist = await _context.Status.FirstOrDefaultAsync(ucr => ucr.Name == createInventoryDto.Product);
 
             if(roleExist is not null) 
             {
                 return BadRequest("Status already exist");
             }
 
-            var add = new Status
+            var add = new Inventory
             {
-                Name = createStatusDto.Name
+                Price = createInventoryDto.Price,
+                Product = createInventoryDto.Product,
+                Quantity = 0
             };
 
             try{
-            _context.Status.Add(add);
+            _context.Inventory.Add(add);
 
             await _context.SaveChangesAsync();
             return Ok(new {message = "Status Created Successfully"});
@@ -54,18 +57,28 @@ namespace MoneyGer.Server.Controllers
             }
         }
 
-        [AllowAnonymous]
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<RoleResponseDto>>> GetStatus()
+        [HttpGet("AllInventory")] //api/AllAttendees
+        public async Task<ActionResult<IEnumerable<Attendee>>> GetAttendee()
         {
-            var user_roles = await _context.Status.ToListAsync();
-            //List of Status with total user count
-            var roles =  user_roles.Select(r=>new RoleResponseDto{
-                Id = r.Id.ToString(),
-                Name = r.Name,
-            }).ToList();
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == currentUserId);
 
-            return Ok(roles);
+            var companyInventory = await _context.Attendee
+                .Where(a => a.UserId == currentUserId)
+                .Join(
+                    _context.Events,
+                    attendees => attendees.DateId, 
+                    events => events.Id,
+                    (attendees, events) => new EventsFetchDto
+                    {
+                        Id = attendees.Id,
+                        Description  = events.Description,
+                        DateStart  = events.DateStart,
+                        EventTime = events.EventTime,
+                    }
+                ).ToListAsync();
+
+            return Ok(companyInventory);
         }
 
         [HttpDelete("{id}")]

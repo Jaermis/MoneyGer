@@ -81,7 +81,7 @@
                     <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
                     <td><i class='bx bxs-pencil' [routerLink]="['/user/edit-contact', contact.id]" style="color: #676565;"></i></td>
                     <td>{{ contact.name }}</td>
-                    <td>{{ contact.company }}</td>
+                    <td>{{ contact.companyName }}</td>
                     <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status"></app-status></td>
                     <td><a [href]="'mailto:' + contact.email">{{ contact.email }}</a></td>
                     <td><a [href]="'https://wa.me/' + contact.phoneNumber">{{ contact.phoneNumber }}</a></td>

@@ -27,6 +27,7 @@ export class EditContactComponent implements OnInit {
     facebook:' ',
     twitter: ' ',
     instagram: '',
+    companyName: ''
   };
   errors: ValidationError[] = [];
 
