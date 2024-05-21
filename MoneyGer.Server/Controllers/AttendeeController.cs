@@ -65,20 +65,37 @@ namespace MoneyGer.Server.Controllers
             return Ok(eventAttendees);
         }
 
-        [HttpDelete("Delete{id}")]
-        public async Task<IActionResult> DeleteCompany(int id)
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> DeleteContacts([FromBody] int[] attendeeIds)
         {
-            var company = await _context.Attendee.FindAsync(id);
+            List<Events>eventsToRemove = new List<Events>();
+            var attendeesToRemove = _context.Attendee.Where(c => attendeeIds.Contains(c.Id)).ToList();
+            
+            foreach(var attendees in attendeesToRemove){
+                var eventToDelete = await _context.Events.FirstOrDefaultAsync(ucr => ucr.Id == attendees.DateId);
 
-            if (company is null)
-            {
-                return NotFound("Company not Found");
+                if(eventToDelete is null){
+                    return BadRequest();
+                }
+
+                eventsToRemove.Add(eventToDelete);
             }
 
-            _context.Attendee.Remove(company);
-            await _context.SaveChangesAsync();
+            try{
+            if (attendeesToRemove.Any())
+            {
+                _context.Attendee.RemoveRange(attendeesToRemove);
+                _context.Events.RemoveRange(eventsToRemove);
+                
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Contacts removed" });
+            }
 
-            return Ok(new { message = "Contact removed" });
+            return NotFound(new { message = "No contacts found with the provided IDs" });
+            }
+            catch(Exception ex){
+                return BadRequest(new {message=ex.StackTrace});
+            }
         }
     }
 }

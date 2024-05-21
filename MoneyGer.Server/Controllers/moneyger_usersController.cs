@@ -105,7 +105,7 @@ namespace MoneyGer.Server.Controllers
                 // Invalid token or email address
                 return BadRequest("Invalid token or email address.");
             }
-
+            
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
@@ -201,44 +201,12 @@ namespace MoneyGer.Server.Controllers
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             var resetLink = $"https://localhost:4200/reset-password?email={user.Email}&token={WebUtility.UrlEncode(token)}";
 
-           /* using RestSharp;
-            var request = new RestRequest();
-            request.AddHeader("Authorization", "Bearer da879ddb7874bc214083a9995899a267");
-            request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", "{\"from\":{\"email\":\"mailtrap@demomailtrap.com\",\"name\":\"Mailtrap Test\"},\"to\":[{\"email\":\"freeacc12272002@gmail.com\"}],\"template_uuid\":\"52806e88-e430-4cb9-afc1-005a912ae18a\",\"template_variables\":{\"user_email\":\"freeacc12272002@gmail.com\",\"pass_reset_link\":\"example\"}}", ParameterType.RequestBody);
-            var response = client.Post(request);
-            System.Console.WriteLine(response.Content);*/
+            var emailSender = new EmailSender(_emailConfiguration);
+            var emailSubject = "MoneyGer Forgot Password";
+            var confirmationHtmlMessage = $"Dear {forgotPasswordDto.Email}, click this link to reset your password {resetLink}";
+            await emailSender.SendEmailAsync(forgotPasswordDto.Email, emailSubject, confirmationHtmlMessage);
 
-             var client = new RestClient("https://send.api.mailtrap.io/api/send");
-             
-            var request = new RestRequest
-            {
-                Method = Method.Post,
-                RequestFormat = DataFormat.Json
-            };
-
-            request.AddHeader("Authorization", "Bearer da879ddb7874bc214083a9995899a267");
-            request.AddJsonBody(new {
-                from = new {email="mailtrap@demomailtrap.com"},
-                to = new[]{new {email = user.Email}},
-                template_uuid = "52806e88-e430-4cb9-afc1-005a912ae18a",
-                template_variables = new{user_email = user.Email, pass_reset_link = resetLink}
-            });
-
-            var response = client.Execute(request);
-
-            if(response.IsSuccessful){
-                return Ok(new AuthResponseDto{
-                    IsSuccess = true,
-                    Message = "Email sent with password reset link. Please check your email."
-                });
-            }
-            else{
-                return BadRequest( new AuthResponseDto{
-                    IsSuccess = false,
-                    Message = "Something went wrong."
-                });
-            }
+            return Ok("Reset password sent");
         }
 
         [AllowAnonymous]
@@ -434,7 +402,7 @@ namespace MoneyGer.Server.Controllers
         public async Task<ActionResult> EditProfile([FromBody] UserDetailDto editProfileDto)
         {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var existingUser = await _userManager.FindByIdAsync(user);
+            var existingUser = await _userManager.FindByIdAsync(user!);
              if (existingUser == null)
             {
                  return NotFound("User not found.");

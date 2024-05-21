@@ -33,7 +33,7 @@ export class ResetPasswordComponent implements OnInit{
           alert("Password Reset Successfully!");
         }
         else{
-          alert("eyy");
+          alert("Password Reset Failed!");
         }
         this.router.navigate(['/login']);
       },
