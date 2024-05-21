@@ -16,19 +16,19 @@
                     </div>
                 </div>
                 <label for="phone">Phone Number</label>
-                <input type="text" id="phone" placeholder={{userDetail.phonenumber}}>
+                <input type="text" id="phone"  [(ngModel)]="editProfileRequest.phoneNumber"  name="phonenumber"> 
                 <label for="email">Email</label>
                 <input type="email" class readonly id="email" value={{userDetail.email}}>
                 <label for="facebook">Facebook</label>
-                <input type="text" id="facebook" placeholder={{userDetail.facebook}}>
+                <input type="text" id="facebook"  [(ngModel)]="editProfileRequest.facebook" name="facebook">
                 <label for="twitter">Twitter / X</label>
-                <input type="text" id="twitter" placeholder={{userDetail.twitter}}>
+                <input type="text" id="twitter"  [(ngModel)]="editProfileRequest.twitter">
                 <label for="instagram">Instagram</label>
-                <input type="text" id="instagram" placeholder={{userDetail.instagram}}>
+                <input type="text" id="instagram" [(ngModel)]="editProfileRequest.instagram">
             </div>
             <div class="actions">
                 <button class="cancel">Cancel</button>
-                <button class="save">Save</button>
+                 <button type="button" class="save" (click)="editProfile()">Save Profile</button>
             </div>
         </div>
     </div>}

@@ -1,6 +1,11 @@
 {
   "dependencies": {
+    "@angular/core": "^17.3.9",
+    "@angular/router": "^17.3.9",
     "@coreui/angular": "^5.1.0",
     "boxicons": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12"
   }
 }

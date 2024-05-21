@@ -115,5 +115,42 @@ namespace MoneyGer.Server.Controllers
                 return BadRequest(new {message=ex.StackTrace});
             }
         }
+
+        [HttpPost("EditContacts")] //Debatable 
+        public async Task<ActionResult> EditContacts([FromBody] EditContactDto editContactDto)
+        {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var existingUser = await _userManager.FindByIdAsync(user);
+             if (existingUser == null)
+            {
+                 return NotFound("User not found.");
+            }
+
+             if (!string.IsNullOrEmpty(editContactDto.PhoneNumber))
+            {
+                existingUser.PhoneNumber = editContactDto.PhoneNumber;
+            }
+
+             if (!string.IsNullOrEmpty(editContactDto.Facebook))
+            {
+                existingUser.Facebook = editContactDto.Facebook;
+            }
+
+             if (!string.IsNullOrEmpty(editContactDto.Twitter))
+            {
+                existingUser.Twitter = editContactDto.Twitter;
+            }
+
+             if (!string.IsNullOrEmpty(editContactDto.Instagram))
+            {
+                existingUser.Instagram = editContactDto.Instagram;
+            }
+
+            
+            await _userManager.UpdateAsync(existingUser);
+
+            
+            return Ok(new {message = "Profile Edited Successfully"});
+            }
     }
 }

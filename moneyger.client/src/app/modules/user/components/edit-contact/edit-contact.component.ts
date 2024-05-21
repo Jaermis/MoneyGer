@@ -50,6 +50,8 @@ export class EditContactComponent implements OnInit {
     this.newContact.name = `${this.firstName} ${this.lastName}`;
   }
 
+
+  
   addContact(){
     this.contactService.addContact(this.newContact).subscribe({
       next:(response)=>{

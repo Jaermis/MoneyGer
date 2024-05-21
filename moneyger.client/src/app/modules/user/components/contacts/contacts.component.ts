@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
@@ -17,6 +17,7 @@ export class ContactsComponent implements OnInit {
   constructor(
     private titleService: Title,
     private contactService: ContactService,
+    private sanitizer: DomSanitizer
   ) {}
 
   statuses: string[] = ['Latest', 'In Progress', 'Qualified', 'Unqualified', 'Forfeited', 'Deal'];
@@ -111,5 +112,12 @@ export class ContactsComponent implements OnInit {
 
   isAnyCheckboxChecked(): boolean {
     return Object.values(this.checkedContacts).some(isChecked => isChecked);
+  }
+
+  formatUrl(url: string): SafeResourceUrl {
+    if (url) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
+    return '';
   }
 }
