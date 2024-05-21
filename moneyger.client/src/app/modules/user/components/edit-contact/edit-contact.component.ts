@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { NewContactRequest } from '../../../../interfaces/new-contact-request';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from '../../../../shared/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { EditContact } from '../../../../interfaces/edit-contact';
+
 
 @Component({
   selector: 'app-edit-contact',
@@ -20,8 +21,8 @@ export class EditContactComponent implements OnInit {
   firstName: string = '';
   lastName: string = '';
 
-  newContact: NewContactRequest = {
-    name: '',
+  newContact: EditContact = {
+    id: '',
     phoneNumber: '',
     email: ' ',
     facebook:' ',
@@ -45,22 +46,29 @@ export class EditContactComponent implements OnInit {
   Cancel(){
     this.router.navigate(['/user/contacts']);
   }
-
-  updateFullName() {
-    this.newContact.name = `${this.firstName} ${this.lastName}`;
-  }
-
-
   
-  addContact(){
-    this.contactService.addContact(this.newContact).subscribe({
-      next:(response)=>{
-          this.router.navigate(['/user/contacts']);
+  editContact(): void {
+    const editContactRequest: EditContact = {
+      id: this.newContact.id,
+      companyName: this.newContact.companyName,
+      phoneNumber: this.newContact.phoneNumber,
+      email: this.newContact.email,
+      facebook: this.newContact.facebook,
+      twitter: this.newContact.twitter,
+      instagram: this.newContact.instagram
+    };
+    
+    this.contactService.editContacts(editContactRequest).subscribe(
+      (response) => {
+        console.log('Contact updated successfully:', response);
+        // Perform any additional actions after successful update
       },
-      error:(err:HttpErrorResponse)=>{
-        console.log(err.message);
-      },
-      complete:()=>alert('Added contact successfully'),
-    });
+      (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
+        }
+        console.error(err.message, err.headers);
+      }
+    );
   }
 }
