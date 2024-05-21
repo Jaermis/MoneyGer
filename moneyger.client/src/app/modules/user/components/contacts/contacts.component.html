@@ -1,95 +1,99 @@
-<div class="parent">
-    <p class="title">Contacts</p>
-    <div class="anak">
-        <div class="search-bar">
-            <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+<div id="tibuok">
+    <div class="parent">
+        <p class="title">Contacts</p>
+        <div class="anak">
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+            </div>
+            
+            <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact" style="cursor: pointer; margin-top: 2%;"></i>
+            <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedContacts()" style="cursor: pointer; margin-top: 2%;"></i>
+
         </div>
-
-        <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact" style="cursor: pointer; margin-top: 1.2%;"></i>
-        <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedContacts()" style="cursor: pointer; margin-top: 1.2%;"></i>
     </div>
-</div>
-
-
-<div class="main">
-    <div class="table-container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th (click)="toggleSort('name')" (mouseover)="showSortingIndicator('name')" (mouseout)="hideSortingIndicator('name')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Name</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['name'], 'bx-sort-up': sortingOrders['name'] === 'asc', 'bx-sort-down': sortingOrders['name'] === 'desc'}" *ngIf="isHeaderHovered('name')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('company')" (mouseover)="showSortingIndicator('company')" (mouseout)="hideSortingIndicator('company')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Company</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['company'], 'bx-sort-up': sortingOrders['company'] === 'asc', 'bx-sort-down': sortingOrders['company'] === 'desc'}" *ngIf="isHeaderHovered('company')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('status')" (mouseover)="showSortingIndicator('status')" (mouseout)="hideSortingIndicator('status')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Status</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['status'], 'bx-sort-up': sortingOrders['status'] === 'asc', 'bx-sort-down': sortingOrders['status'] === 'desc'}" *ngIf="isHeaderHovered('status')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('email')" (mouseover)="showSortingIndicator('email')" (mouseout)="hideSortingIndicator('email')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Email</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['email'], 'bx-sort-up': sortingOrders['email'] === 'asc', 'bx-sort-down': sortingOrders['email'] === 'desc'}" *ngIf="isHeaderHovered('email')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('phoneNumber')" (mouseover)="showSortingIndicator('phoneNumber')" (mouseout)="hideSortingIndicator('phoneNumber')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Contact Number</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['phoneNumber'], 'bx-sort-up': sortingOrders['phoneNumber'] === 'asc', 'bx-sort-down': sortingOrders['phoneNumber'] === 'desc'}" *ngIf="isHeaderHovered('phoneNumber')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('facebook')" (mouseover)="showSortingIndicator('facebook')" (mouseout)="hideSortingIndicator('facebook')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Facebook</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['facebook'], 'bx-sort-up': sortingOrders['facebook'] === 'asc', 'bx-sort-down': sortingOrders['facebook'] === 'desc'}" *ngIf="isHeaderHovered('facebook')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('twitter')" (mouseover)="showSortingIndicator('twitter')" (mouseout)="hideSortingIndicator('twitter')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Twitter</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['twitter'], 'bx-sort-up': sortingOrders['twitter'] === 'asc', 'bx-sort-down': sortingOrders['twitter'] === 'desc'}" *ngIf="isHeaderHovered('twitter')"></i>
-                        </div>
-                    </th>
-
-                    <th (click)="toggleSort('instagram')" (mouseover)="showSortingIndicator('instagram')" (mouseout)="hideSortingIndicator('instagram')" class="sortable-header">
-                        <div class="header-content">
-                            <span>Instagram</span>
-                            <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['instagram'], 'bx-sort-up': sortingOrders['instagram'] === 'asc', 'bx-sort-down': sortingOrders['instagram'] === 'desc'}" *ngIf="isHeaderHovered('instagram')"></i>
-                        </div>
-                    </th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let contact of contacts | search: searchText">
-                    <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
-                    <td><i class='bx bxs-pencil' [routerLink]="['/user/edit-contact', contact.id]" style="color: #676565;"></i></td>
-                    <td>{{ contact.name }}</td>
-                    <td>{{ contact.companyName }}</td>
-                    <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status"></app-status></td>
-                    <td><a [href]="'mailto:' + contact.email">{{ contact.email }}</a></td>
-                    <td><a [href]="'https://wa.me/' + contact.phoneNumber">{{ contact.phoneNumber }}</a></td>
-                    <td><a [href]="formatUrl(contact.facebook)" target="_blank" [innerHtml]="contact.facebook"></a></td>
-                    <td><a [href]="formatUrl(contact.twitter)" target="_blank" [innerHtml]="contact.twitter"></a></td>
-                    <td><a [href]="formatUrl(contact.instagram)" target="_blank" [innerHtml]="contact.instagram"></a></td>
-                </tr>
-            </tbody>
-        </table>
+    
+    
+    <div class="main">
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th (click)="toggleSort('name')" (mouseover)="showSortingIndicator('name')" (mouseout)="hideSortingIndicator('name')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Name</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['name'], 'bx-sort-up': sortingOrders['name'] === 'asc', 'bx-sort-down': sortingOrders['name'] === 'desc'}" *ngIf="isHeaderHovered('name')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('company')" (mouseover)="showSortingIndicator('company')" (mouseout)="hideSortingIndicator('company')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Company</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['company'], 'bx-sort-up': sortingOrders['company'] === 'asc', 'bx-sort-down': sortingOrders['company'] === 'desc'}" *ngIf="isHeaderHovered('company')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('status')" (mouseover)="showSortingIndicator('status')" (mouseout)="hideSortingIndicator('status')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Status</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['status'], 'bx-sort-up': sortingOrders['status'] === 'asc', 'bx-sort-down': sortingOrders['status'] === 'desc'}" *ngIf="isHeaderHovered('status')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('email')" (mouseover)="showSortingIndicator('email')" (mouseout)="hideSortingIndicator('email')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Email</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['email'], 'bx-sort-up': sortingOrders['email'] === 'asc', 'bx-sort-down': sortingOrders['email'] === 'desc'}" *ngIf="isHeaderHovered('email')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('phoneNumber')" (mouseover)="showSortingIndicator('phoneNumber')" (mouseout)="hideSortingIndicator('phoneNumber')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Contact Number</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['phoneNumber'], 'bx-sort-up': sortingOrders['phoneNumber'] === 'asc', 'bx-sort-down': sortingOrders['phoneNumber'] === 'desc'}" *ngIf="isHeaderHovered('phoneNumber')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('facebook')" (mouseover)="showSortingIndicator('facebook')" (mouseout)="hideSortingIndicator('facebook')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Facebook</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['facebook'], 'bx-sort-up': sortingOrders['facebook'] === 'asc', 'bx-sort-down': sortingOrders['facebook'] === 'desc'}" *ngIf="isHeaderHovered('facebook')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('twitter')" (mouseover)="showSortingIndicator('twitter')" (mouseout)="hideSortingIndicator('twitter')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Twitter</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['twitter'], 'bx-sort-up': sortingOrders['twitter'] === 'asc', 'bx-sort-down': sortingOrders['twitter'] === 'desc'}" *ngIf="isHeaderHovered('twitter')"></i>
+                            </div>
+                        </th>
+    
+                        <th (click)="toggleSort('instagram')" (mouseover)="showSortingIndicator('instagram')" (mouseout)="hideSortingIndicator('instagram')" class="sortable-header">
+                            <div class="header-content">
+                                <span>Instagram</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['instagram'], 'bx-sort-up': sortingOrders['instagram'] === 'asc', 'bx-sort-down': sortingOrders['instagram'] === 'desc'}" *ngIf="isHeaderHovered('instagram')"></i>
+                            </div>
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts | search: searchText">
+                        <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
+                        <td><i class='bx bxs-pencil' [routerLink]="['/user/edit-contact', contact.id]" style="color: #676565;"></i></td>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.companyName }}</td>
+                        <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status"></app-status></td>
+                        <td><a [href]="'mailto:' + contact.email">{{ contact.email }}</a></td>
+                        <td><a [href]="'https://wa.me/' + contact.phoneNumber">{{ contact.phoneNumber }}</a></td>
+                        <td><a [href]="formatUrl(contact.facebook)" target="_blank" [innerHtml]="contact.facebook"></a></td>
+                        <td><a [href]="formatUrl(contact.twitter)" target="_blank" [innerHtml]="contact.twitter"></a></td>
+                        <td><a [href]="formatUrl(contact.instagram)" target="_blank" [innerHtml]="contact.instagram"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+    
 </div>

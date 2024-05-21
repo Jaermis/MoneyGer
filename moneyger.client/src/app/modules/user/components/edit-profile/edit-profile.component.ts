@@ -4,6 +4,7 @@ import { AuthService } from '../../../../shared/auth.service';
 import { EditProfile } from '../../../../interfaces/edit-profile';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
+import { Router, RouterConfigurationFeature, RouterLink } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class EditProfileComponent implements OnInit {
 
   errors: ValidationError[] = [];
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit() {
     this.userDetail = this.authService.getUserDetail();
@@ -54,5 +55,9 @@ export class EditProfileComponent implements OnInit {
         console.error(err.message, err.headers);
       }
     );
+  }
+
+  gotoHome(){
+    this.router.navigate(['/user/home']);
   }
 }

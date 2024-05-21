@@ -27,7 +27,7 @@
                 <input type="text" id="instagram" [(ngModel)]="editProfileRequest.instagram">
             </div>
             <div class="actions">
-                <button class="cancel">Cancel</button>
+                <button class="cancel" (click)="gotoHome()">Cancel</button>
                  <button type="button" class="save" (click)="editProfile()">Save Profile</button>
             </div>
         </div>
