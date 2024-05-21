@@ -5,6 +5,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
 import { ContactRequest } from '../../../../interfaces/contact-request';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateCompanyComponent } from '../create-company/create-company.component';
+import { GettingStartedComponent } from '../getting-started/getting-started.component';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +18,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private titleService: Title,
     private contactService: ContactService,
-    private router:Router
+    private router:Router,
+    public dialog: MatDialog
   ) {}
 
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
 
   ngOnInit(): void {
-    this.titleService.setTitle('Moneyger Contacts');
+    this.titleService.setTitle('Moneyger Dashboard');
     this.getContacts();
   }
 
@@ -42,5 +46,10 @@ export class HomeComponent implements OnInit {
 
   navigation():void{
     this.router.navigate(['/user/contacts']);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(GettingStartedComponent, {
+    });
   }
 }

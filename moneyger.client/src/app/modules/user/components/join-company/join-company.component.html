@@ -1,4 +1,10 @@
 <div class="cnter">
+    <div class="exit-button">
+        <div class="clows">
+            <i class='bx bx-x bx-sm' (click)="onNoClick()"></i>
+        </div>
+    </div>
+
     <div class="joinco">
         <p Create class="title">Join a Company</p>
         <form action="/url">
@@ -8,7 +14,7 @@
             </label>
 
             <button class="createbutt" (click)="JoinCompany()">Join Company</button>
-            <button class="cancel" (click)="Cancel()">Cancel</button>
+            <button class="cancel" (click)="onNoClick()">Cancel</button>
         </form>
     </div>
 </div>

@@ -38,6 +38,8 @@ import { StatusComponent } from './components/status/status.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatChipListbox } from '@angular/material/chips';
 import { SplineSeriesService } from '@syncfusion/ej2-angular-charts';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 const UserComponents = [
   MatButton,
@@ -78,7 +80,7 @@ const UserComponents = [
     UserComponents,
     ChartModule,
     AccumulationChartModule, 
-    FormsModule, MatChipsModule, MatChipListbox
+    FormsModule, MatChipsModule, MatChipListbox, MatDialogModule
   ],
   exports: [
     UserComponents

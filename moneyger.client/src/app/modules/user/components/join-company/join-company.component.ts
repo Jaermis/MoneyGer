@@ -7,6 +7,8 @@ import { ValidationError } from '../../../../interfaces/validation-error';
 import { CompanyService } from '../../../../shared/company.service';
 import { AuthService } from '../../../../shared/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { GettingStartedComponent } from '../getting-started/getting-started.component';
 
 
 @Component({
@@ -29,7 +31,9 @@ export class JoinCompanyComponent implements OnInit {
     private titleService: Title,
     private companyService: CompanyService,
     private authService: AuthService,
-    public router: Router
+    public router: Router,
+    public dialogRef: MatDialogRef<JoinCompanyComponent>,
+    public dialog: MatDialog
   ) {}
 
     ngOnInit(): void {
@@ -48,7 +52,8 @@ export class JoinCompanyComponent implements OnInit {
     JoinCompany(){
       this.companyService.joinCompany(this.joinCompany).subscribe({
         next:(response)=>{
-           this.router.navigate(['/user/home']);
+          this.closeDialog();
+           //this.router.navigate(['/user/home']);
         },
         error:(err:HttpErrorResponse)=>{
           if(err!.status ==  400){
@@ -59,5 +64,14 @@ export class JoinCompanyComponent implements OnInit {
 
         complete:()=>alert('Joined Company successfully!'),
       });
+    }
+
+    onNoClick(): void {
+      this.dialogRef.close();
+      const dialogRef = this.dialog.open(GettingStartedComponent);
+    }
+  
+    closeDialog(): void {
+      this.dialogRef.close();
     }
 }

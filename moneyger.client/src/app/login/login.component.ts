@@ -5,6 +5,8 @@ import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { GettingStartedComponent } from '../modules/user/components/getting-started/getting-started.component';
 
 
 
@@ -17,7 +19,8 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private titleService: Title, private router: Router
+    private titleService: Title, private router: Router,
+    public dialog: MatDialog
     ) {} 
 
   authService = inject(AuthService);
@@ -49,7 +52,8 @@ export class LoginComponent implements OnInit {
         this.authService.getUserCompany().subscribe({
           next:(company)=>{
             if (company.role == 'New User') {
-              this.router.navigate(['/user/getting-started']); // Navigate based on the role condition
+              this.router.navigate(['/user/home']);
+              const dialogRef = this.dialog.open(GettingStartedComponent);
             } 
             else if (company.role == 'Member'){
               this.router.navigate(['/pos']); // Navigate to default route for other cases
