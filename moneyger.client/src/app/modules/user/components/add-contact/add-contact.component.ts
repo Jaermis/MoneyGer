@@ -44,7 +44,7 @@ export class AddContactComponent implements OnInit {
     this.editProfileForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      phone: [''],
+      phoneNumber: [''],
       email: [''],
       facebook: [''],
       companyName: ['', Validators.required],

@@ -38,4 +38,9 @@ export class ContactService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
     return this.http.post<AuthResponse>(`${this.apiUrl}/Status/AssignStatus`, data, {headers});
   }
+
+  editContacts(data:ContactRequest): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.post<AuthResponse>(`${this.apiUrl}/Contact/EditContact`, data, {headers});
+  }
 }
