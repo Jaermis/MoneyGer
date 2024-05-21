@@ -11,6 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { LoginComponent } from '../../../../login/login.component';
 import { CommonModule } from '@angular/common';
 import { CompanyRequest } from '../../../../interfaces/company-request';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { GettingStartedComponent } from '../getting-started/getting-started.component';
 
 @Component({
   selector: 'app-create-company',
@@ -31,7 +33,9 @@ export class CreateCompanyComponent implements OnInit {
     private titleService: Title,
     private companyService: CompanyService,
     private authService: AuthService,
-    public router: Router
+    public router: Router,
+    public dialogRef: MatDialogRef<CreateCompanyComponent>,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +53,7 @@ export class CreateCompanyComponent implements OnInit {
   createCompany(){
     this.companyService.createCompany(this.makeCompany).subscribe({
       next:(response)=>{
+          this.closeDialog();
           this.router.navigate(['/user/home']);
       },
       error:(err:HttpErrorResponse)=>{
@@ -60,5 +65,14 @@ export class CreateCompanyComponent implements OnInit {
 
       complete:()=>alert('Company creation successful'),
     });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(GettingStartedComponent);
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 }
