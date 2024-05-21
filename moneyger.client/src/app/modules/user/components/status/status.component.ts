@@ -34,11 +34,9 @@ export class StatusComponent implements OnInit {
     if (this.contactStatus) {
       // Find the option that matches the contactStatus value
       const matchedOption = this.options.find(option => option.value === this.contactStatus);
-      
-      // Set selectedOption to the matched option, or default to the first option if not found
       this.selectedOption = matchedOption || this.options[0];
-    } else {
-      // Handle the case where contactStatus is undefined or doesn't match any option
+    } 
+    else {
       this.selectedOption = this.options[0];
     }
   }

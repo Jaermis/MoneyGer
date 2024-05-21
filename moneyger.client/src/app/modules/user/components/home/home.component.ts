@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
@@ -14,7 +14,8 @@ import { ContactRequest } from '../../../../interfaces/contact-request';
 export class HomeComponent implements OnInit {
   constructor(
     private titleService: Title,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private router:Router
   ) {}
 
   contacts: ContactRequest[] = [];
@@ -37,5 +38,9 @@ export class HomeComponent implements OnInit {
         console.error(err.message);
       },
     });
+  }
+
+  navigation():void{
+    this.router.navigate(['/user/contacts']);
   }
 }

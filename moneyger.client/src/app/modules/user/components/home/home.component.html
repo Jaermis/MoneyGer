@@ -65,8 +65,8 @@
                     <tbody>
                         <tr *ngFor="let contact of contacts">
                             <td>{{ contact.name }}</td>
-                            <td>{{ contact.company }}</td>
-                            <td><app-status></app-status></td>
+                            <td>{{ contact.companyName }}</td>
+                            <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status" (click)="navigation()"></app-status></td>
                             <td>{{ contact.email }}</td>
                             <td>{{ contact.phoneNumber }}</td>
                             <td>{{ contact.facebook }}</td>
