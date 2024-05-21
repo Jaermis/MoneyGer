@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { AuthResponse } from '../interfaces/auth-response';
 import { NewContactRequest } from '../interfaces/new-contact-request';
 import { EditStatusRequest } from '../interfaces/edit-status-request';
+import { EditContact } from '../interfaces/edit-contact';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class ContactService {
     return this.http.post<AuthResponse>(`${this.apiUrl}/Status/AssignStatus`, data, {headers});
   }
 
-  editContacts(data:ContactRequest): Observable<AuthResponse> {
+  editContacts(data:EditContact): Observable<AuthResponse> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
     return this.http.post<AuthResponse>(`${this.apiUrl}/Contact/EditContact`, data, {headers});
   }

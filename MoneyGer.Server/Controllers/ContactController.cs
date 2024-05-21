@@ -116,41 +116,47 @@ namespace MoneyGer.Server.Controllers
             }
         }
 
-        [HttpPost("EditContacts")] //Debatable 
-        public async Task<ActionResult> EditContacts([FromBody] EditContactDto editContactDto)
+        [HttpPost("EditContact")]
+        public async Task<ActionResult> EditContact([FromBody] EditContactDto editContactDto)
         {
-            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var existingUser = await _userManager.FindByIdAsync(user);
-             if (existingUser == null)
+            var contact = await _context.Contacts.FindAsync(editContactDto.Id);
+            if (contact == null)
             {
-                 return NotFound("User not found.");
+             return NotFound("Contact not found.");
             }
+        if (!string.IsNullOrEmpty(editContactDto.CompanyName))
+        {
+            contact.CompanyName = editContactDto.CompanyName;
+        }
 
-             if (!string.IsNullOrEmpty(editContactDto.PhoneNumber))
-            {
-                existingUser.PhoneNumber = editContactDto.PhoneNumber;
-            }
+        if (!string.IsNullOrEmpty(editContactDto.PhoneNumber))
+        {
+            contact.PhoneNumber = editContactDto.PhoneNumber;
+        }
 
-             if (!string.IsNullOrEmpty(editContactDto.Facebook))
-            {
-                existingUser.Facebook = editContactDto.Facebook;
-            }
+        if (!string.IsNullOrEmpty(editContactDto.Email))
+        {
+            contact.Email = editContactDto.Email;
+        }
 
-             if (!string.IsNullOrEmpty(editContactDto.Twitter))
-            {
-                existingUser.Twitter = editContactDto.Twitter;
-            }
+        if (!string.IsNullOrEmpty(editContactDto.Facebook))
+        {
+            contact.Facebook = editContactDto.Facebook;
+        }
 
-             if (!string.IsNullOrEmpty(editContactDto.Instagram))
-            {
-                existingUser.Instagram = editContactDto.Instagram;
-            }
+        if (!string.IsNullOrEmpty(editContactDto.Twitter))
+        {
+            contact.Twitter = editContactDto.Twitter;
+        }
 
-            
-            await _userManager.UpdateAsync(existingUser);
+        if (!string.IsNullOrEmpty(editContactDto.Instagram))
+        {
+            contact.Instagram = editContactDto.Instagram;
+        }
+        _context.Contacts.Update(contact);
+       await _context.SaveChangesAsync();
+        return Ok(new { message = "Contact Edited Successfully" });
+        }
 
-            
-            return Ok(new {message = "Profile Edited Successfully"});
-            }
     }
 }
