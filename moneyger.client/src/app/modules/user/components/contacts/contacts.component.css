@@ -7,7 +7,7 @@
     height: 100vh;
     flex-direction: column;
     display: flex;
-    background-color: #F6F7F8;
+    background-color: #F6F7F8
 }
 
 .main {
@@ -129,11 +129,12 @@ tr:hover td {
 
 .anak{
     display:flex;
-    justify-content: space-around ;
-    gap: 45%;
+    justify-content: space-between;
     align-items: center;
     margin-top: 1.5%;
     color: #676565;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .delete-butt {

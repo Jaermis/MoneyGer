@@ -39,6 +39,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { MatChipListbox } from '@angular/material/chips';
 import { SplineSeriesService } from '@syncfusion/ej2-angular-charts';
 import {MatDialogModule} from '@angular/material/dialog';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
 
 
 const UserComponents = [
@@ -72,6 +74,8 @@ const UserComponents = [
     FrequencyGraphComponent,
     SearchPipe,
     StatusComponent,
+    EmployeesComponent,
+    InventoryComponent,
     //EditContactComponent,
   ],
   imports: [

@@ -10,4 +10,21 @@
 .content{
     width: 100%;
     height: 100%;
+    margin-left: 200px;
+    overflow-x: auto;
 }
+
+.sidebar{
+    position: fixed;
+    z-index: 5000;
+}
+
+@media screen and (max-width: 1200px) {
+    .sidebar{
+        display: none;
+    }
+
+    .content{
+        margin-left: 0;
+    }
+  }

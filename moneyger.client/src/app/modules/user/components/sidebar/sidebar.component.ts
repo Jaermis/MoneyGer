@@ -5,6 +5,8 @@ import { AuthService } from '../../../../shared/auth.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { UserCompanyDetail } from '../../../../interfaces/user-company-detail';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +17,8 @@ export class SidebarComponent implements OnInit{
   userDetail! :Observable<UserCompanyDetail>;
 
   constructor(
-    private titleService: Title, private router: Router,private common:CommonModule
+    private titleService: Title, private router: Router,private common:CommonModule,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -34,26 +37,7 @@ export class SidebarComponent implements OnInit{
     this.router.navigate(['/login']);
   };
 
-  toggleSidebar() {
-    this.isActive = !this.isActive;
-  }
-
-  toHome(){
-    this.router.navigate(['/user/home']);
-  }
-  toLists(){
-    this.router.navigate(['/user/lists']);
-  }
-  toContacts(){
-    this.router.navigate(['/user/contacts']);
-  }
-  toOrders(){
-    this.router.navigate(['/user/orders']);
-  }
-  toStatistics(){
-    this.router.navigate(['/user/statistics']);
-  }
-  toCalendar(){
-    this.router.navigate(['/user/calendar']);
+  openProfile() {
+    const dialogRef = this.dialog.open(ProfileComponent);
   }
 }
