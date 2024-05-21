@@ -2,60 +2,36 @@
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
-#forgotpass {
-    background-image: url("images/bg.png");
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-size: cover;
-    background-position: center; 
-    overflow-y: auto;
-}
+
 .fcontainer {
-    background: linear-gradient(to right, white 50%, #392073 50%);
-    padding: 0px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1017px;
-    height: 549px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     transition: all 0.3s ease;
-}
-@media only screen and (max-width: 1200px) {
-    .fcontainer {
-        width: 95%; /* Adjust the width for smaller screens */
-    }
+    width: 100vw;
+    height: 100vh;
 }
 .left{
+    flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 45px;
-    height: 549px;
-    width: 50%;
-    overflow: hidden;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: center;
 }
 .lock{
     height: 500px;
     width: 500px;
 }
 .right{
+    background-color: #220B57;
+    flex: 1s;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    height: 549px;
     width: 50%;
-    padding: 0;
 }
 .header{
     letter-spacing: -2px;
-    margin-top: 10%;
     font-size: 40px;
     font-weight: 1000;
     color: #220B57;
@@ -87,7 +63,7 @@
 }
 .sendbutt{
     width: 130px;
-    height: 50px;
+    height: 40px;
     font-size: 40px;
     background-color: #392073;
     color: #fff;
@@ -99,6 +75,7 @@
     border: none;
 }
 .back{
+    margin-top: 20px;
     font-size: 16px;
 }
 input:focus{
@@ -117,4 +94,10 @@ input:focus{
 .email_icon{
     height: 200px;
     width: 200px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .right{
+        display: none;
+    }
 }
