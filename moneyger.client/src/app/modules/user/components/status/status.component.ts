@@ -1,17 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ContactService } from '../../../../shared/contact.service';
+import { Title } from '@angular/platform-browser';
+import { EditStatusRequest } from '../../../../interfaces/edit-status-request';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ValidationError } from '../../../../interfaces/validation-error';
+import { ContactsComponent } from '../contacts/contacts.component';
+import { ContactRequest } from '../../../../interfaces/contact-request';
 
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
-  styleUrl: './status.component.css'
+  styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
+  @Input() contactId!: string;
+  @Input() contactName!: string;
+  @Input() contactStatus!: string;
+
+  passContact! :ContactsComponent;
+
+  editStatus: EditStatusRequest = {
+    id:'',
+    name: '',
+    status: 1
+  };
+  
+  constructor(
+    private titleService: Title,
+    private contactService: ContactService,
+  ) {}
 
   ngOnInit(): void {
-    this.selectedOption = this.options[0];
+    if (this.contactStatus) {
+      // Find the option that matches the contactStatus value
+      const matchedOption = this.options.find(option => option.value === this.contactStatus);
+      
+      // Set selectedOption to the matched option, or default to the first option if not found
+      this.selectedOption = matchedOption || this.options[0];
+    } else {
+      // Handle the case where contactStatus is undefined or doesn't match any option
+      this.selectedOption = this.options[0];
+    }
   }
 
   selectedOption: any;
+  contacts: ContactRequest[] = [];
+  errors: ValidationError[] = [];
 
   options = [
     {name: 'option-1', value: 'Latest'},
@@ -28,10 +62,27 @@ export class StatusComponent implements OnInit {
     this.optionsVisible = !this.optionsVisible;
   }
 
-  selectOption(option: any, event: Event) {
+  selectOption(option: any, index: number, event: Event) {
     this.selectedOption = option;
+    // You can use the index here for further processing
+    this.editStatus.id = this.contactId;
+    this.editStatus.status = index+1;
     this.optionsVisible = false;
     event.stopPropagation();
+    this.updateStatus();
   }
   
+  updateStatus(): void {
+    this.contactService.updateStatus(this.editStatus).subscribe({
+      next: (response) => {
+        this.passContact.getContacts()
+      },
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
+        }
+        console.error(err.message, err.headers);
+      },
+    });
+  }
 }

@@ -3,9 +3,7 @@
         {{ selectedOption?.value || 'Latest' }}
         
         <div class="options-cont" [ngStyle]="{'opacity': optionsVisible ? 1 : 0, 'z-index': optionsVisible ? 2 : -1}">
-            <div *ngFor="let option of options" [class]="option.name" (click)="selectOption(option, $event)">{{option.value}}</div>
+            <div *ngFor="let option of options; let i = index" [class]="option.name" (click)="selectOption(option, i, $event)">{{option.value}}</div>
         </div>
     </div>
 </div>
-
-

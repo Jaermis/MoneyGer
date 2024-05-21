@@ -5,6 +5,7 @@ import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
 import { ContactRequest } from '../../../../interfaces/contact-request';
 import { AuthResponse } from '../../../../interfaces/auth-response';
+import { EditStatusRequest } from '../../../../interfaces/edit-status-request';
 
 @Component({
   selector: 'app-contacts',
@@ -12,6 +13,7 @@ import { AuthResponse } from '../../../../interfaces/auth-response';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
+  
   constructor(
     private titleService: Title,
     private contactService: ContactService,
@@ -34,12 +36,12 @@ export class ContactsComponent implements OnInit {
     facebook: 'asc',
     twitter: 'asc',
     instagram: 'asc'
+    
 };
 
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Contacts');
     this.getContacts();
-    console.log(this.contacts);
   }
 
   toggleSort(field: keyof ContactRequest) {
@@ -102,7 +104,7 @@ export class ContactsComponent implements OnInit {
       });
     }
   }
-
+  
   onCheckboxChange(contactId: string, event: any): void {
     this.checkedContacts[contactId] = event.target.checked;
   }
