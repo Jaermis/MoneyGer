@@ -21,7 +21,7 @@ export class SalesGraphComponent {
 
   constructor(){
     this.chartTitle = 'Sales Tracking';
-    this.data = [
+    this.data = [ //Sales
       {month: 'Jan', sales: 35}, {month: 'Feb', sales: 28},
       {month: 'Mar', sales: 34}, {month: 'Apr', sales: 32},
       {month: 'May', sales: 40}, {month: 'Jun', sales: 32},
@@ -29,7 +29,7 @@ export class SalesGraphComponent {
       {month: 'Sep', sales: 38}, {month: 'Oct', sales: 30},
       {month: 'Nov', sales: 25}, {month: 'Dec', sales: 32}
     ];
-    this.data2 = [
+    this.data2 = [ //Expenses
       {month: 'Jan', expense: 43}, {month: 'Feb', expense: 42},
       {month: 'Mar', expense: 11}, {month: 'Apr', expense: 57},
       {month: 'May', expense: 98}, {month: 'Jun', expense: 16},

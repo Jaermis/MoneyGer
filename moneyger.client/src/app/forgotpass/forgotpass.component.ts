@@ -13,7 +13,7 @@ import { AuthService } from '../shared/auth.service';
 })
 export class ForgotpassComponent implements OnInit {
   constructor(
-    private titleService: Title
+    private titleService: Title, private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -29,18 +29,15 @@ export class ForgotpassComponent implements OnInit {
       this.authService.forgotPassword(this.email).subscribe({
         next:(response)=>{
           if(response.isSuccess){
-            alert("Email sent");
+            alert("Please check your email for reset password link.");
             this.showEmailSent = true;
-          }
-          else{
-            alert("eyy");
           }
         },
         error: (error) => {
           alert(error.message);
         },
         complete:()=>{
-          this.isSubmitting = false;
+          this.router.navigate(['/login']);
         }
       })
     }
