@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -8,6 +8,10 @@ import { ContactRequest } from '../../../../interfaces/contact-request';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCompanyComponent } from '../create-company/create-company.component';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
+import { Observable } from 'rxjs';
+import { UserCompanyDetail } from '../../../../interfaces/user-company-detail';
+import { AuthService } from '../../../../shared/auth.service';
+
 
 @Component({
   selector: 'app-home',
@@ -24,10 +28,13 @@ export class HomeComponent implements OnInit {
 
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
+  userDetail! :Observable<UserCompanyDetail>;
+  authService = inject(AuthService);
 
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Dashboard');
     this.getContacts();
+    this.userDetail = this.authService.getUserCompany();
   }
 
   getContacts(): void {
