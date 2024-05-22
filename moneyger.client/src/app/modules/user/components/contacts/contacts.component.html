@@ -82,7 +82,7 @@
                 <tbody>
                     <tr *ngFor="let contact of contacts | search: searchText">
                         <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
-                        <td><i class='bx bxs-pencil' (click)="openDialog()" style="color: #676565;"></i></td>
+                        <td><i class='bx bxs-pencil' (click)="openDialog2(contact)" style="color: #676565;"></i></td>
                         <td>{{ contact.name }}</td>
                         <td>{{ contact.companyName }}</td>
                         <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status"></app-status></td>
