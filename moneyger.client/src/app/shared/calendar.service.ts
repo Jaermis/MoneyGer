@@ -30,4 +30,12 @@ export class CalendarService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
     return this.http.get<EventAttendee[]>(`${this.apiUrl}/Attendee/AllAttendees`, { headers });
   }
+  
+  deleteEvents(AtendeeIds: number[]): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.request<AuthResponse>('delete', `${this.apiUrl}/Attendee/Delete`, {
+      body: AtendeeIds,
+      headers: headers
+    });
+  }
 }

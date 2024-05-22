@@ -32,12 +32,25 @@
           <li *ngFor="let day of days" [ngClass]="getClasses(day)">{{ day.day }}</li>
         </ul>
       </div>
+      <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedEvents()" style="cursor: pointer; margin-top: 2%;"></i>
     </div>
     <div class="sidecontainer">
-      
+      <div class="side-header">
+        <h1>{{ showUpcomingEvents ? 'Upcoming Events' : 'Past Events' }}</h1>
+        <button class="toggle-butt" (click)="toggleEventView()">{{ showUpcomingEvents ? '>' : '>' }}</button>
+      </div>
       <div class="events-array">
-        <div *ngFor="let event of events">
-          <p>{{ event.eventTime }} - {{ event.description }}</p>
+        <div *ngFor="let groupedEvents of groupEventsByDate(events)">
+          <div class="event-group">
+            <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2>
+            <div class="event-title">
+              <div *ngFor="let event of groupedEvents.events">
+                <strong><p>{{ event.description }}</p></strong>
+                <p>{{ event.dateStart | date: 'shortTime' }}</p>
+                <input type="checkbox" [checked]="checkedEvents[event.id]" (change)="onCheckboxChange(event.id, $event)">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
