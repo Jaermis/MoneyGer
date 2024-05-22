@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +59,7 @@ namespace MoneyGer.Server.Controllers
                     events => events.Id,
                     (attendees, events) => new EventsFetchDto
                     {
+                        id_event = events.Id,
                         Id = attendees.Id,
                         Description  = events.Description,
                         DateStart  = events.DateStart,
@@ -66,7 +71,7 @@ namespace MoneyGer.Server.Controllers
         }
 
         [HttpDelete("Delete")]
-        public async Task<IActionResult> DeleteContacts([FromBody] int[] attendeeIds)
+        public async Task<IActionResult> DeleteEvents([FromBody] int[] attendeeIds)
         {
             List<Events>eventsToRemove = new List<Events>();
             var attendeesToRemove = _context.Attendee.Where(c => attendeeIds.Contains(c.Id)).ToList();

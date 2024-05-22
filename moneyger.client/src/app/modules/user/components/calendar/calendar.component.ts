@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { EventRequest } from '../../../../interfaces/event-request';
 import { EventAttendee } from '../../../../interfaces/event-attendee';
+import { AuthResponse } from '../../../../interfaces/auth-response';
 
 enum ActiveState {
   Inactive,
@@ -20,8 +21,6 @@ interface CalendarDay {
   day: number;
   active: ActiveState;
 }
-
-
 
 @Component({
   selector: 'app-calendar',
@@ -38,6 +37,7 @@ export class CalendarComponent implements OnInit {
   currentDay: number;
   events: EventAttendee[] = [];
   dates: string[] = [];
+  checkedEvents: { [key: number]: boolean } = {};
   
   resetFormFields() {
     this.eventmaker = {
@@ -178,14 +178,15 @@ export class CalendarComponent implements OnInit {
     this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
   }
 
-  /*groupEventsByDate(events: Event[]): { date: Date; events: Event[] }[] {
-    const groupedEvents: { date: Date; events: Event[] }[] = [];
+  groupEventsByDate(events: EventAttendee[]): { date: Date; events: EventAttendee[] }[] {
+    const groupedEvents: { date: Date; events: EventAttendee[] }[] = [];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-
+  
     events.forEach(event => {
-      const eventDate = new Date(event.date);
+      const eventDate = new Date(event.dateStart);
       eventDate.setHours(0, 0, 0, 0);
+  
       if (this.showUpcomingEvents && eventDate >= today || !this.showUpcomingEvents && eventDate < today) {
         let group = groupedEvents.find(g => g.date.getTime() === eventDate.getTime());
         if (!group) {
@@ -195,9 +196,10 @@ export class CalendarComponent implements OnInit {
         group.events.push(event);
       }
     });
-
+  
     return groupedEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
-  }*/
+  }
+  
 
   toggleEventView(): void {
     this.showUpcomingEvents = !this.showUpcomingEvents;
@@ -221,8 +223,7 @@ export class CalendarComponent implements OnInit {
 
   getEvents(): void {
     this.calendarService.getEvents().subscribe({
-      next: (response: EventAttendee[]) => {
-        console.log('All Events:', response);
+      next: (response: EventAttendee[]) => {  
         this.events = response;
         this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
       },
@@ -232,12 +233,33 @@ export class CalendarComponent implements OnInit {
         }
         console.error('Error fetching events:', err.message);
       },
-      complete:()=>console.log(this.events)
     });
   }
 
-  /*deleteEvent(eventToDelete: Event): void {
-    this.predefinedEvents = this.predefinedEvents.filter(event => event !== eventToDelete);
-    this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
-  }*/
+  deleteSelectedEvents(): void {
+    const eventsToDelete = Object.keys(this.checkedEvents).filter(atendeeId => this.checkedEvents[Number(atendeeId)]).map(atendeeId => Number(atendeeId));
+
+    if (eventsToDelete.length > 0) {
+      this.calendarService.deleteEvents(eventsToDelete).subscribe({
+        next: (response: AuthResponse) => {
+          if (response.isSuccess) {
+            this.events = this.events.filter(attendee => !eventsToDelete.includes(attendee.id));
+            this.checkedEvents = {};  // Reset the checked contacts
+          } 
+        },
+        error: (err: HttpErrorResponse) => {
+          console.error('Error deleting contacts:', err.message);
+        },
+        
+      complete:()=>this.ngOnInit(),
+      });
+    }
+  }
+  onCheckboxChange(atendeeId: number, event: any): void {
+    this.checkedEvents[atendeeId] = event.target.checked;
+  }
+
+  isAnyCheckboxChecked(): boolean {
+    return Object.values(this.checkedEvents).some(isChecked => isChecked);
+  }
 }
