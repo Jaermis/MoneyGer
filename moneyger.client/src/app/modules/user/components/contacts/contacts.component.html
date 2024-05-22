@@ -6,7 +6,8 @@
                 <input type="text" placeholder="Search..." [(ngModel)]="searchText">
             </div>
             
-            <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact" style="cursor: pointer; margin-top: 2%;"></i>
+
+            <i (click)="openDialog()" class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" style="cursor: pointer; margin-top: 2%;"></i>
             <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedContacts()" style="cursor: pointer; margin-top: 2%;"></i>
 
         </div>
@@ -81,7 +82,7 @@
                 <tbody>
                     <tr *ngFor="let contact of contacts | search: searchText">
                         <td><input type="checkbox" class="check" (change)="onCheckboxChange(contact.id, $event)"></td>
-                        <td><i class='bx bxs-pencil' [routerLink]="['/user/edit-contact', contact.id]" style="color: #676565;"></i></td>
+                        <td><i class='bx bxs-pencil' (click)="openDialog()" style="color: #676565;"></i></td>
                         <td>{{ contact.name }}</td>
                         <td>{{ contact.companyName }}</td>
                         <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status"></app-status></td>

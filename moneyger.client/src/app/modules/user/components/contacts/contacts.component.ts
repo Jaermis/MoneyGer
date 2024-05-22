@@ -6,6 +6,9 @@ import { ContactService } from '../../../../shared/contact.service';
 import { ContactRequest } from '../../../../interfaces/contact-request';
 import { AuthResponse } from '../../../../interfaces/auth-response';
 import { EditStatusRequest } from '../../../../interfaces/edit-status-request';
+import { MatDialog } from '@angular/material/dialog';
+import { AddContactComponent } from '../add-contact/add-contact.component';
+import { EditContactComponent } from '../edit-contact/edit-contact.component';
 
 @Component({
   selector: 'app-contacts',
@@ -17,7 +20,8 @@ export class ContactsComponent implements OnInit {
   constructor(
     private titleService: Title,
     private contactService: ContactService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public dialog: MatDialog
   ) {}
 
   statuses: string[] = ['Latest', 'In Progress', 'Qualified', 'Unqualified', 'Forfeited', 'Deal'];
@@ -120,4 +124,23 @@ export class ContactsComponent implements OnInit {
     }
     return '';
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddContactComponent, { // Pass any data you want to the dialog component
+    });
+
+    dialogRef.componentInstance.contactAdded.subscribe(() => {
+      this.getContacts(); // Refresh the contacts list when a new contact is added
+    });
+  }
+
+  openDialog2(): void {
+    const dialogRef = this.dialog.open(EditContactComponent, { // Pass any data you want to the dialog component
+    });
+
+    //dialogRef.componentInstance.contactAdded.subscribe(() => {
+      //this.getContacts();) // Refresh the contacts list when a new contact is added
+    ;
+  }
+    
 }

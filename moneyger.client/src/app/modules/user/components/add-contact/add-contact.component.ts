@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewContactRequest } from '../../../../interfaces/new-contact-request';
 import { ValidationError } from '../../../../interfaces/validation-error';
@@ -10,6 +10,8 @@ import { ContactService } from '../../../../shared/contact.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ContactsComponent } from '../contacts/contacts.component';
 
 @Component({
   selector: 'app-add-contact',
@@ -19,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [FormsModule, ReactiveFormsModule, RouterLink,CommonModule]
 })
 export class AddContactComponent implements OnInit {
+  @Output() contactAdded = new EventEmitter<void>();
   editProfileForm!: FormGroup;
   newContact: NewContactRequest = {
     name: '',
@@ -36,7 +39,8 @@ export class AddContactComponent implements OnInit {
     private titleService: Title,
     private contactService: ContactService,
     private authService: AuthService,
-    public router: Router
+    public router: Router,
+    public dialogRef: MatDialogRef<AddContactComponent>
   ) {}
 
   ngOnInit(): void {
@@ -73,7 +77,8 @@ export class AddContactComponent implements OnInit {
         error: (err: HttpErrorResponse) => {
           console.log(err.message);
         },
-        complete: () => alert('Added contact successfully'),
+        complete: () => {this.dialogRef.close(),
+          this.contactAdded.emit()}
       });
     } else {
       this.editProfileForm.markAllAsTouched();
@@ -81,6 +86,6 @@ export class AddContactComponent implements OnInit {
   }
 
   Cancel() {
-    this.router.navigate(['/user/contacts']);
+    this.dialogRef.close();
   }
 }
