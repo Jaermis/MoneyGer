@@ -2,8 +2,8 @@
 
     <!---------------------------------HEADER-------------------------->
     <div class="header">
-        <div class="header-cont" (click)="openDialog()">
-            <p class="companyname">Ronskie's IT Solutions</p>
+        <div class="header-cont" (click)="openDialog()" *ngIf=" userDetail | async as detail">
+            <p class="companyname">{{detail.company}}</p>
         </div>
     </div>
 
