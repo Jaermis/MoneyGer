@@ -28,6 +28,7 @@ export class ContactsComponent implements OnInit {
 
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
+  passContact!: ContactRequest;
   checkedContacts: { [key: string]: boolean } = {};
   searchText = '';
   headerHovered: { [key: string]: boolean } = {};
@@ -134,9 +135,13 @@ export class ContactsComponent implements OnInit {
     });
   }
 
-  openDialog2(): void {
-    const dialogRef = this.dialog.open(EditContactComponent, { // Pass any data you want to the dialog component
-    });
+  openDialog2(contact:ContactRequest): void {
+    const dialogRef = this.dialog.open(EditContactComponent, 
+      {
+        data: {contact},
+      });
+      { // Pass any data you want to the dialog component
+    };
 
     //dialogRef.componentInstance.contactAdded.subscribe(() => {
       //this.getContacts();) // Refresh the contacts list when a new contact is added

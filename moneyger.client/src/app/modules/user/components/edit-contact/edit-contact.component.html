@@ -1,12 +1,12 @@
 <div class="edit-cont">
   <div class="profile">
-    <p>Add a Contact</p>
+    <p>Edit Contact</p>
   </div>
   <form [formGroup]="editProfileForm" class="form" (ngSubmit)="editContact()">
     <div class="name">
       <div class="first-name">
         <label for="first-name">First Name</label>
-        <input type="text" id="first-name" formControlName="firstName" placeholder="First Name" value="">
+        <input type="text" id="first-name" formControlName="firstName" placeholder="First Name">
         <div *ngIf="editProfileForm.get('firstName')?.touched && editProfileForm.get('firstName')?.invalid" class="error">
           First Name is required.
         </div>
