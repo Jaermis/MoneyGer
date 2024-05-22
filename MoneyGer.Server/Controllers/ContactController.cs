@@ -128,39 +128,39 @@ namespace MoneyGer.Server.Controllers
             {
              return NotFound("Contact not found.");
             }
-        if (!string.IsNullOrEmpty(editContactDto.CompanyName))
-        {
-            contact.CompanyName = editContactDto.CompanyName;
-        }
+            if (!string.IsNullOrEmpty(editContactDto.CompanyName))
+            {
+                contact.CompanyName = editContactDto.CompanyName;
+            }
 
-        if (!string.IsNullOrEmpty(editContactDto.PhoneNumber))
-        {
-            contact.PhoneNumber = editContactDto.PhoneNumber;
-        }
+            if (!string.IsNullOrEmpty(editContactDto.PhoneNumber))
+            {
+                contact.PhoneNumber = editContactDto.PhoneNumber;
+            }
 
-        if (!string.IsNullOrEmpty(editContactDto.Email))
-        {
-            contact.Email = editContactDto.Email;
-        }
+            if (!string.IsNullOrEmpty(editContactDto.Email))
+            {
+                contact.Email = editContactDto.Email;
+            }
 
-        if (!string.IsNullOrEmpty(editContactDto.Facebook))
-        {
-            contact.Facebook = editContactDto.Facebook;
-        }
+            if (!string.IsNullOrEmpty(editContactDto.Facebook))
+            {
+                contact.Facebook = editContactDto.Facebook;
+            }
 
-        if (!string.IsNullOrEmpty(editContactDto.Twitter))
-        {
-            contact.Twitter = editContactDto.Twitter;
-        }
+            if (!string.IsNullOrEmpty(editContactDto.Twitter))
+            {
+                contact.Twitter = editContactDto.Twitter;
+            }
 
-        if (!string.IsNullOrEmpty(editContactDto.Instagram))
-        {
-            contact.Instagram = editContactDto.Instagram;
+            if (!string.IsNullOrEmpty(editContactDto.Instagram))
+            {
+                contact.Instagram = editContactDto.Instagram;
+            }
+        
+            _context.Contacts.Update(contact);
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Contact Edited Successfully" });
         }
-        _context.Contacts.Update(contact);
-       await _context.SaveChangesAsync();
-        return Ok(new { message = "Contact Edited Successfully" });
-        }
-
     }
 }

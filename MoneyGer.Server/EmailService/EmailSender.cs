@@ -11,7 +11,7 @@ public class EmailSender : IEmailSender
         _emailConfiguration = emailConfiguration;
     }
 
-    public async Task SendEmailAsync(string email, string subject, string htmlMessage)
+    public async Task SendEmailAsync(string email, string subject, string htmlMessage, string header)
     {
         var mimeMessage = new MimeMessage();
         mimeMessage.From.Add(new MailboxAddress(_emailConfiguration.FromName, _emailConfiguration.FromAddress));
@@ -45,8 +45,8 @@ public class EmailSender : IEmailSender
                            "</head>" +
                            "<body>" +
                            "<div class='container'>" +
-                           "<h1>MoneyGer Email Confirmation</h1>" +
-                           "<p>Please click the link below to confirm your email address:</p>" +
+                           "<h1>"+header+ "</h1>" +
+                           "<p>Please click the link below to proceed with your request:</p>" +
                            htmlMessage +
                            "<p>If you didn't request this, you can safely ignore this email.</p>" +
                            "<p>Best regards,</p>" +
@@ -63,5 +63,10 @@ public class EmailSender : IEmailSender
             await client.SendAsync(mimeMessage);
             await client.DisconnectAsync(true);
         }
+    }
+
+    public Task SendEmailAsync(string email, string subject, string htmlMessage)
+    {
+        throw new NotImplementedException();
     }
 }

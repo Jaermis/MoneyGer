@@ -119,8 +119,9 @@ namespace MoneyGer.Server.Controllers
             {
                 var emailSender = new EmailSender(_emailConfiguration);
                 var confirmationSubject = "Confirmation Email";
+                var emailHeader = "MoneyGer Confirmation Link";
                 var confirmationHtmlMessage = $"Dear user, your email ({email}) has been confirmed successfully.";
-                await emailSender.SendEmailAsync(email, confirmationSubject, confirmationHtmlMessage);
+                await emailSender.SendEmailAsync(email, confirmationSubject, confirmationHtmlMessage,emailHeader);
 
                 return Ok("Email confirmed successfully.");
             }
@@ -203,10 +204,14 @@ namespace MoneyGer.Server.Controllers
 
             var emailSender = new EmailSender(_emailConfiguration);
             var emailSubject = "MoneyGer Forgot Password";
+            var emailHeader = "MoneyGer Reset Password";
             var confirmationHtmlMessage = $"Dear {forgotPasswordDto.Email}, click this link to reset your password {resetLink}";
-            await emailSender.SendEmailAsync(forgotPasswordDto.Email, emailSubject, confirmationHtmlMessage);
+            await emailSender.SendEmailAsync(forgotPasswordDto.Email, emailSubject, confirmationHtmlMessage,emailHeader);
 
-            return Ok("Reset password sent");
+            return Ok(new AuthResponseDto{
+                    IsSuccess = true,
+                    Message = "Reset password email sent"
+                });
         }
 
         [AllowAnonymous]
