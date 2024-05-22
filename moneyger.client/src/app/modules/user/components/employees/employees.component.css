@@ -1,0 +1,189 @@
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#tibuok{
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    background-color: #F6F7F8
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container {
+    width: 90%; /* Set container width to 90% */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    margin-top: 10px;
+    padding-bottom: 20px; /* Add padding to the bottom for scrollbar space */
+    background-color: #fff;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    outline: 1px solid #e1dfdf; /* Add an outline to the table container */
+}
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+.table-container::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+.table-container::-webkit-scrollbar-thumb {
+    background: #d0cece; 
+    border-radius: 10px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #b6b4b4; 
+}
+
+.check {
+    height: 15px;
+    width: 15px;
+}
+
+.table {
+    width: 100%; /* Allow table to expand based on content */
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: auto; /* Change to auto for flexible column widths */
+}
+
+thead {
+    text-align: center;
+}
+
+th, td {
+    padding: 10px; /* Add some padding for better readability */
+    color: #10002b;
+    border-bottom: 1px solid #F0F0F0; /* Set border color to gray */
+    border-color: #ccc; /* Ensure border color is gray */
+}
+
+a{
+    text-decoration: none;
+    color: #10002b;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+th {
+    background-color: #F0F0F0; /* Set header background color to gray */
+    color: #212121;
+    cursor: pointer;
+}
+
+tr:nth-child(even) td {
+    background-color: #fff;
+}
+
+tr:hover td {
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+.edit-contact {
+    background-color: #220B57;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    border: 2px solid #220B57;
+    margin-right: 5%;
+}
+
+.statusBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(188, 188, 188);
+    height: 70%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.title {
+    text-align: left;
+    margin-top: 25px;
+    color: #343434;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.parent {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.anak{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5%;
+    color: #676565;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.delete-butt {
+    width: 130px !important; 
+}
+
+.search-bar {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #bababa;
+    border-radius: 20px;
+    width: 450px;
+    margin-right: 5px;
+}
+
+.search-bar i {
+    cursor: pointer; /* Change cursor to pointer when hovering over the icon */
+    color: #0056b3; /* Change icon color */
+}
+
+.search-bar i:hover {
+    color: #007bff; /* Change icon color on hover */
+}
+
+/* Specific columns with ellipsis for overflow */
+td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9), td:nth-child(10),
+th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.sortable-header {
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.header-content {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center;
+}
+
+.header-content span {
+    margin-right: 5px; /* Add space between text and icon */
+}
