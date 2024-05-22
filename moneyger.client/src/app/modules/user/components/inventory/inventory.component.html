@@ -7,7 +7,7 @@
             </div>
             
             <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact" style="cursor: pointer; margin-top: 2%;"></i>
-            <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" style="cursor: pointer; margin-top: 2%;"></i>
+            <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedItems()" style="cursor: pointer; margin-top: 2%;"></i>
 
         </div>
     </div>
@@ -15,7 +15,7 @@
     
     <div class="main">
         <div class="table-container">
-            <table class="table">
+            <table class="table" >
                 <thead>
                     <tr>
                         <th></th>
@@ -47,13 +47,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" class="check"></td>
+                    <tr *ngFor="let inv of inventory | search: searchText">
+                        <td><input type="checkbox" class="check" (change)="onCheckboxChange(inv.id, $event)"></td>
                         <td><i class='bx bxs-pencil' style="color: #676565;"></i></td>
-                        <td>6969</td>
-                        <td><a>Shabu</a></td>
-                        <td><a>420</a></td>
-                        <td><a>69420</a></td>
+                        <td>{{inv.id}}</td>
+                        <td><a>{{inv.product}}</a></td>
+                        <td><a>{{inv.quantity}}</a></td>
+                        <td><a>{{inv.price}}</a></td>
                     </tr>
                 </tbody>
             </table>
