@@ -41,6 +41,8 @@ import { SplineSeriesService } from '@syncfusion/ej2-angular-charts';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { AddItemComponent } from './components/add-item/add-item.component';
 
 
 const UserComponents = [
@@ -76,6 +78,8 @@ const UserComponents = [
     StatusComponent,
     EmployeesComponent,
     InventoryComponent,
+    AddEmployeeComponent,
+    AddItemComponent,
     //EditContactComponent,
   ],
   imports: [

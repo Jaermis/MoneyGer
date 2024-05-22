@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './employees.component.css'
 })
 export class EmployeesComponent {
+  searchText = '';
+  checkedContacts: { [key: string]: boolean } = {};
 
+  isAnyCheckboxChecked(): boolean {
+    return Object.values(this.checkedContacts).some(isChecked => isChecked);
+  }
 }
