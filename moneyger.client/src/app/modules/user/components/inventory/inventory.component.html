@@ -6,7 +6,7 @@
                 <input type="text" placeholder="Search..." [(ngModel)]="searchText">
             </div>
             
-            <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact" style="cursor: pointer; margin-top: 2%;"></i>
+            <i class='bx bxs-plus-circle bx-md' (click)="addItem()" *ngIf="!isAnyCheckboxChecked()" style="cursor: pointer; margin-top: 2%;"></i>
             <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" style="cursor: pointer; margin-top: 2%;"></i>
 
         </div>
@@ -49,7 +49,7 @@
                 <tbody>
                     <tr>
                         <td><input type="checkbox" class="check"></td>
-                        <td><i class='bx bxs-pencil' style="color: #676565;"></i></td>
+                        <td><i (click)="editItem()" class='bx bxs-pencil' style="color: #676565;"></i></td>
                         <td>6969</td>
                         <td><a>Shabu</a></td>
                         <td><a>420</a></td>

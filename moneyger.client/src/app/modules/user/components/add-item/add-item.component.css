@@ -1,0 +1,79 @@
+#add-item{
+    width: 450px;
+    height: 100%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 900;
+    color: #220B57;
+    margin-bottom: 30px;
+}
+
+.cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form input{
+    width: 100%;
+    border-radius: 10px;
+    height: 25px;
+    border: 2px solid #dddddd;
+    margin-bottom: 10px;
+}
+
+.actions{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cancel{
+    background-color: #8956FF;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    width: 100px;
+    padding: 7px;
+    max-height: 61px;
+    font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
+    margin-right: 10px;
+    border: none;
+    color: #fff;
+
+    &:hover{
+        background-color: #a280f0;
+    }
+}
+
+.save{
+    background-color: #220B57;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    width: 100px;
+    padding: 7px;
+    max-height: 61px;
+    font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
+
+    &:hover{
+        background-color: #3a1888;
+    }
+}
