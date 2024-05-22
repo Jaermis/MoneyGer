@@ -13,51 +13,60 @@ namespace MoneyGer.Server.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class InventoryController:ControllerBase //Modify this to cater needs when dealing with inventory. Add api for updating stocks
+    public class SaleController:ControllerBase //Modify this to cater needs when dealing with inventory. Add api for updating stocks
     {
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
         
-        public InventoryController(IConfiguration configuration, ApplicationDbContext context)
+        public SaleController(IConfiguration configuration, ApplicationDbContext context)
         {
             _configuration = configuration;
             _context = context;
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddInventory([FromBody] CreateInventoryDto createInventoryDto)
+        public async Task<IActionResult> AddSale([FromBody] CreateSaleDto createSaleDto)
         {
-            if(string.IsNullOrEmpty(createInventoryDto.Product))
-            {
-                return BadRequest("Status name is required");
-            }
-
-            var productExist = await _context.Inventory.FirstOrDefaultAsync(ucr => ucr.Product == createInventoryDto.Product);
-
-            if(productExist is not null) 
-            {
-                return BadRequest("Product already exists");
-            }
-
+            string today = DateTime.Now.ToString("MM/yyyy");
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == currentUserId);
 
-            var add = new Inventory
+            var salesExist = await _context.Sales.FirstOrDefaultAsync(ucr => ucr.Date == today && ucr.Company == company!.CompanyId);
+
+            if(salesExist is not null) 
             {
-                Company = company!.CompanyId,
-                Price = createInventoryDto.Price,
-                Product = createInventoryDto.Product,
-                    Quantity = createInventoryDto.Quantity
+                salesExist.Revenue += createSaleDto.Revenue;
+ 
+                if (createSaleDto.Expenses is not null)
+                {
+                    salesExist.Expenses += createSaleDto.Expenses;
+                }
+
+                salesExist.Profit = salesExist.Revenue-(float)salesExist.Expenses!;
+
+                _context.Sales.Update(salesExist);
+            }
+
+            else{
+                var add = new Sales
+                {
+                    Date = DateTime.Now.ToString("MM/yyyy"),
+                    Company = company!.CompanyId,
+                    Profit = 0,
+                    Revenue = createSaleDto.Revenue,
+                    Expenses = 0
                 };
+                
+            _context.Sales.Add(add);
+            }
 
             try{
-            _context.Inventory.Add(add);
 
-            await _context.SaveChangesAsync();
-            return Ok(new {message = "Inventory Created Successfully"});
+            await _context.SaveChangesAsync();  
+            return Ok(new {message = "Sales Created Successfully"});
             }
             catch(Exception e){
-            return BadRequest("Inventory creation failed "+ e.StackTrace);
+            return BadRequest("Sales creation failed "+ e.StackTrace);
             }
         }
 
@@ -66,7 +75,11 @@ namespace MoneyGer.Server.Controllers
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == currentUserId);
+            
+            /*string Datelol = DateTime.Now.ToString("MM/yy");
+            DateTime lol = DateTime.Parse(Datelol);
 
+            lol.ToString("MMMM/yyyy");*/ //<-------------------------------IADD NI SA GetSales()
             var companyInventory = await _context.Inventory
                 .Where(a => a.Company == company!.CompanyId)
                 .ToListAsync();
@@ -75,20 +88,20 @@ namespace MoneyGer.Server.Controllers
         }
 
          [HttpDelete]
-        public async Task<IActionResult> DeleteInventory([FromBody] int[] inventoryIds)
+        public async Task<IActionResult> DeleteSales([FromBody] int[] salesIds)
         {
-            var inventoryToRemove = _context.Inventory.Where(c => inventoryIds.Contains(c.Id)).ToList();
+            var salesToRemove = _context.Sales.Where(c => salesIds.Contains(c.Id)).ToList();
             
             try{
-            if (inventoryToRemove.Any())
+            if (salesToRemove.Any())
             {
-                _context.Inventory.RemoveRange(inventoryToRemove);
+                _context.Sales.RemoveRange(salesToRemove);
                 
                 await _context.SaveChangesAsync();
-                return Ok(new { message = "Inventory removed" });
+                return Ok(new { message = "Sales removed" });
             }
 
-            return NotFound(new { message = "No inventory found with the provided IDs" });
+            return NotFound(new { message = "No salesy found with the provided IDs" });
             }
             catch(Exception ex){
                 return BadRequest(new {message=ex.StackTrace});

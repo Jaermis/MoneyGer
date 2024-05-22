@@ -16,7 +16,8 @@ namespace MoneyGer.Server.Context
         public DbSet<Events> Events { get; set; }
         public DbSet<Attendee> Attendee { get; set; }
         public DbSet<Sales> Sales { get; set; }
-        public DbSet<Inventory> Inventory { get; set; }
+        public DbSet<Inventory> Inventory { get; set; } 
+        public DbSet<Segmentation> Segmentation { get; set; } 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>().HasKey(x => x.Id);

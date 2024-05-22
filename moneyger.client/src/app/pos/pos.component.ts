@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Product } from '../interfaces/product';
 import { CartItem } from '../interfaces/cart-item';
 import { UserCompanyDetail } from '../interfaces/user-company-detail';
 import { Observable } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
+import { InventoryRequest } from '../interfaces/inventory-request';
 
 @Component({
   selector: 'app-pos',
@@ -21,23 +21,23 @@ export class PosComponent implements OnInit{
   
   displayedColumns: string[] = ['id', 'name', 'quantity', 'price'];
   displayedColumns_cart: string[] = ['name', 'quantity', 'price', 'actions'];
-  dataSource_prod: Product[] = [
-    { quantity: 14, name: 'Laptop', id: '12346', price: 12000 },
+  dataSource_prod: InventoryRequest[] = [
+    /*{ quantity: 14, name: 'Laptop', id: '12346', price: 12000 },
     { quantity: 32, name: 'Cellphone', id: '12347', price: 10000 },
     { quantity: 41, name: 'Speaker', id: '12348', price: 1200 },
     { quantity: 53, name: 'Mouse', id: '12349', price: 1500 },
     { quantity: 36, name: 'Headset', id: '12350', price: 1000 },
     { quantity: 18, name: 'Keyboard', id: '12351', price: 5600 },
-    { quantity: 21, name: 'Monitor', id: '12352', price: 4800 },
+    { quantity: 21, name: 'Monitor', id: '12352', price: 4800 },*/ //<---------------PANG-ILISI NIG TARONG, USE getInventory()
   ];
   dataSource_cart: CartItem[] = [
     { quantity: 14, name: 'Laptop', price: 12000 },
   ];
   
-  selectedProduct: Product | null = null;
+  selectedProduct: InventoryRequest | null = null;
   inputQuantity: number = 0;
 
-  selectProduct(product: Product) {
+  selectProduct(product: InventoryRequest) {
     this.selectedProduct = product;
     this.inputQuantity = 0;
   }
