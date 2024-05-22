@@ -1,1 +1,43 @@
-<p>add-item works!</p>
+<div id="add-item">
+
+    <div class="cont">
+
+        <div class="title">
+            Add Item
+        </div>
+
+        <div class="form">
+            <form action="">
+
+                <div class="id">
+                    <label for="Id">ID</label><br>
+                    <input type="text" name="Id">
+                </div>
+    
+                <div class="name">
+                    <label for="Name">Name</label><br>
+                    <input type="text" name="Name">                    
+                </div>
+    
+                <div class="stock">
+                    <label for="Stock">Stock</label><br>
+                    <input type="text" name="Stock">   
+                </div>
+    
+                <div class="price">
+                    <label for="Price">Price</label><br>
+                    <input type="text" name="Price">   
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="actions">
+            <button class="cancel" (click)="closeDialog()">Cancel</button>
+            <button class="save">Save</button>
+        </div>
+
+    </div>
+    
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-item',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './edit-item.component.css'
 })
 export class EditItemComponent {
+  constructor(
+    public dialogRef: MatDialogRef<EditItemComponent>,
+  ){}
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }

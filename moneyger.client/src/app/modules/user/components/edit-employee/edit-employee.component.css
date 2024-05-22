@@ -20,7 +20,7 @@
 .form{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .title{
@@ -51,7 +51,7 @@
 }
 
 .actions{
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
@@ -88,7 +88,6 @@
     padding: 7px;
     max-height: 61px;
     font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
-    border: 2px solid #220B57;
 
     &:hover{
         background-color: #3a1888;

@@ -1,3 +1,6 @@
+
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
@@ -6,6 +9,9 @@ import { InventoryRequest } from '../../../../interfaces/inventory-request';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { AuthResponse } from '../../../../interfaces/auth-response';
+import { AddItemComponent } from '../add-item/add-item.component';
+import { EditItemComponent } from '../edit-item/edit-item.component';
+
 
 @Component({
   selector: 'app-inventory',
@@ -29,6 +35,10 @@ export class InventoryComponent implements OnInit{
   searchText = '';
   checkedItems: { [key: string]: boolean } = {};
 
+  constructor(
+    public dialog: MatDialog,
+  ){}
+
   isAnyCheckboxChecked(): boolean {
     console.log(this.checkedItems);
     return Object.values(this.checkedItems).some(isChecked => isChecked);
@@ -36,6 +46,14 @@ export class InventoryComponent implements OnInit{
 
   onCheckboxChange(productId: number, item: any): void {
     this.checkedItems[productId] = item.target.checked;
+  }
+
+  addItem(){
+    const dialogRef = this.dialog.open(AddItemComponent);
+  }
+
+  editItem(){
+    const dialogRef = this.dialog.open(EditItemComponent);
   }
 
   getInventory(): void {
@@ -73,5 +91,4 @@ export class InventoryComponent implements OnInit{
     }
   }
 
-  
 }

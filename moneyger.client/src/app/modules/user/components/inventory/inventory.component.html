@@ -6,7 +6,7 @@
                 <input type="text" placeholder="Search..." [(ngModel)]="searchText">
             </div>
             
-            <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" routerLink="/user/add-contact" style="cursor: pointer; margin-top: 2%;"></i>
+            <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" (click)="addItem()" style="cursor: pointer; margin-top: 2%;"></i>
             <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedItems()" style="cursor: pointer; margin-top: 2%;"></i>
 
         </div>
@@ -47,13 +47,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                  
                     <tr *ngFor="let inv of inventory | search: searchText">
+                      
                         <td><input type="checkbox" class="check" (change)="onCheckboxChange(inv.id, $event)"></td>
-                        <td><i class='bx bxs-pencil' style="color: #676565;"></i></td>
+                        <td><i (click)="editItem()" class='bx bxs-pencil' style="color: #676565;"></i></td>
                         <td>{{inv.id}}</td>
                         <td><a>{{inv.product}}</a></td>
                         <td><a>{{inv.quantity}}</a></td>
                         <td><a>{{inv.price}}</a></td>
+                      
                     </tr>
                 </tbody>
             </table>
