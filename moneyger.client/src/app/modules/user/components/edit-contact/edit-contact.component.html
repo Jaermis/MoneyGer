@@ -1,32 +1,48 @@
-<div class="edit-profile">
-  <div class="edit-cont">
-    <div class="profile">
-      <p>Edit Contact</p>
-    </div>
-    <div class="form">
-      <div class="name">
-        <div class="first-name">
-          <label for="first-name">First Name</label>
-          <input type="text" id="first-name" placeholder="First Name" name="First" [(ngModel)]="firstName" required>
-        </div>
-        <div class="last-name">
-          <label for="last-name">Last Name</label>
-          <input type="text" id="last-name" placeholder="Last Name" name="Last" [(ngModel)]="lastName" required>
-      </div>
-      <label for="phone">Phone Number</label>
-      <input type="text" id="phone" placeholder="Phone Number" [(ngModel)]="newContact.phoneNumber" name="phone">
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Email" [(ngModel)]="newContact.email" name="email">
-      <label for="facebook">Facebook</label>
-      <input type="text" id="facebook" placeholder="Facebook" [(ngModel)]="newContact.facebook" name="fb">
-      <label for="twitter">Twitter / X</label>
-      <input type="text" id="twitter" placeholder="Twitter / X" [(ngModel)]="newContact.twitter" name="twitter">
-      <label for="instagram">Instagram</label>
-      <input type="text" id="instagram" placeholder="Instagram" [(ngModel)]="newContact.instagram" name="ig">
-    </div>
-    <div class="actions">
-      <button class="cancel" routerLink="/user/contacts">Cancel</button>
-      <button class="save" (click)="editContact()">Save</button>
-    </div>
+<div class="edit-cont">
+  <div class="profile">
+    <p>Add a Contact</p>
   </div>
+  <form [formGroup]="editProfileForm" class="form" (ngSubmit)="editContact()">
+    <div class="name">
+      <div class="first-name">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" formControlName="firstName" placeholder="First Name" value="">
+        <div *ngIf="editProfileForm.get('firstName')?.touched && editProfileForm.get('firstName')?.invalid" class="error">
+          First Name is required.
+        </div>
+      </div>
+      <div class="last-name">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" formControlName="lastName" placeholder="Last Name">
+        <div *ngIf="editProfileForm.get('lastName')?.touched && editProfileForm.get('lastName')?.invalid" class="error">
+          Last Name is required.
+        </div>
+      </div>
+    </div>
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" formControlName="phoneNumber" placeholder="Phone Number">
+    
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" placeholder="Email">
+    
+    <label for="facebook">Facebook</label>
+    <input type="text" id="facebook" formControlName="facebook" placeholder="Facebook">
+    
+    <label for="company-name">Company Name</label>
+    <input type="text" id="company-name" formControlName="companyName" placeholder="Company Name">
+    <div *ngIf="editProfileForm.get('companyName')?.touched && editProfileForm.get('companyName')?.invalid" class="error">
+      Company Name is required.
+    </div>
+    
+    <label for="twitter">Twitter / X</label>
+    <input type="text" id="twitter" formControlName="twitter" placeholder="Twitter / X">
+    
+    <label for="instagram">Instagram</label>
+    <input type="text" id="instagram" formControlName="instagram" placeholder="Instagram">
+    
+    <div class="actions">
+      <button type="button" class="cancel" (click)="Cancel()">Cancel</button>
+      <button type="submit" class="save">Save</button>
+    </div>
+  </form>
 </div>

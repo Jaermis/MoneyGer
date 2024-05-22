@@ -44,7 +44,7 @@ const routes: Routes = [
       {path: 'edit-contact', component: EditContactComponent},
       {path: 'status', component: StatusComponent},
       {path: 'employees', component: EmployeesComponent},
-      {path: 'inventory', component: InventoryComponent}
+      {path: 'inventory', component: InventoryComponent},
   ]}
 ];
 

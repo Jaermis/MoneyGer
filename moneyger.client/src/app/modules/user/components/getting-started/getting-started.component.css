@@ -48,28 +48,24 @@
 
 .create{
     width: 90%;
-    height: 50px;
+    height: 40px;
     font-size: 20px;
     border: none;
     background-color: #220B57;
     color: #fff;
     border-radius: 10px;
-    padding: 8px;
-    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     margin-top: 15%;
 }
 
 .join{
     width: 90%;
-    height: 50px;
+    height: 40px;
     font-size: 20px;
     border: none;
     background-color: #8956FF;
     color: #fff;
     border-radius: 10px;
-    padding: 8px;
-    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     margin-top: 5%;
     margin-bottom: 10%;

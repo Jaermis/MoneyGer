@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ValidationError } from '../../../../interfaces/validation-error';
 import { ContactService } from '../../../../shared/contact.service';
@@ -7,6 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { AuthService } from '../../../../shared/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EditContact } from '../../../../interfaces/edit-contact';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -14,13 +15,14 @@ import { EditContact } from '../../../../interfaces/edit-contact';
   templateUrl: './edit-contact.component.html',
   styleUrl: './edit-contact.component.css',
   standalone: true,
-  imports:[FormsModule, RouterLink]
+  imports:[FormsModule, RouterLink,ReactiveFormsModule,CommonModule]
 })
 
 export class EditContactComponent implements OnInit {
   firstName: string = '';
   lastName: string = '';
-
+  editProfileForm!: FormGroup;
+  
   newContact: EditContact = {
     id: '',
     phoneNumber: '',
