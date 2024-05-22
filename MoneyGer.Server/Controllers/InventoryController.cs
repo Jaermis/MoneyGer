@@ -47,8 +47,8 @@ namespace MoneyGer.Server.Controllers
                 Company = company!.CompanyId,
                 Price = createInventoryDto.Price,
                 Product = createInventoryDto.Product,
-                Quantity = createInventoryDto.Quantity
-            };
+                    Quantity = createInventoryDto.Quantity
+                };
 
             try{
             _context.Inventory.Add(add);

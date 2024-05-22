@@ -255,6 +255,7 @@ export class CalendarComponent implements OnInit {
       });
     }
   }
+  
   onCheckboxChange(atendeeId: number, event: any): void {
     this.checkedEvents[atendeeId] = event.target.checked;
   }
