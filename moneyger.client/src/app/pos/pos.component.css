@@ -5,6 +5,7 @@
     font-family: 'Open Sans', sans-serif;
   }
 .pos-container{
+
     position: fixed;
     top: 0;
     right: 0;
@@ -14,105 +15,189 @@
     background-position: center; 
     overflow-y: auto;
     display: flex;
-}
-.product-container{
-    background-color: #E0D3FF;
-    padding: 10px;
-    width: 800px;
-}
-.table-container{
-    background-color: white;
-    margin-left: -10px;
-    height: 94.4%;
-}
-.up-prod{
-    margin-top: -10px;
-    margin-left: -10px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    background-color: #392073;
-    color: white;
-    height: 60px;
-}
-.order-container{
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 500px;
-    background-color:white;
-}
-.cart-table {
-    width: 90%;
-}
-.up-cart, .lower-cart{
     padding: 10px;
+}
+.top-div{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background-color: #392073;
-    color: white;
-    height: 60px;
-}
-.lower-cart{
-    font-size: larger;
-}
-.control-container{
-    width: 410px;
-    background-color: #220B57;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    height: 8%;
+    padding-left: 20px;
+}
+.logout-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}
+.name-cont{
+    padding-top: 7px;
+    margin-bottom: -10px;
+    display: flex;
     justify-content: center;
-    gap: 150px;
+    align-items: center;
 }
-.staff-cont{
-    width: 300px;
-    height: 85px;
+.company-name{
+    margin-top: 5px;
+    font-size: 30px;
+    font-style: italic;
+    margin-left: 10px;
+}
+.bot-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+.product-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 70%;
+}
+.product-table{
+    background-color: #469B44;
+    margin: 10px;
+    height: 65%;
     border-radius: 20px;
+    outline: 1px solid #e1dfdf;
+}
+.bottom-content{
+    display: flex;
+}
+.cart-cont{
+    margin: 10px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px
+}
+.cart-table-out{
+    height: 75%;
+    border-radius: 20px;
+    outline: 1px solid #e1dfdf;
+}
+.total-cont{
+    padding: 23px;
+    border-radius: 20px;
+    outline: 1px solid #e1dfdf;
+    display: flex;
+    flex-direction: column;
+}
+.cart-table{
+    width: 10%;
+}
+.bottom-content{
     padding: 10px;
-    background-color: #32107F;
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.expend-cont{
+    width: 25%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    border-radius: 20px;
+    outline: 1px solid #e1dfdf;
+}
+.display-rev{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    outline: 1px solid #e1dfdf;
+    width: 30%;
+}
+.control-cont{
+    width: 40%;
+    border-radius: 20px;
+    outline: 1px solid #e1dfdf;
+    padding: 30px;
+    color: black;
+}
+
+.downside, .upside{
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+.butt-cont{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
  }
+
+
+
+
+
+
+
+
+
+
+
+
  .selected {
     background-color: #96949C; /* Change this to your preferred highlight color */
   }
- .buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
- }
  .add, .pay, .cancel{
     color: white;
-    width: 205px;
+    width: 100px;
     height: 50px;
     border-radius: 20px;
  }
- .add:hover, .pay:hover, .cancel:hover{
-    background-color: beige;
+ .expense{
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+ }
+ .sign-out{
+
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+ }
+ .add:hover, .pay:hover, .cancel:hover, .expense:hover, .sign-out:hover{
+    background-color: white;
     color: black;
  }
- .add{
+ .add, .expense{
     background-color: #32107F;
  }
  .pay{
     background-color: #469B44;
  }
- .cancel{
+ .cancel, .sign-out{
     background-color: #FF3131;
  }
- .butt-cont{
-    background-color: #46278F;
-    padding: 10px;
+.qfield{
+    height: 30px;
     border-radius: 20px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- }
- .details{
-    width: 90%;
-    color: white;
- }
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b8b4b4;
+    padding-left: 23px;
+    font-size: 16px;
+    letter-spacing: normal;
+}
+.exfield{
+    height: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b8b4b4;
+    padding-left: 23px;
+    font-size: 16px;
+    letter-spacing: normal;
+}
+ 
  

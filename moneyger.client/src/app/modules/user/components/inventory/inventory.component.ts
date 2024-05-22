@@ -1,6 +1,4 @@
 
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
@@ -35,9 +33,6 @@ export class InventoryComponent implements OnInit{
   searchText = '';
   checkedItems: { [key: string]: boolean } = {};
 
-  constructor(
-    public dialog: MatDialog,
-  ){}
 
   isAnyCheckboxChecked(): boolean {
     console.log(this.checkedItems);
