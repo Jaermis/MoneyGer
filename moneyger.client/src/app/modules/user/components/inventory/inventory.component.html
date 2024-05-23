@@ -47,9 +47,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  
                     <tr *ngFor="let inv of inventory | search: searchText">
-                      
                         <td><input type="checkbox" class="check" (change)="onCheckboxChange(inv.id, $event)"></td>
                         <td><i (click)="editItem()" class='bx bxs-pencil' style="color: #676565;"></i></td>
                         <td>{{inv.id}}</td>
