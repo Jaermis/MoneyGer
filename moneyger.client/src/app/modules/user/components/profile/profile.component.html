@@ -15,8 +15,6 @@
 
         <div class="name-details">
           <p class="name">{{ userDetail!.fullname | titlecase }}</p>
-           
-            <div class="details">
               <p class="phone">{{ userDetail.phonenumber }}</p>
               <p class="email">{{ userDetail.email }}</p>
               <p class="edit" (click)="onNoClick()" routerLink="/user/edit-profile">
@@ -24,8 +22,6 @@
                   <i class='bx bxs-pencil'></i>
                 </span>  Edit profile
               </p>
-            </div>
-
         </div>
 
       </div>
