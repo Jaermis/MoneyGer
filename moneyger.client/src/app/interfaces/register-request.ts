@@ -4,4 +4,5 @@ export interface RegisterRequest{
     firstname:string;
     lastname:string;
     roles:string[];
+    phoneNumber:string;
 }
