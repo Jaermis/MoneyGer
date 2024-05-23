@@ -63,6 +63,7 @@ namespace MoneyGer.Server.Controllers
                 LastName = registerDto.LastName,
                 UserName = registerDto.Email,
                 DateCreated = DateTime.UtcNow,
+                PhoneNumber = registerDto.PhoneNumber,
                 Company = "N/A",
                 Facebook = "N/A",
                 Twitter = "N/A",
