@@ -29,9 +29,17 @@ export class InventoryComponent implements OnInit{
       this.getInventory();
   }
 
+  sortingOrders: { [key: string]: 'asc' | 'desc' } = {
+    id: 'asc',
+    name: 'asc',
+    quantity: 'asc',
+    price: 'asc'
+};
+
   errors: ValidationError[] = [];
   searchText = '';
   checkedItems: { [key: string]: boolean } = {};
+  headerHovered: { [key: string]: boolean } = {};
 
 
   isAnyCheckboxChecked(): boolean {
@@ -88,6 +96,54 @@ export class InventoryComponent implements OnInit{
       complete:()=>this.ngOnInit(),
       });
     }
+  }
+
+  toggleSort(field: keyof InventoryRequest) {
+    const currentSortingOrder = this.sortingOrders[field];
+
+  console.log(`Sorting by ${field} in ${currentSortingOrder} order`);
+
+  if (currentSortingOrder === 'asc') {
+    this.inventory.sort((a, b) => {
+      if (typeof a[field] === 'string' && typeof b[field] === 'string') {
+        console.log(`Comparing strings: ${a[field]} and ${b[field]}`);
+        return (b[field] as string).localeCompare(a[field] as string);
+      } else if (typeof a[field] === 'number' && typeof b[field] === 'number') {
+        console.log(`Comparing numbers: ${a[field]} and ${b[field]}`);
+        return (b[field] as number) - (a[field] as number);
+      } else {
+        return 0;
+      }
+    });
+    this.sortingOrders[field] = 'desc';
+  } else {
+    this.inventory.sort((a, b) => {
+      if (typeof a[field] === 'string' && typeof b[field] === 'string') {
+        console.log(`Comparing strings: ${a[field]} and ${b[field]}`);
+        return (a[field] as string).localeCompare(b[field] as string);
+      } else if (typeof a[field] === 'number' && typeof b[field] === 'number') {
+        console.log(`Comparing numbers: ${a[field]} and ${b[field]}`);
+        return (a[field] as number) - (b[field] as number);
+      } else {
+        return 0;
+      }
+    });
+    this.sortingOrders[field] = 'asc';
+  }
+
+  console.log('Sorted inventory:', this.inventory);
+  }
+
+  showSortingIndicator(field: keyof InventoryRequest) {
+    this.headerHovered[field] = true;
+  }
+
+  hideSortingIndicator(field: keyof InventoryRequest) {
+    this.headerHovered[field] = false;
+  }
+
+  isHeaderHovered(field: keyof InventoryRequest) {
+    return this.headerHovered[field];
   }
 
 }

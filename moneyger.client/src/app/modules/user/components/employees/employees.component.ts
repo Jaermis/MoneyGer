@@ -6,6 +6,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { CompanyService } from '../../../../shared/company.service';
 import { ValidationErrors } from '@angular/forms';
 import { AuthResponse } from '../../../../interfaces/auth-response';
+import { InviteSuccessComponent } from '../invite-success/invite-success.component';
+import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-employees',
@@ -15,11 +17,18 @@ import { AuthResponse } from '../../../../interfaces/auth-response';
 export class EmployeesComponent implements OnInit{
   searchText = '';
   checkedContacts: { [key: string]: boolean } = {};
+  headerHovered: { [key: string]: boolean } = {};
 
   constructor(
     public dialog: MatDialog,
     private companyService: CompanyService
   ){}
+
+  sortingOrders: { [key: string]: 'asc' | 'desc' } = {
+    name: 'asc',
+    email: 'asc',
+    phoneNumber: 'asc',
+};
 
   ngOnInit(): void {
     this.getEmployees();
@@ -75,5 +84,34 @@ export class EmployeesComponent implements OnInit{
       complete:()=>this.ngOnInit(),
       });
     }
+  }
+
+  toggleSort(field: keyof EmployeeRequest) {
+    const currentSortingOrder = this.sortingOrders[field];
+
+    if(currentSortingOrder === 'asc') {
+      this.employees.sort((a,b) => b[field].localeCompare(a[field]));
+      this.sortingOrders[field] = 'desc';
+    }
+    else {
+      this.employees.sort((a,b) => a[field].localeCompare(b[field]));
+      this.sortingOrders[field] = 'asc';
+    }
+  }
+
+  showSortingIndicator(field: keyof EmployeeRequest) {
+    this.headerHovered[field] = true;
+  }
+
+  hideSortingIndicator(field: keyof EmployeeRequest) {
+    this.headerHovered[field] = false;
+  }
+
+  isHeaderHovered(field: keyof EmployeeRequest) {
+    return this.headerHovered[field];
+  }
+
+  dummy(){
+    const dialogRef = this.dialog.open(SuccessDialogComponent);
   }
 }

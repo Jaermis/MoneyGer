@@ -44,6 +44,8 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
+import { InviteSuccessComponent } from './components/invite-success/invite-success.component';
+import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 
 
 const UserComponents = [
@@ -82,6 +84,8 @@ const UserComponents = [
     AddEmployeeComponent,
     //AddItemComponent,
     EditItemComponent,
+    InviteSuccessComponent,
+    SuccessDialogComponent,
     //EditContactComponent,
   ],
   imports: [

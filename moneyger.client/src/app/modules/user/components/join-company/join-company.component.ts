@@ -9,6 +9,7 @@ import { AuthService } from '../../../../shared/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
+import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 
 @Component({
@@ -62,7 +63,9 @@ export class JoinCompanyComponent implements OnInit {
           console.log(err.message);
         },
 
-        complete:()=>alert('Joined Company successfully!'),
+        complete:()=>{
+          const dialogRef = this.dialog.open(SuccessDialogComponent);
+        }
       });
     }
 
