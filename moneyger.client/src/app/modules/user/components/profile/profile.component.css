@@ -123,6 +123,7 @@
     color: #220B57; /* Icon color */
     font-size: 30px; /* Adjust icon size if necessary */
     margin-right: 20px;
+    margin-left: 27%;
 }
 
 .social-name a {
@@ -143,7 +144,7 @@
 .facebook, .twitter, .instagram {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 5px;
     border-radius: 10px;
     background-color: #fff;

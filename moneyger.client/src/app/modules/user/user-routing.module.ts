@@ -20,6 +20,7 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
 import { StatusComponent } from './components/status/status.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
       {path: 'status', component: StatusComponent},
       {path: 'employees', component: EmployeesComponent},
       {path: 'inventory', component: InventoryComponent},
+      {path: 'settings', component: SettingsComponent}
   ]}
 ];
 

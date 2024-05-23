@@ -16,6 +16,7 @@ import { PosComponent } from './pos/pos.component';
 import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SignupSuccessComponent } from './signup-success/signup-success.component';
 
 
 
@@ -26,6 +27,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     //ForgotpassComponent,
     NotFoundComponent,
     PosComponent,
+    SignupSuccessComponent,
     //ResetPasswordComponent,
   ],
   imports: [

@@ -46,6 +46,10 @@ import { AddItemComponent } from './components/add-item/add-item.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { InviteSuccessComponent } from './components/invite-success/invite-success.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { EditCompanyComponent } from './components/edit-company/edit-company.component';
+import { ReportComponent } from './components/report/report.component';
 
 
 const UserComponents = [
@@ -86,6 +90,10 @@ const UserComponents = [
     EditItemComponent,
     InviteSuccessComponent,
     SuccessDialogComponent,
+    SettingsComponent,
+    ConfirmDeleteComponent,
+    EditCompanyComponent,
+    ReportComponent,
     //EditContactComponent,
   ],
   imports: [

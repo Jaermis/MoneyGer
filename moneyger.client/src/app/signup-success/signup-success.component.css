@@ -1,0 +1,51 @@
+#inv-success{
+    height: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.header{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #220B57;
+    text-align: center;
+}
+
+.graphic img{
+    width: 200px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.button button{
+    width: 60%;
+    height: 40px;
+    font-size: 15px;
+    border: none;
+    background-color: #220B57;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
