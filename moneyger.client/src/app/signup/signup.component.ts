@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../interfaces/validation-error';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatDialog } from '@angular/material/dialog';
+import { SignupSuccessComponent } from '../signup-success/signup-success.component';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +22,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 })
 export class SignupComponent implements OnInit {
   constructor(
-    private titleService: Title, private router: Router
+    private titleService: Title, private router: Router,
+    public dialog: MatDialog
   ) { }
     
     changeicon:boolean = true;
@@ -68,7 +71,9 @@ export class SignupComponent implements OnInit {
           }
           this.loading = false;
         },
-        complete:()=>alert('Signup successful. Check your email for the confirmation link'),
+        complete:()=>{
+          const dialogRef = this.dialog.open(SignupSuccessComponent);
+        }
       });
     }
 

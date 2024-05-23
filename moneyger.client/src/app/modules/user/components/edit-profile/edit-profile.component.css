@@ -78,7 +78,6 @@
     padding: 7px;
     max-height: 61px;
     font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
-    border: 2px solid #220B57;
 
     &:hover{
         background-color: #38148b;
@@ -97,7 +96,6 @@
     padding: 7px;
     max-height: 61px;
     font-family: 'Lato', sans-serif; /* Corrected to 'Lato' */
-    border: 2px solid #8956FF;
     margin-right: 10px;
 
     &:hover{

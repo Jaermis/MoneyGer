@@ -1,0 +1,106 @@
+#tibuok{
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    background-color: #F6F7F8
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    text-align: left;
+    margin-top: 25px;
+    color: #343434;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.parent {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.profile-settings, .company-settings{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    outline: 1px solid #e1dfdf;
+    border-radius: 10px;
+    margin-bottom: 1.5%;
+}
+
+.setting-name{
+    text-align: left;
+    margin-top: 25px;
+    color: #343434;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 2%;
+    margin-bottom: 3%;
+}
+
+.profile-actions{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 96%;
+    border-radius: 10px;
+    color: #343434;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 1%;
+    margin-bottom: 0.5%;
+
+    &:hover{
+        background-color: #e1dfdf;
+        cursor: pointer;
+    }
+}
+
+.actions-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 2%;
+    margin-bottom: 20px;
+}
+
+.report-issues{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+}
+
+.report-butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 15%;
+    height: 50px;
+    background-color: #e5e3e3;
+    color: #3a3a3a;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    &:hover{
+        cursor: pointer;
+        background-color: #a2a0a0;
+    }
+}

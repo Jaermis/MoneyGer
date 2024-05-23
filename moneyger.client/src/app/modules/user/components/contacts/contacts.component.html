@@ -87,7 +87,7 @@
                         <td>{{ contact.companyName }}</td>
                         <td><app-status [contactId]="contact.id" [contactName]="contact.name" [contactStatus]="contact.status"></app-status></td>
                         <td><a [href]="'mailto:' + contact.email">{{ contact.email }}</a></td>
-                        <td><a [href]="'https://wa.me/' + contact.phoneNumber">{{ contact.phoneNumber }}</a></td>
+                        <td><a [href]="'https://wa.me/' + contact.phoneNumber" target="_blank">{{ contact.phoneNumber }}</a></td>
                         <td><a [href]="formatUrl(contact.facebook)" target="_blank" [innerHtml]="contact.facebook"></a></td>
                         <td><a [href]="formatUrl(contact.twitter)" target="_blank" [innerHtml]="contact.twitter"></a></td>
                         <td><a [href]="formatUrl(contact.instagram)" target="_blank" [innerHtml]="contact.instagram"></a></td>

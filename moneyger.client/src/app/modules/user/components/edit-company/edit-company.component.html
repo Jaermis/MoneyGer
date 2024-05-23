@@ -1,0 +1,25 @@
+<div class="cnter">
+    <div class="exit-button">
+        <div class="clows">
+            <i class='bx bx-x bx-sm' (click)="onNoClick()"></i>
+        </div>
+    </div>
+
+    <div class="createco">
+        <p Create class="title">Edit Company</p>
+        <form action="/url">
+            <label>
+                <p class="leybel">Company Name</p>
+                <input class="company-name" name="name" type="text" required>
+            </label>
+            <label>
+                <p class="leybel">Company Address</p>
+                <input class="company-address" name="location" type="text" required>
+            </label>
+
+            <button class="createbutt">Save</button>
+            <button class="cancelbutt" (click)="onNoClick()">Cancel</button>
+            
+        </form>
+    </div>
+</div>
