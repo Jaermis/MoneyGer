@@ -96,11 +96,13 @@ namespace MoneyGer.Server.Controllers
         }
 
         [HttpPost("Manage")]
-        public async Task<IActionResult> ManageInventory([FromBody] InventoryManageDto inventoryManageDto)
+        public async Task<IActionResult> ManageInventory([FromBody] InventoryManageDto[] inventoryManageDtoArray)
         {
-            var inventoryToEdit = await _context.Inventory.FindAsync(inventoryManageDto.id);
-            
-            try{
+            try
+            {
+                foreach(var inventoryManageDto in inventoryManageDtoArray){
+                var inventoryToEdit = await _context.Inventory.FindAsync(inventoryManageDto.Id);
+
                 if (inventoryManageDto.Quantity is not null)
                 {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
@@ -123,7 +125,8 @@ namespace MoneyGer.Server.Controllers
                 }
             
                 _context.Inventory.Update(inventoryToEdit!);
-                    
+                }
+                
                 await _context.SaveChangesAsync();
                 return Ok(new { message = "Inventory edited" });
             }

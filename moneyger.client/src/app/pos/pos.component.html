@@ -1,15 +1,15 @@
-<div class="pos-container">
+<div class="pos-container" *ngIf=" userDetail | async as detail">
   <!---------------------------------Header----------------------------->
   <div class="top-div">
     <div class="title-cont">
-      <strong><p class="company-name">Ronskie’s IT Solution</p></strong>
+      <b><p class="company-name">{{detail.company | titlecase}}</p></b>
     </div>
-    <div class="logout-cont" *ngIf=" userDetail | async as detail">
+    <div class="logout-cont">
       <div class="name-cont">
-        <strong><p>Staff: {{detail.user | titlecase}} - {{detail.company | titlecase}}</p></strong>
+        <strong><p>Staff: {{detail.user | titlecase}}</p></strong>
       </div>
       <div class="signout-cont">
-        <button class="sign-out">Sign Out</button>
+        <button class="sign-out" (click)="logout()">Sign Out</button>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
   
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+            <td mat-cell *matCellDef="let product"> {{product.product}} </td>
           </ng-container>
   
           <ng-container matColumnDef="quantity">
@@ -37,7 +37,7 @@
   
           <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef> Price </th>
-            <td mat-cell *matCellDef="let product"> <span>$</span> {{product.price}} </td>
+            <td mat-cell *matCellDef="let product"> <span>P</span> {{product.price}} </td>
           </ng-container>
   
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -59,12 +59,12 @@
           <input class="exfield" [(ngModel)]="expendetureValue" 
                    type="number"     
                    min="0">
-          <button class="expense" (click)="addExpense()">Add Expendeture</button>
+          <button class="expense" (click)="addExpense()">Add Expenditure</button>
         </div>
         <!-------------------------------Controller------------------------------->
         <div class="control-cont">
           <div class="details">
-            <p>Product: {{selectedProduct?.name}}</p>
+            <p>Product: {{selectedProduct?.product}}</p>
             <p>Quantity: 
             <input class="qfield" [(ngModel)]="inputQuantity" 
                    type="number"     
@@ -83,10 +83,10 @@
     <div class="cart-cont">
       <!---------------------------------Cart Table----------------------------->
       <div class="cart-table-out">
-        <table mat-table [dataSource]="dataSource_cart" class="cart-table">
+        <table mat-table [dataSource]="dataSource_cart" class="cart-table" >
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let item"> {{item.name}} </td>
+            <td mat-cell *matCellDef="let item"> {{item.product}} </td>
           </ng-container>
           
           <ng-container matColumnDef="quantity">
@@ -96,13 +96,13 @@
           
           <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef> Price </th>
-            <td mat-cell *matCellDef="let item"> <span>$</span> {{item.price}} </td>
+            <td mat-cell *matCellDef="let item"> <span>P</span> {{item.price}} </td>
           </ng-container>
           
           <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Delete </th>
             <td mat-cell *matCellDef="let item">
-              <button mat-button (click)="deleteFromCart(item.name)">X</button>
+              <button mat-button (click)="deleteFromCart(item.product)">X</button>
             </td>
           </ng-container>
           

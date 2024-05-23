@@ -27,10 +27,10 @@
                             </div>
                         </th>
     
-                        <th (click)="toggleSort('name')" (mouseover)="showSortingIndicator('name')" (mouseout)="hideSortingIndicator('name')" class="sortable-header">
+                        <th (click)="toggleSort('product')" (mouseover)="showSortingIndicator('product')" (mouseout)="hideSortingIndicator('product')" class="sortable-header">
                             <div class="header-content">
                                 <span>Name</span>
-                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['name'], 'bx-sort-up': sortingOrders['name'] === 'asc', 'bx-sort-down': sortingOrders['name'] === 'desc'}" *ngIf="isHeaderHovered('name')"></i>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['product'], 'bx-sort-up': sortingOrders['product'] === 'asc', 'bx-sort-down': sortingOrders['product'] === 'desc'}" *ngIf="isHeaderHovered('product')"></i>
                             </div>
                         </th>
     
