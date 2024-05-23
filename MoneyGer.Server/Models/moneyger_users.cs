@@ -16,5 +16,7 @@ namespace MoneyGer.Server.Models
         public string? Instagram {get; set; }
         public string? Facebook {get; set; }
         public string? Twitter {get; set; }
+
+        public override string? PhoneNumber { get; set; }
     }
 }
