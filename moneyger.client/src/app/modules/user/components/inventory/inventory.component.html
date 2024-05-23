@@ -20,27 +20,31 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('id')" (mouseover)="showSortingIndicator('id')" (mouseout)="hideSortingIndicator('id')" class="sortable-header">
                             <div class="header-content">
                                 <span>ID</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['id'], 'bx-sort-up': sortingOrders['id'] === 'asc', 'bx-sort-down': sortingOrders['id'] === 'desc'}" *ngIf="isHeaderHovered('id')"></i>
                             </div>
                         </th>
     
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('name')" (mouseover)="showSortingIndicator('name')" (mouseout)="hideSortingIndicator('name')" class="sortable-header">
                             <div class="header-content">
                                 <span>Name</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['name'], 'bx-sort-up': sortingOrders['name'] === 'asc', 'bx-sort-down': sortingOrders['name'] === 'desc'}" *ngIf="isHeaderHovered('name')"></i>
                             </div>
                         </th>
     
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('quantity')" (mouseover)="showSortingIndicator('quantity')" (mouseout)="hideSortingIndicator('quantity')" class="sortable-header">
                             <div class="header-content">
                                 <span>Stock</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['quantity'], 'bx-sort-up': sortingOrders['quantity'] === 'asc', 'bx-sort-down': sortingOrders['quantity'] === 'desc'}" *ngIf="isHeaderHovered('quantity')"></i>
                             </div>
                         </th>
 
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('price')" (mouseover)="showSortingIndicator('price')" (mouseout)="hideSortingIndicator('price')" class="sortable-header">
                             <div class="header-content">
                                 <span>Price</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['price'], 'bx-sort-up': sortingOrders['price'] === 'asc', 'bx-sort-down': sortingOrders['price'] === 'desc'}" *ngIf="isHeaderHovered('price')"></i>
                             </div>
                         </th>
                         

@@ -1,6 +1,6 @@
 <div id="tibuok">
     <div class="parent">
-        <p class="title">Employees</p>
+        <p class="title" (click)="dummy()">Employees</p>
         <div class="anak">
             <div class="search-bar">
                 <input type="text" placeholder="Search..." [(ngModel)]="searchText">
@@ -19,21 +19,24 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('name')" (mouseover)="showSortingIndicator('name')" (mouseout)="hideSortingIndicator('name')" class="sortable-header">
                             <div class="header-content">
                                 <span>Name</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['name'], 'bx-sort-up': sortingOrders['name'] === 'asc', 'bx-sort-down': sortingOrders['name'] === 'desc'}" *ngIf="isHeaderHovered('name')"></i>
                             </div>
                         </th>
     
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('email')" (mouseover)="showSortingIndicator('email')" (mouseout)="hideSortingIndicator('email')" class="sortable-header">
                             <div class="header-content">
                                 <span>Email</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['email'], 'bx-sort-up': sortingOrders['email'] === 'asc', 'bx-sort-down': sortingOrders['email'] === 'desc'}" *ngIf="isHeaderHovered('email')"></i>
                             </div>
                         </th>
     
-                        <th class="sortable-header">
+                        <th (click)="toggleSort('phone')" (mouseover)="showSortingIndicator('phone')" (mouseout)="hideSortingIndicator('phone')" class="sortable-header">
                             <div class="header-content">
                                 <span>Contact Number</span>
+                                <i class="bx" [ngClass]="{'bx-sort': !sortingOrders['phone'], 'bx-sort-up': sortingOrders['phone'] === 'asc', 'bx-sort-down': sortingOrders['phone'] === 'desc'}" *ngIf="isHeaderHovered('phone')"></i>
                             </div>
                         </th>
                         

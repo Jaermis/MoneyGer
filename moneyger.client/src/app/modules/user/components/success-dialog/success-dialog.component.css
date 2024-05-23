@@ -1,0 +1,35 @@
+#success{
+    height: auto;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+
+.graphic{
+    display: flex;
+    justify-content: center;
+}
+
+.graphic img{
+    width: 200px;
+}
+
+
+.message{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #220B57;
+    margin-bottom: 20px;
+}   

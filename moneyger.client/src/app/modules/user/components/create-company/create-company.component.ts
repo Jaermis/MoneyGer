@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { CompanyRequest } from '../../../../interfaces/company-request';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
+import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-create-company',
@@ -63,7 +64,9 @@ export class CreateCompanyComponent implements OnInit {
         console.log(err.message);
       },
 
-      complete:()=>alert('Company creation successful'),
+      complete:()=>{
+        const dialogRef = this.dialog.open(SuccessDialogComponent);
+      }
     });
   }
 

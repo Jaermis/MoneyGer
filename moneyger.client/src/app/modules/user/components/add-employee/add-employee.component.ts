@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CompanyService } from '../../../../shared/company.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { InviteSuccessComponent } from '../invite-success/invite-success.component';
 
 @Component({
   selector: 'app-add-employee',
@@ -11,7 +12,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AddEmployeeComponent {
   constructor(
     public DialogRef: MatDialogRef<AddEmployeeComponent>,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    public dialog: MatDialog
   ){}
 
   email:string='';
@@ -31,7 +33,9 @@ export class AddEmployeeComponent {
         error: (err: HttpErrorResponse) => {
           alert("Please enter an existing email");
         },
-        complete: () => alert("Invitation Link Sent Successfully!")
+        complete: () => {
+          const dialogRef = this.dialog.open(InviteSuccessComponent);
+        }
       });
     }
   } 
