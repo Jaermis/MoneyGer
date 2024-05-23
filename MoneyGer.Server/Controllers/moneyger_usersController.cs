@@ -55,7 +55,7 @@ namespace MoneyGer.Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            
             var user = new moneyger_users
             {
                 Email = registerDto.Email,
@@ -84,9 +84,11 @@ namespace MoneyGer.Server.Controllers
                     await _userManager.AddToRoleAsync(user, role);
             }
             
+            var emailSender = new EmailSender(_emailConfiguration);
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var emailHeader = "MoneyGer Confirmation Link";
             var confirmationLink = Url.Action(nameof(ConfirmEmail), "moneyger_users", new { token, email = user.Email }, Request.Scheme);
-            await _emailSender.SendEmailAsync(registerDto.Email, "Moneyger Confirmation email link", "Click here " + confirmationLink);
+            await emailSender.SendEmailAsync(registerDto.Email, "Moneyger Confirmation email link", "Click here " + confirmationLink, emailHeader);
 
             return Ok(new AuthResponseDto
             {

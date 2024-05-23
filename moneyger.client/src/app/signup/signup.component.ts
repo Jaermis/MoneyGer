@@ -59,7 +59,6 @@ export class SignupComponent implements OnInit {
         next:(response)=>{
           //console.log(response);
           this.router.navigate(['/login']);
-
         },
         error:(err:HttpErrorResponse)=>{
           alert('Signup Failed. Try Again')
@@ -68,7 +67,6 @@ export class SignupComponent implements OnInit {
           }
           this.loading = false;
         },
-
         complete:()=>alert('Signup successful. Check your email for the confirmation link'),
       });
     }
