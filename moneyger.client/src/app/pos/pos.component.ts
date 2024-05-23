@@ -20,7 +20,7 @@ export class PosComponent implements OnInit{
   constructor(
     private salesService: SalesService,
   ){}
-
+  sales: SalesRequest[] = [];
   salemaker: SalesRequest = {
     expenses: 0,
     revenue: 0
@@ -28,24 +28,23 @@ export class PosComponent implements OnInit{
   
   ngOnInit(): void {
     this.userDetail = this.authService.getUserCompany();
+    this.getSales();
   }
-
   authService = inject(AuthService);
   
   displayedColumns: string[] = ['id', 'name', 'quantity', 'price'];
   displayedColumns_cart: string[] = ['name', 'quantity', 'price', 'actions'];
   dataSource_prod: InventoryRequest[] = [
-    /*{ quantity: 14, name: 'Laptop', id: 12346, price: 12000 },
+    { quantity: 14, name: 'Laptop', id: 12346, price: 12000 },
     { quantity: 32, name: 'Cellphone', id: 12347, price: 10000 },
     { quantity: 41, name: 'Speaker', id: 12348, price: 1200 },
     { quantity: 53, name: 'Mouse', id: 12349, price: 1500 },
     { quantity: 36, name: 'Headset', id: 12350, price: 1000 },
     { quantity: 18, name: 'Keyboard', id: 12351, price: 5600 },
-    { quantity: 21, name: 'Monitor', id: 12352, price: 4800 },*///<---------------PANG-ILISI NIG TARONG, USE getInventory()
+    { quantity: 21, name: 'Monitor', id: 12352, price: 4800 },
+    { quantity: 21, name: 'Monitor', id: 12352, price: 4800 },//<---------------PANG-ILISI NIG TARONG, USE getInventory()
   ];
-  dataSource_cart: CartItem[] = [
-    { quantity: 14, name: 'Laptop', price: 12000 },
-  ];
+  dataSource_cart: CartItem[] = [];
   
   selectedProduct: InventoryRequest | null = null;
   inputQuantity: number = 0;
@@ -143,4 +142,19 @@ export class PosComponent implements OnInit{
     });
     this.expendetureValue = 0;
   }
+  getSales(): void {
+    this.salesService.getSales().subscribe({
+      next: (response: SalesRequest[]) => {
+        this.sales = response;
+      },
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
+        }
+        console.error(err.message);
+      },
+    });
+  }
+
+
 }

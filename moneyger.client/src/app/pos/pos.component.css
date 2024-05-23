@@ -4,8 +4,20 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
   }
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e1dfdf;
+    border-radius: 20px;
+  }
 .pos-container{
-
     position: fixed;
     top: 0;
     right: 0;
@@ -47,6 +59,7 @@
 .bot-div{
     display: flex;
     justify-content: space-evenly;
+    max-height: 90%;
 }
 .product-cont{
     display: flex;
@@ -57,7 +70,8 @@
 .product-table{
     background-color: #469B44;
     margin: 10px;
-    height: 65%;
+    max-height: 65%;
+    overflow-y: scroll;
     border-radius: 20px;
     outline: 1px solid #e1dfdf;
 }
@@ -72,6 +86,7 @@
     gap: 35px
 }
 .cart-table-out{
+    overflow-y: scroll;
     height: 75%;
     border-radius: 20px;
     outline: 1px solid #e1dfdf;

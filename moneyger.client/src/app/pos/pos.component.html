@@ -47,9 +47,9 @@
         </table>
       </div>
       <div class="bottom-content">
-        <div class="display-rev">
+        <div *ngFor="let sale of sales" class="display-rev">
           <h1>Financial Status</h1>
-          <p>Profit: 20000</p>
+          <p>Profit: {{sale.expenses}}</p>
           <p>Revenue: 20000</p>
           <p>Expendetures: 20000</p>
         </div>
