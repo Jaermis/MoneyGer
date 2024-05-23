@@ -38,6 +38,17 @@ export class CalendarComponent implements OnInit {
   events: EventAttendee[] = [];
   dates: string[] = [];
   checkedEvents: { [key: number]: boolean } = {};
+  eventmaker: EventRequest = {
+    dateStart: new Date,
+    description: '',
+    eventTime: ''
+  };
+  newEventDate: Date | null = null;
+  newEventTime: string = '';
+  newEventDescription: string = '';
+  showUpcomingEvents: boolean = true; // Toggle state
+  fetchEvent! : Observable<EventRequest>;
+  errors: ValidationError[] = [];
   
   resetFormFields() {
     this.eventmaker = {
@@ -49,21 +60,6 @@ export class CalendarComponent implements OnInit {
     this.newEventTime = '';
     this.newEventDescription = '';
   }
-
-  eventmaker: EventRequest = {
-    dateStart: new Date,
-    description: '',
-    eventTime: ''
-  };
-
-  newEventDate: Date | null = null;
-  newEventTime: string = '';
-  newEventDescription: string = '';
-
-  showUpcomingEvents: boolean = true; // Toggle state
-
-  fetchEvent! : Observable<EventRequest>;
-  errors: ValidationError[] = [];
   
   constructor(
     private calendarService: CalendarService,
@@ -116,17 +112,13 @@ export class CalendarComponent implements OnInit {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
-
-    // Get last date of previous month
     const lastDateofLastMonth = new Date(year, month, 0).getDate();
 
-    // Fill up preceding days of current month with days from previous month
     for (let i = firstDayIndex; i > 0; i--) {
       const day = lastDateofLastMonth - i + 1;
       days.push({ day, active: ActiveState.PreviousNextMonth });
     }
 
-    // Fill up days of current month
     for (let i = 1; i <= daysInMonth; i++) {
       let isActive: ActiveState = ActiveState.Inactive;
       if (year === currentYear && month === currentMonth && i === this.currentDay) {
@@ -155,7 +147,6 @@ export class CalendarComponent implements OnInit {
       days.push({ day: i, active: isActive });
     }
 
-    // Fill up remaining days with days from next month
     const lastDayofMonth = new Date(year, month, daysInMonth).getDay();
     const daysToAdd = 6 - lastDayofMonth;
     for (let i = 1; i <= daysToAdd; i++) {
@@ -181,7 +172,7 @@ export class CalendarComponent implements OnInit {
   groupEventsByDate(events: EventAttendee[]): { date: Date; events: EventAttendee[] }[] {
     const groupedEvents: { date: Date; events: EventAttendee[] }[] = [];
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0); 
   
     events.forEach(event => {
       const eventDate = new Date(event.dateStart);
@@ -199,7 +190,6 @@ export class CalendarComponent implements OnInit {
   
     return groupedEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
   }
-  
 
   toggleEventView(): void {
     this.showUpcomingEvents = !this.showUpcomingEvents;
@@ -255,7 +245,6 @@ export class CalendarComponent implements OnInit {
       });
     }
   }
-  
   onCheckboxChange(atendeeId: number, event: any): void {
     this.checkedEvents[atendeeId] = event.target.checked;
   }
