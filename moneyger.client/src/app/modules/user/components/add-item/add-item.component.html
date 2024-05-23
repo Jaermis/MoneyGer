@@ -7,29 +7,26 @@
         </div>
 
         <div class="form">
-            <form action="">   
+            <form action="" [formGroup]="addItemForm" class="form" (ngSubmit)="addProduct()">   
                 <div class="name">
                     <label for="Name">Name</label><br>
-                    <input type="text" name="Name">                    
+                    <input type="text" name="Name" formControlName="product">                    
                 </div>
     
                 <div class="stock">
                     <label for="Stock">Stock</label><br>
-                    <input type="text" name="Stock">   
+                    <input type="text" name="Stock" formControlName="quantity">   
                 </div>
     
                 <div class="price">
                     <label for="Price">Price</label><br>
-                    <input type="text" name="Price">   
+                    <input type="text" name="Price" formControlName="price">   
+                </div>
+                <div class="actions">
+                    <button class="cancel" (click)="closeDialog()">Cancel</button>
+                    <button class="save" type="submit">Save</button>
                 </div>
             </form>
         </div>
-
-        <div class="actions">
-            <button class="cancel" (click)="closeDialog()">Cancel</button>
-            <button class="save">Save</button>
-        </div>
-
     </div>
-    
 </div>

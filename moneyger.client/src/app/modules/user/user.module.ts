@@ -80,7 +80,7 @@ const UserComponents = [
     EmployeesComponent,
     InventoryComponent,
     AddEmployeeComponent,
-    AddItemComponent,
+    //AddItemComponent,
     EditItemComponent,
     //EditContactComponent,
   ],
