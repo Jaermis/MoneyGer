@@ -1,29 +1,24 @@
-import { Component } from '@angular/core';
-import { inside } from '@syncfusion/ej2-angular-charts';
+import { Component, OnInit } from '@angular/core';
+import { SegmentationService } from '../../../../shared/segmentation.service';
+import { SegmentationRequest } from '../../../../interfaces/segmentation-request';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ValidationError } from '../../../../interfaces/validation-error';
 
 @Component({
   selector: 'app-segmentation-graph',
   templateUrl: './segmentation-graph.component.html',
   styleUrl: './segmentation-graph.component.css'
 })
-export class SegmentationGraphComponent {
+export class SegmentationGraphComponent implements OnInit {
     public data: Object[];
     public chartTitle: string;
     public chartLabel: Object;
     public legend: Object;
     public tooltipSettings: Object;
 
-    constructor() {
+    constructor(private segmentationService:SegmentationService) {
       this.chartTitle = 'Customer Purchase Segmentation';
-      this.data = [
-        {name: 'Combo 1', value: '5', text: '5%'},
-        {name: 'Combo 2', value: '10', text: '10%'},
-        {name: 'Combo 3', value: '15', text: '15%'},
-        {name: 'Combo 4', value: '20', text: '20%'},
-        {name: 'Combo 5', value: '8', text: '8%'},
-        {name: 'Combo 6', value: '12', text: '12%'},
-        {name: 'Combo 7', value: '30', text: '30%'},
-      ];
+      this.data = [];
       this.tooltipSettings = {
         enable: true,
         format: '${point.x} : <b>${point.y}%</b>'
@@ -40,5 +35,24 @@ export class SegmentationGraphComponent {
         height: '69%',
         width: '20%'
       };
+    }
+  
+  errors: ValidationError[] = [];
+
+  ngOnInit(): void {
+    this.getSegmentation();
+  }
+
+    getSegmentation(): void {
+      this.segmentationService.getSegmentation().subscribe({
+        next: (response: SegmentationRequest[]) => {
+          this.data = response;
+        },
+        error: (err: HttpErrorResponse) => {
+          if (err.status === 400) {
+            this.errors = err.error;
+          }
+        },
+      });
     }
 }

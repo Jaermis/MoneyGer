@@ -9,6 +9,8 @@ import { SalesRequest } from '../interfaces/sales-request';
 import { HttpErrorResponse } from '@angular/common/http';
 import { InventoryService } from '../shared/inventory.service';
 import { Router } from '@angular/router';
+import { SegmentationRequest } from '../interfaces/segmentation-request';
+import { SegmentationService } from '../shared/segmentation.service';
 
 @Component({
   selector: 'app-pos',
@@ -20,8 +22,11 @@ export class PosComponent implements OnInit{
   errors: ValidationError[] = [];
   constructor(
     private salesService: SalesService,
-    private inventoryService: InventoryService
+    private inventoryService: InventoryService,
+    private segmentService: SegmentationService
   ){}
+
+  segment: SegmentationRequest[] =[];
 
   sales: SalesRequest[] = [];
   salemaker: SalesRequest = {
@@ -65,7 +70,7 @@ export class PosComponent implements OnInit{
           this.errors = err.error;
         }
         console.error(err.message);
-      },
+      }
     });
   }
 
@@ -97,6 +102,7 @@ export class PosComponent implements OnInit{
       const cartItemIndex = this.dataSource_cart.findIndex(item => item.product === this.selectedProduct!.product);
       if (cartItemIndex !== -1) {
         this.dataSource_cart[cartItemIndex].quantity += this.inputQuantity;
+        this.segment[cartItemIndex].sold += this.inputQuantity;
       } else {
         this.dataSource_cart.push({
           id: this.selectedProduct.id,
@@ -104,6 +110,12 @@ export class PosComponent implements OnInit{
           quantity: this.inputQuantity,
           price: this.selectedProduct.price
         });
+        this.segment.push({
+          id: 0,
+          date: '',
+          productId: this.selectedProduct.product,
+          sold: this.inputQuantity
+        })
       }
       // Reset inputQuantity after adding to cart
       this.inputQuantity = 0;
@@ -117,9 +129,10 @@ export class PosComponent implements OnInit{
     const index = this.dataSource_cart.findIndex(item => item.product === name);
     if (index !== -1) {
       const deletedItem = this.dataSource_cart.splice(index, 1)[0]; // Remove item from cart
+      this.segment.splice(index,1)[0];
       const product = this.dataSource_prod.find(item => item.product === deletedItem.product);
       if (product) {
-        product.quantity += deletedItem.quantity; // Add quantity back to product table
+        product.quantity += deletedItem.quantity; // Add quantity back to product table'
       }
     }
     this.dataSource_cart = this.dataSource_cart.filter(item => item.product !== name);
@@ -141,7 +154,19 @@ export class PosComponent implements OnInit{
       next: (response) => {
         this.salesService.manageSales(this.dataSource_prod).subscribe({
           next:(response) =>{
-            console.log(this.dataSource_cart);
+            this.segmentService.addSegmentation(this.segment).subscribe({
+              next:(response)=>{
+              },
+              error: (err: HttpErrorResponse) => {
+                if (err.status === 400) {
+                  this.errors = err.error;
+                }
+                console.error(err.message);
+              },
+              complete: () => {
+                this.segment = []
+              }
+            })
           },
           error: (err: HttpErrorResponse) => {
             if (err.status === 400) {
@@ -149,7 +174,9 @@ export class PosComponent implements OnInit{
             }
             console.error(err.message);
           },
-          complete: () => this.dataSource_cart=[]
+          complete: () => {
+            this.dataSource_cart=[]
+          }
         });
       },
       error: (err: HttpErrorResponse) => {

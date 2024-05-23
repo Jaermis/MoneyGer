@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SalesService } from '../../../../shared/sales.service';
+import { SalesRequest } from '../../../../interfaces/sales-request';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-frequency-graph',
   templateUrl: './frequency-graph.component.html',
   styleUrl: './frequency-graph.component.css'
 })
-export class FrequencyGraphComponent {
+export class FrequencyGraphComponent implements OnInit{
   public data: Object[];
   public xAxis: Object;
   public yAxis: Object;
@@ -13,16 +17,9 @@ export class FrequencyGraphComponent {
   public markerSettings: Object;
   public tooltipSettings: Object;
 
-  constructor() {
+  constructor(private salesService: SalesService) {
     this.chartTitle = 'Monthly Sales Distribution';
-    this.data = [
-      {month: 'Jan', sales: 90}, {month: 'Feb', sales: 90},
-      {month: 'Mar', sales: 91}, {month: 'Apr', sales: 91},
-      {month: 'May', sales: 91}, {month: 'Jun', sales: 91},
-      {month: 'Jul', sales: 90}, {month: 'Aug', sales: 90},
-      {month: 'Sep', sales: 91}, {month: 'Oct', sales: 91},
-      {month: 'Nov', sales: 91}, {month: 'Dec', sales: 91}
-    ];    
+    this.data = [];    
     this.xAxis = {
       valueType: 'Category',
       labelPlacement: 'OnTicks'
@@ -39,5 +36,27 @@ export class FrequencyGraphComponent {
     this.tooltipSettings = {
       enable: true
     }
+  }
+
+  ngOnInit(): void {
+    this.getSales();
+  }
+
+  sales: SalesRequest[] = [];
+  errors: ValidationErrors[] = [];
+
+  getSales(): void {
+    this.salesService.getSales().subscribe({
+      next: (response: SalesRequest[]) => {
+        this.sales = response;
+        this.data = response;
+      },
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
+        }
+        console.error(err.message);
+      },
+    });
   }
 }
