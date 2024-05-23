@@ -40,6 +40,50 @@ namespace MoneyGer.Server.Context
             
             modelBuilder.Entity<Attendee>().HasKey(x => x.Id);
             base.OnModelCreating(modelBuilder);
+
+             modelBuilder.Entity<Company>().HasKey(x => x.Id);
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<UserCompanyRole>()
+        .HasKey(ucr => new { ucr.UserId, ucr.RoleId, ucr.CompanyId });
+    modelBuilder.Entity<UserCompanyRole>()
+        .HasIndex(ucr => ucr.UserId);
+
+    modelBuilder.Entity<Contacts>().HasKey(x => x.Id);
+    modelBuilder.Entity<Status>().HasKey(x => x.Id);
+    modelBuilder.Entity<Events>().HasKey(x => x.Id);
+    modelBuilder.Entity<Attendee>().HasKey(x => x.Id);
+
+    // Configure one-to-many relationships
+    modelBuilder.Entity<Company>()
+        .HasMany(c => c.Contacts)
+        .WithOne()
+        .HasForeignKey(c => c.Company)
+        .OnDelete(DeleteBehavior.Cascade);
+
+    modelBuilder.Entity<Company>()
+        .HasMany(c => c.Inventory)
+        .WithOne()
+        .HasForeignKey(c => c.Company)
+        .OnDelete(DeleteBehavior.Cascade);
+
+    modelBuilder.Entity<Company>()
+        .HasMany(c => c.Sales)
+        .WithOne()
+        .HasForeignKey(c => c.Company)
+        .OnDelete(DeleteBehavior.Cascade);
+
+    modelBuilder.Entity<Company>()
+        .HasMany(c => c.Segmentations)
+        .WithOne()
+        .HasForeignKey(c => c.Company)
+        .OnDelete(DeleteBehavior.Cascade);
+
+    modelBuilder.Entity<Company>()
+        .HasMany(c => c.UserCompanyRoles)
+        .WithOne()
+        .HasForeignKey(c => c.CompanyId)
+        .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

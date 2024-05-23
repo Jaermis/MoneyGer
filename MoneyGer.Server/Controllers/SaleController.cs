@@ -101,7 +101,7 @@ namespace MoneyGer.Server.Controllers
                 return Ok(new { message = "Sales removed" });
             }
 
-            return NotFound(new { message = "No salesy found with the provided IDs" });
+            return NotFound(new { message = "No sales found with the provided IDs" });
             }
             catch(Exception ex){
                 return BadRequest(new {message=ex.StackTrace});

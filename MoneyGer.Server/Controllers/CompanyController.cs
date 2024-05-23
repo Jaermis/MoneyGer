@@ -121,35 +121,89 @@ namespace MoneyGer.Server.Controllers
             return Ok(null);
         }
 
-        [HttpDelete("Delete{id}")]
-        public async Task<IActionResult> DeleteCompany(string id)
+       [HttpDelete("Delete/{id}")]
+public async Task<IActionResult> DeleteCompany(string id)
+{
+    // Retrieve the company and related entities
+    var company = await _context.companies
+        .Include(c => c.Contacts)
+        .Include(c => c.Inventory)
+        .Include(c => c.UserCompanyRoles)
+        .Include(c => c.Sales)
+        .FirstOrDefaultAsync(c => c.Id == id);
+
+    if (company == null)
+    {
+        return NotFound(new AuthResponseDto
         {
-            var company = await _context.companies.FindAsync(id);
+            IsSuccess = false,
+            Message = "Company not found"
+        });
+    }
 
-            if (company == null)
-            {
-                return NotFound("Company not Found");
-            }
-            var user = await _userManager.FindByIdAsync(company.Owner);
+    var user = await _userManager.FindByIdAsync(company.Owner);
 
-            if (user == null)
-            {
-                return NotFound("User not Found");
-            }
+    if (user == null)
+    {
+        return NotFound(new AuthResponseDto
+        {
+            IsSuccess = false,
+            Message = "User not found"
+        });
+    }
+    
 
-            user.Company ="N/A";
+    try
+    {
+        // Start a database transaction
+        using var transaction = await _context.Database.BeginTransactionAsync();
 
-            _context.companies.Remove(company);
-            
-           var result = await _userManager.UpdateAsync(user); //Updates 'Company' column for user info
+        // Delete related entities
+        _context.Contacts.RemoveRange(company.Contacts);
+        _context.Inventory.RemoveRange(company.Inventory);
+        _context.UserCompanyRole.RemoveRange(company.UserCompanyRoles);
+        _context.Sales.RemoveRange(company.Sales);
 
-                if (!result.Succeeded)
-                    return BadRequest(result);
-
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Company deleted" });
+        // Delete roles associated with the company
+        var companyRoles = await _roleManager.Roles.Where(r => r.Name.Contains(company.Name)).ToListAsync();
+        foreach (var role in companyRoles)
+        {
+            await _roleManager.DeleteAsync(role);
         }
+
+        // Update user records associated with the company
+        var users = await _userManager.Users.Where(u => u.Company == company.Id).ToListAsync();
+        foreach (var u in users)
+        {
+            u.Company = "N/A"; // or any other desired value
+            await _userManager.UpdateAsync(u);
+        }
+
+        // Delete the company
+        _context.companies.Remove(company);
+        await _context.SaveChangesAsync();
+
+        // Commit the transaction
+        await transaction.CommitAsync();
+
+        return Ok(new AuthResponseDto
+        {
+            IsSuccess = true,
+            Message = "Company deleted successfully"
+        });
+    }
+    catch (Exception ex)
+    {
+        // Rollback the transaction
+        await _context.Database.RollbackTransactionAsync();
+
+        return BadRequest(new AuthResponseDto
+        {
+            IsSuccess = false,
+            Message = ex.Message
+        });
+    }
+}
 
         [HttpPost("AssignCompany")]
         public async Task<IActionResult> AssignCompany([FromBody] CompanyAssignDto companyAssignDto)
