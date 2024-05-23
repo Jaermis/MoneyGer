@@ -35,7 +35,6 @@ export class InventoryComponent implements OnInit{
 
 
   isAnyCheckboxChecked(): boolean {
-    console.log(this.checkedItems);
     return Object.values(this.checkedItems).some(isChecked => isChecked);
   }
 
@@ -44,7 +43,12 @@ export class InventoryComponent implements OnInit{
   }
 
   addItem(){
-    const dialogRef = this.dialog.open(AddItemComponent);
+    const dialogRef = this.dialog.open(AddItemComponent, { // Pass any data you want to the dialog component
+    });
+
+    dialogRef.componentInstance.addItem.subscribe(() => {
+      this.getInventory(); // Refresh the contacts list when a new contact is added
+    });
   }
 
   editItem(){

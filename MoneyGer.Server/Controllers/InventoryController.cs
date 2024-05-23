@@ -29,7 +29,7 @@ namespace MoneyGer.Server.Controllers
         {
             if(string.IsNullOrEmpty(createInventoryDto.Product))
             {
-                return BadRequest("Status name is required");
+                return BadRequest("Product name is required");
             }
 
             var productExist = await _context.Inventory.FirstOrDefaultAsync(ucr => ucr.Product == createInventoryDto.Product);
@@ -47,8 +47,8 @@ namespace MoneyGer.Server.Controllers
                 Company = company!.CompanyId,
                 Price = createInventoryDto.Price,
                 Product = createInventoryDto.Product,
-                    Quantity = createInventoryDto.Quantity
-                };
+                Quantity = createInventoryDto.Quantity
+            };
 
             try{
             _context.Inventory.Add(add);
