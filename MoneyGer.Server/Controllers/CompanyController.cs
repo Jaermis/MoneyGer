@@ -340,5 +340,72 @@ public async Task<IActionResult> DeleteCompany(string id)
                 Message = "Invitation Link Sent Successfully!"
             });
         }
+
+      [HttpPut("ClearCompanyData/{id}")]
+public async Task<IActionResult> ClearCompanyData(string id)
+{
+    // Retrieve the company and related entities
+    var company = await _context.companies
+        .Include(c => c.Contacts)
+        .Include(c => c.Inventory)
+        .Include(c => c.Sales)
+        .Include(c => c.Segmentations)
+        .Include(c => c.UserCompanyRoles)
+        .FirstOrDefaultAsync(c => c.Id == id);
+
+    if (company == null)
+    {
+        return NotFound(new AuthResponseDto
+        {
+            IsSuccess = false,
+            Message = "Company not found"
+        });
+    }
+
+    try
+    {
+        // Start a database transaction
+        using var transaction = await _context.Database.BeginTransactionAsync();
+
+        // Remove related entities
+        _context.Contacts.RemoveRange(company.Contacts);
+        _context.Inventory.RemoveRange(company.Inventory);
+        _context.Sales.RemoveRange(company.Sales);
+        _context.Segmentation.RemoveRange(company.Segmentations);
+
+
+        // Update users associated with the company, except for the owner
+        var users = await _userManager.Users.Where(u => u.Company == company.Id && u.Id != company.Owner).ToListAsync();
+        foreach (var u in users)
+        {
+            u.Company = "N/A";
+             // Update the Company property
+            await _userManager.UpdateAsync(u);
+        }
+
+        
+        await _context.SaveChangesAsync();
+
+        // Commit the transaction
+        await transaction.CommitAsync();
+
+        return Ok(new AuthResponseDto
+        {
+            IsSuccess = true,
+            Message = "Company data cleared successfully"
+        });
+    }
+    catch (Exception ex)
+    {
+        // Rollback the transaction
+        await _context.Database.RollbackTransactionAsync();
+
+        return BadRequest(new AuthResponseDto
+        {
+            IsSuccess = false,
+            Message = ex.Message
+        });
+    }
+}
     }
 }
