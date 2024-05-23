@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
         firstname: ['',Validators.required],
         lastname: ['',Validators.required],
         confirmPassword:['',Validators.required],
-        phoneNumber:['',Validators.required]
+        phonenumber:['',Validators.required]
       },
       {
         validator:this.passwordMatchValidator,
