@@ -53,7 +53,7 @@ export class JoinCompanyComponent implements OnInit {
       this.companyService.joinCompany(this.joinCompany).subscribe({
         next:(response)=>{
           this.closeDialog();
-           //this.router.navigate(['/user/home']);
+           this.router.navigate(['/pos']);
         },
         error:(err:HttpErrorResponse)=>{
           if(err!.status ==  400){

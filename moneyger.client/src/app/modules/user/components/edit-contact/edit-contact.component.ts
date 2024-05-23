@@ -1,4 +1,4 @@
-  import { Component, Inject, Input, OnInit } from '@angular/core';
+  import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
   import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
   import { Router, RouterLink } from '@angular/router';
   import { ValidationError } from '../../../../interfaces/validation-error';
@@ -24,7 +24,7 @@
     firstName: string = '';
     lastName: string = '';
     editProfileForm!: FormGroup;
-    @Input() send!: EditContact;
+    @Output() editCurrentContact = new EventEmitter<void>();
     
     newContact: EditContact = {
       id: '',
@@ -73,28 +73,28 @@
       this.dialogRef.close();
     }
     
-    editContact(): void {
-      const editContactRequest: EditContact = {
-        id: this.newContact.id,
-        companyName: this.newContact.companyName,
-        phoneNumber: this.newContact.phoneNumber,
-        email: this.newContact.email,
-        facebook: this.newContact.facebook,
-        twitter: this.newContact.twitter,
-        instagram: this.newContact.instagram
+    editContact() {
+      const updatedContact: EditContact = {
+        id: this.data.contact.id,
+        phoneNumber: this.editProfileForm.get('phoneNumber')?.value,
+        email: this.editProfileForm.get('email')?.value,
+        facebook: this.editProfileForm.get('facebook')?.value,
+        twitter: this.editProfileForm.get('twitter')?.value,
+        instagram: this.editProfileForm.get('instagram')?.value,
+        companyName: this.editProfileForm.get('companyName')?.value
       };
-      
-      this.contactService.editContacts(editContactRequest).subscribe(
-        (response) => {
-          console.log('Contact updated successfully:', response);
-          // Perform any additional actions after successful update
+    
+      this.contactService.editContacts(updatedContact).subscribe({
+        next: (response) => {
+          this.router.navigate(['/user/contacts']);
         },
-        (err: HttpErrorResponse) => {
-          if (err.status === 400) {
-            this.errors = err.error;
-          }
-          console.error(err.message, err.headers);
+        error: (err: HttpErrorResponse) => {
+          console.log(err.message);
+        },
+        complete: () => {
+          this.dialogRef.close();
+          this.editCurrentContact.emit();
         }
-      );
+      });
     }
   }

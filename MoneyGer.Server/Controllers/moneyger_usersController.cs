@@ -112,7 +112,6 @@ namespace MoneyGer.Server.Controllers
                 return BadRequest("User not found.");
             }
             
-            // You would typically use your user manager or data access layer to perform this operation
             var result = await _userManager.ConfirmEmailAsync(user, token);
 
             if (result.Succeeded)

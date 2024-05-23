@@ -140,12 +140,9 @@ export class ContactsComponent implements OnInit {
       {
         data: {contact},
       });
-      { // Pass any data you want to the dialog component
-    };
 
-    //dialogRef.componentInstance.contactAdded.subscribe(() => {
-      //this.getContacts();) // Refresh the contacts list when a new contact is added
-    ;
-  }
-    
+    dialogRef.componentInstance.editCurrentContact.subscribe(() => {
+      this.getContacts(); // Refresh the contacts list when a new contact is added
+   }
+  )};
 }
