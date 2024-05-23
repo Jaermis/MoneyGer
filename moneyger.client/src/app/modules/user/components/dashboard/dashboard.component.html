@@ -1,8 +1,12 @@
 <div class="dashboard">
     <div class="sidebar">
-        <app-sidebar></app-sidebar>
+      <app-sidebar></app-sidebar>
     </div>
-    <div class="content">
-        <router-outlet></router-outlet>
+    <div class="content" [class.full-width]="!isHomeRoute">
+      <router-outlet></router-outlet>
     </div>
-</div>
+    <div class="todolist" [class.hidden]="!isHomeRoute">
+      <app-header *ngIf="showHeader"></app-header>
+    </div>
+  </div>
+  

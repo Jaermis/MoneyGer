@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap');
 
+.home-cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-cont{
+  z-index: 52;
+}
 #home{
   background-color: #F6F7F8;
+  width: 100%;
 }
 
 .header{

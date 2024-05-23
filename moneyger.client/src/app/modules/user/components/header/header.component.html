@@ -1,0 +1,22 @@
+<div class="header-cont">
+    <div class="calendar-cont">
+      <header>
+        <p class="current-date">{{ currentMonth }} {{ currentYear }}</p>
+        <div class="icons">
+          <i class='bx bx-chevron-left bx-sm' (click)="previousMonth()"></i>
+          <i class='bx bx-chevron-right bx-sm' (click)="nextMonth()"></i>
+        </div>
+      </header>
+      <div class="calendar">
+        <ul class="week">
+          <li *ngFor="let day of weekDays">{{ day }}</li>
+        </ul>
+        <ul class="days">
+          <li *ngFor="let day of days" [ngClass]="getClasses(day)">{{ day.day }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="todo-list">
+
+    </div>
+</div>
