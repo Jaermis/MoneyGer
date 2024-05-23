@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { SalesService } from '../../../../shared/sales.service';
+import { SalesRequest } from '../../../../interfaces/sales-request';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-sales-graph',
   templateUrl: './sales-graph.component.html',
-  styleUrl: './sales-graph.component.css'
+  styleUrls: ['./sales-graph.component.css'] // Corrected property name
 })
-export class SalesGraphComponent {
-  
-  //data sa line graph
+export class SalesGraphComponent implements OnInit {
+
+  sales: SalesRequest[] = [];
+  errors: ValidationErrors[] = [];
+
+  // Data for the line graph
   public data: Object[];
   public data2: Object[];
+  public data3: Object[];
   public xAxis: Object;
   public yAxis: Object;
   public chartTitle: String;
@@ -18,25 +26,12 @@ export class SalesGraphComponent {
   public tooltipSettings: Object;
   public margin: Object;
 
-
-  constructor(){
+  constructor(private salesService: SalesService) {
     this.chartTitle = 'Sales Tracking';
-    this.data = [ //Sales
-      {month: 'Jan', sales: 35}, {month: 'Feb', sales: 28},
-      {month: 'Mar', sales: 34}, {month: 'Apr', sales: 32},
-      {month: 'May', sales: 40}, {month: 'Jun', sales: 32},
-      {month: 'Jul', sales: 35}, {month: 'Aug', sales: 55},
-      {month: 'Sep', sales: 38}, {month: 'Oct', sales: 30},
-      {month: 'Nov', sales: 25}, {month: 'Dec', sales: 32}
-    ];
-    this.data2 = [ //Expenses
-      {month: 'Jan', expense: 43}, {month: 'Feb', expense: 42},
-      {month: 'Mar', expense: 11}, {month: 'Apr', expense: 57},
-      {month: 'May', expense: 98}, {month: 'Jun', expense: 16},
-      {month: 'Jul', expense: 63}, {month: 'Aug', expense: 14},
-      {month: 'Sep', expense: 23}, {month: 'Oct', expense: 67},
-      {month: 'Nov', expense: 67}, {month: 'Dec', expense: 24}
-    ];
+    this.data = []; // Sales
+    this.data2 = []; // Expenses
+    this.data3 = []; //Profit
+
     this.tooltipSettings = {
       enable: true
     };
@@ -51,16 +46,62 @@ export class SalesGraphComponent {
       position: 'Auto'
     };
     this.xAxis = {
-      title: 'Month',
+      title: 'Date',
       valueType: 'Category',
       position: 'Auto'
     };
     this.yAxis = {
-      title: 'Sales'
+      title: 'Amount'
     };
     this.margin = {
       left: 40, right: 40, top: 40, bottom: 40
     };
   }
 
+  ngOnInit(): void {
+    this.getSales();
+  }
+
+  getSales(): void {
+    this.salesService.getSales().subscribe({
+      next: (response: SalesRequest[]) => {
+        this.sales = response;
+        this.processSalesData();
+      },
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          this.errors = err.error;
+        }
+        console.error(err.message);
+      },
+    });
+  }
+
+  processSalesData(): void {
+    const salesData = this.sales
+        .map(item => ({ date: item.date, revenue: item.revenue }))
+        .sort((a, b) => this.compareDates(a.date, b.date));
+    
+    const expensesData = this.sales
+        .map(item => ({ date: item.date, expenses: item.expenses }))
+        .sort((a, b) => this.compareDates(a.date, b.date));
+    
+    const profitData = this.sales
+    .map(item => ({ date: item.date, profit: item.profit }))
+    .sort((a, b) => this.compareDates(a.date, b.date));
+    
+    this.data = salesData;
+    this.data2 = expensesData;
+    this.data3 = profitData;
+  }
+
+  compareDates(date1: string, date2: string): number {
+      const [month1, year1] = date1.split('/').map(Number);
+      const [month2, year2] = date2.split('/').map(Number);
+
+      if (year1 !== year2) {
+          return year1 - year2;
+      }
+      return month1 - month2;
+  }
 }

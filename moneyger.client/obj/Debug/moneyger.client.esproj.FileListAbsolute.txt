@@ -5,3 +5,4 @@ E:\Desktop\Softdeva\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.Co
 C:\Software Development Projects\Gikan ni jems\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
 C:\Users\Jermzu\Documents\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
 C:\Users\shane\OneDrive\Desktop\James\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache
+C:\Users\drin\OneDrive\Documents\Hulam ni James\MoneyGer\moneyger.client\obj\Debug\moneyger.client.esproj.CoreCompileInputs.cache

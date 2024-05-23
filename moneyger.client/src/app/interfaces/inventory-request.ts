@@ -1,6 +1,6 @@
 export interface InventoryRequest{
     id:number,
-    name: string,
+    product: string,
     quantity: number,
     price: number
 }

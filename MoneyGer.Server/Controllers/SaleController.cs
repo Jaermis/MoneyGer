@@ -24,6 +24,19 @@ namespace MoneyGer.Server.Controllers
             _context = context;
         }
 
+        [HttpGet] //api/Sale
+        public async Task<ActionResult<IEnumerable<Sales>>> GetSales()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == currentUserId);
+            
+            var companyInventory = await _context.Sales
+                .Where(a => a.Company == company!.CompanyId)
+                .ToListAsync();
+
+            return Ok(companyInventory);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddSale([FromBody] CreateSaleDto createSaleDto)
         {
@@ -57,7 +70,7 @@ namespace MoneyGer.Server.Controllers
                     Expenses = 0
                 };
                 
-            _context.Sales.Add(add);
+                _context.Sales.Add(add);
             }
 
             try{
@@ -102,43 +115,6 @@ namespace MoneyGer.Server.Controllers
             }
 
             return NotFound(new { message = "No sales found with the provided IDs" });
-            }
-            catch(Exception ex){
-                return BadRequest(new {message=ex.StackTrace});
-            }
-        }
-
-        [HttpPost("Manage")]
-        public async Task<IActionResult> ManageInventory([FromBody] InventoryManageDto inventoryManageDto)
-        {
-            var inventoryToEdit = await _context.Inventory.FindAsync(inventoryManageDto.id);
-            
-            try{
-                if (inventoryManageDto.Quantity is not null)
-                {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                    inventoryToEdit.Quantity = (int)inventoryManageDto.Quantity;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-                }
-
-                if (inventoryManageDto.Price is not null)
-                {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                    inventoryToEdit.Price = (float)inventoryManageDto.Price;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-                }
-
-                if (inventoryManageDto.Product is not null)
-                {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                    inventoryToEdit.Product = inventoryManageDto.Product;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-                }
-            
-                _context.Inventory.Update(inventoryToEdit!);
-                    
-                await _context.SaveChangesAsync();
-                return Ok(new { message = "Inventory edited" });
             }
             catch(Exception ex){
                 return BadRequest(new {message=ex.StackTrace});
