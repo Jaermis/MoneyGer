@@ -50,7 +50,7 @@ namespace MoneyGer.Server.Controllers
             else{
                 var add = new Sales
                 {
-                    Date = DateTime.Now.ToString("MM/yyyy"),
+                    Date = today,
                     Company = company!.CompanyId,
                     Profit = 0,
                     Revenue = createSaleDto.Revenue,
