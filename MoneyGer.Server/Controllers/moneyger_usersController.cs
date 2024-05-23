@@ -264,6 +264,7 @@ namespace MoneyGer.Server.Controllers
                 new ("facebook",user.Facebook),
                 new ("twitter",user.Twitter),
                 new ("instagram",user.Instagram),
+                new ("phonenumber", user.PhoneNumber),
                 new (JwtRegisteredClaimNames.NameId,user.Id ?? ""),
                 new (JwtRegisteredClaimNames.Aud, _configuration.GetSection
                 ("JWTSetting").GetSection("validAudience").Value!),
