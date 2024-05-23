@@ -1,22 +1,36 @@
-<div class="cont">
-    <div class="left-container">
-      <div class="date-pick">
-        <h1>Add Event</h1>
-        <mat-form-field class="example-full-width">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="eventmaker.dateStart">
-          <mat-datepicker-toggle matIconSuffix [for]="picker">
-            <i class='bx bx-calendar'></i>
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <label for="appt">Select a time:</label>
-        <input type="time" id="appt" name="appt" [(ngModel)]="eventmaker.eventTime">
-        <textarea class="field" placeholder="Add event details" [(ngModel)]="eventmaker.description"></textarea>
+<div class="calendar-all">
+  <div class="header">
+    <p class="title">Event Calendar</p>
+  </div>
+  
+  <div class="cont">
+    <div class="events-container">
+      <div class="side-header">
+        <strong><p class="events-header">{{ showUpcomingEvents ? 'Upcoming Events' : 'Past Events' }}</p></strong>
+        <button class="toggle-butt" (click)="toggleEventView()">{{ showUpcomingEvents ? '>' : '>' }}</button>
       </div>
-      <button class="add-event" type="button" (click)="addEvents()">Add Event</button>
+      <div class="events-array">
+        <div *ngFor="let groupedEvents of groupEventsByDate(events)">
+          <div class="event-group">
+            <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2>
+            <div class="event-title">
+              <div *ngFor="let event of groupedEvents.events">
+                <div class="des-check">
+                  <input type="checkbox" [checked]="checkedEvents[event.id]" (change)="onCheckboxChange(event.id, $event)">
+                  <div class="time-des">
+                    <strong><p>{{ event.description }}</p></strong>
+                    <p>-</p>
+                  <p>{{ convertTo12HourFormat(event.eventTime) }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container">
+  
+    <div class="calendar-container">
       <header>
         <p class="current-date">{{ currentMonth }} {{ currentYear }}</p>
         <div class="icons">
@@ -32,26 +46,24 @@
           <li *ngFor="let day of days" [ngClass]="getClasses(day)">{{ day.day }}</li>
         </ul>
       </div>
-      <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedEvents()" style="cursor: pointer; margin-top: 2%;"></i>
     </div>
-    <div class="sidecontainer">
-      <div class="side-header">
-        <h1>{{ showUpcomingEvents ? 'Upcoming Events' : 'Past Events' }}</h1>
-        <button class="toggle-butt" (click)="toggleEventView()">{{ showUpcomingEvents ? '>' : '>' }}</button>
+  
+    <div class="add-event-container">
+      <div class="add-side-header">
+        <strong><p class="events-header">Add Event</p></strong>
       </div>
-      <div class="events-array">
-        <div *ngFor="let groupedEvents of groupEventsByDate(events)">
-          <div class="event-group">
-            <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2>
-            <div class="event-title">
-              <div *ngFor="let event of groupedEvents.events">
-                <strong><p>{{ event.description }}</p></strong>
-                <p>{{ event.dateStart | date: 'shortTime' }}</p>
-                <input type="checkbox" [checked]="checkedEvents[event.id]" (change)="onCheckboxChange(event.id, $event)">
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="date-pick">
+        <label for="datePick">Select a date:</label>
+        <input type="date" id="datePick" [(ngModel)]="eventmaker.dateStart">
+        <label for="appt">Select a time:</label>
+        <input type="time" id="appt" name="appt" [(ngModel)]="eventmaker.eventTime">
+        <textarea class="field" placeholder="Add event details" [(ngModel)]="eventmaker.description"></textarea>
       </div>
+      <button class="add-event" type="button" (click)="addEvents()">Add Event</button>
     </div>
   </div>
+  <div class="bottom-delete">
+    <p>Delete Events</p>
+    <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" (click)="deleteSelectedEvents()" style="cursor: pointer; margin-top: 2%;"></i>
+  </div>
+</div>

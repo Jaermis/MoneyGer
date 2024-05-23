@@ -17,6 +17,7 @@ enum ActiveState {
   HasCurrent,
   DoneEvent
 }
+
 interface CalendarDay {
   day: number;
   active: ActiveState;
@@ -39,7 +40,7 @@ export class CalendarComponent implements OnInit {
   dates: string[] = [];
   checkedEvents: { [key: number]: boolean } = {};
   eventmaker: EventRequest = {
-    dateStart: new Date,
+    dateStart: new Date(),
     description: '',
     eventTime: ''
   };
@@ -47,20 +48,9 @@ export class CalendarComponent implements OnInit {
   newEventTime: string = '';
   newEventDescription: string = '';
   showUpcomingEvents: boolean = true; // Toggle state
-  fetchEvent! : Observable<EventRequest>;
+  fetchEvent!: Observable<EventRequest>;
   errors: ValidationError[] = [];
-  
-  resetFormFields() {
-    this.eventmaker = {
-      dateStart: new Date(),
-      description: '',
-      eventTime: ''
-    };
-    this.newEventDate = null;
-    this.newEventTime = '';
-    this.newEventDescription = '';
-  }
-  
+
   constructor(
     private calendarService: CalendarService,
     private router: Router,
@@ -125,15 +115,14 @@ export class CalendarComponent implements OnInit {
         isActive = ActiveState.Current;
       }
 
-    const hasEvents = this.events.some(event => {
+      const hasEvents = this.events.some(event => {
         const eventDate = new Date(event.dateStart);
         return eventDate.getFullYear() === year && eventDate.getMonth() === month && eventDate.getDate() === i;
       });
 
       if (isActive === ActiveState.Current && hasEvents) {
         isActive = ActiveState.HasCurrent;
-      } 
-      else if (hasEvents) {
+      } else if (hasEvents) {
         const event = this.events.find(event => {
           const eventDate = new Date(event.dateStart);
           return eventDate.getFullYear() === year && eventDate.getMonth() === month && eventDate.getDate() === i;
@@ -172,12 +161,12 @@ export class CalendarComponent implements OnInit {
   groupEventsByDate(events: EventAttendee[]): { date: Date; events: EventAttendee[] }[] {
     const groupedEvents: { date: Date; events: EventAttendee[] }[] = [];
     const today = new Date();
-    today.setHours(0, 0, 0, 0); 
-  
+    today.setHours(0, 0, 0, 0);
+
     events.forEach(event => {
       const eventDate = new Date(event.dateStart);
       eventDate.setHours(0, 0, 0, 0);
-  
+
       if (this.showUpcomingEvents && eventDate >= today || !this.showUpcomingEvents && eventDate < today) {
         let group = groupedEvents.find(g => g.date.getTime() === eventDate.getTime());
         if (!group) {
@@ -187,14 +176,14 @@ export class CalendarComponent implements OnInit {
         group.events.push(event);
       }
     });
-  
+
     return groupedEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
   }
 
   toggleEventView(): void {
     this.showUpcomingEvents = !this.showUpcomingEvents;
   }
-  
+
   addEvents() {
     this.calendarService.addEvent(this.eventmaker).subscribe({
       next: (response) => {
@@ -213,7 +202,7 @@ export class CalendarComponent implements OnInit {
 
   getEvents(): void {
     this.calendarService.getEvents().subscribe({
-      next: (response: EventAttendee[]) => {  
+      next: (response: EventAttendee[]) => {
         this.events = response;
         this.days = this.generateCalendarDays(this.currentDate.getMonth(), this.currentDate.getFullYear());
       },
@@ -235,21 +224,44 @@ export class CalendarComponent implements OnInit {
           if (response.isSuccess) {
             this.events = this.events.filter(attendee => !eventsToDelete.includes(attendee.id));
             this.checkedEvents = {};  // Reset the checked contacts
-          } 
+          }
         },
         error: (err: HttpErrorResponse) => {
           console.error('Error deleting contacts:', err.message);
         },
-        
-      complete:()=>this.ngOnInit(),
+        complete: () => this.ngOnInit(),
       });
     }
   }
-  onCheckboxChange(atendeeId: number, event: any): void {
-    this.checkedEvents[atendeeId] = event.target.checked;
+
+  onCheckboxChange(eventId: number, event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    if (isChecked) {
+      this.checkedEvents[eventId] = true;
+    } else {
+      delete this.checkedEvents[eventId];
+    }
   }
 
   isAnyCheckboxChecked(): boolean {
-    return Object.values(this.checkedEvents).some(isChecked => isChecked);
+    return Object.keys(this.checkedEvents).length > 0;
+  }
+
+  convertTo12HourFormat(time: string): string {
+    const [hour, minute] = time.split(':');
+    let hours = parseInt(hour);
+    const suffix = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert to 12-hour format, with '12' as '12' instead of '0'
+    return `${this.padZero(hours)}:${minute} ${suffix}`;
+  }
+
+  padZero(num: number): string {
+    return num < 10 ? `0${num}` : num.toString();
+  }
+
+  private resetFormFields() {
+    this.eventmaker.dateStart = new Date();
+    this.eventmaker.description = '';
+    this.eventmaker.eventTime = '';
   }
 }
