@@ -10,10 +10,10 @@
         <form action="/url">
             <label>
                 <p class="leybel">Enter employee's email address.</p>
-                <input class="company-code" type="text" name = "companyId" required placeholder="JuleLoveHollie@gmail.com">
+                <input class="company-code" type="email" name = "email" [(ngModel)] = "email" required placeholder="email@example.com">
             </label>
 
-            <button class="createbutt">Send Invite</button>
+            <button class="createbutt" (click)="addEmployee()">Send Invite</button>
         </form>
     </div>
 </div>

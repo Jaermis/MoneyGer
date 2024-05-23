@@ -6,14 +6,14 @@
     <div class="name">
       <div class="first-name">
         <label for="first-name">First Name</label>
-        <input type="text" id="first-name" formControlName="firstName" placeholder="First Name">
+        <input type="text" id="first-name" [placeholder]="editProfileForm.get('firstName')?.value" readonly>
         <div *ngIf="editProfileForm.get('firstName')?.touched && editProfileForm.get('firstName')?.invalid" class="error">
           First Name is required.
         </div>
       </div>
       <div class="last-name">
         <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" formControlName="lastName" placeholder="Last Name">
+        <input type="text" id="last-name" [placeholder]="editProfileForm.get('lastName')?.value" readonly>
         <div *ngIf="editProfileForm.get('lastName')?.touched && editProfileForm.get('lastName')?.invalid" class="error">
           Last Name is required.
         </div>

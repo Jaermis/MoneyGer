@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
@@ -15,15 +16,23 @@ namespace MoneyGer.Server.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
+        private readonly ApplicationDbContext _context;
         private readonly UserManager<moneyger_users> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _configuration;
+        private readonly IEmailSender _emailSender;
+        private readonly EmailConfiguration _emailConfiguration;
 
-        public CompanyController(RoleManager<IdentityRole> roleManager, UserManager<moneyger_users> userManager, ApplicationDbContext context)
+        public CompanyController(ApplicationDbContext context,UserManager<moneyger_users> userManager,
+            RoleManager<IdentityRole> roleManager, IConfiguration configuration, IEmailSender emailSender,
+            EmailConfiguration emailConfiguration)
         {
+            _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
-            _context = context;
+            _configuration = configuration;
+            _emailSender =  emailSender;
+            _emailConfiguration  = emailConfiguration;
         }
 
         [HttpPost]
@@ -81,6 +90,35 @@ namespace MoneyGer.Server.Controllers
         {
             var companies = await _context.companies.ToListAsync();
             return Ok(companies);
+        }
+
+        [HttpGet("Employee")]
+        public async Task<ActionResult<IEnumerable<Company>>> GetEmployees()
+        {
+            List<EmployeeDto> employees = new List<EmployeeDto>();
+            var owner = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == owner);
+            var role = await _roleManager.FindByNameAsync("Member");
+            
+            var companies = await _context.UserCompanyRole
+            .Where(c=>c.CompanyId == company!.CompanyId && c.RoleId == role!.Id)
+            .ToListAsync();
+
+            if(companies is not null){
+                foreach(var collect in companies){
+                    var result = await _userManager.FindByIdAsync(collect.UserId);
+
+                    employees.Add(new EmployeeDto{
+                        Id = result!.Id,
+                        Name = result!.FirstName + " " + result.LastName,
+                        Email = result.Email!,
+                        PhoneNumber = result.PhoneNumber
+                    });
+                }
+                return Ok(employees);
+            }
+
+            return Ok(null);
         }
 
         [HttpDelete("Delete{id}")]
@@ -176,28 +214,77 @@ namespace MoneyGer.Server.Controllers
 
         }
 
-        [HttpDelete("DeleteUser")]
-        public async Task<IActionResult> DeleteUserCompany([FromBody] CompanyAssignDto companyAssignDto)
+        [HttpDelete("DeleteEmployee")]
+        public async Task<IActionResult> DeleteUserCompany([FromBody] string[] employeeIds)
         {
-            var companyRole = await _context.UserCompanyRole.FindAsync(companyAssignDto.UserId, companyAssignDto.RoleId, companyAssignDto.CompanyId);
+            var companyRole = _context.UserCompanyRole.Where(c => employeeIds.Contains(c.UserId)).ToList();
 
             if (companyRole == null)
             {
                 return NotFound(new { message = "User not found" });
             }
 
-            _context.UserCompanyRole.Remove(companyRole);
-                    
-            try
+            try{
+            if (companyRole.Any())
             {
+                foreach(var employee in companyRole){
+
+                    var user = await _userManager.FindByIdAsync(employee.UserId);
+                    user!.Company = "N/A";
+
+                    await _userManager.UpdateAsync(user);        
+                }
+
+                _context.UserCompanyRole.RemoveRange(companyRole);
+
                 await _context.SaveChangesAsync();
+                return Ok(new { message = "Employee/s removed" });
             }
+
+            return NotFound(new { message = "No employee/s found with the provided IDs" });
+            }
+
             catch (Exception e)
             {
                 return BadRequest(new { message = e.Message });
             }
+        }
 
-            return Ok(new { message = "User deleted" });
+        [HttpPost("Invite")]
+        public async Task<ActionResult> Invite([FromBody] string email) 
+        {
+            var owner = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == owner);
+
+            var nameCompany = await _context.companies.FindAsync(company!.CompanyId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = _userManager.FindByEmailAsync(email);
+
+            if(user is null){
+                return BadRequest(new AuthResponseDto
+                {
+                    IsSuccess = false,
+                    Message = "User does not exist"
+                });    
+            }
+            
+            var emailSender = new EmailSender(_emailConfiguration);
+            var confirmationSubject = "MoneyGer Invitation Link";
+            var emailHeader = $"Invitation to {nameCompany!.Name}";
+            var confirmationHtmlMessage = $"Dear {email}, enter this code to join the company: <strong>{company.CompanyId}</strong>";
+            await emailSender.SendEmailAsync(email, confirmationSubject, confirmationHtmlMessage, emailHeader);
+
+
+            return Ok(new AuthResponseDto
+            {
+                IsSuccess = true,
+                Message = "Invitation Link Sent Successfully!"
+            });
         }
     }
 }

@@ -43,7 +43,6 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
-import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 
 
@@ -82,7 +81,6 @@ const UserComponents = [
     InventoryComponent,
     AddEmployeeComponent,
     AddItemComponent,
-    EditEmployeeComponent,
     EditItemComponent,
     //EditContactComponent,
   ],

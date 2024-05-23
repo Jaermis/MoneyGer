@@ -7,7 +7,7 @@
             </div>
             
             <i class='bx bxs-plus-circle bx-md' *ngIf="!isAnyCheckboxChecked()" (click)="addEmployeeDialog()" style="cursor: pointer; margin-top: 2%;"></i>
-            <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" style="cursor: pointer; margin-top: 2%;"></i>
+            <i class='bx bxs-trash bx-md' *ngIf="isAnyCheckboxChecked()" style="cursor: pointer; margin-top: 2%;" (click)="deleteSelectedEmployee()"></i>
 
         </div>
     </div>
@@ -18,7 +18,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th></th>
                         <th></th>
                         <th class="sortable-header">
                             <div class="header-content">
@@ -41,12 +40,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" class="check"></td>
-                        <td><i class='bx bxs-pencil' style="color: #676565;" (click)="editEmployeeDialog()"></i></td>
-                        <td>pangalan</td>
-                        <td><a>emial</a></td>
-                        <td><a>number</a></td>
+                    <tr *ngFor="let work of employees | search: searchText">
+                        <td><input type="checkbox" class="check" (change)="onCheckboxChange(work.id, $event)"></td>
+                        <td>{{work.name}}</td>
+                        <td><a>{{work.email}}</a></td>
+                        <td><a>{{work.phone}}</a></td>
                     </tr>
                 </tbody>
             </table>
