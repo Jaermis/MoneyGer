@@ -10,13 +10,13 @@
 
 
     @if(isLoggedIn()){
-      <div class="main-prof" *ngIf="authService.getUserDetail() as userDetail">
+      <div class="main-prof" *ngIf="authService.getUserDetail() as detail">
         <img src="assets/James.jpg"/>
 
         <div class="name-details">
-          <p class="name">{{ userDetail!.fullname | titlecase }}</p>
-              <p class="phone">{{ userDetail.phonenumber }}</p>
-              <p class="email">{{ userDetail.email }}</p>
+          <p class="name">{{ detail!.fullname | titlecase }}</p>
+              <p class="phone">{{ detail.phonenumber }}</p>
+              <p class="email">{{ detail.email }}</p>
               <p class="edit" (click)="onNoClick()" routerLink="/user/edit-profile">
                 <span>
                   <i class='bx bxs-pencil'></i>
@@ -26,7 +26,6 @@
 
       </div>
     }
-
 
     <div class="socials" *ngIf="authService.getUserDetail() as userDetail">
       

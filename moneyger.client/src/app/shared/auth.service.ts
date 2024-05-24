@@ -90,6 +90,13 @@ export class AuthService {
     .post<AuthResponse>(`${this.apiUrl}/moneyger_users/Register`, data)
   }
 
+  deleteAccount(): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.request<AuthResponse>('delete', `${this.apiUrl}/moneyger_users  `, {
+      headers: headers
+    });
+  }
+
   forgotPassword = (email:string) : Observable<AuthResponse> =>
     this.http.post<AuthResponse>(`${this.apiUrl}/moneyger_users/ForgotPassword`,{email});
 
@@ -100,12 +107,6 @@ export class AuthService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post<AuthResponse>(`${this.apiUrl}/moneyger_users/EditProfile`, data, {headers});
   }
-  getCurrentCompanyId(): string | null {
-    const token = this.getToken();
-    if (!token) return null;
 
-    const decodedToken: any = jwtDecode(token);
-    return decodedToken.company || null;
-  }
 
 }

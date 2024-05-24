@@ -8,17 +8,17 @@
                 <div class="name">
                     <div class="first-name">
                         <label for="first-name">First Name</label>
-                        <input type="text" class readonly id="first-name" value={{userDetail.firstname}}>
+                        <input type="text" class readonly id="first-name" placeholder="{{userDetail.firstname}}">
                     </div>
                     <div class="last-name">
                         <label for="last-name">Last Name</label>
-                        <input type="text" class readonly id="last-name" value={{userDetail.lastname}}>
+                        <input type="text" class readonly id="last-name" placeholder="{{userDetail.lastname}}">
                     </div>
                 </div>
                 <label for="phone">Phone Number</label>
                 <input type="text" id="phone"  [(ngModel)]="editProfileRequest.phoneNumber"  name="phonenumber"> 
                 <label for="email">Email</label>
-                <input type="email" class readonly id="email" value={{userDetail.email}}>
+                <input type="email" class readonly id="email" placeholder="{{userDetail.email}}">
                 <label for="facebook">Facebook</label>
                 <input type="text" id="facebook"  [(ngModel)]="editProfileRequest.facebook" name="facebook">
                 <label for="twitter">Twitter / X</label>

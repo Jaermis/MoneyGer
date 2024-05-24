@@ -5,3 +5,29 @@
     max-width: 750px;
     /*outline: 2px solid #d4d2d2;*/
 }
+
+.button-cont{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#butt{
+    margin-right: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 5%;
+    margin-top: 1%;
+    height: 30px;
+    background-color: #e5e3e3;
+    color: #3a3a3a;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+
+    &:hover{
+        cursor: pointer;
+        background-color: #a2a0a0;
+    }
+}

@@ -388,22 +388,59 @@ namespace MoneyGer.Server.Controllers
         }
 
         [AllowAnonymous]
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(string id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser()
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            var attend = await _context.Attendee.Where(c=>c.UserId == currentUserId).ToListAsync();
+            foreach(var events in attend){
+                var look = await _context.Events.FirstOrDefaultAsync(e=>e.Id == events.DateId);
+                _context.Events.Remove(look!);
+            }
+            _context.Attendee.RemoveRange(attend);
+
+            var company = await _context.companies.FirstOrDefaultAsync(c=>c.Owner == currentUserId);
+            var contacts = await _context.Contacts.Where(c=>c.Company == company!.Id).ToListAsync();
+            var inventory = await _context.Inventory.Where(c=>c.Company == company!.Id).ToListAsync();
+            var sales = await _context.Sales.Where(c=>c.Company == company!.Id).ToListAsync();
+            var segmentation = await _context.Segmentation.Where(c=>c.Company == company!.Id).ToListAsync();
+            var userCompany = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == currentUserId);
+
+            _context.UserCompanyRole.RemoveRange(userCompany!);
+            _context.Segmentation.RemoveRange(segmentation); 
+            _context.Sales.RemoveRange(sales);
+            _context.Inventory.RemoveRange(inventory);
+            _context.companies.Remove(company!);
+            _context.Contacts.RemoveRange(contacts);
+
+            var user = await _userManager.FindByIdAsync(currentUserId!);
+            
             if(user is null){
-                return NotFound("User not Found");
+                return NotFound(new AuthResponseDto{
+                    IsSuccess = false,
+                    Message = "User Not Found"
+                });
             }
 
+        try{
             var result = await _userManager.DeleteAsync(user);
             if(result.Succeeded)
             {
                 return Ok( new{message = "User deleted"});
             }
-
-            return BadRequest("User deletion failed.");
+            
+            return NotFound(new AuthResponseDto{
+                IsSuccess = false,
+                Message = "Company Not Found"
+            });
+        }
+        catch(Exception ex){
+            return NotFound(new AuthResponseDto{
+                IsSuccess = false,
+                Message = "Company Not Found"
+            });
+        }
         }
         
         [HttpPost("EditProfile")]

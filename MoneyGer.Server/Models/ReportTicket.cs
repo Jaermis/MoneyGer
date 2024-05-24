@@ -8,7 +8,7 @@ namespace MoneyGer.Server.Models
 {
     public class ReportTicket
     {
-        
+        [Key]
         public int Id { get; set; }
         public string Description { get; set; } =null!;
         public string DateStart { get; set; } = null!;
