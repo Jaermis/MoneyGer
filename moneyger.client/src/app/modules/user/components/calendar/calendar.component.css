@@ -177,6 +177,12 @@ header .current-date {
   border: 1px solid #e1dfdf;
   border-radius: 20px;
   padding: 8px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: #878787;
+  user-select: none;
+  border-radius: 50%;
 }
 .toggle-butt:hover{
   background-color: #e1dfdf;
