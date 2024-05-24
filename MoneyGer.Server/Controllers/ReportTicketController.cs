@@ -19,9 +19,9 @@ namespace MoneyGer.Server.Controllers
             _context = context;
         }
 
-        [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateReportTicket([FromBody] CreateReportTicketDto createReportTicketDto)
+        [HttpPost]
+        public async Task<IActionResult> CreateReportTicket([FromBody] string description)
         {
             if (!ModelState.IsValid)
             {
@@ -30,35 +30,19 @@ namespace MoneyGer.Server.Controllers
 
             var reportTicket = new ReportTicket
             {
-                Description = createReportTicketDto.Description,
+                Description = description,
                 DateStart = DateTime.Now.ToShortDateString()
             };
 
-            _context.ReportTickets.Add(reportTicket);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetReportTicketById), new { id = reportTicket.Id }, reportTicket);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetReportTicketById(int id)
-        {
-            var reportTicket = await _context.ReportTickets.FindAsync(id);
-
-            if (reportTicket == null)
-            {
-                return NotFound();
+            try{
+                _context.ReportTicket.Add(reportTicket);
+                await _context.SaveChangesAsync(); 
+            }
+            catch(Exception e){
+                return BadRequest(new {message = e.StackTrace});
             }
 
-            return Ok(reportTicket);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> GetAllReportTickets()
-        {
-            var reportTickets = await _context.ReportTickets.ToListAsync();
-            return Ok(reportTickets);
+            return Ok(new { message = "Ticket submitted" });
         }
     }
 }

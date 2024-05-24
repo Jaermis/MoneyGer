@@ -1,4 +1,7 @@
-<button (click)="exportSales()">Export</button>
+
+<div class="button-cont">
+    <button id="butt" (click)="exportSales()">Export</button>
+</div>
 
 <ejs-chart [primaryXAxis]='xAxis' [primaryYAxis]='yAxis'
     [title]='chartTitle' [legendSettings]='legend' [tooltip]='tooltipSettings' [margin]='margin'>

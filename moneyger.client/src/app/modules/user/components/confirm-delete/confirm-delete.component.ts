@@ -1,6 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompanyService } from '../../../../shared/company.service';
+import { AuthResponse } from '../../../../interfaces/auth-response';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../../shared/auth.service';
 
 
 @Component({
@@ -11,8 +14,10 @@ import { CompanyService } from '../../../../shared/company.service';
 export class ConfirmDeleteComponent {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDeleteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { action: string, item: 'Account' | 'Business Data' | 'Company', companyId?: string },
-    private companyService: CompanyService
+    @Inject(MAT_DIALOG_DATA) public data: { action: string, item: 'Account' | 'Business Data' | 'Company'},
+    private companyService: CompanyService,
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   closeDialog() {
@@ -22,41 +27,47 @@ export class ConfirmDeleteComponent {
   deleteItem() {
     switch (this.data.item) {
       case 'Account':
-        // Call the deleteAccount method from your service
+        this.authService.deleteAccount().subscribe({
+          next: (response: AuthResponse) => {
+            if (response.isSuccess) {
+              this.router.navigate(['/login']);
+            } else {
+              console.error('Error deleting contacts:', response.message);
+            }
+          },
+          error: () => {
+          },
+          complete:()=>{
+            this.closeDialog(),
+            this.router.navigate(['/login']);
+          }
+        });
         break;
       case 'Business Data':
         // Call the clearCompanyData method from the CompanyService
-        if (this.data.companyId) {
-          this.companyService.clearCompanyData(this.data.companyId).subscribe(
-            response => {
-              // Handle the successful response
-              this.dialogRef.close(true);
-            },
-            error => {
-              // Handle the error
+        this.companyService.clearCompanyData().subscribe({
+          next: (response: AuthResponse) => {
+            if (response.isSuccess) {
+            } else {
+              console.error('Error deleting contacts:', response.message);
             }
-          );
-        } else {
-          // Handle the case when companyId is undefined
-          console.error('Company ID is undefined');
-        }
+          },
+          error: () => {
+          },
+        });
         break;
       case 'Company':
         // Call the deleteCompany method from the CompanyService
-        if (this.data.companyId) {
-          this.companyService.deleteCompany(this.data.companyId).subscribe(
-            response => {
-              // Handle the successful response
-              this.dialogRef.close(true);
-            },
-            error => {
-              // Handle the error
+        this.companyService.deleteCompany().subscribe({
+          next: (response: AuthResponse) => {
+            if (response.isSuccess) {
+            } else {
+              console.error('Error deleting contacts:', response.message);
             }
-          );
-        } else {
-          // Handle the case when companyId is undefined
-          console.error('Company ID is undefined');
-        }
+          },
+          error: () => {
+          },
+        });
         break;
     }
   }

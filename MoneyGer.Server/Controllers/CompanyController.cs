@@ -121,89 +121,91 @@ namespace MoneyGer.Server.Controllers
             return Ok(null);
         }
 
-       [HttpDelete("Delete/{id}")]
-public async Task<IActionResult> DeleteCompany(string id)
-{
-    // Retrieve the company and related entities
-    var company = await _context.companies
-        .Include(c => c.Contacts)
-        .Include(c => c.Inventory)
-        .Include(c => c.UserCompanyRoles)
-        .Include(c => c.Sales)
-        .FirstOrDefaultAsync(c => c.Id == id);
-
-    if (company == null)
-    {
-        return NotFound(new AuthResponseDto
+       [HttpDelete("DeleteCompany")]
+        public async Task<IActionResult> DeleteCompany()
         {
-            IsSuccess = false,
-            Message = "Company not found"
-        });
-    }
+            var owner = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var companyToClear = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == owner);
+            // Retrieve the company and related entities
+            var company = await _context.companies
+                .Include(c => c.Contacts)
+                .Include(c => c.Inventory)
+                .Include(c => c.UserCompanyRoles)
+                .Include(c => c.Sales)
+                .FirstOrDefaultAsync(c => c.Id == companyToClear!.CompanyId);
 
-    var user = await _userManager.FindByIdAsync(company.Owner);
+            if (company == null)
+            {
+                return NotFound(new AuthResponseDto
+                {
+                    IsSuccess = false,
+                    Message = "Company not found"
+                });
+            }
 
-    if (user == null)
-    {
-        return NotFound(new AuthResponseDto
-        {
-            IsSuccess = false,
-            Message = "User not found"
-        });
-    }
-    
+            var user = await _userManager.FindByIdAsync(company.Owner);
 
-    try
-    {
-        // Start a database transaction
-        using var transaction = await _context.Database.BeginTransactionAsync();
+            if (user == null)
+            {
+                return NotFound(new AuthResponseDto
+                {
+                    IsSuccess = false,
+                    Message = "User not found"
+                });
+            }
+            
 
-        // Delete related entities
-        _context.Contacts.RemoveRange(company.Contacts);
-        _context.Inventory.RemoveRange(company.Inventory);
-        _context.UserCompanyRole.RemoveRange(company.UserCompanyRoles);
-        _context.Sales.RemoveRange(company.Sales);
+            try
+            {
+                // Start a database transaction
+                using var transaction = await _context.Database.BeginTransactionAsync();
 
-        // Delete roles associated with the company
-        var companyRoles = await _roleManager.Roles.Where(r => r.Name.Contains(company.Name)).ToListAsync();
-        foreach (var role in companyRoles)
-        {
-            await _roleManager.DeleteAsync(role);
+                // Delete related entities
+                _context.Contacts.RemoveRange(company.Contacts);
+                _context.Inventory.RemoveRange(company.Inventory);
+                _context.UserCompanyRole.RemoveRange(company.UserCompanyRoles);
+                _context.Sales.RemoveRange(company.Sales);
+
+                // Delete roles associated with the company
+                var companyRoles = await _roleManager.Roles.Where(r => r.Name.Contains(company.Name)).ToListAsync();
+                foreach (var role in companyRoles)
+                {
+                    await _roleManager.DeleteAsync(role);
+                }
+
+                // Update user records associated with the company
+                var users = await _userManager.Users.Where(u => u.Company == company.Id).ToListAsync();
+                foreach (var u in users)
+                {
+                    u.Company = "N/A"; // or any other desired value
+                    await _userManager.UpdateAsync(u);
+                }
+
+                // Delete the company
+                _context.companies.Remove(company);
+                await _context.SaveChangesAsync();
+
+                // Commit the transaction
+                await transaction.CommitAsync();
+
+                return Ok(new AuthResponseDto
+                {
+                    IsSuccess = true,
+                    Message = "Company deleted successfully"
+                });
+            }
+            catch (Exception ex)
+            {
+                // Rollback the transaction
+                await _context.Database.RollbackTransactionAsync();
+
+                return BadRequest(new AuthResponseDto
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                });
+            }
         }
-
-        // Update user records associated with the company
-        var users = await _userManager.Users.Where(u => u.Company == company.Id).ToListAsync();
-        foreach (var u in users)
-        {
-            u.Company = "N/A"; // or any other desired value
-            await _userManager.UpdateAsync(u);
-        }
-
-        // Delete the company
-        _context.companies.Remove(company);
-        await _context.SaveChangesAsync();
-
-        // Commit the transaction
-        await transaction.CommitAsync();
-
-        return Ok(new AuthResponseDto
-        {
-            IsSuccess = true,
-            Message = "Company deleted successfully"
-        });
-    }
-    catch (Exception ex)
-    {
-        // Rollback the transaction
-        await _context.Database.RollbackTransactionAsync();
-
-        return BadRequest(new AuthResponseDto
-        {
-            IsSuccess = false,
-            Message = ex.Message
-        });
-    }
-}
 
         [HttpPost("AssignCompany")]
         public async Task<IActionResult> AssignCompany([FromBody] CompanyAssignDto companyAssignDto)
@@ -340,27 +342,30 @@ public async Task<IActionResult> DeleteCompany(string id)
                 Message = "Invitation Link Sent Successfully!"
             });
         }
-
-      [HttpPut("ClearCompanyData/{id}")]
-public async Task<IActionResult> ClearCompanyData(string id)
-{
-    // Retrieve the company and related entities
-    var company = await _context.companies
-        .Include(c => c.Contacts)
-        .Include(c => c.Inventory)
-        .Include(c => c.Sales)
-        .Include(c => c.Segmentations)
-        .Include(c => c.UserCompanyRoles)
-        .FirstOrDefaultAsync(c => c.Id == id);
-
-    if (company == null)
-    {
-        return NotFound(new AuthResponseDto
+      
+      [AllowAnonymous]
+      [HttpPut("ClearCompanyData")]
+        public async Task<IActionResult> ClearCompanyData()
         {
-            IsSuccess = false,
-            Message = "Company not found"
-        });
-    }
+            var owner = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var companyToClear = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == owner);
+            // Retrieve the company and related entities
+            var company = await _context.companies
+                .Include(c => c.Contacts)
+                .Include(c => c.Inventory)
+                .Include(c => c.Sales)
+                .Include(c => c.Segmentations)
+                .Include(c => c.UserCompanyRoles)
+                .FirstOrDefaultAsync(c => c.Id == companyToClear!.CompanyId);
+
+            if (company == null)
+            {
+                return NotFound(new AuthResponseDto
+                {
+                    IsSuccess = false,
+                    Message = "Company not found"
+                });
+            }
 
     try
     {

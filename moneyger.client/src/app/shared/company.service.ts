@@ -44,19 +44,22 @@ export class CompanyService {
   }
 
   addEmployee(data: string): Observable<AuthResponse> {
-    console.log(data);
     const headers = new HttpHeaders('content-type: application/json').set('Authorization', `Bearer ${this.authService.getToken()}`);
     const body = JSON.stringify(data);
     return this.http.post<AuthResponse>(`${this.apiUrl}/Company/Invite`, body, { headers });
   }
 
-  clearCompanyData(companyId: string): Observable<AuthResponse> {
+  clearCompanyData(): Observable<AuthResponse> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
-    return this.http.delete<AuthResponse>(`${this.apiUrl}/Company/ClearCompanyData/${companyId}`, { headers });
+    return this.http.request<AuthResponse>('put', `${this.apiUrl}/Company/ClearCompanyData`, {
+      headers: headers
+    });
   }
 
-  deleteCompany(companyId: string): Observable<AuthResponse> {
+  deleteCompany(): Observable<AuthResponse> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
-    return this.http.delete<AuthResponse>(`${this.apiUrl}/Company/Delete/${companyId}`, { headers });
+    return this.http.request<AuthResponse>('delete', `${this.apiUrl}/Company/DeleteCompany`, {
+      headers: headers
+    });
   }
 }
