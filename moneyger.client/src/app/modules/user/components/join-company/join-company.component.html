@@ -13,7 +13,10 @@
                 <input class="company-code" type="text" [(ngModel)] = "joinCompany.companyId" name = "companyId" required>
             </label>
 
-            <button class="createbutt" (click)="JoinCompany()">Join Company</button>
+            <button class="createbutt" (click)="JoinCompany()">
+                <div *ngIf="!loading">Join Company</div>
+                <mat-spinner *ngIf="loading" [diameter]="30" color="primary"></mat-spinner>
+            </button>
             <button class="cancel" (click)="onNoClick()">Cancel</button>
         </form>
     </div>

@@ -50,6 +50,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { ReportComponent } from './components/report/report.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 const UserComponents = [
@@ -102,7 +103,7 @@ const UserComponents = [
     UserComponents,
     ChartModule,
     AccumulationChartModule, 
-    FormsModule, MatChipsModule, MatChipListbox, MatDialogModule
+    FormsModule, MatChipsModule, MatChipListbox, MatDialogModule, MatProgressSpinnerModule
   ],
   exports: [
     UserComponents
