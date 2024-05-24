@@ -4,7 +4,7 @@
 }
 
 .cnter{
-    width: 100%;
+    width: 450px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -25,12 +25,12 @@
     align-items: center;
     height: 100%;
     background-color: white;
-    width: 450px;
+    width: 100%;
     margin-top: 5%;
 }
 
 .company-name{
-     width: 96%; 
+     width: 300px; 
      height: 35px; 
      border-radius: 10px;
      border: 1px solid #b8b4b4;
@@ -40,7 +40,7 @@
 }
 
 .company-address{
-     width: 96%; 
+     width: 300px; 
      height: 35px; 
      border-radius: 10px;
      border: 1px solid #b8b4b4;
@@ -62,7 +62,7 @@
 }
 
 .cancelbutt{
-    width: 96%;
+    width: 100%;
     height: 40px;
     font-size: 15px;
     border: none;
@@ -77,7 +77,10 @@
 
 
 .createbutt{
-    width: 96%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 40px;
     font-size: 15px;
     border: none;

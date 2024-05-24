@@ -22,6 +22,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
+
 const routes: Routes = [
   {
     path: '', component: DashboardComponent,
