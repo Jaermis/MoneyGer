@@ -11,6 +11,8 @@ import { GettingStartedComponent } from '../getting-started/getting-started.comp
 import { Observable } from 'rxjs';
 import { UserCompanyDetail } from '../../../../interfaces/user-company-detail';
 import { AuthService } from '../../../../shared/auth.service';
+import { SalesService } from '../../../../shared/sales.service';
+import { SalesRequest } from '../../../../interfaces/sales-request';
 
 
 @Component({
@@ -22,10 +24,12 @@ export class HomeComponent implements OnInit {
   constructor(
     private titleService: Title,
     private contactService: ContactService,
+    private salesService: SalesService,
     private router:Router,
     public dialog: MatDialog
   ) {}
 
+  report!: Observable<SalesRequest>;
   contacts: ContactRequest[] = [];
   errors: ValidationError[] = [];
   userDetail! :Observable<UserCompanyDetail>;
@@ -34,6 +38,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Moneyger Dashboard');
     this.getContacts();
+    this.report = this.salesService.monthlyReport();
     this.userDetail = this.authService.getUserCompany();
   }
 

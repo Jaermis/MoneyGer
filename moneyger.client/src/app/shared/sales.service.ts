@@ -26,6 +26,11 @@ import { InventoryRequest } from '../interfaces/inventory-request';
       return this.http.get<SalesRequest[]>(`${this.apiUrl}/Sale`, { headers });
     }
 
+    monthlyReport(): Observable<SalesRequest> {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+      return this.http.get<SalesRequest>(`${this.apiUrl}/Sale/Monthly`, { headers });
+    }
+
     manageSales(data:InventoryRequest[]): Observable<AuthResponse> { // Change the return type to match the expected array of Events
       const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
       return this.http.post<AuthResponse>(`${this.apiUrl}/Inventory/Manage`, data, { headers });

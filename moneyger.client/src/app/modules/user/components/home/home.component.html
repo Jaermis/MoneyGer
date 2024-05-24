@@ -8,7 +8,7 @@
     </div>
 
     <!---------------------------------MONEY----------------------------->
-    <div class="money">
+    <div class="money" *ngIf="report | async as monthly">
         <div class="revenue">
             <div class="sales-cont">
                 <div class="monthly">
@@ -18,7 +18,7 @@
                     PHP
                 </div>
                 <div class="value">
-                    112, 481.03
+                    {{monthly.revenue | number: '1.2-2'}}
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                     PHP
                 </div>
                 <div class="value">
-                    72, 479.31
+                    {{monthly.profit | number: '1.2-2'}}
                 </div>
             </div>
         </div>

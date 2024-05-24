@@ -1,4 +1,5 @@
-
+    <button (click)="exportSegmentation()">Export</button>
+        
     <ejs-accumulationchart [title]='chartTitle' [legendSettings]='legend' [tooltip]='tooltipSettings'>
         <e-accumulation-series-collection>
             <e-accumulation-series type='Pie' [dataSource]='data' xName='product' yName='sold'
