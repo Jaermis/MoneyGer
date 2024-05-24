@@ -17,6 +17,30 @@
       </div>
     </div>
     <div class="todo-list">
-
+      <div class="cont">
+        <div class="events-container">
+          <div class="side-header">
+            <strong><p class="events-header">{{ showUpcomingEvents ? 'Upcoming Events' : 'Past Events' }}</p></strong>
+            <button class="toggle-butt" (click)="toggleEventView()">{{ showUpcomingEvents ? '>' : '>' }}</button>
+          </div>
+          <div class="events-array">
+            <div *ngFor="let groupedEvents of groupEventsByDate(events)">
+              <div class="event-group">
+                <h2>{{ groupedEvents.date | date: 'MMM d' }}</h2>
+                <div class="event-title">
+                  <div *ngFor="let event of groupedEvents.events">
+                    <div class="des-check">
+                      <div class="time-des">
+                        <strong><p>{{ event.description }}</p></strong>
+                        <p>-</p>
+                      <p>{{ convertTo12HourFormat(event.eventTime) }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
