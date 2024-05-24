@@ -10,6 +10,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -17,7 +19,7 @@ import { SuccessDialogComponent } from '../success-dialog/success-dialog.compone
   templateUrl: './join-company.component.html',
   styleUrl: './join-company.component.css',
   standalone:true,
-  imports:[FormsModule, RouterLink]
+  imports:[FormsModule, RouterLink, MatProgressSpinner, CommonModule]
 })
 
 export class JoinCompanyComponent implements OnInit {
@@ -27,6 +29,7 @@ export class JoinCompanyComponent implements OnInit {
     companyId: ''
   };
   errors: ValidationError[] = [];
+  loading: boolean = false;
 
   constructor(
     private titleService: Title,
@@ -51,6 +54,7 @@ export class JoinCompanyComponent implements OnInit {
     }
     
     JoinCompany(){
+      this.loading = true;
       this.companyService.joinCompany(this.joinCompany).subscribe({
         next:(response)=>{
           this.closeDialog();
@@ -61,10 +65,12 @@ export class JoinCompanyComponent implements OnInit {
             this.errors=err!.error;
           }
           console.log(err.message);
+          this.loading = false;
         },
 
         complete:()=>{
           const dialogRef = this.dialog.open(SuccessDialogComponent);
+          this.loading = false;
         }
       });
     }

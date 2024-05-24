@@ -14,13 +14,14 @@ import { CompanyRequest } from '../../../../interfaces/company-request';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-create-company',
   templateUrl: './create-company.component.html',
   styleUrl: './create-company.component.css',
   standalone:true,
-  imports:[FormsModule, RouterLink]
+  imports:[FormsModule, RouterLink, MatProgressSpinner, CommonModule]
 })
 
 export class CreateCompanyComponent implements OnInit {
@@ -29,6 +30,7 @@ export class CreateCompanyComponent implements OnInit {
     location: ''
   };
   errors: ValidationError[] = [];
+  loading: boolean = false;
 
   constructor(
     private titleService: Title,
@@ -52,6 +54,7 @@ export class CreateCompanyComponent implements OnInit {
     }
 
   createCompany(){
+    this.loading = true;
     this.companyService.createCompany(this.makeCompany).subscribe({
       next:(response)=>{
           this.closeDialog();
@@ -62,9 +65,11 @@ export class CreateCompanyComponent implements OnInit {
           this.errors=err!.error;
         }
         console.log(err.message);
+        this.loading = false;
       },
 
       complete:()=>{
+        this.loading = false;
         const dialogRef = this.dialog.open(SuccessDialogComponent);
       }
     });

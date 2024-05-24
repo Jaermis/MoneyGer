@@ -41,7 +41,7 @@
 }
 
 .company-code{
-     width: 100%; 
+     width: 300px; 
      height: 35px; 
      border-radius: 10px;
      border: 1px solid #b8b4b4;
@@ -75,6 +75,9 @@
     padding: 8px;
     cursor: pointer;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .leybel{
     text-align: left;

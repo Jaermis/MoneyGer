@@ -30,9 +30,9 @@ export class SegmentationGraphComponent implements OnInit {
       };
       this.legend = {
         visible: true,
-        position: 'Right',
-        alignment: 'Far', 
-        height: '69%',
+        position: 'Bottom',
+        alignment: 'Center', 
+        height: '5%',
         width: '20%'
       };
     }

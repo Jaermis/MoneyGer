@@ -17,7 +17,10 @@
                 <input class="company-address" [(ngModel)] = "makeCompany.location" name="location" type="text" required>
             </label>
 
-            <button class="createbutt" (click)="createCompany()">Create Company</button>
+            <button class="createbutt" (click)="createCompany()">
+                <div *ngIf="!loading" >Create Company</div>
+                <mat-spinner *ngIf="loading" [diameter]="30" color="primary"></mat-spinner>
+            </button>
             <button class="cancelbutt" (click)="onNoClick()">Cancel</button>
             
         </form>

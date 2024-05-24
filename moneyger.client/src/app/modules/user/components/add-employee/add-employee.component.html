@@ -13,7 +13,10 @@
                 <input class="company-code" type="email" name = "email" [(ngModel)] = "email" required placeholder="email@example.com">
             </label>
 
-            <button class="createbutt" (click)="addEmployee()">Send Invite</button>
+            <button class="createbutt" (click)="addEmployee()">
+                <div *ngIf="!loading">Send Invite</div>
+                <mat-spinner *ngIf="loading" [diameter]="30" color="primary"></mat-spinner>
+            </button>
         </form>
     </div>
 </div>
