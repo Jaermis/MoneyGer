@@ -191,5 +191,15 @@ export class HeaderComponent implements OnInit{
       },
     });
   }
+  convertTo12HourFormat(time: string): string {
+    const [hour, minute] = time.split(':');
+    let hours = parseInt(hour);
+    const suffix = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert to 12-hour format, with '12' as '12' instead of '0'
+    return `${this.padZero(hours)}:${minute} ${suffix}`;
+  }
+  padZero(num: number): string {
+    return num < 10 ? `0${num}` : num.toString();
+  }
   
 }

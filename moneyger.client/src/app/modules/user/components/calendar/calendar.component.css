@@ -6,15 +6,18 @@
 }
 
 ::-webkit-scrollbar {
+  border: 1px solid #e1dfdf;
+  border-radius: 20px;
+  margin-right: 10px;
   width: 15px;
 }
 
 ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
-  background: #220B57;
+  background: #fff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #32107F;
+  background: #e1dfdf;
 }
 .calendar-all{
     height: 100vh;
@@ -326,15 +329,17 @@ input[type="time"]:focus {
   align-items: center;
 }
 .bottom-delete{
-  margin-top: 10px;
   margin-left: 61px;
-  padding-right: 40px;
   width: 350px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   z-index: 51;
-  background-color: #fff;
-  border: 1px solid #e1dfdf;
   border-radius: 20px;
+}
+.del-events{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:end;
 }

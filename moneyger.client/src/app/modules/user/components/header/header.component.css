@@ -126,3 +126,80 @@ header .icons i {
   .days li.has-event::before {
     background: green;
   }
+  .cont {
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    display: flex;
+  }
+  .events-container {
+    padding-top: 10px;
+    width: 360px;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+    background-color: #fff;
+    border: 1px solid #e1dfdf;
+    border-radius: 20px;
+    height: 250px;
+  }
+  .side-header {
+    margin-top: -10px;
+    margin-left: 15px;
+    padding-left: 10px;
+    padding-top: 25px;
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .events-header{
+    font-size: 15px;
+  }
+  .toggle-butt{
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #e1dfdf;
+    border-radius: 20px;
+    padding: 8px;
+  }
+  .toggle-butt:hover{
+    background-color: #e1dfdf;
+  }
+  .events-array {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+  .event-group {
+    padding-top: 10px;
+  }
+  .event-title {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 10px;
+    background-color: #fff;
+    border: 1px solid #e1dfdf;
+    border-radius: 20px;
+    min-height: 40px;
+  }
+  .des-check{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .time-des{
+    padding-top: 13px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
