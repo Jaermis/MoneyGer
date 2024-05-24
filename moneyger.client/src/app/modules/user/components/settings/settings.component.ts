@@ -3,28 +3,45 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 import { EditCompanyComponent } from '../edit-company/edit-company.component';
 import { ReportComponent } from '../report/report.component';
+import { AuthService } from '../../../../shared/auth.service';
+
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrl: './settings.component.css'
+  styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent {
   constructor(
-    public dialog: MatDialog
-  ){}
+    public dialog: MatDialog,
+    private authService: AuthService
+  ) {}
 
-  deleteAction(actionType: string){
+  deleteAction(actionType: string, actionItem: 'Account' | 'Business Data' | 'Company') {
+    const currentCompanyId = this.authService.getCurrentCompanyId();
+
+    const data = {
+      action: actionType,
+      item: actionItem,
+      companyId: currentCompanyId
+    };
+
     const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
-      data: {action: actionType}
-    })
+      data: data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Handle the response from ConfirmDeleteComponent
+      }
+    });
   }
 
-  editCompany(){
+  editCompany() {
     const dialogRef = this.dialog.open(EditCompanyComponent);
   }
 
-  reportIssue(){
+  reportIssue() {
     const dialogRef = this.dialog.open(ReportComponent);
   }
 }

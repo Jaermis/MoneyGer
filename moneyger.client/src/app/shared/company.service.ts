@@ -49,4 +49,14 @@ export class CompanyService {
     const body = JSON.stringify(data);
     return this.http.post<AuthResponse>(`${this.apiUrl}/Company/Invite`, body, { headers });
   }
+
+  clearCompanyData(companyId: string): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.delete<AuthResponse>(`${this.apiUrl}/Company/ClearCompanyData/${companyId}`, { headers });
+  }
+
+  deleteCompany(companyId: string): Observable<AuthResponse> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.delete<AuthResponse>(`${this.apiUrl}/Company/Delete/${companyId}`, { headers });
+  }
 }
