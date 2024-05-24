@@ -3,6 +3,7 @@ import { SegmentationService } from '../../../../shared/segmentation.service';
 import { SegmentationRequest } from '../../../../interfaces/segmentation-request';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../../../interfaces/validation-error';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-segmentation-graph',
@@ -41,6 +42,14 @@ export class SegmentationGraphComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSegmentation();
+  }
+
+  exportSegmentation():void{
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Sales');
+    const fileName = "Customer Segmentation "+new Date().toLocaleString()+".xlsx";
+    XLSX.writeFile(wb,fileName);
   }
 
     getSegmentation(): void {

@@ -3,6 +3,7 @@ import { SalesService } from '../../../../shared/sales.service';
 import { SalesRequest } from '../../../../interfaces/sales-request';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationErrors } from '@angular/forms';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-frequency-graph',
@@ -58,5 +59,13 @@ export class FrequencyGraphComponent implements OnInit{
         console.error(err.message);
       },
     });
+  }
+
+  exportFrequency():void{
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Sales');
+    const fileName = "Monthly Sales"+new Date().toLocaleString()+".xlsx";
+    XLSX.writeFile(wb,fileName);
   }
 }

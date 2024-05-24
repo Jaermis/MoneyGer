@@ -3,6 +3,7 @@ import { SalesService } from '../../../../shared/sales.service';
 import { SalesRequest } from '../../../../interfaces/sales-request';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationErrors } from '@angular/forms';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-sales-graph',
@@ -60,6 +61,14 @@ export class SalesGraphComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSales();
+  }
+
+  exportSales():void{
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.sales);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Sales');
+    const fileName = "Sales "+new Date().toLocaleDateString+".xlsx";
+    XLSX.writeFile(wb,fileName);
   }
 
   getSales(): void {

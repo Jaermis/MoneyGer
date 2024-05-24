@@ -37,6 +37,19 @@ namespace MoneyGer.Server.Controllers
             return Ok(companyInventory);
         }
 
+        [HttpGet("Monthly")] //api/Sale
+        public async Task<ActionResult<IEnumerable<Sales>>> GetMonthly()
+        {
+            var today = DateTime.Now.ToString("MM/yyyy");
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var company = await _context.UserCompanyRole.FirstOrDefaultAsync(ucr=>ucr.UserId == currentUserId);
+            
+            var companyInventory = await _context.Sales
+            .FirstOrDefaultAsync(a => a.Company == company!.CompanyId && a.Date == today);
+
+            return Ok(companyInventory);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddSale([FromBody] CreateSaleDto createSaleDto)
         {

@@ -1,3 +1,5 @@
+<button (click)="exportFrequency()">Export</button>
+
 <ejs-chart
   [primaryXAxis]="xAxis"
   [title]="chartTitle"
@@ -9,7 +11,7 @@
       drawType="Area"
       [dataSource]="data"
       xName="date"
-      yName="profit"
+      yName="revenue"
       [marker]="markerSettings"
       fill="#e25469b8"
     >

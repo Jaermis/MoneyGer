@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -102,7 +102,8 @@ const UserComponents = [
     UserComponents,
     ChartModule,
     AccumulationChartModule, 
-    FormsModule, MatChipsModule, MatChipListbox, MatDialogModule
+    FormsModule, MatChipsModule, MatChipListbox, MatDialogModule,
+    DecimalPipe
   ],
   exports: [
     UserComponents
