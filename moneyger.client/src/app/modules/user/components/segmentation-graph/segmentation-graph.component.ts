@@ -22,7 +22,7 @@ export class SegmentationGraphComponent implements OnInit {
       this.data = [];
       this.tooltipSettings = {
         enable: true,
-        format: '${point.x} : <b>${point.y}%</b>'
+        format: '${point.x} : <b>${point.y}</b>'
       }
       this.chartLabel = {
         visible: true,

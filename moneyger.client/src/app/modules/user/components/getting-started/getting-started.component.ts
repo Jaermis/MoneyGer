@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { CreateCompanyComponent } from '../create-company/create-company.component';
 import { JoinCompanyComponent } from '../join-company/join-company.component';
+import { AuthService } from '../../../../shared/auth.service';
 
 @Component({
   selector: 'app-getting-started',
@@ -14,8 +15,11 @@ export class GettingStartedComponent {
   constructor(
     private titleService: Title, private router: Router,
     public dialogRef: MatDialogRef<GettingStartedComponent>,
-    public dialog: MatDialog
-    ) {}
+    public dialog: MatDialog,
+    private authService: AuthService
+    ) {
+      dialogRef.disableClose = true;
+    }
 
     ngOnInit(): void {
       this.titleService.setTitle('Getting Started');
@@ -32,6 +36,12 @@ export class GettingStartedComponent {
     }
 
     onNoClick(): void {
+      this.dialogRef.close();
+    }
+
+    closeThis():void{
+      this.authService.logout();
+      this.router.navigate(['/login']);
       this.dialogRef.close();
     }
 }

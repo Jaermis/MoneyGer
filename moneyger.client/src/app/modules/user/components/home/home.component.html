@@ -2,7 +2,7 @@
 <div id="home">
     <!---------------------------------HEADER-------------------------->
     <div class="header">
-        <div class="header-cont" (click)="openDialog()" *ngIf=" userDetail | async as detail">
+        <div class="header-cont" *ngIf=" userDetail | async as detail">
             <p class="companyname">{{detail.company}}</p>
         </div>
     </div>

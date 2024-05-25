@@ -65,11 +65,12 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         error:(err:HttpErrorResponse)=>{
-          alert('Signup Failed. Try Again')
+          alert('Signup Failed. Try Again');
+          this.loading = false;
           if(err!.status ==  400){
             this.errors=err!.error;
-          }
           this.loading = false;
+          }
         },
         complete:()=>{
           const dialogRef = this.dialog.open(SignupSuccessComponent);

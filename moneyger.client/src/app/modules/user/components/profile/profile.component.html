@@ -11,7 +11,7 @@
 
     @if(isLoggedIn()){
       <div class="main-prof" *ngIf="authService.getUserDetail() as detail">
-        <img src="assets/James.jpg"/>
+        <img src="assets/profile.jpg"/>
 
         <div class="name-details">
           <p class="name">{{ detail!.fullname | titlecase }}</p>

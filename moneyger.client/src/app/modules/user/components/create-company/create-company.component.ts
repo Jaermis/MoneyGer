@@ -39,7 +39,9 @@ export class CreateCompanyComponent implements OnInit {
     public router: Router,
     public dialogRef: MatDialogRef<CreateCompanyComponent>,
     public dialog: MatDialog
-  ) {}
+  ) {
+    dialogRef.disableClose = true;
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle('Create a Company');
@@ -71,6 +73,7 @@ export class CreateCompanyComponent implements OnInit {
       complete:()=>{
         this.loading = false;
         const dialogRef = this.dialog.open(SuccessDialogComponent);
+        this.router.navigate(['/login']);
       }
     });
   }

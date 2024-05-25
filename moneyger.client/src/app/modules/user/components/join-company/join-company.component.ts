@@ -38,7 +38,9 @@ export class JoinCompanyComponent implements OnInit {
     public router: Router,
     public dialogRef: MatDialogRef<JoinCompanyComponent>,
     public dialog: MatDialog
-  ) {}
+  ) {
+    dialogRef.disableClose = true;
+  }
 
     ngOnInit(): void {
       this.titleService.setTitle('Join a Company');
