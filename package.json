@@ -7,5 +7,14 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.12"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "build:prod": "ng build --configuration=production"
   }
 }
