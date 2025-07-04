@@ -129,37 +129,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": 26,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "user.module.ts",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\user\\user.module.ts",
-              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\modules\\user\\user.module.ts",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\user\\user.module.ts",
-              "RelativeToolTip": "moneyger.client\\src\\app\\modules\\user\\user.module.ts",
-              "ViewState": "AQIAACUAAAAAAAAAAAArwEAAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-08T08:20:18.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "home.module.ts",
-              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\home\\home.module.ts",
-              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\modules\\home\\home.module.ts",
-              "ToolTip": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\home\\home.module.ts",
-              "RelativeToolTip": "moneyger.client\\src\\app\\modules\\home\\home.module.ts",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-08T08:19:23.628Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -171,6 +149,30 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "user.module.ts",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\user\\user.module.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\modules\\user\\user.module.ts",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\user\\user.module.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\modules\\user\\user.module.ts",
+              "ViewState": "AQIAACUAAAAAAAAAAAArwEAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-08T08:20:18.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "home.module.ts",
+              "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\home\\home.module.ts",
+              "RelativeDocumentMoniker": "moneyger.client\\src\\app\\modules\\home\\home.module.ts",
+              "ToolTip": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\modules\\home\\home.module.ts",
+              "RelativeToolTip": "moneyger.client\\src\\app\\modules\\home\\home.module.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-08T08:19:23.628Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "pos.component.ts",
               "DocumentMoniker": "C:\\Users\\Nodz\\Desktop\\Coding\\The dream\\MoneyGer\\moneyger.client\\src\\app\\pos\\pos.component.ts",
@@ -179,8 +181,7 @@
               "RelativeToolTip": "moneyger.client\\src\\app\\pos\\pos.component.ts",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-08T08:19:11.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T08:19:11.869Z"
             },
             {
               "$type": "Document",
@@ -192,8 +193,7 @@
               "RelativeToolTip": "moneyger.client\\src\\app\\forgotpass\\forgotpass.component.ts",
               "ViewState": "AQIAACwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-10T11:40:03.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T11:40:03.649Z"
             },
             {
               "$type": "Document",
